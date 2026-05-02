@@ -1,0 +1,1 @@
+# plugins-vidshop-for-woocommerce
