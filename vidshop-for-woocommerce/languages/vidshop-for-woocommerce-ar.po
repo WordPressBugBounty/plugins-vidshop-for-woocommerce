@@ -1,0 +1,1970 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: VidShop for WooCommerce 1.1.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vidshop-for-woocommerce\n"
+"POT-Creation-Date: 2025-12-28T08:29:03+00:00\n"
+"PO-Revision-Date: 2025-12-28 12:00+0000\n"
+"Last-Translator: WPCreatix <support@wpcreatix.com>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Domain: vidshop-for-woocommerce\n"
+"X-Generator: Cursor AI\n"
+
+#. Plugin Name of the plugin
+#: vidshop-for-woocommerce.php includes/admin/class-admin-loader.php:348
+msgid "VidShop for WooCommerce"
+msgstr "فيدشوب لووكومرس"
+
+#. Description of the plugin
+#: vidshop-for-woocommerce.php
+msgid ""
+"Upload your own videos and display WooCommerce products inside them. Let "
+"users interact and add items to cart while watching. Lightweight, fast, and "
+"fully integrated with WooCommerce."
+msgstr ""
+"ارفع مقاطع الفيديو الخاصة بك واعرض منتجات ووكومرس بداخلها. دع المستخدمين "
+"يتفاعلون ويضيفون المنتجات إلى السلة أثناء المشاهدة. خفيف وسريع ومتكامل "
+"بالكامل مع ووكومرس."
+
+#. Author of the plugin
+#: vidshop-for-woocommerce.php
+msgid "WPCreatix"
+msgstr "WPCreatix"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: vidshop-for-woocommerce.php
+msgid "https://wpcreatix.com/"
+msgstr "https://wpcreatix.com/"
+
+#: includes/admin/class-admin-loader.php:99
+#: includes/admin/class-admin-loader.php:100
+#: includes/admin/class-review-notice.php:106 dist/admin/index.js:1
+#: dist/admin/index.js:7
+msgid "VidShop"
+msgstr "فيدشوب"
+
+#: includes/admin/class-admin-loader.php:115
+#: includes/admin/class-admin-loader.php:116 dist/admin/index.js:8
+msgid "Dashboard"
+msgstr "لوحة التحكم"
+
+#: includes/admin/class-admin-loader.php:124
+#: includes/admin/class-admin-loader.php:125 dist/admin/index.js:8
+msgid "Videos"
+msgstr "الفيديوهات"
+
+#: includes/admin/class-admin-loader.php:133
+#: includes/admin/class-admin-loader.php:134 dist/admin/index.js:8
+msgid "Add new video"
+msgstr "إضافة فيديو جديد"
+
+#: includes/admin/class-admin-loader.php:151
+#: includes/admin/class-admin-loader.php:152 dist/admin/index.js:9
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: includes/admin/class-admin-loader.php:347
+msgid "Thanks for using"
+msgstr "شكراً لاستخدامك"
+
+#: includes/admin/class-admin-loader.php:349
+msgid "crafted with ❤️ by"
+msgstr "صُنع بـ ❤️ بواسطة"
+
+#: includes/admin/class-review-notice.php:110
+msgid "Enjoying VidShop?"
+msgstr "هل تستمتع بفيدشوب؟"
+
+#: includes/admin/class-review-notice.php:115
+msgid ""
+"If you like this plugin, please leave me a <strong>★★★★★</strong> rating to "
+"support continued development. Thanks a bunch!"
+msgstr ""
+"إذا أعجبتك هذه الإضافة، يرجى ترك تقييم <strong>★★★★★</strong> لدعم استمرار "
+"التطوير. شكراً جزيلاً!"
+
+#: includes/admin/class-review-notice.php:122
+msgid "Rate Plugin"
+msgstr "قيّم الإضافة"
+
+#: includes/admin/class-review-notice.php:125
+msgid "Maybe Later"
+msgstr "ربما لاحقاً"
+
+#: includes/admin/class-review-notice.php:128
+msgid "I already did this"
+msgstr "لقد فعلت ذلك بالفعل"
+
+#: includes/rest-api/v1/class-analytics-controller.php:68
+msgid "Date range for analytics."
+msgstr "النطاق الزمني للتحليلات."
+
+#: includes/rest-api/v1/class-analytics-controller.php:74
+msgid "Start date for custom date range (YYYY-MM-DD)."
+msgstr "تاريخ البداية للنطاق الزمني المخصص (YYYY-MM-DD)."
+
+#: includes/rest-api/v1/class-analytics-controller.php:80
+msgid "End date for custom date range (YYYY-MM-DD)."
+msgstr "تاريخ النهاية للنطاق الزمني المخصص (YYYY-MM-DD)."
+
+#: includes/rest-api/v1/class-analytics-controller.php:207
+msgid "Start date and end date are required for custom date range."
+msgstr "تاريخ البداية والنهاية مطلوبان للنطاق الزمني المخصص."
+
+#: includes/rest-api/v1/class-analytics-controller.php:220
+#: includes/rest-api/v1/class-analytics-controller.php:221
+#: dist/admin/index.js:8
+msgid "All Time"
+msgstr "كل الوقت"
+
+#: includes/rest-api/v1/class-products-controller.php:64
+#: includes/rest-api/v1/class-products-controller.php:99
+msgid "Video ID."
+msgstr "معرّف الفيديو."
+
+#: includes/rest-api/v1/class-products-controller.php:84
+msgid "Product ID."
+msgstr "معرّف المنتج."
+
+#: includes/rest-api/v1/class-products-controller.php:89
+#: includes/rest-api/v1/class-products-controller.php:144
+msgid "Quantity."
+msgstr "الكمية."
+
+#: includes/rest-api/v1/class-products-controller.php:94
+msgid "Variation ID."
+msgstr "معرّف التنويع."
+
+#: includes/rest-api/v1/class-products-controller.php:119
+#: includes/rest-api/v1/class-products-controller.php:139
+msgid "Item key."
+msgstr "مفتاح العنصر."
+
+#: includes/rest-api/v1/class-products-controller.php:195
+msgid "Variation ID is required for variable products."
+msgstr "معرّف التنويع مطلوب للمنتجات المتغيرة."
+
+#: includes/rest-api/v1/class-products-controller.php:201
+msgid "Product not added to cart."
+msgstr "لم تتم إضافة المنتج إلى السلة."
+
+#: includes/rest-api/v1/class-products-controller.php:227
+msgid "Product not found."
+msgstr "المنتج غير موجود."
+
+#: includes/rest-api/v1/class-products-controller.php:231
+msgid "Video not found."
+msgstr "الفيديو غير موجود."
+
+#: includes/rest-api/v1/class-products-controller.php:253
+msgid "Failed to remove item from cart."
+msgstr "فشل في إزالة العنصر من السلة."
+
+#: includes/rest-api/v1/class-products-controller.php:273
+msgid "Failed to update quantity."
+msgstr "فشل في تحديث الكمية."
+
+#: includes/rest-api/v1/class-video-tracking-controller.php:48
+msgid "Object containing video data keyed by video ID."
+msgstr "كائن يحتوي على بيانات الفيديو مفهرسة بمعرّف الفيديو."
+
+#: includes/rest-api/v1/class-video-tracking-controller.php:53
+msgid "Session information."
+msgstr "معلومات الجلسة."
+
+#: includes/rest-api/v1/class-video-tracking-controller.php:58
+msgid "Unique visitor ID (fingerprint)."
+msgstr "معرّف الزائر الفريد (البصمة)."
+
+#: includes/rest-api/v1/class-video-tracking-controller.php:62
+msgid "Session token from previous request."
+msgstr "رمز الجلسة من الطلب السابق."
+
+#: includes/rest-api/v1/class-video-tracking-controller.php:86
+msgid "Visitor ID is required."
+msgstr "معرّف الزائر مطلوب."
+
+#: includes/rest-api/v1/class-video-tracking-controller.php:148
+msgid "Batch tracking data saved successfully."
+msgstr "تم حفظ بيانات التتبع بنجاح."
+
+#: includes/rest-api/v1/class-videos-controller.php:91
+msgid "Whether to permanently delete the video or move to trash."
+msgstr "هل تريد حذف الفيديو نهائياً أو نقله إلى المهملات."
+
+#: includes/rest-api/v1/class-videos-controller.php:125
+#: includes/rest-api/v1/class-videos-controller.php:162
+msgid "The ID of the video."
+msgstr "معرّف الفيديو."
+
+#: includes/rest-api/v1/class-videos-controller.php:130
+msgid "The title of the video."
+msgstr "عنوان الفيديو."
+
+#: includes/rest-api/v1/class-videos-controller.php:139
+msgid "The type of the video."
+msgstr "نوع الفيديو."
+
+#: includes/rest-api/v1/class-videos-controller.php:147
+msgid "The source URL of the video."
+msgstr "رابط مصدر الفيديو."
+
+#: includes/rest-api/v1/class-videos-controller.php:154
+msgid "The ID of the thumbnail of the video."
+msgstr "معرّف الصورة المصغرة للفيديو."
+
+#: includes/rest-api/v1/class-videos-controller.php:169
+msgid "The settings of the video."
+msgstr "إعدادات الفيديو."
+
+#: includes/rest-api/v1/class-videos-controller.php:173
+msgid "The status of the video."
+msgstr "حالة الفيديو."
+
+#: includes/rest-api/v1/class-videos-controller.php:250
+msgid "Current page of the collection."
+msgstr "الصفحة الحالية من المجموعة."
+
+#: includes/rest-api/v1/class-videos-controller.php:257
+msgid "Maximum number of items to be returned in result set."
+msgstr "الحد الأقصى لعدد العناصر في نتائج البحث."
+
+#: includes/rest-api/v1/class-videos-controller.php:265
+msgid "Limit results to those matching a string."
+msgstr "تحديد النتائج المطابقة للنص."
+
+#: includes/rest-api/v1/class-videos-controller.php:270
+msgid "Limit results to those with a specific status."
+msgstr "تحديد النتائج ذات حالة معينة."
+
+#: includes/rest-api/v1/class-videos-controller.php:275
+msgid "Sort collection by object attribute."
+msgstr "ترتيب المجموعة حسب خاصية الكائن."
+
+#: includes/rest-api/v1/class-videos-controller.php:281
+msgid "Order sort attribute ascending or descending."
+msgstr "ترتيب تصاعدي أو تنازلي."
+
+#: includes/rest-api/v1/class-videos-controller.php:287
+msgid "Comma-separated list of fields to include in the response."
+msgstr "قائمة الحقول المطلوبة مفصولة بفواصل."
+
+#: includes/rest-api/v1/class-videos-controller.php:292
+msgid "Comma-separated list of video IDs."
+msgstr "قائمة معرّفات الفيديو مفصولة بفواصل."
+
+#: includes/rest-api/v1/class-videos-controller.php:502
+#: includes/rest-api/v1/class-videos-controller.php:610
+msgid "Validation failed"
+msgstr "فشل التحقق"
+
+#: includes/rest-api/v1/class-videos-controller.php:519
+#: includes/rest-api/v1/class-videos-controller.php:570
+#: includes/rest-api/v1/class-videos-controller.php:628
+#: includes/rest-api/v1/class-videos-controller.php:668
+msgid "Video not found"
+msgstr "الفيديو غير موجود"
+
+#: includes/rest-api/v1/class-videos-controller.php:641
+msgid "Failed to delete video"
+msgstr "فشل في حذف الفيديو"
+
+#: includes/rest-api/v1/class-videos-controller.php:650 dist/admin/index.js:6
+msgid "Failed to move video to trash"
+msgstr "فشل في نقل الفيديو إلى المهملات"
+
+#: includes/rest-api/v1/class-videos-controller.php:672
+msgid "Video is not in trash"
+msgstr "الفيديو ليس في المهملات"
+
+#: includes/rest-api/v1/class-videos-controller.php:681 dist/admin/index.js:4
+msgid "Failed to restore video"
+msgstr "فشل في استعادة الفيديو"
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:117
+#: includes/utils/class-validator.php:260
+#: includes/utils/class-validator.php:272
+#, php-format
+msgid "The %s field is required."
+msgstr "حقل %s مطلوب."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:292
+#, php-format
+msgid "The %s field must be a string."
+msgstr "حقل %s يجب أن يكون نصاً."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:311
+#, php-format
+msgid "The %s field must be an integer."
+msgstr "حقل %s يجب أن يكون عدداً صحيحاً."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:330
+#, php-format
+msgid "The %s field must be numeric."
+msgstr "حقل %s يجب أن يكون رقماً."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:349
+#, php-format
+msgid "The %s field must be a valid email address."
+msgstr "حقل %s يجب أن يكون بريداً إلكترونياً صالحاً."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:368
+#, php-format
+msgid "The %s field must be a valid URL."
+msgstr "حقل %s يجب أن يكون رابطاً صالحاً."
+
+#. translators: 1: field name, 2: minimum value
+#: includes/utils/class-validator.php:394
+#, php-format
+msgid "The %1$s field must be at least %2$s."
+msgstr "حقل %1$s يجب أن يكون على الأقل %2$s."
+
+#. translators: 1: field name, 2: minimum characters
+#: includes/utils/class-validator.php:407
+#, php-format
+msgid "The %1$s field must be at least %2$s characters."
+msgstr "حقل %1$s يجب أن يكون على الأقل %2$s حرفاً."
+
+#. translators: 1: field name, 2: maximum value
+#: includes/utils/class-validator.php:436
+#, php-format
+msgid "The %1$s field must not be greater than %2$s."
+msgstr "حقل %1$s يجب ألا يتجاوز %2$s."
+
+#. translators: 1: field name, 2: maximum characters
+#: includes/utils/class-validator.php:449
+#, php-format
+msgid "The %1$s field must not be greater than %2$s characters."
+msgstr "حقل %1$s يجب ألا يتجاوز %2$s حرفاً."
+
+#. translators: 1: field name, 2: minimum value, 3: maximum value
+#: includes/utils/class-validator.php:479
+#, php-format
+msgid "The %1$s field must be between %2$s and %3$s."
+msgstr "حقل %1$s يجب أن يكون بين %2$s و %3$s."
+
+#. translators: 1: field name, 2: minimum characters, 3: maximum characters
+#: includes/utils/class-validator.php:494
+#, php-format
+msgid "The %1$s field must be between %2$s and %3$s characters."
+msgstr "حقل %1$s يجب أن يكون بين %2$s و %3$s حرفاً."
+
+#. translators: 1: field name, 2: allowed values
+#: includes/utils/class-validator.php:517
+#, php-format
+msgid "The %1$s field must be one of: %2$s."
+msgstr "حقل %1$s يجب أن يكون أحد: %2$s."
+
+#. translators: 1: field name, 2: forbidden values
+#: includes/utils/class-validator.php:537
+#, php-format
+msgid "The %1$s field must not be one of: %2$s."
+msgstr "حقل %1$s يجب ألا يكون أحد: %2$s."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:560
+#, php-format
+msgid "The %s confirmation does not match."
+msgstr "تأكيد %s غير متطابق."
+
+#. translators: 1: field name, 2: other field name
+#: includes/utils/class-validator.php:587
+#, php-format
+msgid "The %1$s and %2$s must match."
+msgstr "يجب أن يتطابق %1$s و %2$s."
+
+#. translators: 1: field name, 2: other field name
+#: includes/utils/class-validator.php:615
+#, php-format
+msgid "The %1$s and %2$s must be different."
+msgstr "يجب أن يكون %1$s و %2$s مختلفين."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:635
+#, php-format
+msgid "The %s field must only contain letters."
+msgstr "حقل %s يجب أن يحتوي على حروف فقط."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:654
+#, php-format
+msgid "The %s field must only contain letters and numbers."
+msgstr "حقل %s يجب أن يحتوي على حروف وأرقام فقط."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:673
+#, php-format
+msgid ""
+"The %s field must only contain letters, numbers, dashes and underscores."
+msgstr "حقل %s يجب أن يحتوي على حروف وأرقام وشرطات وشرطات سفلية فقط."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:692
+#, php-format
+msgid "The %s field format is invalid."
+msgstr "تنسيق حقل %s غير صالح."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:711
+#, php-format
+msgid "The %s field must be a valid date."
+msgstr "حقل %s يجب أن يكون تاريخاً صالحاً."
+
+#. translators: 1: field name, 2: before date
+#: includes/utils/class-validator.php:738
+#, php-format
+msgid "The %1$s field must be a date before %2$s."
+msgstr "حقل %1$s يجب أن يكون تاريخاً قبل %2$s."
+
+#. translators: 1: field name, 2: after date
+#: includes/utils/class-validator.php:766
+#, php-format
+msgid "The %1$s field must be a date after %2$s."
+msgstr "حقل %1$s يجب أن يكون تاريخاً بعد %2$s."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:788
+#, php-format
+msgid "The %s field must be true or false."
+msgstr "حقل %s يجب أن يكون صحيح أو خطأ."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:807
+#, php-format
+msgid "The %s field must be an array."
+msgstr "حقل %s يجب أن يكون مصفوفة."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:826
+#: includes/utils/class-validator.php:840
+#, php-format
+msgid "The %s field must be a valid JSON string."
+msgstr "حقل %s يجب أن يكون نص JSON صالح."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:882
+#, php-format
+msgid "The %s has already been taken."
+msgstr "%s مستخدم بالفعل."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:917
+#, php-format
+msgid "The selected %s is invalid."
+msgstr "%s المحدد غير صالح."
+
+#. translators: 1: field name
+#: includes/utils/class-validator.php:950
+#, php-format
+msgid "The %1$s field is required."
+msgstr "حقل %1$s مطلوب."
+
+#. translators: 1: field name, 2: allowed extensions
+#: includes/utils/class-validator.php:977
+#, php-format
+msgid "The %1$s field must be a file of type: %2$s."
+msgstr "حقل %1$s يجب أن يكون ملفاً من نوع: %2$s."
+
+#: includes/admin/class-admin-loader.php:142
+#: includes/admin/class-admin-loader.php:143 dist/admin/index.js:1
+#: dist/admin/index.js:9
+msgid "Tags"
+msgstr "العلامات"
+
+#. translators: 1: required version, 2: installed version
+#: includes/admin/class-pro-compat-notice.php:60
+#, php-format
+msgid ""
+"<strong>VidShop Pro</strong> needs to be updated to version %1$s or later to"
+" unlock Pro features in the new admin UI (currently %2$s)."
+msgstr ""
+"يحتاج <strong>VidShop Pro</strong> إلى التحديث إلى الإصدار %1$s أو إصدار "
+"أحدث لفتح ميزات Pro في واجهة المستخدم الإدارية الجديدة (حاليًا %2$s)."
+
+#: includes/admin/class-pro-compat-notice.php:68 dist/admin/index.js:8
+msgid "Update now"
+msgstr "قم بالتحديث الآن"
+
+#: includes/admin/class-pro-compat-notice.php:69
+msgid "Dismiss"
+msgstr "رفض"
+
+#: dist/admin/index.js:1
+msgid "Switch to dark mode"
+msgstr "التبديل إلى الوضع المظلم"
+
+#: dist/admin/index.js:1
+msgid "Switch to light mode"
+msgstr "التبديل إلى وضع الضوء"
+
+#: dist/admin/index.js:1 dist/admin/index.js:6
+msgid "Close"
+msgstr "يغلق"
+
+#: dist/admin/index.js:1
+msgid "requires VidShop PRO"
+msgstr "يتطلب VidShop PRO"
+
+#: dist/admin/index.js:1 dist/admin/index.js:7 dist/admin/index.js:8
+msgid "Upgrade to PRO"
+msgstr "الترقية إلى PRO"
+
+#: dist/admin/index.js:1
+msgid "Select..."
+msgstr "يختار..."
+
+#: dist/admin/index.js:1
+msgid "No options"
+msgstr "لا توجد خيارات"
+
+#: dist/admin/index.js:1 dist/admin/index.js:6
+msgid "Loading..."
+msgstr "تحميل..."
+
+#: dist/admin/index.js:1
+msgid "Searching products..."
+msgstr "البحث عن المنتجات..."
+
+#: dist/admin/index.js:1
+msgid "No products found"
+msgstr "لم يتم العثور على منتجات"
+
+#: dist/admin/index.js:1
+msgid "Remove product"
+msgstr "قم بإزالة المنتج"
+
+#: dist/admin/index.js:1
+msgid "Maximum number of products reached"
+msgstr "تم الوصول إلى الحد الأقصى لعدد المنتجات"
+
+#: dist/admin/index.js:1
+msgid "PRO"
+msgstr "للمحترفين"
+
+#: dist/admin/index.js:1
+msgid "This is a PRO feature. Click to learn more."
+msgstr "هذه هي ميزة للمحترفين. انقر لمعرفة المزيد."
+
+#: dist/admin/index.js:1
+msgid "Video tags"
+msgstr "علامات الفيديو"
+
+#: dist/admin/index.js:1
+msgid ""
+"Group videos by theme, product line, or campaign and power tag-filtered "
+"sliders anywhere on your site."
+msgstr ""
+"قم بتجميع مقاطع الفيديو حسب الموضوع أو خط الإنتاج أو الحملة وتفعيل أشرطة "
+"التمرير التي تمت تصفيتها بالعلامات في أي مكان على موقعك."
+
+#: dist/admin/index.js:1
+msgid "Organize videos with tags"
+msgstr "تنظيم مقاطع الفيديو باستخدام العلامات"
+
+#: dist/admin/index.js:1
+msgid ""
+"Tag videos to group them by theme, product line, or campaign and build tag-"
+"filtered sliders anywhere on your site."
+msgstr ""
+"قم بوضع علامة على مقاطع الفيديو لتجميعها حسب الموضوع أو خط الإنتاج أو الحملة"
+" وإنشاء شرائح تمرير تمت تصفيتها بالعلامات في أي مكان على موقعك."
+
+#: dist/admin/index.js:1
+msgid "Full tag CRUD with a videos-per-tag count"
+msgstr "العلامة الكاملة CRUD مع عدد مقاطع الفيديو لكل علامة"
+
+#: dist/admin/index.js:1
+msgid "Assign multiple tags to any video from the edit screen"
+msgstr "قم بتعيين علامات متعددة لأي فيديو من شاشة التحرير"
+
+#: dist/admin/index.js:1
+msgid "Filter the Videos list by tag at a glance"
+msgstr "قم بتصفية قائمة مقاطع الفيديو حسب العلامة في لمحة سريعة"
+
+#: dist/admin/index.js:1
+msgid "Render tag-filtered sliders via [vsfw-videos tags=\"…\"]"
+msgstr ""
+"عرض أشرطة التمرير التي تمت تصفيتها عبر العلامات عبر [علامات vsfw-videos = "
+"\"…\"]"
+
+#: dist/admin/index.js:1
+msgid "Unlock with VidShop PRO"
+msgstr "افتح باستخدام VidShop PRO"
+
+#: dist/admin/index.js:1
+msgid "Tags (PRO)"
+msgstr "العلامات (برو)"
+
+#: dist/admin/index.js:1
+msgid "You have unsaved changes. Are you sure you want to leave?"
+msgstr "لديك تغييرات غير محفوظة. هل أنت متأكد أنك تريد المغادرة؟"
+
+#: dist/admin/index.js:1
+msgid "Media Library"
+msgstr "مكتبة الوسائط"
+
+#: dist/admin/index.js:1 dist/admin/index.js:6
+msgid "Custom URL"
+msgstr "عنوان URL مخصص"
+
+#: dist/admin/index.js:1
+msgid "WordPress Media Library is not available"
+msgstr "مكتبة وسائط WordPress غير متوفرة"
+
+#: dist/admin/index.js:1
+msgid "Select Video"
+msgstr "حدد فيديو"
+
+#: dist/admin/index.js:1
+msgid "Use this video"
+msgstr "استخدم هذا الفيديو"
+
+#: dist/admin/index.js:1
+msgid "Select Thumbnail"
+msgstr "حدد صورة مصغرة"
+
+#: dist/admin/index.js:1
+msgid "Use this image"
+msgstr "استخدم هذه الصورة"
+
+#: dist/admin/index.js:1
+msgid "Video title is required"
+msgstr "عنوان الفيديو مطلوب"
+
+#: dist/admin/index.js:1
+msgid "Please select a video from the media library"
+msgstr "الرجاء اختيار فيديو من مكتبة الوسائط"
+
+#: dist/admin/index.js:1
+msgid "Please enter a video URL"
+msgstr "الرجاء إدخال عنوان URL للفيديو"
+
+#: dist/admin/index.js:1
+msgid "Please select at least one product"
+msgstr "الرجاء تحديد منتج واحد على الأقل"
+
+#: dist/admin/index.js:1
+msgid "Video thumbnail is required"
+msgstr "الصورة المصغرة للفيديو مطلوبة"
+
+#: dist/admin/index.js:1
+msgid "Video Details"
+msgstr "تفاصيل الفيديو"
+
+#: dist/admin/index.js:1
+msgid "Video Title"
+msgstr "عنوان الفيديو"
+
+#: dist/admin/index.js:1
+msgid "Enter video title"
+msgstr "أدخل عنوان الفيديو"
+
+#: dist/admin/index.js:1
+msgid "Thumbnail"
+msgstr "صورة مصغرة"
+
+#: dist/admin/index.js:1
+msgid "Video Thumbnail"
+msgstr "الصورة المصغرة للفيديو"
+
+#: dist/admin/index.js:1
+msgid "Change"
+msgstr "يتغير"
+
+#: dist/admin/index.js:1
+msgid "Remove"
+msgstr "يزيل"
+
+#: dist/admin/index.js:1
+msgid "Click to upload thumbnail"
+msgstr "انقر لتحميل الصورة المصغرة"
+
+#: dist/admin/index.js:1
+msgid "Recommended size: 720×1280 pixels (9:16 ratio)"
+msgstr "الحجم الموصى به: 720 × 1280 بكسل (نسبة 9:16)"
+
+#: dist/admin/index.js:1
+msgid "Video"
+msgstr "فيديو"
+
+#: dist/admin/index.js:1
+msgid "Error loading video. Please check the URL."
+msgstr "حدث خطأ أثناء تحميل الفيديو. يرجى التحقق من عنوان URL."
+
+#: dist/admin/index.js:1
+msgid "Unmute"
+msgstr "إلغاء كتم الصوت"
+
+#: dist/admin/index.js:1
+msgid "Mute"
+msgstr "صامت"
+
+#: dist/admin/index.js:1
+msgid "Media Library Video Selected"
+msgstr "تم تحديد فيديو مكتبة الوسائط"
+
+#: dist/admin/index.js:1
+msgid "Video URL Confirmed"
+msgstr "تم تأكيد عنوان URL للفيديو"
+
+#: dist/admin/index.js:1
+msgid "Enter video URL (mp4, webm, ogg, mov, avi)"
+msgstr "أدخل عنوان URL للفيديو (mp4، webm، ogg، mov، avi)"
+
+#: dist/admin/index.js:1
+msgid "Please enter a valid video URL"
+msgstr "الرجاء إدخال عنوان URL صالح للفيديو"
+
+#: dist/admin/index.js:1
+msgid "Insert"
+msgstr "إدراج"
+
+#: dist/admin/index.js:1
+msgid ""
+"Select a video from the media library or provide a custom URL. For best "
+"results, use a 9:16 aspect ratio (vertical video)."
+msgstr ""
+"حدد مقطع فيديو من مكتبة الوسائط أو قم بتوفير عنوان URL مخصص. للحصول على أفضل"
+" النتائج، استخدم نسبة العرض إلى الارتفاع 9:16 (الفيديو الرأسي)."
+
+#: dist/admin/index.js:1
+msgid "Publish"
+msgstr "نشر"
+
+#: dist/admin/index.js:1
+msgid "Status"
+msgstr "حالة"
+
+#: dist/admin/index.js:1 dist/admin/index.js:8
+msgid "Published"
+msgstr "تم النشر"
+
+#: dist/admin/index.js:1
+msgid "Draft"
+msgstr "مسودة"
+
+#: dist/admin/index.js:1 dist/admin/index.js:6
+msgid "Cancel"
+msgstr "يلغي"
+
+#: dist/admin/index.js:1
+msgid "Featured Products"
+msgstr "المنتجات المميزة"
+
+#: dist/admin/index.js:1
+msgid "Search for products to feature..."
+msgstr "البحث عن المنتجات المميزة..."
+
+#: dist/admin/index.js:1
+msgid "Add Products"
+msgstr "أضف المنتجات"
+
+#: dist/admin/index.js:1
+msgid "These products will be featured with the video"
+msgstr "سيتم عرض هذه المنتجات مع الفيديو"
+
+#: dist/admin/index.js:1
+msgid "Assign tags (PRO)"
+msgstr "تعيين العلامات (للمحترفين)"
+
+#: dist/admin/index.js:1
+msgid "Inherit from WooCommerce"
+msgstr "وراثة من WooCommerce"
+
+#: dist/admin/index.js:1
+msgid "Left (e.g. $99.99)"
+msgstr "اليسار (على سبيل المثال 99.99 دولارًا)"
+
+#: dist/admin/index.js:1
+msgid "Right (e.g. 99.99$)"
+msgstr "الحق (على سبيل المثال 99.99 دولارًا)"
+
+#: dist/admin/index.js:1
+msgid "Left with space (e.g. $ 99.99)"
+msgstr "ترك مسافة (على سبيل المثال 99.99 دولارًا)"
+
+#: dist/admin/index.js:1
+msgid "Right with space (e.g. 99.99 $)"
+msgstr "مع وجود مساحة (على سبيل المثال 99.99 دولارًا)"
+
+#: dist/admin/index.js:1 dist/admin/index.js:5 dist/admin/index.js:8
+msgid "Trash"
+msgstr "نفاية"
+
+#. translators: %s is the author's display name
+#: dist/admin/index.js:2
+#, js-format
+msgid "By %s"
+msgstr "بواسطة %s"
+
+#: dist/admin/index.js:2
+msgid "Unknown"
+msgstr "مجهول"
+
+#. translators: %d is the total views count
+#: dist/admin/index.js:3
+#, js-format
+msgid "%d total views"
+msgstr "إجمالي عدد المشاهدات %d"
+
+#. translators: %d is the total likes count
+#: dist/admin/index.js:4
+#, js-format
+msgid "%d total likes"
+msgstr "إجمالي %d من الإعجابات"
+
+#: dist/admin/index.js:4
+msgid "Click to save as draft"
+msgstr "انقر للحفظ كمسودة"
+
+#: dist/admin/index.js:4
+msgid "Click to publish"
+msgstr "انقر للنشر"
+
+#: dist/admin/index.js:4
+msgid "Video published successfully"
+msgstr "تم نشر الفيديو بنجاح"
+
+#: dist/admin/index.js:4
+msgid "Video saved as draft"
+msgstr "تم حفظ الفيديو كمسودة"
+
+#: dist/admin/index.js:4
+msgid "Failed to update video status"
+msgstr "فشل تحديث حالة الفيديو"
+
+#: dist/admin/index.js:4
+msgid "Video restored successfully"
+msgstr "تمت استعادة الفيديو بنجاح"
+
+#: dist/admin/index.js:4
+msgid "Restore"
+msgstr "يعيد"
+
+#: dist/admin/index.js:4 dist/admin/index.js:5
+msgid "Delete Permanently"
+msgstr "حذف نهائيا"
+
+#. translators: %s is the video title
+#: dist/admin/index.js:5
+#, js-format
+msgid ""
+"Are you sure you want to permanently delete \"%s\"? This action cannot be "
+"undone."
+msgstr "هل أنت متأكد أنك تريد حذف \"%s\" نهائيًا؟ لا يمكن التراجع عن هذا الإجراء."
+
+#: dist/admin/index.js:5
+msgid "Video permanently deleted"
+msgstr "تم حذف الفيديو نهائيًا"
+
+#: dist/admin/index.js:5
+msgid "Failed to permanently delete video"
+msgstr "فشل حذف الفيديو نهائيًا"
+
+#: dist/admin/index.js:5
+msgid "View Stats"
+msgstr "عرض الإحصائيات"
+
+#: dist/admin/index.js:5
+msgid "Edit"
+msgstr "يحرر"
+
+#: dist/admin/index.js:5 dist/admin/index.js:6
+msgid "Move to Trash"
+msgstr "الانتقال إلى سلة المهملات"
+
+#. translators: %s is the video title
+#: dist/admin/index.js:6
+#, js-format
+msgid "Are you sure you want to move \"%s\" to trash? You can restore it later."
+msgstr ""
+"هل أنت متأكد أنك تريد نقل \"%s\" إلى سلة المهملات؟ ويمكنك استعادته لاحقًا."
+
+#: dist/admin/index.js:6
+msgid "Video moved to trash"
+msgstr "تم نقل الفيديو إلى سلة المهملات"
+
+#: dist/admin/index.js:6
+msgid "Previous"
+msgstr "سابق"
+
+#: dist/admin/index.js:6
+msgid "Next"
+msgstr "التالي"
+
+#: dist/admin/index.js:6
+msgid "On"
+msgstr "على"
+
+#: dist/admin/index.js:6
+msgid "Off"
+msgstr "عن"
+
+#: dist/admin/index.js:6
+msgid "Trust Blue"
+msgstr "الثقة الزرقاء"
+
+#: dist/admin/index.js:6
+msgid "TikTok Pink"
+msgstr "تيك توك الوردي"
+
+#: dist/admin/index.js:6
+msgid "Buy Now Orange"
+msgstr "اشتري الآن أورانج"
+
+#: dist/admin/index.js:6
+msgid "Success Green"
+msgstr "النجاح الأخضر"
+
+#: dist/admin/index.js:6
+msgid "Premium Gold"
+msgstr "قسط الذهب"
+
+#: dist/admin/index.js:6
+msgid "Trending Purple"
+msgstr "تتجه الأرجواني"
+
+#: dist/admin/index.js:6
+msgid "Grid Layout"
+msgstr "تخطيط الشبكة"
+
+#: dist/admin/index.js:6
+msgid "Carousel Layout"
+msgstr "تخطيط دائري"
+
+#: dist/admin/index.js:6
+msgid "Stories Layout"
+msgstr "تخطيط القصص"
+
+#: dist/admin/index.js:6
+msgid "Stories Carousel Layout"
+msgstr "تخطيط القصص الدائرية"
+
+#: dist/admin/index.js:6
+msgid "Show Product Details"
+msgstr "عرض تفاصيل المنتج"
+
+#: dist/admin/index.js:6
+msgid "Go to Product Page"
+msgstr "انتقل إلى صفحة المنتج"
+
+#: dist/admin/index.js:6
+msgid "None (default)"
+msgstr "لا شيء (افتراضي)"
+
+#: dist/admin/index.js:6
+msgid "Open Cart Modal"
+msgstr "فتح سلة التسوق مشروط"
+
+#: dist/admin/index.js:6
+msgid "Redirect to Checkout"
+msgstr "إعادة التوجيه إلى الخروج"
+
+#: dist/admin/index.js:6
+msgid "Advanced Layouts"
+msgstr "تخطيطات متقدمة"
+
+#: dist/admin/index.js:6
+msgid "Access Carousel and Stories layouts for more engaging video displays."
+msgstr ""
+"قم بالوصول إلى تخطيطات الرف الدائري والقصص للحصول على عروض فيديو أكثر "
+"جاذبية."
+
+#: dist/admin/index.js:6
+msgid "Layout Columns"
+msgstr "أعمدة التخطيط"
+
+#: dist/admin/index.js:6
+msgid "Customize the number of columns displayed on different devices."
+msgstr "تخصيص عدد الأعمدة المعروضة على الأجهزة المختلفة."
+
+#: dist/admin/index.js:6
+msgid "Custom Color Schema"
+msgstr "مخطط الألوان المخصص"
+
+#: dist/admin/index.js:6
+msgid "Choose any custom color to match your brand perfectly."
+msgstr "اختر أي لون مخصص ليتناسب مع علامتك التجارية بشكل مثالي."
+
+#: dist/admin/index.js:6
+msgid "Autoplay Videos"
+msgstr "التشغيل التلقائي لمقاطع الفيديو"
+
+#: dist/admin/index.js:6
+msgid ""
+"Automatically play videos in sequence when the modal is open. When one video"
+" finishes, the next starts automatically."
+msgstr ""
+"تشغيل مقاطع الفيديو تلقائيًا بالتسلسل عندما يكون الوضع مفتوحًا. عند انتهاء "
+"أحد مقاطع الفيديو، يبدأ الفيديو التالي تلقائيًا."
+
+#: dist/admin/index.js:6
+msgid "Filter by Tags"
+msgstr "تصفية حسب العلامات"
+
+#: dist/admin/index.js:6
+msgid ""
+"Build sliders from videos that match selected tags — perfect for per-"
+"category showcases (e.g. \"shoes\", \"outerwear\")."
+msgstr ""
+"أنشئ أشرطة تمرير من مقاطع الفيديو التي تتطابق مع العلامات المحددة - وهي "
+"مثالية لواجهات العرض لكل فئة (على سبيل المثال، \"أحذية\"، \"ملابس خارجية\")."
+
+#: dist/admin/index.js:6
+msgid "All Videos"
+msgstr "جميع الفيديوهات"
+
+#: dist/admin/index.js:6
+msgid "Specific Videos"
+msgstr "فيديوهات محددة"
+
+#: dist/admin/index.js:6
+msgid "Date"
+msgstr "تاريخ"
+
+#: dist/admin/index.js:6 dist/admin/index.js:8
+msgid "Title"
+msgstr "عنوان"
+
+#: dist/admin/index.js:6 dist/admin/index.js:8
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+#: dist/admin/index.js:6
+msgid "Random"
+msgstr "عشوائي"
+
+#: dist/admin/index.js:6
+msgid "Descending"
+msgstr "تنازلي"
+
+#: dist/admin/index.js:6
+msgid "Ascending"
+msgstr "تصاعدي"
+
+#: dist/admin/index.js:6
+msgid "Any of the selected (OR)"
+msgstr "أي مما تم تحديده (OR)"
+
+#: dist/admin/index.js:6
+msgid "All of the selected (AND)"
+msgstr "جميع العناصر المحددة (و)"
+
+#: dist/admin/index.js:6
+msgid "Drag to reorder"
+msgstr "اسحب لإعادة الترتيب"
+
+#: dist/admin/index.js:6
+msgid "Remove video"
+msgstr "إزالة الفيديو"
+
+#: dist/admin/index.js:6
+msgid "Shortcode copied to clipboard!"
+msgstr "تم نسخ الرمز القصير إلى الحافظة!"
+
+#: dist/admin/index.js:6
+msgid "Generate Video Shortcode"
+msgstr "إنشاء رمز قصير للفيديو"
+
+#: dist/admin/index.js:6
+msgid ""
+"Create a shortcode to display your videos on any page or post. Choose your "
+"settings below and copy the generated shortcode."
+msgstr ""
+"أنشئ رمزًا قصيرًا لعرض مقاطع الفيديو الخاصة بك على أي صفحة أو منشور. اختر "
+"إعداداتك أدناه وانسخ الرمز القصير الذي تم إنشاؤه."
+
+#: dist/admin/index.js:6
+msgid "Video Selection"
+msgstr "اختيار الفيديو"
+
+#: dist/admin/index.js:6
+msgid "Search & Select Videos"
+msgstr "بحث واختيار مقاطع الفيديو"
+
+#: dist/admin/index.js:6 dist/admin/index.js:8
+msgid "Search videos..."
+msgstr "بحث في الفيديوهات..."
+
+#: dist/admin/index.js:6
+msgid "Selected Videos"
+msgstr "فيديوهات مختارة"
+
+#: dist/admin/index.js:6
+msgid "Drag items to change the display order."
+msgstr "اسحب العناصر لتغيير ترتيب العرض."
+
+#: dist/admin/index.js:6
+msgid "Video Order"
+msgstr "ترتيب الفيديو"
+
+#: dist/admin/index.js:6
+msgid "Order by"
+msgstr "اطلب بواسطة"
+
+#: dist/admin/index.js:6
+msgid "Direction"
+msgstr "اتجاه"
+
+#: dist/admin/index.js:6
+msgid "No tags found. Create tags in VidShop → Tags to enable filtering."
+msgstr ""
+"لم يتم العثور على علامات. قم بإنشاء علامات في VidShop → العلامات لتمكين "
+"التصفية."
+
+#: dist/admin/index.js:6
+msgid "Match mode"
+msgstr "وضع المباراة"
+
+#: dist/admin/index.js:6
+msgid "Upgrade to VidShop Pro to build tag-filtered sliders."
+msgstr "قم بالترقية إلى VidShop Pro لإنشاء أشرطة تمرير تمت تصفيتها بالعلامات."
+
+#: dist/admin/index.js:6
+msgid "Color Schema"
+msgstr "مخطط اللون"
+
+#: dist/admin/index.js:6
+msgid "Custom Color"
+msgstr "لون مخصص"
+
+#: dist/admin/index.js:6
+msgid "Pick custom color"
+msgstr "اختيار اللون المخصص"
+
+#: dist/admin/index.js:6
+msgid "Custom colors require PRO"
+msgstr "الألوان المخصصة تتطلب PRO"
+
+#: dist/admin/index.js:6
+msgid "Choose Color"
+msgstr "اختر اللون"
+
+#: dist/admin/index.js:6
+msgid "Close color picker"
+msgstr "إغلاق منتقي الألوان"
+
+#: dist/admin/index.js:6
+msgid "Layout Type"
+msgstr "نوع التخطيط"
+
+#: dist/admin/index.js:6
+msgid "🎬 See Live Examples & Get Inspired"
+msgstr "🎬 شاهد الأمثلة الحية واحصل على الإلهام"
+
+#: dist/admin/index.js:6
+msgid "Columns Configuration"
+msgstr "تكوين الأعمدة"
+
+#: dist/admin/index.js:6
+msgid "Desktop"
+msgstr "سطح المكتب"
+
+#: dist/admin/index.js:6
+msgid "Tablet"
+msgstr "قرص"
+
+#: dist/admin/index.js:6
+msgid "Mobile"
+msgstr "متحرك"
+
+#: dist/admin/index.js:6
+msgid "Auto-open product details"
+msgstr "تفاصيل المنتج مفتوحة تلقائيًا"
+
+#: dist/admin/index.js:6
+msgid ""
+"When opening the video modal, automatically open the first product’s "
+"details."
+msgstr "عند فتح نموذج الفيديو، افتح تفاصيل المنتج الأول تلقائيًا."
+
+#: dist/admin/index.js:6
+msgid "Play on Hover"
+msgstr "العب على التحويم"
+
+#: dist/admin/index.js:6
+msgid "When autoplay is off, hovering a video will preview it."
+msgstr ""
+"عند إيقاف التشغيل التلقائي، يؤدي تمرير مؤشر الماوس إلى مقطع الفيديو إلى "
+"معاينته."
+
+#: dist/admin/index.js:6
+msgid "Videos will start playing as a preview when user hovers over them"
+msgstr ""
+"سيبدأ تشغيل مقاطع الفيديو كمعاينة عندما يقوم المستخدم بتحريك الماوس فوقها"
+
+#: dist/admin/index.js:6
+msgid "Navigation Options"
+msgstr "خيارات التنقل"
+
+#: dist/admin/index.js:6
+msgid "Show Arrows"
+msgstr "إظهار السهام"
+
+#: dist/admin/index.js:6
+msgid "Display navigation arrows on carousel"
+msgstr "عرض أسهم التنقل على الرف الدائري"
+
+#: dist/admin/index.js:6
+msgid "Show Dots"
+msgstr "إظهار النقاط"
+
+#: dist/admin/index.js:6
+msgid "Display pagination dots below carousel"
+msgstr "عرض نقاط ترقيم الصفحات أسفل الرف الدائري"
+
+#: dist/admin/index.js:6
+msgid "Engagement Counts"
+msgstr "أعداد المشاركة"
+
+#: dist/admin/index.js:6
+msgid "Show view count"
+msgstr "إظهار عدد المشاهدات"
+
+#: dist/admin/index.js:6
+msgid "Display the total view count on each video."
+msgstr "عرض إجمالي عدد المشاهدات لكل فيديو."
+
+#: dist/admin/index.js:6
+msgid "Show like count"
+msgstr "إظهار عدد الإعجابات"
+
+#: dist/admin/index.js:6
+msgid "Display the like count next to the heart icon."
+msgstr "اعرض عدد الإعجابات بجوار أيقونة القلب."
+
+#: dist/admin/index.js:6
+msgid "Autoplay"
+msgstr "التشغيل التلقائي"
+
+#: dist/admin/index.js:6
+msgid ""
+"When the video modal is open, videos will play automatically in sequence. "
+"When one video finishes, the next starts automatically. If a product or cart"
+" modal is open, the current video loops until the modal closes."
+msgstr ""
+"عندما يكون نموذج الفيديو مفتوحًا، سيتم تشغيل مقاطع الفيديو تلقائيًا "
+"بالتسلسل. عند انتهاء أحد مقاطع الفيديو، يبدأ الفيديو التالي تلقائيًا. إذا "
+"كان شكل المنتج أو عربة التسوق مفتوحًا، فسيتم تكرار الفيديو الحالي حتى يتم "
+"إغلاق الشكل."
+
+#: dist/admin/index.js:6
+msgid ""
+"Automatically plays videos in sequence — when one finishes, the next starts."
+" Enable Loop to restart from the first video after the last."
+msgstr ""
+"يقوم تلقائيًا بتشغيل مقاطع الفيديو بالتسلسل - عندما ينتهي أحد المقاطع، يبدأ "
+"الفيديو التالي. قم بتمكين Loop لإعادة التشغيل من أول مقطع فيديو بعد الأخير."
+
+#: dist/admin/index.js:6
+msgid ""
+"Automatically plays the current video and moves to the next when it "
+"finishes. If a modal is open, the current video loops until the modal is "
+"closed."
+msgstr ""
+"يقوم تلقائيًا بتشغيل الفيديو الحالي والانتقال إلى الفيديو التالي عند "
+"انتهائه. إذا كان الوسائط مفتوحًا، فسيتم تكرار الفيديو الحالي حتى يتم إغلاق "
+"الوسائط."
+
+#: dist/admin/index.js:6
+msgid "Videos will start playing automatically when they come into view."
+msgstr "سيبدأ تشغيل مقاطع الفيديو تلقائيًا عند ظهورها."
+
+#: dist/admin/index.js:6
+msgid "Loop Autoplay"
+msgstr "حلقة التشغيل التلقائي"
+
+#: dist/admin/index.js:6
+msgid "After the last video ends, automatically start from the first again."
+msgstr "بعد انتهاء الفيديو الأخير، ابدأ تلقائيًا من الفيديو الأول مرة أخرى."
+
+#: dist/admin/index.js:6
+msgid "Add to Cart Button"
+msgstr "زر إضافة إلى سلة التسوق"
+
+#: dist/admin/index.js:6
+msgid "Button Action"
+msgstr "عمل الزر"
+
+#: dist/admin/index.js:6
+msgid ""
+"Opens a product details modal where customers can select variations and add "
+"to cart"
+msgstr ""
+"يفتح نموذج تفاصيل المنتج حيث يمكن للعملاء تحديد الأشكال المختلفة وإضافتها "
+"إلى سلة التسوق"
+
+#: dist/admin/index.js:6
+msgid "Opens the product page in a new tab for customers to view full details"
+msgstr ""
+"يفتح صفحة المنتج في علامة تبويب جديدة ليتمكن العملاء من عرض التفاصيل الكاملة"
+
+#: dist/admin/index.js:6
+msgid "Button Appearance"
+msgstr "مظهر الزر"
+
+#: dist/admin/index.js:6
+msgid "Show Icon"
+msgstr "إظهار الأيقونة"
+
+#: dist/admin/index.js:6
+msgid "Display the shopping cart icon in the button"
+msgstr "قم بعرض أيقونة عربة التسوق في الزر"
+
+#: dist/admin/index.js:6
+msgid "Show Text"
+msgstr "إظهار النص"
+
+#: dist/admin/index.js:6
+msgid "Display \"Add to Cart\" text in the button"
+msgstr "عرض نص \"أضف إلى سلة التسوق\" في الزر"
+
+#: dist/admin/index.js:6
+msgid "After Add to Cart"
+msgstr "بعد الإضافة إلى سلة التسوق"
+
+#: dist/admin/index.js:6
+msgid "Choose what happens after adding to cart."
+msgstr "اختر ما يحدث بعد الإضافة إلى سلة التسوق."
+
+#: dist/admin/index.js:6
+msgid "Please enter a valid URL (e.g., https://example.com or /page)"
+msgstr ""
+"الرجاء إدخال عنوان URL صالح (على سبيل المثال، https://example.com أو /page)"
+
+#: dist/admin/index.js:6
+msgid "https://example.com or /page"
+msgstr "https://example.com أو /page"
+
+#: dist/admin/index.js:6
+msgid "Enter a full URL (https://example.com) or a relative path (/page)"
+msgstr "أدخل عنوان URL كاملاً (https://example.com) أو مسارًا نسبيًا (/page)"
+
+#: dist/admin/index.js:6
+msgid "Invalid Configuration"
+msgstr "تكوين غير صالح"
+
+#: dist/admin/index.js:6
+msgid ""
+"You must show either the icon or the text (or both). The button cannot be "
+"completely empty."
+msgstr ""
+"يجب عليك إظهار الرمز أو النص (أو كليهما). لا يمكن أن يكون الزر فارغًا "
+"تمامًا."
+
+#: dist/admin/index.js:6
+msgid ""
+"Configure how the button appears on product cards. You can show icon only, "
+"text only, or both. The button border radius will automatically adjust based"
+" on your selection."
+msgstr ""
+"قم بتكوين كيفية ظهور الزر على بطاقات المنتج. يمكنك إظهار الرمز فقط أو النص "
+"فقط أو كليهما. سيتم ضبط نصف قطر حدود الزر تلقائيًا بناءً على اختيارك."
+
+#: dist/admin/index.js:6
+msgid "Generated Shortcode"
+msgstr "الرمز القصير الذي تم إنشاؤه"
+
+#: dist/admin/index.js:6
+msgid "Copy"
+msgstr "ينسخ"
+
+#: dist/admin/index.js:6 dist/admin/index.js:9
+msgid "Reset"
+msgstr "إعادة ضبط"
+
+#: dist/admin/index.js:6
+msgid "Copy Shortcode"
+msgstr "نسخ الرمز القصير"
+
+#: dist/admin/index.js:6
+msgid "Unlock Advanced Video Analytics"
+msgstr "فتح تحليلات الفيديو المتقدمة"
+
+#. translators: %s is the video title
+#: dist/admin/index.js:7
+#, js-format
+msgid ""
+"Get detailed performance insights for \"%s\" and all your videos with "
+"VidShop PRO."
+msgstr ""
+"احصل على معلومات تفصيلية عن أداء \"%s\" وجميع مقاطع الفيديو الخاصة بك "
+"باستخدام VidShop PRO."
+
+#: dist/admin/index.js:7
+msgid "Get detailed performance insights for your videos with VidShop PRO."
+msgstr ""
+"احصل على رؤى تفصيلية عن أداء مقاطع الفيديو الخاصة بك باستخدام VidShop PRO."
+
+#: dist/admin/index.js:7
+msgid "Detailed View & Engagement Metrics"
+msgstr "عرض تفصيلي ومقاييس المشاركة"
+
+#: dist/admin/index.js:7
+msgid "Product Performance Analytics"
+msgstr "تحليلات أداء المنتج"
+
+#: dist/admin/index.js:7
+msgid "Watch Time & User Behavior Insights"
+msgstr "شاهد رؤى الوقت وسلوك المستخدم"
+
+#: dist/admin/index.js:7
+msgid "Conversion Tracking & ROI Analysis"
+msgstr "تتبع التحويل وتحليل عائد الاستثمار"
+
+#: dist/admin/index.js:7 dist/admin/index.js:8
+msgid "View Live Demo"
+msgstr "عرض تجريبي مباشر"
+
+#: dist/admin/index.js:7
+msgid "Dismiss notice"
+msgstr "رفض الإشعار"
+
+#: dist/admin/index.js:7
+msgid "VidShop Pro is outdated"
+msgstr "VidShop Pro قديم"
+
+#. translators: 1: required version, 2: installed version
+#: dist/admin/index.js:8
+#, js-format
+msgid ""
+"Update to version %1$s or later to unlock the full Pro admin experience "
+"(currently %2$s)."
+msgstr ""
+"قم بالتحديث إلى الإصدار %1$s أو الأحدث لفتح تجربة المشرف الاحترافي الكاملة "
+"(حاليًا %2$s)."
+
+#: dist/admin/index.js:8
+msgid "Back to top"
+msgstr "العودة إلى الأعلى"
+
+#: dist/admin/index.js:8
+msgid "This Week"
+msgstr "هذا الاسبوع"
+
+#: dist/admin/index.js:8
+msgid "Last Week"
+msgstr "الأسبوع الماضي"
+
+#: dist/admin/index.js:8
+msgid "This Month"
+msgstr "هذا الشهر"
+
+#: dist/admin/index.js:8
+msgid "Last Month"
+msgstr "الشهر الماضي"
+
+#: dist/admin/index.js:8
+msgid "Welcome to VidShop!"
+msgstr "مرحبا بكم في فيدشوب!"
+
+#: dist/admin/index.js:8
+msgid ""
+"Start engaging your customers with interactive videos. Upload your first "
+"video to begin tracking analytics and boosting your sales."
+msgstr ""
+"ابدأ بإشراك عملائك من خلال مقاطع الفيديو التفاعلية. قم بتحميل الفيديو الأول "
+"الخاص بك لبدء تتبع التحليلات وتعزيز مبيعاتك."
+
+#: dist/admin/index.js:8
+msgid "Add Your First Video"
+msgstr "أضف الفيديو الأول الخاص بك"
+
+#: dist/admin/index.js:8
+msgid "Analytics Dashboard"
+msgstr "لوحة تحكم التحليلات"
+
+#: dist/admin/index.js:8
+msgid "Select period"
+msgstr "اختر الفترة"
+
+#: dist/admin/index.js:8
+msgid "Total Views"
+msgstr "إجمالي المشاهدات"
+
+#: dist/admin/index.js:8
+msgid "Unique Views"
+msgstr "مناظر فريدة"
+
+#: dist/admin/index.js:8
+msgid "Total Likes"
+msgstr "إجمالي الإعجابات"
+
+#: dist/admin/index.js:8
+msgid "Unique Likes"
+msgstr "الإعجابات الفريدة"
+
+#: dist/admin/index.js:8
+msgid "Avg. View Time"
+msgstr "متوسط عرض الوقت"
+
+#: dist/admin/index.js:8
+msgid "Total View Time"
+msgstr "إجمالي وقت المشاهدة"
+
+#: dist/admin/index.js:8 dist/frontend/index.js:2 dist/frontend/index.js:3
+#: dist/frontend/index.js:4
+msgid "Add to Cart"
+msgstr "أضف إلى السلة"
+
+#: dist/admin/index.js:8
+msgid "Product Views"
+msgstr "مشاهدات المنتج"
+
+#: dist/admin/index.js:8
+msgid "Unlock the Full Power of VidShop PRO"
+msgstr "أطلق العنان للقوة الكاملة لـ VidShop PRO"
+
+#: dist/admin/index.js:8
+msgid "Carousel & Stories Layouts"
+msgstr "تخطيطات دائري وقصص"
+
+#: dist/admin/index.js:8
+msgid "Custom Color Schemas"
+msgstr "مخططات الألوان المخصصة"
+
+#: dist/admin/index.js:8
+msgid "Responsive Columns Control"
+msgstr "التحكم في الأعمدة المستجيبة"
+
+#: dist/admin/index.js:8
+msgid "Advanced Analytics"
+msgstr "التحليلات المتقدمة"
+
+#: dist/admin/index.js:8
+msgid "Top Videos"
+msgstr "أعلى أشرطة الفيديو"
+
+#: dist/admin/index.js:8
+msgid "views"
+msgstr "وجهات النظر"
+
+#: dist/admin/index.js:8
+msgid "No video data available for this period"
+msgstr "لا توجد بيانات فيديو متاحة لهذه الفترة"
+
+#: dist/admin/index.js:8
+msgid "Top Products"
+msgstr "أعلى المنتجات"
+
+#: dist/admin/index.js:8
+msgid "View Product"
+msgstr "عرض المنتج"
+
+#: dist/admin/index.js:8
+msgid "No product data available for this period"
+msgstr "لا توجد بيانات المنتج المتاحة لهذه الفترة"
+
+#: dist/admin/index.js:8
+msgid "Date Created"
+msgstr "تاريخ الإنشاء"
+
+#: dist/admin/index.js:8
+msgid "Newest First"
+msgstr "الأحدث أولا"
+
+#: dist/admin/index.js:8
+msgid "Drafts"
+msgstr "المسودات"
+
+#: dist/admin/index.js:8
+msgid "Oldest First"
+msgstr "الأقدم أولاً"
+
+#: dist/admin/index.js:8
+msgid "Failed to fetch videos"
+msgstr "فشل جلب مقاطع الفيديو"
+
+#: dist/admin/index.js:8
+msgid "Showing"
+msgstr "عرض"
+
+#: dist/admin/index.js:8
+msgid "of"
+msgstr "ل"
+
+#: dist/admin/index.js:8
+msgid "videos"
+msgstr "أشرطة الفيديو"
+
+#: dist/admin/index.js:8
+msgid "Generate Shortcode"
+msgstr "إنشاء رمز قصير"
+
+#: dist/admin/index.js:8
+msgid "Add New Video"
+msgstr "إضافة فيديو جديد"
+
+#: dist/admin/index.js:8
+msgid "Filter by tag (PRO)"
+msgstr "التصفية حسب العلامة (PRO)"
+
+#: dist/admin/index.js:8
+msgid "Sort by"
+msgstr "الترتيب حسب"
+
+#: dist/admin/index.js:8
+msgid "Order"
+msgstr "طلب"
+
+#: dist/admin/index.js:8
+msgid "No videos found"
+msgstr "لم يتم العثور على مقاطع فيديو"
+
+#: dist/admin/index.js:8
+msgid "No videos yet"
+msgstr "لا توجد مقاطع فيديو حتى الآن"
+
+#: dist/admin/index.js:8
+msgid "Try adjusting your search criteria."
+msgstr "حاول تعديل معايير البحث الخاصة بك."
+
+#: dist/admin/index.js:8
+msgid "Create your first video to get started with VidShop."
+msgstr "قم بإنشاء الفيديو الأول الخاص بك للبدء مع VidShop."
+
+#: dist/admin/index.js:8
+msgid "Create a new video with products and thumbnail"
+msgstr "قم بإنشاء فيديو جديد يحتوي على المنتجات والصورة المصغرة"
+
+#: dist/admin/index.js:8 dist/admin/index.js:9
+msgid "Back to Videos"
+msgstr "العودة إلى مقاطع الفيديو"
+
+#: dist/admin/index.js:8
+msgid "Video created successfully!"
+msgstr "تم إنشاء الفيديو بنجاح!"
+
+#: dist/admin/index.js:8
+msgid "Failed to create video"
+msgstr "فشل في إنشاء الفيديو"
+
+#: dist/admin/index.js:8
+msgid "Create Video"
+msgstr "إنشاء فيديو"
+
+#: dist/admin/index.js:8 dist/admin/index.js:9
+msgid "Edit video"
+msgstr "تحرير الفيديو"
+
+#. translators: %s is the video title
+#: dist/admin/index.js:9
+#, js-format
+msgid "Edit: %s"
+msgstr "تحرير: %s"
+
+#: dist/admin/index.js:9 dist/frontend/index.js:6
+msgid "Failed to load video"
+msgstr "فشل تحميل الفيديو"
+
+#: dist/admin/index.js:9
+msgid "Update video details, products and thumbnail"
+msgstr "تحديث تفاصيل الفيديو والمنتجات والصورة المصغرة"
+
+#: dist/admin/index.js:9
+msgid "Video updated successfully!"
+msgstr "تم تحديث الفيديو بنجاح!"
+
+#: dist/admin/index.js:9
+msgid "Failed to update video"
+msgstr "فشل تحديث الفيديو"
+
+#: dist/admin/index.js:9
+msgid "Update Video"
+msgstr "تحديث الفيديو"
+
+#: dist/admin/index.js:9
+msgid "Video Not Found"
+msgstr "لم يتم العثور على الفيديو"
+
+#: dist/admin/index.js:9
+msgid "The video you are looking for does not exist."
+msgstr "الفيديو الذي تبحث عنه غير موجود."
+
+#: dist/admin/index.js:9
+msgid "Video Analytics"
+msgstr "تحليلات الفيديو"
+
+#: dist/admin/index.js:9
+msgid "Failed to load video analytics"
+msgstr "فشل تحميل تحليلات الفيديو"
+
+#: dist/admin/index.js:9
+msgid "Unlock detailed performance metrics with VidShop PRO"
+msgstr "افتح مقاييس الأداء التفصيلية باستخدام VidShop PRO"
+
+#: dist/admin/index.js:9
+msgid "Video stats"
+msgstr "احصائيات الفيديو"
+
+#: dist/admin/index.js:9
+msgid "Failed to load settings"
+msgstr "فشل تحميل الإعدادات"
+
+#: dist/admin/index.js:9
+msgid "Configure your VidShop plugin settings"
+msgstr "قم بتكوين إعدادات البرنامج المساعد VidShop الخاص بك"
+
+#: dist/admin/index.js:9
+msgid "Video Engagement"
+msgstr "مشاركة الفيديو"
+
+#: dist/admin/index.js:9
+msgid "Configure how users can interact with your videos"
+msgstr "قم بتكوين كيفية تفاعل المستخدمين مع مقاطع الفيديو الخاصة بك"
+
+#: dist/admin/index.js:9
+msgid "Anonymous Likes"
+msgstr "الإعجابات المجهولة"
+
+#: dist/admin/index.js:9
+msgid ""
+"Allow users to like videos without logging in. When disabled, only logged-in"
+" users can like videos."
+msgstr ""
+"السماح للمستخدمين بتسجيل الإعجاب بمقاطع الفيديو دون تسجيل الدخول. عند "
+"التعطيل، يمكن للمستخدمين الذين سجلوا الدخول فقط الإعجاب بمقاطع الفيديو."
+
+#: dist/admin/index.js:9
+msgid "Price display"
+msgstr "عرض الأسعار"
+
+#: dist/admin/index.js:9
+msgid ""
+"Controls how product prices are displayed inside videos. Leave empty to "
+"inherit WooCommerce settings."
+msgstr ""
+"يتحكم في كيفية عرض أسعار المنتجات داخل مقاطع الفيديو. اتركه فارغًا لترث "
+"إعدادات WooCommerce."
+
+#: dist/admin/index.js:9
+msgid "Currency position"
+msgstr "موقف العملة"
+
+#: dist/admin/index.js:9
+msgid "Where the currency symbol is placed relative to the price."
+msgstr "حيث يتم وضع رمز العملة نسبة إلى السعر."
+
+#: dist/admin/index.js:9
+msgid "Thousand separator"
+msgstr "فاصل الألف"
+
+#: dist/admin/index.js:9
+msgid "Leave empty to inherit WooCommerce value."
+msgstr "اتركه فارغًا لترث قيمة WooCommerce."
+
+#: dist/admin/index.js:9
+msgid "WooCommerce:"
+msgstr "ووكومرس:"
+
+#: dist/admin/index.js:9
+msgid "Decimal separator"
+msgstr "فاصل عشري"
+
+#: dist/admin/index.js:9
+msgid "Number of decimals"
+msgstr "عدد الكسور العشرية"
+
+#: dist/admin/index.js:9
+msgid "Reset to WooCommerce defaults"
+msgstr "إعادة التعيين إلى إعدادات WooCommerce الافتراضية"
+
+#: dist/admin/index.js:9
+msgid "Clear all overrides and inherit WooCommerce settings."
+msgstr "امسح جميع التجاوزات واكتسب إعدادات WooCommerce."
+
+#: dist/admin/index.js:9
+msgid "You have unsaved changes"
+msgstr "لديك تغييرات غير محفوظة"
+
+#: dist/admin/index.js:9
+msgid "Settings saved successfully"
+msgstr "تم حفظ الإعدادات بنجاح"
+
+#: dist/admin/index.js:9
+msgid "Failed to save settings"
+msgstr "فشل في حفظ الإعدادات"
+
+#: dist/admin/index.js:9
+msgid "Save Settings"
+msgstr "حفظ الإعدادات"
+
+#: dist/frontend/index.js:1
+msgid "Product not found:"
+msgstr "لم يتم العثور على المنتج:"
+
+#: dist/frontend/index.js:1
+msgid "Error fetching product data:"
+msgstr "حدث خطأ أثناء جلب بيانات المنتج:"
+
+#: dist/frontend/index.js:1
+msgid "Failed to add product to cart:"
+msgstr "فشل في إضافة المنتج إلى سلة التسوق:"
+
+#: dist/frontend/index.js:1
+msgid "Error adding to cart:"
+msgstr "خطأ في الإضافة إلى سلة التسوق:"
+
+#: dist/frontend/index.js:1
+msgid "Error removing cart item:"
+msgstr "حدث خطأ أثناء إزالة عنصر سلة التسوق:"
+
+#: dist/frontend/index.js:1
+msgid "Error updating cart item:"
+msgstr "حدث خطأ أثناء تحديث عنصر سلة التسوق:"
+
+#: dist/frontend/index.js:1 dist/frontend/index.js:6 dist/frontend/index.js:7
+msgid "No videos available at the moment."
+msgstr "لا توجد مقاطع فيديو متاحة في الوقت الراهن."
+
+#. translators: %s is the product title
+#: dist/frontend/index.js:2
+#, js-format
+msgid "View %s"
+msgstr "عرض %s"
+
+#. translators: %s is the product title
+#: dist/frontend/index.js:3
+#, js-format
+msgid "Add %s to cart"
+msgstr "أضف %s إلى سلة التسوق"
+
+#. translators: %s is the product title
+#: dist/frontend/index.js:4
+#, js-format
+msgid "✓ %s added to cart!"
+msgstr "✓ تمت إضافة %s إلى سلة التسوق!"
+
+#: dist/frontend/index.js:4
+msgid "Failed to add product to cart. Please try again."
+msgstr "فشل في إضافة المنتج إلى سلة التسوق. يرجى المحاولة مرة أخرى."
+
+#: dist/frontend/index.js:4
+msgid "An error occurred. Please try again."
+msgstr "حدث خطأ. يرجى المحاولة مرة أخرى."
+
+#: dist/frontend/index.js:4
+msgid "Close product modal"
+msgstr "إغلاق مشروط المنتج"
+
+#: dist/frontend/index.js:4
+msgid "Decrease quantity"
+msgstr "تقليل الكمية"
+
+#: dist/frontend/index.js:4
+msgid "Increase quantity"
+msgstr "زيادة الكمية"
+
+#: dist/frontend/index.js:4
+msgid "Adding..."
+msgstr "جارٍ الإضافة..."
+
+#: dist/frontend/index.js:4
+msgid "Login required to like videos"
+msgstr "تسجيل الدخول مطلوب لمثل أشرطة الفيديو"
+
+#: dist/frontend/index.js:4
+msgid "Unlike video"
+msgstr "على عكس الفيديو"
+
+#: dist/frontend/index.js:4
+msgid "Like video"
+msgstr "مثل الفيديو"
+
+#: dist/frontend/index.js:4
+msgid "View cart"
+msgstr "عرض العربة"
+
+#: dist/frontend/index.js:4
+msgid "Unmute video"
+msgstr "إلغاء كتم صوت الفيديو"
+
+#: dist/frontend/index.js:4
+msgid "Mute video"
+msgstr "كتم الفيديو"
+
+#. translators: %s is the product name
+#: dist/frontend/index.js:5
+#, js-format
+msgid "Remove %s from cart"
+msgstr "قم بإزالة %s من سلة التسوق"
+
+#: dist/frontend/index.js:5
+msgid "Your cart is empty"
+msgstr "سلة التسوق الخاصة بك فارغة"
+
+#: dist/frontend/index.js:5
+msgid "Add some products to get started!"
+msgstr "أضف بعض المنتجات للبدء!"
+
+#. translators: %d is the cart items count
+#: dist/frontend/index.js:6
+#, js-format
+msgid "Shopping Cart (%d)"
+msgstr "عربة التسوق (%d)"
+
+#: dist/frontend/index.js:6
+msgid "Close cart"
+msgstr "إغلاق العربة"
+
+#: dist/frontend/index.js:6
+msgid "Subtotal:"
+msgstr "المجموع الفرعي:"
+
+#: dist/frontend/index.js:6
+msgid "Discount:"
+msgstr "تخفيض:"
+
+#: dist/frontend/index.js:6
+msgid "Shipping:"
+msgstr "شحن:"
+
+#: dist/frontend/index.js:6
+msgid "Tax:"
+msgstr "ضريبة:"
+
+#: dist/frontend/index.js:6
+msgid "Total:"
+msgstr "المجموع:"
+
+#: dist/frontend/index.js:6
+msgid "Proceed to Checkout"
+msgstr "الشروع في الخروج"
+
+#: dist/frontend/index.js:6
+msgid "Error loading video"
+msgstr "حدث خطأ أثناء تحميل الفيديو"
+
+#: dist/frontend/index.js:6 dist/frontend/index.js:7
+msgid "Previous videos"
+msgstr "الفيديوهات السابقة"
+
+#: dist/frontend/index.js:6 dist/frontend/index.js:7
+msgid "Next videos"
+msgstr "الفيديوهات القادمة"
+
+#. translators: %d is the slide number
+#: dist/frontend/index.js:7
+#, js-format
+msgid "Go to slide %d"
+msgstr "انتقل إلى الشريحة %d"
+
+#: dist/frontend/index.js:7
+msgid "Scroll to see more"
+msgstr "قم بالتمرير لرؤية المزيد"
+
+#: dist/frontend/index.js:7
+msgid "Go to slide"
+msgstr "اذهب إلى الشريحة"

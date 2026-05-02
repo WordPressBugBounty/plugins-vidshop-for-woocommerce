@@ -1,0 +1,2006 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: VidShop for WooCommerce 1.1.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vidshop-for-woocommerce\n"
+"POT-Creation-Date: 2025-12-28T08:29:03+00:00\n"
+"PO-Revision-Date: 2025-12-28 12:00+0000\n"
+"Last-Translator: WPCreatix <support@wpcreatix.com>\n"
+"Language-Team: German <de@li.org>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: vidshop-for-woocommerce\n"
+"X-Generator: Cursor AI\n"
+
+#. Plugin Name of the plugin
+#: vidshop-for-woocommerce.php includes/admin/class-admin-loader.php:348
+msgid "VidShop for WooCommerce"
+msgstr "VidShop für WooCommerce"
+
+#. Description of the plugin
+#: vidshop-for-woocommerce.php
+msgid ""
+"Upload your own videos and display WooCommerce products inside them. Let "
+"users interact and add items to cart while watching. Lightweight, fast, and "
+"fully integrated with WooCommerce."
+msgstr ""
+"Laden Sie Ihre eigenen Videos hoch und zeigen Sie WooCommerce-Produkte darin"
+" an. Lassen Sie Benutzer interagieren und Artikel während des Ansehens in "
+"den Warenkorb legen. Leichtgewichtig, schnell und vollständig in WooCommerce"
+" integriert."
+
+#. Author of the plugin
+#: vidshop-for-woocommerce.php
+msgid "WPCreatix"
+msgstr "WPCreatix"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: vidshop-for-woocommerce.php
+msgid "https://wpcreatix.com/"
+msgstr "https://wpcreatix.com/"
+
+#: includes/admin/class-admin-loader.php:99
+#: includes/admin/class-admin-loader.php:100
+#: includes/admin/class-review-notice.php:106 dist/admin/index.js:1
+#: dist/admin/index.js:7
+msgid "VidShop"
+msgstr "VidShop"
+
+#: includes/admin/class-admin-loader.php:115
+#: includes/admin/class-admin-loader.php:116 dist/admin/index.js:8
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: includes/admin/class-admin-loader.php:124
+#: includes/admin/class-admin-loader.php:125 dist/admin/index.js:8
+msgid "Videos"
+msgstr "Videos"
+
+#: includes/admin/class-admin-loader.php:133
+#: includes/admin/class-admin-loader.php:134 dist/admin/index.js:8
+msgid "Add new video"
+msgstr "Neues Video hinzufügen"
+
+#: includes/admin/class-admin-loader.php:151
+#: includes/admin/class-admin-loader.php:152 dist/admin/index.js:9
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: includes/admin/class-admin-loader.php:347
+msgid "Thanks for using"
+msgstr "Danke für die Nutzung von"
+
+#: includes/admin/class-admin-loader.php:349
+msgid "crafted with ❤️ by"
+msgstr "mit ❤️ erstellt von"
+
+#: includes/admin/class-review-notice.php:110
+msgid "Enjoying VidShop?"
+msgstr "Gefällt Ihnen VidShop?"
+
+#: includes/admin/class-review-notice.php:115
+msgid ""
+"If you like this plugin, please leave me a <strong>★★★★★</strong> rating to "
+"support continued development. Thanks a bunch!"
+msgstr ""
+"Wenn Ihnen dieses Plugin gefällt, hinterlassen Sie bitte eine "
+"<strong>★★★★★</strong> Bewertung, um die weitere Entwicklung zu "
+"unterstützen. Vielen Dank!"
+
+#: includes/admin/class-review-notice.php:122
+msgid "Rate Plugin"
+msgstr "Plugin bewerten"
+
+#: includes/admin/class-review-notice.php:125
+msgid "Maybe Later"
+msgstr "Vielleicht später"
+
+#: includes/admin/class-review-notice.php:128
+msgid "I already did this"
+msgstr "Das habe ich bereits getan"
+
+#: includes/rest-api/v1/class-analytics-controller.php:68
+msgid "Date range for analytics."
+msgstr "Zeitraum für Analysen."
+
+#: includes/rest-api/v1/class-analytics-controller.php:74
+msgid "Start date for custom date range (YYYY-MM-DD)."
+msgstr "Startdatum für benutzerdefinierten Zeitraum (JJJJ-MM-TT)."
+
+#: includes/rest-api/v1/class-analytics-controller.php:80
+msgid "End date for custom date range (YYYY-MM-DD)."
+msgstr "Enddatum für benutzerdefinierten Zeitraum (JJJJ-MM-TT)."
+
+#: includes/rest-api/v1/class-analytics-controller.php:207
+msgid "Start date and end date are required for custom date range."
+msgstr ""
+"Start- und Enddatum sind für den benutzerdefinierten Zeitraum erforderlich."
+
+#: includes/rest-api/v1/class-analytics-controller.php:220
+#: includes/rest-api/v1/class-analytics-controller.php:221
+#: dist/admin/index.js:8
+msgid "All Time"
+msgstr "Gesamter Zeitraum"
+
+#: includes/rest-api/v1/class-products-controller.php:64
+#: includes/rest-api/v1/class-products-controller.php:99
+msgid "Video ID."
+msgstr "Video-ID."
+
+#: includes/rest-api/v1/class-products-controller.php:84
+msgid "Product ID."
+msgstr "Produkt-ID."
+
+#: includes/rest-api/v1/class-products-controller.php:89
+#: includes/rest-api/v1/class-products-controller.php:144
+msgid "Quantity."
+msgstr "Menge."
+
+#: includes/rest-api/v1/class-products-controller.php:94
+msgid "Variation ID."
+msgstr "Varianten-ID."
+
+#: includes/rest-api/v1/class-products-controller.php:119
+#: includes/rest-api/v1/class-products-controller.php:139
+msgid "Item key."
+msgstr "Artikelschlüssel."
+
+#: includes/rest-api/v1/class-products-controller.php:195
+msgid "Variation ID is required for variable products."
+msgstr "Varianten-ID ist für variable Produkte erforderlich."
+
+#: includes/rest-api/v1/class-products-controller.php:201
+msgid "Product not added to cart."
+msgstr "Produkt wurde nicht zum Warenkorb hinzugefügt."
+
+#: includes/rest-api/v1/class-products-controller.php:227
+msgid "Product not found."
+msgstr "Produkt nicht gefunden."
+
+#: includes/rest-api/v1/class-products-controller.php:231
+msgid "Video not found."
+msgstr "Video nicht gefunden."
+
+#: includes/rest-api/v1/class-products-controller.php:253
+msgid "Failed to remove item from cart."
+msgstr "Artikel konnte nicht aus dem Warenkorb entfernt werden."
+
+#: includes/rest-api/v1/class-products-controller.php:273
+msgid "Failed to update quantity."
+msgstr "Menge konnte nicht aktualisiert werden."
+
+#: includes/rest-api/v1/class-video-tracking-controller.php:48
+msgid "Object containing video data keyed by video ID."
+msgstr "Objekt mit Videodaten, indiziert nach Video-ID."
+
+#: includes/rest-api/v1/class-video-tracking-controller.php:53
+msgid "Session information."
+msgstr "Sitzungsinformationen."
+
+#: includes/rest-api/v1/class-video-tracking-controller.php:58
+msgid "Unique visitor ID (fingerprint)."
+msgstr "Eindeutige Besucher-ID (Fingerabdruck)."
+
+#: includes/rest-api/v1/class-video-tracking-controller.php:62
+msgid "Session token from previous request."
+msgstr "Sitzungstoken aus vorheriger Anfrage."
+
+#: includes/rest-api/v1/class-video-tracking-controller.php:86
+msgid "Visitor ID is required."
+msgstr "Besucher-ID ist erforderlich."
+
+#: includes/rest-api/v1/class-video-tracking-controller.php:148
+msgid "Batch tracking data saved successfully."
+msgstr "Tracking-Daten erfolgreich gespeichert."
+
+#: includes/rest-api/v1/class-videos-controller.php:91
+msgid "Whether to permanently delete the video or move to trash."
+msgstr ""
+"Ob das Video dauerhaft gelöscht oder in den Papierkorb verschoben werden "
+"soll."
+
+#: includes/rest-api/v1/class-videos-controller.php:125
+#: includes/rest-api/v1/class-videos-controller.php:162
+msgid "The ID of the video."
+msgstr "Die ID des Videos."
+
+#: includes/rest-api/v1/class-videos-controller.php:130
+msgid "The title of the video."
+msgstr "Der Titel des Videos."
+
+#: includes/rest-api/v1/class-videos-controller.php:139
+msgid "The type of the video."
+msgstr "Der Typ des Videos."
+
+#: includes/rest-api/v1/class-videos-controller.php:147
+msgid "The source URL of the video."
+msgstr "Die Quell-URL des Videos."
+
+#: includes/rest-api/v1/class-videos-controller.php:154
+msgid "The ID of the thumbnail of the video."
+msgstr "Die ID des Vorschaubilds des Videos."
+
+#: includes/rest-api/v1/class-videos-controller.php:169
+msgid "The settings of the video."
+msgstr "Die Einstellungen des Videos."
+
+#: includes/rest-api/v1/class-videos-controller.php:173
+msgid "The status of the video."
+msgstr "Der Status des Videos."
+
+#: includes/rest-api/v1/class-videos-controller.php:250
+msgid "Current page of the collection."
+msgstr "Aktuelle Seite der Sammlung."
+
+#: includes/rest-api/v1/class-videos-controller.php:257
+msgid "Maximum number of items to be returned in result set."
+msgstr "Maximale Anzahl der Elemente in der Ergebnismenge."
+
+#: includes/rest-api/v1/class-videos-controller.php:265
+msgid "Limit results to those matching a string."
+msgstr "Ergebnisse auf übereinstimmende Zeichenkette beschränken."
+
+#: includes/rest-api/v1/class-videos-controller.php:270
+msgid "Limit results to those with a specific status."
+msgstr "Ergebnisse auf bestimmten Status beschränken."
+
+#: includes/rest-api/v1/class-videos-controller.php:275
+msgid "Sort collection by object attribute."
+msgstr "Sammlung nach Objektattribut sortieren."
+
+#: includes/rest-api/v1/class-videos-controller.php:281
+msgid "Order sort attribute ascending or descending."
+msgstr "Sortierung aufsteigend oder absteigend."
+
+#: includes/rest-api/v1/class-videos-controller.php:287
+msgid "Comma-separated list of fields to include in the response."
+msgstr "Kommagetrennte Liste der Felder in der Antwort."
+
+#: includes/rest-api/v1/class-videos-controller.php:292
+msgid "Comma-separated list of video IDs."
+msgstr "Kommagetrennte Liste der Video-IDs."
+
+#: includes/rest-api/v1/class-videos-controller.php:502
+#: includes/rest-api/v1/class-videos-controller.php:610
+msgid "Validation failed"
+msgstr "Validierung fehlgeschlagen"
+
+#: includes/rest-api/v1/class-videos-controller.php:519
+#: includes/rest-api/v1/class-videos-controller.php:570
+#: includes/rest-api/v1/class-videos-controller.php:628
+#: includes/rest-api/v1/class-videos-controller.php:668
+msgid "Video not found"
+msgstr "Video nicht gefunden"
+
+#: includes/rest-api/v1/class-videos-controller.php:641
+msgid "Failed to delete video"
+msgstr "Video konnte nicht gelöscht werden"
+
+#: includes/rest-api/v1/class-videos-controller.php:650 dist/admin/index.js:6
+msgid "Failed to move video to trash"
+msgstr "Video konnte nicht in den Papierkorb verschoben werden"
+
+#: includes/rest-api/v1/class-videos-controller.php:672
+msgid "Video is not in trash"
+msgstr "Video befindet sich nicht im Papierkorb"
+
+#: includes/rest-api/v1/class-videos-controller.php:681 dist/admin/index.js:4
+msgid "Failed to restore video"
+msgstr "Video konnte nicht wiederhergestellt werden"
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:117
+#: includes/utils/class-validator.php:260
+#: includes/utils/class-validator.php:272
+#, php-format
+msgid "The %s field is required."
+msgstr "Das Feld %s ist erforderlich."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:292
+#, php-format
+msgid "The %s field must be a string."
+msgstr "Das Feld %s muss eine Zeichenkette sein."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:311
+#, php-format
+msgid "The %s field must be an integer."
+msgstr "Das Feld %s muss eine Ganzzahl sein."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:330
+#, php-format
+msgid "The %s field must be numeric."
+msgstr "Das Feld %s muss numerisch sein."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:349
+#, php-format
+msgid "The %s field must be a valid email address."
+msgstr "Das Feld %s muss eine gültige E-Mail-Adresse sein."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:368
+#, php-format
+msgid "The %s field must be a valid URL."
+msgstr "Das Feld %s muss eine gültige URL sein."
+
+#. translators: 1: field name, 2: minimum value
+#: includes/utils/class-validator.php:394
+#, php-format
+msgid "The %1$s field must be at least %2$s."
+msgstr "Das Feld %1$s muss mindestens %2$s sein."
+
+#. translators: 1: field name, 2: minimum characters
+#: includes/utils/class-validator.php:407
+#, php-format
+msgid "The %1$s field must be at least %2$s characters."
+msgstr "Das Feld %1$s muss mindestens %2$s Zeichen haben."
+
+#. translators: 1: field name, 2: maximum value
+#: includes/utils/class-validator.php:436
+#, php-format
+msgid "The %1$s field must not be greater than %2$s."
+msgstr "Das Feld %1$s darf nicht größer als %2$s sein."
+
+#. translators: 1: field name, 2: maximum characters
+#: includes/utils/class-validator.php:449
+#, php-format
+msgid "The %1$s field must not be greater than %2$s characters."
+msgstr "Das Feld %1$s darf nicht mehr als %2$s Zeichen haben."
+
+#. translators: 1: field name, 2: minimum value, 3: maximum value
+#: includes/utils/class-validator.php:479
+#, php-format
+msgid "The %1$s field must be between %2$s and %3$s."
+msgstr "Das Feld %1$s muss zwischen %2$s und %3$s liegen."
+
+#. translators: 1: field name, 2: minimum characters, 3: maximum characters
+#: includes/utils/class-validator.php:494
+#, php-format
+msgid "The %1$s field must be between %2$s and %3$s characters."
+msgstr "Das Feld %1$s muss zwischen %2$s und %3$s Zeichen haben."
+
+#. translators: 1: field name, 2: allowed values
+#: includes/utils/class-validator.php:517
+#, php-format
+msgid "The %1$s field must be one of: %2$s."
+msgstr "Das Feld %1$s muss eines von folgenden sein: %2$s."
+
+#. translators: 1: field name, 2: forbidden values
+#: includes/utils/class-validator.php:537
+#, php-format
+msgid "The %1$s field must not be one of: %2$s."
+msgstr "Das Feld %1$s darf keines von folgenden sein: %2$s."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:560
+#, php-format
+msgid "The %s confirmation does not match."
+msgstr "Die Bestätigung von %s stimmt nicht überein."
+
+#. translators: 1: field name, 2: other field name
+#: includes/utils/class-validator.php:587
+#, php-format
+msgid "The %1$s and %2$s must match."
+msgstr "%1$s und %2$s müssen übereinstimmen."
+
+#. translators: 1: field name, 2: other field name
+#: includes/utils/class-validator.php:615
+#, php-format
+msgid "The %1$s and %2$s must be different."
+msgstr "%1$s und %2$s müssen unterschiedlich sein."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:635
+#, php-format
+msgid "The %s field must only contain letters."
+msgstr "Das Feld %s darf nur Buchstaben enthalten."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:654
+#, php-format
+msgid "The %s field must only contain letters and numbers."
+msgstr "Das Feld %s darf nur Buchstaben und Zahlen enthalten."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:673
+#, php-format
+msgid ""
+"The %s field must only contain letters, numbers, dashes and underscores."
+msgstr ""
+"Das Feld %s darf nur Buchstaben, Zahlen, Bindestriche und Unterstriche "
+"enthalten."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:692
+#, php-format
+msgid "The %s field format is invalid."
+msgstr "Das Format des Feldes %s ist ungültig."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:711
+#, php-format
+msgid "The %s field must be a valid date."
+msgstr "Das Feld %s muss ein gültiges Datum sein."
+
+#. translators: 1: field name, 2: before date
+#: includes/utils/class-validator.php:738
+#, php-format
+msgid "The %1$s field must be a date before %2$s."
+msgstr "Das Feld %1$s muss ein Datum vor %2$s sein."
+
+#. translators: 1: field name, 2: after date
+#: includes/utils/class-validator.php:766
+#, php-format
+msgid "The %1$s field must be a date after %2$s."
+msgstr "Das Feld %1$s muss ein Datum nach %2$s sein."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:788
+#, php-format
+msgid "The %s field must be true or false."
+msgstr "Das Feld %s muss wahr oder falsch sein."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:807
+#, php-format
+msgid "The %s field must be an array."
+msgstr "Das Feld %s muss ein Array sein."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:826
+#: includes/utils/class-validator.php:840
+#, php-format
+msgid "The %s field must be a valid JSON string."
+msgstr "Das Feld %s muss ein gültiger JSON-String sein."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:882
+#, php-format
+msgid "The %s has already been taken."
+msgstr "%s ist bereits vergeben."
+
+#. translators: %s: field name
+#: includes/utils/class-validator.php:917
+#, php-format
+msgid "The selected %s is invalid."
+msgstr "Das ausgewählte %s ist ungültig."
+
+#. translators: 1: field name
+#: includes/utils/class-validator.php:950
+#, php-format
+msgid "The %1$s field is required."
+msgstr "Das Feld %1$s ist erforderlich."
+
+#. translators: 1: field name, 2: allowed extensions
+#: includes/utils/class-validator.php:977
+#, php-format
+msgid "The %1$s field must be a file of type: %2$s."
+msgstr "Das Feld %1$s muss eine Datei vom Typ: %2$s sein."
+
+#: includes/admin/class-admin-loader.php:142
+#: includes/admin/class-admin-loader.php:143 dist/admin/index.js:1
+#: dist/admin/index.js:9
+msgid "Tags"
+msgstr "Schlagworte"
+
+#. translators: 1: required version, 2: installed version
+#: includes/admin/class-pro-compat-notice.php:60
+#, php-format
+msgid ""
+"<strong>VidShop Pro</strong> needs to be updated to version %1$s or later to"
+" unlock Pro features in the new admin UI (currently %2$s)."
+msgstr ""
+"<strong>VidShop Pro</strong> muss auf Version %1$s oder höher aktualisiert "
+"werden, um Pro-Funktionen in der neuen Admin-Benutzeroberfläche (derzeit "
+"%2$s) freizuschalten."
+
+#: includes/admin/class-pro-compat-notice.php:68 dist/admin/index.js:8
+msgid "Update now"
+msgstr "Jetzt aktualisieren"
+
+#: includes/admin/class-pro-compat-notice.php:69
+msgid "Dismiss"
+msgstr "Zurückweisen"
+
+#: dist/admin/index.js:1
+msgid "Switch to dark mode"
+msgstr "Wechseln Sie in den Dunkelmodus"
+
+#: dist/admin/index.js:1
+msgid "Switch to light mode"
+msgstr "Wechseln Sie in den Lichtmodus"
+
+#: dist/admin/index.js:1 dist/admin/index.js:6
+msgid "Close"
+msgstr "Schließen"
+
+#: dist/admin/index.js:1
+msgid "requires VidShop PRO"
+msgstr "erfordert VidShop PRO"
+
+#: dist/admin/index.js:1 dist/admin/index.js:7 dist/admin/index.js:8
+msgid "Upgrade to PRO"
+msgstr "Upgrade auf PRO"
+
+#: dist/admin/index.js:1
+msgid "Select..."
+msgstr "Wählen..."
+
+#: dist/admin/index.js:1
+msgid "No options"
+msgstr "Keine Optionen"
+
+#: dist/admin/index.js:1 dist/admin/index.js:6
+msgid "Loading..."
+msgstr "Laden..."
+
+#: dist/admin/index.js:1
+msgid "Searching products..."
+msgstr "Suche nach Produkten..."
+
+#: dist/admin/index.js:1
+msgid "No products found"
+msgstr "Keine Produkte gefunden"
+
+#: dist/admin/index.js:1
+msgid "Remove product"
+msgstr "Produkt entfernen"
+
+#: dist/admin/index.js:1
+msgid "Maximum number of products reached"
+msgstr "Maximale Anzahl an Produkten erreicht"
+
+#: dist/admin/index.js:1
+msgid "PRO"
+msgstr "PRO"
+
+#: dist/admin/index.js:1
+msgid "This is a PRO feature. Click to learn more."
+msgstr "Dies ist eine PRO-Funktion. Klicken Sie hier, um mehr zu erfahren."
+
+#: dist/admin/index.js:1
+msgid "Video tags"
+msgstr "Video-Tags"
+
+#: dist/admin/index.js:1
+msgid ""
+"Group videos by theme, product line, or campaign and power tag-filtered "
+"sliders anywhere on your site."
+msgstr ""
+"Gruppieren Sie Videos nach Thema, Produktlinie oder Kampagne und aktivieren "
+"Sie nach Tags gefilterte Schieberegler an einer beliebigen Stelle auf Ihrer "
+"Website."
+
+#: dist/admin/index.js:1
+msgid "Organize videos with tags"
+msgstr "Organisieren Sie Videos mit Tags"
+
+#: dist/admin/index.js:1
+msgid ""
+"Tag videos to group them by theme, product line, or campaign and build tag-"
+"filtered sliders anywhere on your site."
+msgstr ""
+"Markieren Sie Videos, um sie nach Thema, Produktlinie oder Kampagne zu "
+"gruppieren, und erstellen Sie nach Tags gefilterte Schieberegler an einer "
+"beliebigen Stelle auf Ihrer Website."
+
+#: dist/admin/index.js:1
+msgid "Full tag CRUD with a videos-per-tag count"
+msgstr "Vollständiger Tag-CRUD mit einer Anzahl von Videos pro Tag"
+
+#: dist/admin/index.js:1
+msgid "Assign multiple tags to any video from the edit screen"
+msgstr "Weisen Sie jedem Video im Bearbeitungsbildschirm mehrere Tags zu"
+
+#: dist/admin/index.js:1
+msgid "Filter the Videos list by tag at a glance"
+msgstr "Filtern Sie die Videoliste auf einen Blick nach Tags"
+
+#: dist/admin/index.js:1
+msgid "Render tag-filtered sliders via [vsfw-videos tags=\"…\"]"
+msgstr ""
+"Rendern Sie nach Tags gefilterte Schieberegler über [vsfw-videos tags=\"…\"]"
+
+#: dist/admin/index.js:1
+msgid "Unlock with VidShop PRO"
+msgstr "Entsperren Sie mit VidShop PRO"
+
+#: dist/admin/index.js:1
+msgid "Tags (PRO)"
+msgstr "Schlagworte (PRO)"
+
+#: dist/admin/index.js:1
+msgid "You have unsaved changes. Are you sure you want to leave?"
+msgstr ""
+"Sie haben nicht gespeicherte Änderungen. Sind Sie sicher, dass Sie gehen "
+"möchten?"
+
+#: dist/admin/index.js:1
+msgid "Media Library"
+msgstr "Medienbibliothek"
+
+#: dist/admin/index.js:1 dist/admin/index.js:6
+msgid "Custom URL"
+msgstr "Benutzerdefinierte URL"
+
+#: dist/admin/index.js:1
+msgid "WordPress Media Library is not available"
+msgstr "Die WordPress-Medienbibliothek ist nicht verfügbar"
+
+#: dist/admin/index.js:1
+msgid "Select Video"
+msgstr "Wählen Sie Video"
+
+#: dist/admin/index.js:1
+msgid "Use this video"
+msgstr "Benutzen Sie dieses Video"
+
+#: dist/admin/index.js:1
+msgid "Select Thumbnail"
+msgstr "Wählen Sie Miniaturansicht"
+
+#: dist/admin/index.js:1
+msgid "Use this image"
+msgstr "Verwenden Sie dieses Bild"
+
+#: dist/admin/index.js:1
+msgid "Video title is required"
+msgstr "Videotitel ist erforderlich"
+
+#: dist/admin/index.js:1
+msgid "Please select a video from the media library"
+msgstr "Bitte wählen Sie ein Video aus der Medienbibliothek aus"
+
+#: dist/admin/index.js:1
+msgid "Please enter a video URL"
+msgstr "Bitte geben Sie eine Video-URL ein"
+
+#: dist/admin/index.js:1
+msgid "Please select at least one product"
+msgstr "Bitte wählen Sie mindestens ein Produkt aus"
+
+#: dist/admin/index.js:1
+msgid "Video thumbnail is required"
+msgstr "Video-Miniaturansicht ist erforderlich"
+
+#: dist/admin/index.js:1
+msgid "Video Details"
+msgstr "Videodetails"
+
+#: dist/admin/index.js:1
+msgid "Video Title"
+msgstr "Videotitel"
+
+#: dist/admin/index.js:1
+msgid "Enter video title"
+msgstr "Geben Sie den Videotitel ein"
+
+#: dist/admin/index.js:1
+msgid "Thumbnail"
+msgstr "Miniaturansicht"
+
+#: dist/admin/index.js:1
+msgid "Video Thumbnail"
+msgstr "Video-Miniaturansicht"
+
+#: dist/admin/index.js:1
+msgid "Change"
+msgstr "Ändern"
+
+#: dist/admin/index.js:1
+msgid "Remove"
+msgstr "Entfernen"
+
+#: dist/admin/index.js:1
+msgid "Click to upload thumbnail"
+msgstr "Klicken Sie hier, um eine Miniaturansicht hochzuladen"
+
+#: dist/admin/index.js:1
+msgid "Recommended size: 720×1280 pixels (9:16 ratio)"
+msgstr "Empfohlene Größe: 720×1280 Pixel (Verhältnis 9:16)"
+
+#: dist/admin/index.js:1
+msgid "Video"
+msgstr "Video"
+
+#: dist/admin/index.js:1
+msgid "Error loading video. Please check the URL."
+msgstr "Fehler beim Laden des Videos. Bitte überprüfen Sie die URL."
+
+#: dist/admin/index.js:1
+msgid "Unmute"
+msgstr "Stummschaltung aufheben"
+
+#: dist/admin/index.js:1
+msgid "Mute"
+msgstr "Stumm"
+
+#: dist/admin/index.js:1
+msgid "Media Library Video Selected"
+msgstr "Medienbibliothek-Video ausgewählt"
+
+#: dist/admin/index.js:1
+msgid "Video URL Confirmed"
+msgstr "Video-URL bestätigt"
+
+#: dist/admin/index.js:1
+msgid "Enter video URL (mp4, webm, ogg, mov, avi)"
+msgstr "Geben Sie die Video-URL ein (mp4, webm, ogg, mov, avi)"
+
+#: dist/admin/index.js:1
+msgid "Please enter a valid video URL"
+msgstr "Bitte geben Sie eine gültige Video-URL ein"
+
+#: dist/admin/index.js:1
+msgid "Insert"
+msgstr "Einfügen"
+
+#: dist/admin/index.js:1
+msgid ""
+"Select a video from the media library or provide a custom URL. For best "
+"results, use a 9:16 aspect ratio (vertical video)."
+msgstr ""
+"Wählen Sie ein Video aus der Medienbibliothek aus oder geben Sie eine "
+"benutzerdefinierte URL an. Für optimale Ergebnisse verwenden Sie ein "
+"Seitenverhältnis von 9:16 (vertikales Video)."
+
+#: dist/admin/index.js:1
+msgid "Publish"
+msgstr "Veröffentlichen"
+
+#: dist/admin/index.js:1
+msgid "Status"
+msgstr "Status"
+
+#: dist/admin/index.js:1 dist/admin/index.js:8
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: dist/admin/index.js:1
+msgid "Draft"
+msgstr "Entwurf"
+
+#: dist/admin/index.js:1 dist/admin/index.js:6
+msgid "Cancel"
+msgstr "Stornieren"
+
+#: dist/admin/index.js:1
+msgid "Featured Products"
+msgstr "Ausgewählte Produkte"
+
+#: dist/admin/index.js:1
+msgid "Search for products to feature..."
+msgstr "Suchen Sie nach Produkten, die vorgestellt werden sollen..."
+
+#: dist/admin/index.js:1
+msgid "Add Products"
+msgstr "Produkte hinzufügen"
+
+#: dist/admin/index.js:1
+msgid "These products will be featured with the video"
+msgstr "Diese Produkte werden im Video vorgestellt"
+
+#: dist/admin/index.js:1
+msgid "Assign tags (PRO)"
+msgstr "Tags zuweisen (PRO)"
+
+#: dist/admin/index.js:1
+msgid "Inherit from WooCommerce"
+msgstr "Von WooCommerce erben"
+
+#: dist/admin/index.js:1
+msgid "Left (e.g. $99.99)"
+msgstr "Übrig (z. B. 99,99 $)"
+
+#: dist/admin/index.js:1
+msgid "Right (e.g. 99.99$)"
+msgstr "Richtig (z. B. 99,99 $)"
+
+#: dist/admin/index.js:1
+msgid "Left with space (e.g. $ 99.99)"
+msgstr "Links mit Leerzeichen (z. B. 99,99 $)"
+
+#: dist/admin/index.js:1
+msgid "Right with space (e.g. 99.99 $)"
+msgstr "Richtig mit Platz (z.B. 99,99 $)"
+
+#: dist/admin/index.js:1 dist/admin/index.js:5 dist/admin/index.js:8
+msgid "Trash"
+msgstr "Müll"
+
+#. translators: %s is the author's display name
+#: dist/admin/index.js:2
+#, js-format
+msgid "By %s"
+msgstr "Von %s"
+
+#: dist/admin/index.js:2
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#. translators: %d is the total views count
+#: dist/admin/index.js:3
+#, js-format
+msgid "%d total views"
+msgstr "%d Aufrufe insgesamt"
+
+#. translators: %d is the total likes count
+#: dist/admin/index.js:4
+#, js-format
+msgid "%d total likes"
+msgstr "%d Likes insgesamt"
+
+#: dist/admin/index.js:4
+msgid "Click to save as draft"
+msgstr "Klicken Sie, um als Entwurf zu speichern"
+
+#: dist/admin/index.js:4
+msgid "Click to publish"
+msgstr "Klicken Sie zum Veröffentlichen"
+
+#: dist/admin/index.js:4
+msgid "Video published successfully"
+msgstr "Video erfolgreich veröffentlicht"
+
+#: dist/admin/index.js:4
+msgid "Video saved as draft"
+msgstr "Video als Entwurf gespeichert"
+
+#: dist/admin/index.js:4
+msgid "Failed to update video status"
+msgstr "Der Videostatus konnte nicht aktualisiert werden"
+
+#: dist/admin/index.js:4
+msgid "Video restored successfully"
+msgstr "Video erfolgreich wiederhergestellt"
+
+#: dist/admin/index.js:4
+msgid "Restore"
+msgstr "Wiederherstellen"
+
+#: dist/admin/index.js:4 dist/admin/index.js:5
+msgid "Delete Permanently"
+msgstr "Dauerhaft löschen"
+
+#. translators: %s is the video title
+#: dist/admin/index.js:5
+#, js-format
+msgid ""
+"Are you sure you want to permanently delete \"%s\"? This action cannot be "
+"undone."
+msgstr ""
+"Sind Sie sicher, dass Sie „%s“ dauerhaft löschen möchten? Diese Aktion kann "
+"nicht rückgängig gemacht werden."
+
+#: dist/admin/index.js:5
+msgid "Video permanently deleted"
+msgstr "Video endgültig gelöscht"
+
+#: dist/admin/index.js:5
+msgid "Failed to permanently delete video"
+msgstr "Das Video konnte nicht dauerhaft gelöscht werden"
+
+#: dist/admin/index.js:5
+msgid "View Stats"
+msgstr "Statistiken anzeigen"
+
+#: dist/admin/index.js:5
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: dist/admin/index.js:5 dist/admin/index.js:6
+msgid "Move to Trash"
+msgstr "In den Papierkorb verschieben"
+
+#. translators: %s is the video title
+#: dist/admin/index.js:6
+#, js-format
+msgid "Are you sure you want to move \"%s\" to trash? You can restore it later."
+msgstr ""
+"Sind Sie sicher, dass Sie „%s“ in den Papierkorb verschieben möchten? Sie "
+"können es später wiederherstellen."
+
+#: dist/admin/index.js:6
+msgid "Video moved to trash"
+msgstr "Video wurde in den Papierkorb verschoben"
+
+#: dist/admin/index.js:6
+msgid "Previous"
+msgstr "Vorherige"
+
+#: dist/admin/index.js:6
+msgid "Next"
+msgstr "Nächste"
+
+#: dist/admin/index.js:6
+msgid "On"
+msgstr "An"
+
+#: dist/admin/index.js:6
+msgid "Off"
+msgstr "Aus"
+
+#: dist/admin/index.js:6
+msgid "Trust Blue"
+msgstr "Vertrauen Sie Blue"
+
+#: dist/admin/index.js:6
+msgid "TikTok Pink"
+msgstr "TikTok Pink"
+
+#: dist/admin/index.js:6
+msgid "Buy Now Orange"
+msgstr "Jetzt kaufen Orange"
+
+#: dist/admin/index.js:6
+msgid "Success Green"
+msgstr "Erfolg grün"
+
+#: dist/admin/index.js:6
+msgid "Premium Gold"
+msgstr "Premium-Gold"
+
+#: dist/admin/index.js:6
+msgid "Trending Purple"
+msgstr "Trendiges Lila"
+
+#: dist/admin/index.js:6
+msgid "Grid Layout"
+msgstr "Rasterlayout"
+
+#: dist/admin/index.js:6
+msgid "Carousel Layout"
+msgstr "Karussell-Layout"
+
+#: dist/admin/index.js:6
+msgid "Stories Layout"
+msgstr "Story-Layout"
+
+#: dist/admin/index.js:6
+msgid "Stories Carousel Layout"
+msgstr "Geschichten-Karussell-Layout"
+
+#: dist/admin/index.js:6
+msgid "Show Product Details"
+msgstr "Produktdetails anzeigen"
+
+#: dist/admin/index.js:6
+msgid "Go to Product Page"
+msgstr "Gehen Sie zur Produktseite"
+
+#: dist/admin/index.js:6
+msgid "None (default)"
+msgstr "Keine (Standard)"
+
+#: dist/admin/index.js:6
+msgid "Open Cart Modal"
+msgstr "Modaler Warenkorb öffnen"
+
+#: dist/admin/index.js:6
+msgid "Redirect to Checkout"
+msgstr "Weiter zur Kasse"
+
+#: dist/admin/index.js:6
+msgid "Advanced Layouts"
+msgstr "Erweiterte Layouts"
+
+#: dist/admin/index.js:6
+msgid "Access Carousel and Stories layouts for more engaging video displays."
+msgstr ""
+"Greifen Sie auf die Layouts „Karussell“ und „Stories“ zu, um ansprechendere "
+"Videoanzeigen zu erhalten."
+
+#: dist/admin/index.js:6
+msgid "Layout Columns"
+msgstr "Layoutspalten"
+
+#: dist/admin/index.js:6
+msgid "Customize the number of columns displayed on different devices."
+msgstr ""
+"Passen Sie die Anzahl der auf verschiedenen Geräten angezeigten Spalten an."
+
+#: dist/admin/index.js:6
+msgid "Custom Color Schema"
+msgstr "Benutzerdefiniertes Farbschema"
+
+#: dist/admin/index.js:6
+msgid "Choose any custom color to match your brand perfectly."
+msgstr "Wählen Sie eine individuelle Farbe, die perfekt zu Ihrer Marke passt."
+
+#: dist/admin/index.js:6
+msgid "Autoplay Videos"
+msgstr "Autoplay-Videos"
+
+#: dist/admin/index.js:6
+msgid ""
+"Automatically play videos in sequence when the modal is open. When one video"
+" finishes, the next starts automatically."
+msgstr ""
+"Spielen Sie Videos automatisch nacheinander ab, wenn das Modal geöffnet ist."
+" Wenn ein Video zu Ende ist, startet automatisch das nächste."
+
+#: dist/admin/index.js:6
+msgid "Filter by Tags"
+msgstr "Nach Tags filtern"
+
+#: dist/admin/index.js:6
+msgid ""
+"Build sliders from videos that match selected tags — perfect for per-"
+"category showcases (e.g. \"shoes\", \"outerwear\")."
+msgstr ""
+"Erstellen Sie Slider aus Videos, die mit ausgewählten Tags übereinstimmen – "
+"perfekt für Präsentationen pro Kategorie (z. B. „Schuhe“, „Oberbekleidung“)."
+
+#: dist/admin/index.js:6
+msgid "All Videos"
+msgstr "Alle Videos"
+
+#: dist/admin/index.js:6
+msgid "Specific Videos"
+msgstr "Spezifische Videos"
+
+#: dist/admin/index.js:6
+msgid "Date"
+msgstr "Datum"
+
+#: dist/admin/index.js:6 dist/admin/index.js:8
+msgid "Title"
+msgstr "Titel"
+
+#: dist/admin/index.js:6 dist/admin/index.js:8
+msgid "ID"
+msgstr "AUSWEIS"
+
+#: dist/admin/index.js:6
+msgid "Random"
+msgstr "Zufällig"
+
+#: dist/admin/index.js:6
+msgid "Descending"
+msgstr "Absteigend"
+
+#: dist/admin/index.js:6
+msgid "Ascending"
+msgstr "Aufsteigend"
+
+#: dist/admin/index.js:6
+msgid "Any of the selected (OR)"
+msgstr "Eines der ausgewählten (ODER)"
+
+#: dist/admin/index.js:6
+msgid "All of the selected (AND)"
+msgstr "Alle ausgewählten (UND)"
+
+#: dist/admin/index.js:6
+msgid "Drag to reorder"
+msgstr "Zum Neuanordnen ziehen"
+
+#: dist/admin/index.js:6
+msgid "Remove video"
+msgstr "Video entfernen"
+
+#: dist/admin/index.js:6
+msgid "Shortcode copied to clipboard!"
+msgstr "Shortcode in die Zwischenablage kopiert!"
+
+#: dist/admin/index.js:6
+msgid "Generate Video Shortcode"
+msgstr "Video-Shortcode generieren"
+
+#: dist/admin/index.js:6
+msgid ""
+"Create a shortcode to display your videos on any page or post. Choose your "
+"settings below and copy the generated shortcode."
+msgstr ""
+"Erstellen Sie einen Shortcode, um Ihre Videos auf jeder Seite oder in jedem "
+"Beitrag anzuzeigen. Wählen Sie unten Ihre Einstellungen und kopieren Sie den"
+" generierten Shortcode."
+
+#: dist/admin/index.js:6
+msgid "Video Selection"
+msgstr "Videoauswahl"
+
+#: dist/admin/index.js:6
+msgid "Search & Select Videos"
+msgstr "Videos suchen und auswählen"
+
+#: dist/admin/index.js:6 dist/admin/index.js:8
+msgid "Search videos..."
+msgstr "Videos suchen..."
+
+#: dist/admin/index.js:6
+msgid "Selected Videos"
+msgstr "Ausgewählte Videos"
+
+#: dist/admin/index.js:6
+msgid "Drag items to change the display order."
+msgstr "Ziehen Sie Elemente, um die Anzeigereihenfolge zu ändern."
+
+#: dist/admin/index.js:6
+msgid "Video Order"
+msgstr "Videobestellung"
+
+#: dist/admin/index.js:6
+msgid "Order by"
+msgstr "Bestellen nach"
+
+#: dist/admin/index.js:6
+msgid "Direction"
+msgstr "Richtung"
+
+#: dist/admin/index.js:6
+msgid "No tags found. Create tags in VidShop → Tags to enable filtering."
+msgstr ""
+"Keine Tags gefunden. Erstellen Sie Tags in VidShop → Tags, um die Filterung "
+"zu aktivieren."
+
+#: dist/admin/index.js:6
+msgid "Match mode"
+msgstr "Match-Modus"
+
+#: dist/admin/index.js:6
+msgid "Upgrade to VidShop Pro to build tag-filtered sliders."
+msgstr ""
+"Führen Sie ein Upgrade auf VidShop Pro durch, um Tag-gefilterte Slider zu "
+"erstellen."
+
+#: dist/admin/index.js:6
+msgid "Color Schema"
+msgstr "Farbschema"
+
+#: dist/admin/index.js:6
+msgid "Custom Color"
+msgstr "Benutzerdefinierte Farbe"
+
+#: dist/admin/index.js:6
+msgid "Pick custom color"
+msgstr "Wählen Sie eine benutzerdefinierte Farbe"
+
+#: dist/admin/index.js:6
+msgid "Custom colors require PRO"
+msgstr "Benutzerdefinierte Farben erfordern PRO"
+
+#: dist/admin/index.js:6
+msgid "Choose Color"
+msgstr "Wählen Sie Farbe"
+
+#: dist/admin/index.js:6
+msgid "Close color picker"
+msgstr "Farbauswahl schließen"
+
+#: dist/admin/index.js:6
+msgid "Layout Type"
+msgstr "Layouttyp"
+
+#: dist/admin/index.js:6
+msgid "🎬 See Live Examples & Get Inspired"
+msgstr "🎬 Sehen Sie sich Live-Beispiele an und lassen Sie sich inspirieren"
+
+#: dist/admin/index.js:6
+msgid "Columns Configuration"
+msgstr "Spaltenkonfiguration"
+
+#: dist/admin/index.js:6
+msgid "Desktop"
+msgstr "Desktop"
+
+#: dist/admin/index.js:6
+msgid "Tablet"
+msgstr "Tablette"
+
+#: dist/admin/index.js:6
+msgid "Mobile"
+msgstr "Mobile"
+
+#: dist/admin/index.js:6
+msgid "Auto-open product details"
+msgstr "Produktdetails automatisch öffnen"
+
+#: dist/admin/index.js:6
+msgid ""
+"When opening the video modal, automatically open the first product’s "
+"details."
+msgstr ""
+"Beim Öffnen des Video-Modals werden automatisch die ersten Produktdetails "
+"geöffnet."
+
+#: dist/admin/index.js:6
+msgid "Play on Hover"
+msgstr "Spielen Sie auf Hover"
+
+#: dist/admin/index.js:6
+msgid "When autoplay is off, hovering a video will preview it."
+msgstr ""
+"Wenn die automatische Wiedergabe deaktiviert ist, wird beim Bewegen des "
+"Mauszeigers über ein Video eine Vorschau angezeigt."
+
+#: dist/admin/index.js:6
+msgid "Videos will start playing as a preview when user hovers over them"
+msgstr ""
+"Videos werden als Vorschau abgespielt, wenn der Benutzer mit der Maus "
+"darüber fährt"
+
+#: dist/admin/index.js:6
+msgid "Navigation Options"
+msgstr "Navigationsoptionen"
+
+#: dist/admin/index.js:6
+msgid "Show Arrows"
+msgstr "Pfeile anzeigen"
+
+#: dist/admin/index.js:6
+msgid "Display navigation arrows on carousel"
+msgstr "Navigationspfeile im Karussell anzeigen"
+
+#: dist/admin/index.js:6
+msgid "Show Dots"
+msgstr "Punkte anzeigen"
+
+#: dist/admin/index.js:6
+msgid "Display pagination dots below carousel"
+msgstr "Paginierungspunkte unterhalb des Karussells anzeigen"
+
+#: dist/admin/index.js:6
+msgid "Engagement Counts"
+msgstr "Engagement zählt"
+
+#: dist/admin/index.js:6
+msgid "Show view count"
+msgstr "Anzahl der Aufrufe anzeigen"
+
+#: dist/admin/index.js:6
+msgid "Display the total view count on each video."
+msgstr "Zeigen Sie die Gesamtanzahl der Aufrufe für jedes Video an."
+
+#: dist/admin/index.js:6
+msgid "Show like count"
+msgstr "Gefällt mir anzeigen count"
+
+#: dist/admin/index.js:6
+msgid "Display the like count next to the heart icon."
+msgstr "Zeigen Sie die Anzahl der Likes neben dem Herzsymbol an."
+
+#: dist/admin/index.js:6
+msgid "Autoplay"
+msgstr "Autoplay"
+
+#: dist/admin/index.js:6
+msgid ""
+"When the video modal is open, videos will play automatically in sequence. "
+"When one video finishes, the next starts automatically. If a product or cart"
+" modal is open, the current video loops until the modal closes."
+msgstr ""
+"Wenn das Videomodal geöffnet ist, werden die Videos automatisch der Reihe "
+"nach abgespielt. Wenn ein Video zu Ende ist, startet automatisch das "
+"nächste. Wenn ein Produkt- oder Warenkorb-Modal geöffnet ist, läuft das "
+"aktuelle Video in einer Schleife, bis das Modal geschlossen wird."
+
+#: dist/admin/index.js:6
+msgid ""
+"Automatically plays videos in sequence — when one finishes, the next starts."
+" Enable Loop to restart from the first video after the last."
+msgstr ""
+"Spielt Videos automatisch der Reihe nach ab – wenn eines fertig ist, beginnt"
+" das nächste. Aktivieren Sie „Loop“, um mit dem ersten Video nach dem "
+"letzten neu zu beginnen."
+
+#: dist/admin/index.js:6
+msgid ""
+"Automatically plays the current video and moves to the next when it "
+"finishes. If a modal is open, the current video loops until the modal is "
+"closed."
+msgstr ""
+"Spielt das aktuelle Video automatisch ab und wechselt zum nächsten, wenn es "
+"fertig ist. Wenn ein Modal geöffnet ist, wird das aktuelle Video in einer "
+"Schleife abgespielt, bis das Modal geschlossen wird."
+
+#: dist/admin/index.js:6
+msgid "Videos will start playing automatically when they come into view."
+msgstr "Videos werden automatisch abgespielt, wenn sie angezeigt werden."
+
+#: dist/admin/index.js:6
+msgid "Loop Autoplay"
+msgstr "Loop-Autoplay"
+
+#: dist/admin/index.js:6
+msgid "After the last video ends, automatically start from the first again."
+msgstr ""
+"Nachdem das letzte Video zu Ende ist, beginnen Sie automatisch erneut mit "
+"dem ersten."
+
+#: dist/admin/index.js:6
+msgid "Add to Cart Button"
+msgstr "Schaltfläche „In den Warenkorb hinzufügen“."
+
+#: dist/admin/index.js:6
+msgid "Button Action"
+msgstr "Tastenaktion"
+
+#: dist/admin/index.js:6
+msgid ""
+"Opens a product details modal where customers can select variations and add "
+"to cart"
+msgstr ""
+"Öffnet ein Produktdetail-Fenster, in dem Kunden Variationen auswählen und in"
+" den Warenkorb legen können"
+
+#: dist/admin/index.js:6
+msgid "Opens the product page in a new tab for customers to view full details"
+msgstr ""
+"Öffnet die Produktseite in einem neuen Tab, damit Kunden alle Details "
+"anzeigen können"
+
+#: dist/admin/index.js:6
+msgid "Button Appearance"
+msgstr "Schaltflächendarstellung"
+
+#: dist/admin/index.js:6
+msgid "Show Icon"
+msgstr "Symbol anzeigen"
+
+#: dist/admin/index.js:6
+msgid "Display the shopping cart icon in the button"
+msgstr "Zeigen Sie das Warenkorbsymbol in der Schaltfläche an"
+
+#: dist/admin/index.js:6
+msgid "Show Text"
+msgstr "Text anzeigen"
+
+#: dist/admin/index.js:6
+msgid "Display \"Add to Cart\" text in the button"
+msgstr "Zeigen Sie den Text „In den Warenkorb“ in der Schaltfläche an"
+
+#: dist/admin/index.js:6
+msgid "After Add to Cart"
+msgstr "Nach dem Hinzufügen zum Warenkorb"
+
+#: dist/admin/index.js:6
+msgid "Choose what happens after adding to cart."
+msgstr "Wählen Sie aus, was nach dem Hinzufügen zum Warenkorb passieren soll."
+
+#: dist/admin/index.js:6
+msgid "Please enter a valid URL (e.g., https://example.com or /page)"
+msgstr ""
+"Bitte geben Sie eine gültige URL ein (z. B. https://example.com oder /page)."
+
+#: dist/admin/index.js:6
+msgid "https://example.com or /page"
+msgstr "https://example.com oder /page"
+
+#: dist/admin/index.js:6
+msgid "Enter a full URL (https://example.com) or a relative path (/page)"
+msgstr ""
+"Geben Sie eine vollständige URL (https://example.com) oder einen relativen "
+"Pfad (/page) ein."
+
+#: dist/admin/index.js:6
+msgid "Invalid Configuration"
+msgstr "Ungültige Konfiguration"
+
+#: dist/admin/index.js:6
+msgid ""
+"You must show either the icon or the text (or both). The button cannot be "
+"completely empty."
+msgstr ""
+"Sie müssen entweder das Symbol oder den Text (oder beides) anzeigen. Die "
+"Schaltfläche darf nicht vollständig leer sein."
+
+#: dist/admin/index.js:6
+msgid ""
+"Configure how the button appears on product cards. You can show icon only, "
+"text only, or both. The button border radius will automatically adjust based"
+" on your selection."
+msgstr ""
+"Konfigurieren Sie, wie die Schaltfläche auf Produktkarten angezeigt wird. "
+"Sie können nur das Symbol, nur den Text oder beides anzeigen. Der Radius des"
+" Schaltflächenrands wird basierend auf Ihrer Auswahl automatisch angepasst."
+
+#: dist/admin/index.js:6
+msgid "Generated Shortcode"
+msgstr "Generierter Shortcode"
+
+#: dist/admin/index.js:6
+msgid "Copy"
+msgstr "Kopie"
+
+#: dist/admin/index.js:6 dist/admin/index.js:9
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: dist/admin/index.js:6
+msgid "Copy Shortcode"
+msgstr "Shortcode kopieren"
+
+#: dist/admin/index.js:6
+msgid "Unlock Advanced Video Analytics"
+msgstr "Schalten Sie erweiterte Videoanalysen frei"
+
+#. translators: %s is the video title
+#: dist/admin/index.js:7
+#, js-format
+msgid ""
+"Get detailed performance insights for \"%s\" and all your videos with "
+"VidShop PRO."
+msgstr ""
+"Erhalten Sie mit VidShop PRO detaillierte Leistungseinblicke für „%s“ und "
+"alle Ihre Videos."
+
+#: dist/admin/index.js:7
+msgid "Get detailed performance insights for your videos with VidShop PRO."
+msgstr ""
+"Erhalten Sie mit VidShop PRO detaillierte Einblicke in die Leistung Ihrer "
+"Videos."
+
+#: dist/admin/index.js:7
+msgid "Detailed View & Engagement Metrics"
+msgstr "Detaillierte Ansicht und Engagement-Metriken"
+
+#: dist/admin/index.js:7
+msgid "Product Performance Analytics"
+msgstr "Produktleistungsanalyse"
+
+#: dist/admin/index.js:7
+msgid "Watch Time & User Behavior Insights"
+msgstr "Einblicke in die Wiedergabezeit und das Benutzerverhalten"
+
+#: dist/admin/index.js:7
+msgid "Conversion Tracking & ROI Analysis"
+msgstr "Conversion-Tracking und ROI-Analyse"
+
+#: dist/admin/index.js:7 dist/admin/index.js:8
+msgid "View Live Demo"
+msgstr "Live-Demo ansehen"
+
+#: dist/admin/index.js:7
+msgid "Dismiss notice"
+msgstr "Kündigung abweisen"
+
+#: dist/admin/index.js:7
+msgid "VidShop Pro is outdated"
+msgstr "VidShop Pro ist veraltet"
+
+#. translators: 1: required version, 2: installed version
+#: dist/admin/index.js:8
+#, js-format
+msgid ""
+"Update to version %1$s or later to unlock the full Pro admin experience "
+"(currently %2$s)."
+msgstr ""
+"Aktualisieren Sie auf Version %1$s oder höher, um das vollständige Pro-"
+"Administratorerlebnis freizuschalten (derzeit %2$s)."
+
+#: dist/admin/index.js:8
+msgid "Back to top"
+msgstr "Zurück nach oben"
+
+#: dist/admin/index.js:8
+msgid "This Week"
+msgstr "Diese Woche"
+
+#: dist/admin/index.js:8
+msgid "Last Week"
+msgstr "Letzte Woche"
+
+#: dist/admin/index.js:8
+msgid "This Month"
+msgstr "Diesen Monat"
+
+#: dist/admin/index.js:8
+msgid "Last Month"
+msgstr "Letzten Monat"
+
+#: dist/admin/index.js:8
+msgid "Welcome to VidShop!"
+msgstr "Willkommen bei VidShop!"
+
+#: dist/admin/index.js:8
+msgid ""
+"Start engaging your customers with interactive videos. Upload your first "
+"video to begin tracking analytics and boosting your sales."
+msgstr ""
+"Beginnen Sie, Ihre Kunden mit interaktiven Videos zu begeistern. Laden Sie "
+"Ihr erstes Video hoch, um Analysen zu verfolgen und Ihren Umsatz zu "
+"steigern."
+
+#: dist/admin/index.js:8
+msgid "Add Your First Video"
+msgstr "Fügen Sie Ihr erstes Video hinzu"
+
+#: dist/admin/index.js:8
+msgid "Analytics Dashboard"
+msgstr "Analytics-Dashboard"
+
+#: dist/admin/index.js:8
+msgid "Select period"
+msgstr "Zeitraum auswählen"
+
+#: dist/admin/index.js:8
+msgid "Total Views"
+msgstr "Gesamtansichten"
+
+#: dist/admin/index.js:8
+msgid "Unique Views"
+msgstr "Einzigartige Ansichten"
+
+#: dist/admin/index.js:8
+msgid "Total Likes"
+msgstr "Gesamtzahl der Likes"
+
+#: dist/admin/index.js:8
+msgid "Unique Likes"
+msgstr "Einzigartige Likes"
+
+#: dist/admin/index.js:8
+msgid "Avg. View Time"
+msgstr "Durchschn. Zeit anzeigen"
+
+#: dist/admin/index.js:8
+msgid "Total View Time"
+msgstr "Gesamtansichtszeit"
+
+#: dist/admin/index.js:8 dist/frontend/index.js:2 dist/frontend/index.js:3
+#: dist/frontend/index.js:4
+msgid "Add to Cart"
+msgstr "in den Warenkorb legen"
+
+#: dist/admin/index.js:8
+msgid "Product Views"
+msgstr "Produktansichten"
+
+#: dist/admin/index.js:8
+msgid "Unlock the Full Power of VidShop PRO"
+msgstr "Schalten Sie die volle Leistung von VidShop PRO frei"
+
+#: dist/admin/index.js:8
+msgid "Carousel & Stories Layouts"
+msgstr "Karussell- und Story-Layouts"
+
+#: dist/admin/index.js:8
+msgid "Custom Color Schemas"
+msgstr "Benutzerdefinierte Farbschemata"
+
+#: dist/admin/index.js:8
+msgid "Responsive Columns Control"
+msgstr "Responsive Spaltensteuerung"
+
+#: dist/admin/index.js:8
+msgid "Advanced Analytics"
+msgstr "Erweiterte Analytik"
+
+#: dist/admin/index.js:8
+msgid "Top Videos"
+msgstr "Top-Videos"
+
+#: dist/admin/index.js:8
+msgid "views"
+msgstr "Ansichten"
+
+#: dist/admin/index.js:8
+msgid "No video data available for this period"
+msgstr "Für diesen Zeitraum sind keine Videodaten verfügbar"
+
+#: dist/admin/index.js:8
+msgid "Top Products"
+msgstr "Top-Produkte"
+
+#: dist/admin/index.js:8
+msgid "View Product"
+msgstr "Produkt anzeigen"
+
+#: dist/admin/index.js:8
+msgid "No product data available for this period"
+msgstr "Für diesen Zeitraum sind keine Produktdaten verfügbar"
+
+#: dist/admin/index.js:8
+msgid "Date Created"
+msgstr "Erstellungsdatum"
+
+#: dist/admin/index.js:8
+msgid "Newest First"
+msgstr "Das Neueste zuerst"
+
+#: dist/admin/index.js:8
+msgid "Drafts"
+msgstr "Entwürfe"
+
+#: dist/admin/index.js:8
+msgid "Oldest First"
+msgstr "Älteste zuerst"
+
+#: dist/admin/index.js:8
+msgid "Failed to fetch videos"
+msgstr "Videos konnten nicht abgerufen werden"
+
+#: dist/admin/index.js:8
+msgid "Showing"
+msgstr "Zeigt"
+
+#: dist/admin/index.js:8
+msgid "of"
+msgstr "von"
+
+#: dist/admin/index.js:8
+msgid "videos"
+msgstr "Videos"
+
+#: dist/admin/index.js:8
+msgid "Generate Shortcode"
+msgstr "Shortcode generieren"
+
+#: dist/admin/index.js:8
+msgid "Add New Video"
+msgstr "Neues Video hinzufügen"
+
+#: dist/admin/index.js:8
+msgid "Filter by tag (PRO)"
+msgstr "Nach Tag filtern (PRO)"
+
+#: dist/admin/index.js:8
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: dist/admin/index.js:8
+msgid "Order"
+msgstr "Befehl"
+
+#: dist/admin/index.js:8
+msgid "No videos found"
+msgstr "Keine Videos gefunden"
+
+#: dist/admin/index.js:8
+msgid "No videos yet"
+msgstr "Noch keine Videos"
+
+#: dist/admin/index.js:8
+msgid "Try adjusting your search criteria."
+msgstr "Versuchen Sie, Ihre Suchkriterien anzupassen."
+
+#: dist/admin/index.js:8
+msgid "Create your first video to get started with VidShop."
+msgstr "Erstellen Sie Ihr erstes Video, um mit VidShop zu beginnen."
+
+#: dist/admin/index.js:8
+msgid "Create a new video with products and thumbnail"
+msgstr "Erstellen Sie ein neues Video mit Produkten und Miniaturansicht"
+
+#: dist/admin/index.js:8 dist/admin/index.js:9
+msgid "Back to Videos"
+msgstr "Zurück zu Videos"
+
+#: dist/admin/index.js:8
+msgid "Video created successfully!"
+msgstr "Video erfolgreich erstellt!"
+
+#: dist/admin/index.js:8
+msgid "Failed to create video"
+msgstr "Video konnte nicht erstellt werden"
+
+#: dist/admin/index.js:8
+msgid "Create Video"
+msgstr "Video erstellen"
+
+#: dist/admin/index.js:8 dist/admin/index.js:9
+msgid "Edit video"
+msgstr "Video bearbeiten"
+
+#. translators: %s is the video title
+#: dist/admin/index.js:9
+#, js-format
+msgid "Edit: %s"
+msgstr "Bearbeiten: %s"
+
+#: dist/admin/index.js:9 dist/frontend/index.js:6
+msgid "Failed to load video"
+msgstr "Video konnte nicht geladen werden"
+
+#: dist/admin/index.js:9
+msgid "Update video details, products and thumbnail"
+msgstr "Aktualisieren Sie Videodetails, Produkte und Miniaturansichten"
+
+#: dist/admin/index.js:9
+msgid "Video updated successfully!"
+msgstr "Video erfolgreich aktualisiert!"
+
+#: dist/admin/index.js:9
+msgid "Failed to update video"
+msgstr "Video konnte nicht aktualisiert werden"
+
+#: dist/admin/index.js:9
+msgid "Update Video"
+msgstr "Video aktualisieren"
+
+#: dist/admin/index.js:9
+msgid "Video Not Found"
+msgstr "Video nicht gefunden"
+
+#: dist/admin/index.js:9
+msgid "The video you are looking for does not exist."
+msgstr "Das gesuchte Video existiert nicht."
+
+#: dist/admin/index.js:9
+msgid "Video Analytics"
+msgstr "Videoanalyse"
+
+#: dist/admin/index.js:9
+msgid "Failed to load video analytics"
+msgstr "Videoanalyse konnte nicht geladen werden"
+
+#: dist/admin/index.js:9
+msgid "Unlock detailed performance metrics with VidShop PRO"
+msgstr "Schalten Sie mit VidShop PRO detaillierte Leistungskennzahlen frei"
+
+#: dist/admin/index.js:9
+msgid "Video stats"
+msgstr "Videostatistiken"
+
+#: dist/admin/index.js:9
+msgid "Failed to load settings"
+msgstr "Die Einstellungen konnten nicht geladen werden"
+
+#: dist/admin/index.js:9
+msgid "Configure your VidShop plugin settings"
+msgstr "Konfigurieren Sie Ihre VidShop-Plugin-Einstellungen"
+
+#: dist/admin/index.js:9
+msgid "Video Engagement"
+msgstr "Video-Engagement"
+
+#: dist/admin/index.js:9
+msgid "Configure how users can interact with your videos"
+msgstr "Konfigurieren Sie, wie Benutzer mit Ihren Videos interagieren können"
+
+#: dist/admin/index.js:9
+msgid "Anonymous Likes"
+msgstr "Anonyme Likes"
+
+#: dist/admin/index.js:9
+msgid ""
+"Allow users to like videos without logging in. When disabled, only logged-in"
+" users can like videos."
+msgstr ""
+"Benutzern erlauben, Videos mit „Gefällt mir“ zu markieren, ohne sich "
+"anzumelden. Wenn diese Option deaktiviert ist, können nur angemeldete "
+"Benutzer Videos mit „Gefällt mir“ markieren."
+
+#: dist/admin/index.js:9
+msgid "Price display"
+msgstr "Preisanzeige"
+
+#: dist/admin/index.js:9
+msgid ""
+"Controls how product prices are displayed inside videos. Leave empty to "
+"inherit WooCommerce settings."
+msgstr ""
+"Steuert, wie Produktpreise in Videos angezeigt werden. Lassen Sie das Feld "
+"leer, um die WooCommerce-Einstellungen zu übernehmen."
+
+#: dist/admin/index.js:9
+msgid "Currency position"
+msgstr "Währungsposition"
+
+#: dist/admin/index.js:9
+msgid "Where the currency symbol is placed relative to the price."
+msgstr "Wo das Währungssymbol relativ zum Preis platziert wird."
+
+#: dist/admin/index.js:9
+msgid "Thousand separator"
+msgstr "Tausendertrennzeichen"
+
+#: dist/admin/index.js:9
+msgid "Leave empty to inherit WooCommerce value."
+msgstr "Lassen Sie das Feld leer, um den WooCommerce-Wert zu übernehmen."
+
+#: dist/admin/index.js:9
+msgid "WooCommerce:"
+msgstr "WooCommerce:"
+
+#: dist/admin/index.js:9
+msgid "Decimal separator"
+msgstr "Dezimaltrennzeichen"
+
+#: dist/admin/index.js:9
+msgid "Number of decimals"
+msgstr "Anzahl der Dezimalstellen"
+
+#: dist/admin/index.js:9
+msgid "Reset to WooCommerce defaults"
+msgstr "Zurücksetzen auf die WooCommerce-Standardeinstellungen"
+
+#: dist/admin/index.js:9
+msgid "Clear all overrides and inherit WooCommerce settings."
+msgstr ""
+"Löschen Sie alle Überschreibungen und übernehmen Sie die WooCommerce-"
+"Einstellungen."
+
+#: dist/admin/index.js:9
+msgid "You have unsaved changes"
+msgstr "Sie haben nicht gespeicherte Änderungen"
+
+#: dist/admin/index.js:9
+msgid "Settings saved successfully"
+msgstr "Einstellungen erfolgreich gespeichert"
+
+#: dist/admin/index.js:9
+msgid "Failed to save settings"
+msgstr "Einstellungen konnten nicht gespeichert werden"
+
+#: dist/admin/index.js:9
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+#: dist/frontend/index.js:1
+msgid "Product not found:"
+msgstr "Produkt nicht gefunden:"
+
+#: dist/frontend/index.js:1
+msgid "Error fetching product data:"
+msgstr "Fehler beim Abrufen der Produktdaten:"
+
+#: dist/frontend/index.js:1
+msgid "Failed to add product to cart:"
+msgstr "Das Produkt konnte nicht zum Warenkorb hinzugefügt werden:"
+
+#: dist/frontend/index.js:1
+msgid "Error adding to cart:"
+msgstr "Fehler beim Hinzufügen zum Warenkorb:"
+
+#: dist/frontend/index.js:1
+msgid "Error removing cart item:"
+msgstr "Fehler beim Entfernen des Warenkorbartikels:"
+
+#: dist/frontend/index.js:1
+msgid "Error updating cart item:"
+msgstr "Fehler beim Aktualisieren des Warenkorbartikels:"
+
+#: dist/frontend/index.js:1 dist/frontend/index.js:6 dist/frontend/index.js:7
+msgid "No videos available at the moment."
+msgstr "Zur Zeit sind keine Videos verfügbar."
+
+#. translators: %s is the product title
+#: dist/frontend/index.js:2
+#, js-format
+msgid "View %s"
+msgstr "%s anzeigen"
+
+#. translators: %s is the product title
+#: dist/frontend/index.js:3
+#, js-format
+msgid "Add %s to cart"
+msgstr "%s zum Warenkorb hinzufügen"
+
+#. translators: %s is the product title
+#: dist/frontend/index.js:4
+#, js-format
+msgid "✓ %s added to cart!"
+msgstr "✓ %s zum Warenkorb hinzugefügt!"
+
+#: dist/frontend/index.js:4
+msgid "Failed to add product to cart. Please try again."
+msgstr ""
+"Das Produkt konnte nicht zum Warenkorb hinzugefügt werden. Bitte versuchen "
+"Sie es erneut."
+
+#: dist/frontend/index.js:4
+msgid "An error occurred. Please try again."
+msgstr "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+
+#: dist/frontend/index.js:4
+msgid "Close product modal"
+msgstr "Produktmodal schließen"
+
+#: dist/frontend/index.js:4
+msgid "Decrease quantity"
+msgstr "Menge verringern"
+
+#: dist/frontend/index.js:4
+msgid "Increase quantity"
+msgstr "Menge erhöhen"
+
+#: dist/frontend/index.js:4
+msgid "Adding..."
+msgstr "Hinzufügen..."
+
+#: dist/frontend/index.js:4
+msgid "Login required to like videos"
+msgstr "Zum Liken von Videos ist eine Anmeldung erforderlich"
+
+#: dist/frontend/index.js:4
+msgid "Unlike video"
+msgstr "Im Gegensatz zu Video"
+
+#: dist/frontend/index.js:4
+msgid "Like video"
+msgstr "Wie Video"
+
+#: dist/frontend/index.js:4
+msgid "View cart"
+msgstr "Warenkorb ansehen"
+
+#: dist/frontend/index.js:4
+msgid "Unmute video"
+msgstr "Stummschaltung des Videos aufheben"
+
+#: dist/frontend/index.js:4
+msgid "Mute video"
+msgstr "Video stumm schalten"
+
+#. translators: %s is the product name
+#: dist/frontend/index.js:5
+#, js-format
+msgid "Remove %s from cart"
+msgstr "Entfernen Sie %s aus dem Warenkorb"
+
+#: dist/frontend/index.js:5
+msgid "Your cart is empty"
+msgstr "Ihr Warenkorb ist leer"
+
+#: dist/frontend/index.js:5
+msgid "Add some products to get started!"
+msgstr "Fügen Sie einige Produkte hinzu, um loszulegen!"
+
+#. translators: %d is the cart items count
+#: dist/frontend/index.js:6
+#, js-format
+msgid "Shopping Cart (%d)"
+msgstr "Warenkorb (%d)"
+
+#: dist/frontend/index.js:6
+msgid "Close cart"
+msgstr "Warenkorb schließen"
+
+#: dist/frontend/index.js:6
+msgid "Subtotal:"
+msgstr "Zwischensumme:"
+
+#: dist/frontend/index.js:6
+msgid "Discount:"
+msgstr "Rabatt:"
+
+#: dist/frontend/index.js:6
+msgid "Shipping:"
+msgstr "Versand:"
+
+#: dist/frontend/index.js:6
+msgid "Tax:"
+msgstr "Steuer:"
+
+#: dist/frontend/index.js:6
+msgid "Total:"
+msgstr "Gesamt:"
+
+#: dist/frontend/index.js:6
+msgid "Proceed to Checkout"
+msgstr "Gehen Sie zur Kasse"
+
+#: dist/frontend/index.js:6
+msgid "Error loading video"
+msgstr "Fehler beim Laden des Videos"
+
+#: dist/frontend/index.js:6 dist/frontend/index.js:7
+msgid "Previous videos"
+msgstr "Vorherige Videos"
+
+#: dist/frontend/index.js:6 dist/frontend/index.js:7
+msgid "Next videos"
+msgstr "Nächste Videos"
+
+#. translators: %d is the slide number
+#: dist/frontend/index.js:7
+#, js-format
+msgid "Go to slide %d"
+msgstr "Gehen Sie zu Folie %d"
+
+#: dist/frontend/index.js:7
+msgid "Scroll to see more"
+msgstr "Scrollen Sie, um mehr zu sehen"
+
+#: dist/frontend/index.js:7
+msgid "Go to slide"
+msgstr "Gehe zur Folie"
