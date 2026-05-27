@@ -1,1 +1,1237 @@
-{"translation-revision-date":"2025-12-28 12:00+0000","generator":"WP-CLI\/2.12.0","source":"dist\/admin\/index.js","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","lang":"pt_BR","plural-forms":"nplurals=2; plural=(n > 1);"},"VidShop":["VidShop"],"Dashboard":["Painel"],"Videos":["V\u00eddeos"],"Add new video":["Adicionar novo v\u00eddeo"],"Settings":["Configura\u00e7\u00f5es"],"All Time":["Todo o Per\u00edodo"],"Failed to move video to trash":["Falha ao mover v\u00eddeo para a lixeira"],"Failed to restore video":["Falha ao restaurar v\u00eddeo"],"Tags":["Etiquetas"],"Update now":["Atualizar agora"],"Switch to dark mode":["Mudar para o modo escuro"],"Switch to light mode":["Mudar para o modo claro"],"Close":["Fechar"],"requires VidShop PRO":["requer VidShop PRO"],"Upgrade to PRO":["Atualize para PRO"],"Select...":["Selecione..."],"No options":["Sem op\u00e7\u00f5es"],"Loading...":["Carregando..."],"Searching products...":["Pesquisando produtos..."],"No products found":["Nenhum produto encontrado"],"Remove product":["Remover produto"],"Maximum number of products reached":["N\u00famero m\u00e1ximo de produtos alcan\u00e7ado"],"PRO":["PR\u00d3"],"This is a PRO feature. Click to learn more.":["Este \u00e9 um recurso PRO. Clique para saber mais."],"Video tags":["Tags de v\u00eddeo"],"Group videos by theme, product line, or campaign and power tag-filtered sliders anywhere on your site.":["Agrupe v\u00eddeos por tema, linha de produtos ou campanha e controles deslizantes filtrados por tags em qualquer lugar do seu site."],"Organize videos with tags":["Organize v\u00eddeos com tags"],"Tag videos to group them by theme, product line, or campaign and build tag-filtered sliders anywhere on your site.":["Marque v\u00eddeos para agrup\u00e1-los por tema, linha de produtos ou campanha e crie controles deslizantes filtrados por tags em qualquer lugar do seu site."],"Full tag CRUD with a videos-per-tag count":["CRUD de tag completa com contagem de v\u00eddeos por tag"],"Assign multiple tags to any video from the edit screen":["Atribua v\u00e1rias tags a qualquer v\u00eddeo na tela de edi\u00e7\u00e3o"],"Filter the Videos list by tag at a glance":["Filtre a lista de v\u00eddeos por tag rapidamente"],"Render tag-filtered sliders via [vsfw-videos tags=\"\u2026\"]":["Renderize controles deslizantes filtrados por tags por meio de [vsfw-videos tags = \"\u2026\"]"],"Unlock with VidShop PRO":["Desbloqueie com VidShop PRO"],"Tags (PRO)":["Etiquetas (Pr\u00f3)"],"You have unsaved changes. Are you sure you want to leave?":["Voc\u00ea tem altera\u00e7\u00f5es n\u00e3o salvas. Tem certeza de que deseja sair?"],"Media Library":["Biblioteca de m\u00eddia"],"Custom URL":["URL personalizado"],"WordPress Media Library is not available":["A Biblioteca de M\u00eddia WordPress n\u00e3o est\u00e1 dispon\u00edvel"],"Select Video":["Selecione V\u00eddeo"],"Use this video":["Utilize este v\u00eddeo"],"Select Thumbnail":["Selecione miniatura"],"Use this image":["Use esta imagem"],"Video title is required":["O t\u00edtulo do v\u00eddeo \u00e9 obrigat\u00f3rio"],"Please select a video from the media library":["Selecione um v\u00eddeo da biblioteca de m\u00eddia"],"Please enter a video URL":["Insira um URL de v\u00eddeo"],"Please select at least one product":["Selecione pelo menos um produto"],"Video thumbnail is required":["A miniatura do v\u00eddeo \u00e9 obrigat\u00f3ria"],"Video Details":["Detalhes do v\u00eddeo"],"Video Title":["T\u00edtulo do v\u00eddeo"],"Enter video title":["Insira o t\u00edtulo do v\u00eddeo"],"Thumbnail":["Miniatura"],"Video Thumbnail":["Miniatura do v\u00eddeo"],"Change":["Mudar"],"Remove":["Remover"],"Click to upload thumbnail":["Clique para carregar a miniatura"],"Recommended size: 720\u00d71280 pixels (9:16 ratio)":["Tamanho recomendado: 720\u00d71280 pixels (propor\u00e7\u00e3o 9:16)"],"Video":["V\u00eddeo"],"Error loading video. Please check the URL.":["Erro ao carregar o v\u00eddeo. Por favor, verifique o URL."],"Unmute":["Ativar som"],"Mute":["Mudo"],"Media Library Video Selected":["V\u00eddeo da biblioteca de m\u00eddia selecionado"],"Video URL Confirmed":["URL do v\u00eddeo confirmado"],"Enter video URL (mp4, webm, ogg, mov, avi)":["Insira o URL do v\u00eddeo (mp4, webm, ogg, mov, avi)"],"Please enter a valid video URL":["Insira um URL de v\u00eddeo v\u00e1lido"],"Insert":["Inserir"],"Select a video from the media library or provide a custom URL. For best results, use a 9:16 aspect ratio (vertical video).":["Selecione um v\u00eddeo da biblioteca de m\u00eddia ou forne\u00e7a um URL personalizado. Para obter melhores resultados, use uma propor\u00e7\u00e3o de 9:16 (v\u00eddeo vertical)."],"Publish":["Publicar"],"Status":["Status"],"Published":["Publicado"],"Draft":["Rascunho"],"Cancel":["Cancelar"],"Featured Products":["Produtos em destaque"],"Search for products to feature...":["Procure produtos para apresentar..."],"Add Products":["Adicionar produtos"],"These products will be featured with the video":["Esses produtos ser\u00e3o apresentados no v\u00eddeo"],"Assign tags (PRO)":["Atribuir tags (PRO)"],"Inherit from WooCommerce":["Herdar do WooCommerce"],"Left (e.g. $99.99)":["Esquerda (por exemplo, $ 99,99)"],"Right (e.g. 99.99$)":["Certo (por exemplo, 99,99$)"],"Left with space (e.g. $ 99.99)":["Deixado com espa\u00e7o (por exemplo, $ 99,99)"],"Right with space (e.g. 99.99 $)":["Direito com espa\u00e7o (por exemplo, 99,99 $)"],"Trash":["Lixo"],"By %s":["Por %s"],"Unknown":["Desconhecido"],"%d total views":["%d total de visualiza\u00e7\u00f5es"],"%d total likes":["%d total de curtidas"],"Click to save as draft":["Clique para salvar como rascunho"],"Click to publish":["Clique para publicar"],"Video published successfully":["V\u00eddeo publicado com sucesso"],"Video saved as draft":["V\u00eddeo salvo como rascunho"],"Failed to update video status":["Falha ao atualizar o status do v\u00eddeo"],"Video restored successfully":["V\u00eddeo restaurado com sucesso"],"Restore":["Restaurar"],"Delete Permanently":["Excluir permanentemente"],"Are you sure you want to permanently delete \"%s\"? This action cannot be undone.":["Tem certeza de que deseja excluir permanentemente \"%s\"? Esta a\u00e7\u00e3o n\u00e3o pode ser desfeita."],"Video permanently deleted":["V\u00eddeo exclu\u00eddo permanentemente"],"Failed to permanently delete video":["Falha ao excluir v\u00eddeo permanentemente"],"View Stats":["Ver estat\u00edsticas"],"Edit":["Editar"],"Move to Trash":["Mover para a lixeira"],"Are you sure you want to move \"%s\" to trash? You can restore it later.":["Tem certeza de que deseja mover \"%s\" para a lixeira? Voc\u00ea pode restaur\u00e1-lo mais tarde."],"Video moved to trash":["V\u00eddeo movido para a lixeira"],"Previous":["Anterior"],"Next":["Pr\u00f3ximo"],"On":["Sobre"],"Off":["Desligado"],"Trust Blue":["Confie no Azul"],"TikTok Pink":["TikTok rosa"],"Buy Now Orange":["Compre agora laranja"],"Success Green":["Sucesso Verde"],"Premium Gold":["Ouro Premium"],"Trending Purple":["Tend\u00eancia Roxo"],"Grid Layout":["Layout de grade"],"Carousel Layout":["Layout do carrossel"],"Stories Layout":["Layout de hist\u00f3rias"],"Stories Carousel Layout":["Layout de carrossel de hist\u00f3rias"],"Show Product Details":["Mostrar detalhes do produto"],"Go to Product Page":["V\u00e1 para a p\u00e1gina do produto"],"None (default)":["Nenhum (padr\u00e3o)"],"Open Cart Modal":["Modal de carrinho aberto"],"Redirect to Checkout":["Redirecionar para finaliza\u00e7\u00e3o da compra"],"Advanced Layouts":["Layouts Avan\u00e7ados"],"Access Carousel and Stories layouts for more engaging video displays.":["Acesse os layouts de carrossel e hist\u00f3rias para exibi\u00e7\u00f5es de v\u00eddeo mais envolventes."],"Layout Columns":["Colunas de layout"],"Customize the number of columns displayed on different devices.":["Personalize o n\u00famero de colunas exibidas em diferentes dispositivos."],"Custom Color Schema":["Esquema de cores personalizado"],"Choose any custom color to match your brand perfectly.":["Escolha qualquer cor personalizada para combinar perfeitamente com sua marca."],"Autoplay Videos":["V\u00eddeos de reprodu\u00e7\u00e3o autom\u00e1tica"],"Automatically play videos in sequence when the modal is open. When one video finishes, the next starts automatically.":["Reproduza automaticamente v\u00eddeos em sequ\u00eancia quando o modal estiver aberto. Quando um v\u00eddeo termina, o pr\u00f3ximo come\u00e7a automaticamente."],"Filter by Tags":["Filtrar por tags"],"Build sliders from videos that match selected tags \u2014 perfect for per-category showcases (e.g. \"shoes\", \"outerwear\").":["Crie controles deslizantes a partir de v\u00eddeos que correspondam \u00e0s tags selecionadas \u2014 perfeitos para apresenta\u00e7\u00f5es por categoria (por exemplo, \"sapatos\", \"agasalhos\")."],"All Videos":["Todos os v\u00eddeos"],"Specific Videos":["V\u00eddeos espec\u00edficos"],"Date":["Data"],"Title":["T\u00edtulo"],"ID":["EU IA"],"Random":["Aleat\u00f3rio"],"Descending":["Descendente"],"Ascending":["Ascendente"],"Any of the selected (OR)":["Qualquer um dos selecionados (OU)"],"All of the selected (AND)":["Todos os selecionados (E)"],"Drag to reorder":["Arraste para reordenar"],"Remove video":["Remover v\u00eddeo"],"Shortcode copied to clipboard!":["Shortcode copiado para a \u00e1rea de transfer\u00eancia!"],"Generate Video Shortcode":["Gerar c\u00f3digo curto de v\u00eddeo"],"Create a shortcode to display your videos on any page or post. Choose your settings below and copy the generated shortcode.":["Crie um shortcode para exibir seus v\u00eddeos em qualquer p\u00e1gina ou postagem. Escolha suas configura\u00e7\u00f5es abaixo e copie o shortcode gerado."],"Video Selection":["Sele\u00e7\u00e3o de V\u00eddeo"],"Search & Select Videos":["Pesquise e selecione v\u00eddeos"],"Search videos...":["Pesquisar v\u00eddeos..."],"Selected Videos":["V\u00eddeos selecionados"],"Drag items to change the display order.":["Arraste os itens para alterar a ordem de exibi\u00e7\u00e3o."],"Video Order":["Ordem de v\u00eddeo"],"Order by":["Encomendar por"],"Direction":["Dire\u00e7\u00e3o"],"No tags found. Create tags in VidShop \u2192 Tags to enable filtering.":["Nenhuma etiqueta encontrada. Crie tags em VidShop \u2192 Tags para ativar a filtragem."],"Match mode":["Modo de partida"],"Upgrade to VidShop Pro to build tag-filtered sliders.":["Atualize para o VidShop Pro para criar controles deslizantes filtrados por tags."],"Color Schema":["Esquema de cores"],"Custom Color":["Cor personalizada"],"Pick custom color":["Escolha uma cor personalizada"],"Custom colors require PRO":["Cores personalizadas exigem PRO"],"Choose Color":["Escolha a cor"],"Close color picker":["Fechar seletor de cores"],"Layout Type":["Tipo de layout"],"\ud83c\udfac See Live Examples & Get Inspired":["\ud83c\udfac Veja exemplos ao vivo e inspire-se"],"Columns Configuration":["Configura\u00e7\u00e3o de colunas"],"Desktop":["\u00c1rea de trabalho"],"Tablet":["Comprimido"],"Mobile":["M\u00f3vel"],"Auto-open product details":["Detalhes do produto de abertura autom\u00e1tica"],"When opening the video modal, automatically open the first product\u2019s details.":["Ao abrir o modal de v\u00eddeo, abra automaticamente os detalhes do primeiro produto."],"Play on Hover":["Jogue ao passar o mouse"],"When autoplay is off, hovering a video will preview it.":["Quando a reprodu\u00e7\u00e3o autom\u00e1tica est\u00e1 desativada, passar o mouse sobre um v\u00eddeo ir\u00e1 visualiz\u00e1-lo."],"Videos will start playing as a preview when user hovers over them":["Os v\u00eddeos come\u00e7ar\u00e3o a ser reproduzidos como uma pr\u00e9via quando o usu\u00e1rio passar o mouse sobre eles"],"Navigation Options":["Op\u00e7\u00f5es de navega\u00e7\u00e3o"],"Show Arrows":["Mostrar setas"],"Display navigation arrows on carousel":["Exibir setas de navega\u00e7\u00e3o no carrossel"],"Show Dots":["Mostrar pontos"],"Display pagination dots below carousel":["Exibir pontos de pagina\u00e7\u00e3o abaixo do carrossel"],"Engagement Counts":["O envolvimento conta"],"Show view count":["Mostrar contagem de visualiza\u00e7\u00f5es"],"Display the total view count on each video.":["Exiba a contagem total de visualiza\u00e7\u00f5es de cada v\u00eddeo."],"Show like count":["Mostrar contagem de curtidas"],"Display the like count next to the heart icon.":["Exiba a contagem de curtidas ao lado do \u00edcone de cora\u00e7\u00e3o."],"Autoplay":["Reprodu\u00e7\u00e3o autom\u00e1tica"],"When the video modal is open, videos will play automatically in sequence. When one video finishes, the next starts automatically. If a product or cart modal is open, the current video loops until the modal closes.":["Quando o modal de v\u00eddeo estiver aberto, os v\u00eddeos ser\u00e3o reproduzidos automaticamente em sequ\u00eancia. Quando um v\u00eddeo termina, o pr\u00f3ximo come\u00e7a automaticamente. Se um modal de produto ou carrinho estiver aberto, o v\u00eddeo atual ser\u00e1 repetido at\u00e9 que o modal feche."],"Automatically plays videos in sequence \u2014 when one finishes, the next starts. Enable Loop to restart from the first video after the last.":["Reproduz automaticamente v\u00eddeos em sequ\u00eancia: quando um termina, o pr\u00f3ximo come\u00e7a. Habilite o Loop para reiniciar do primeiro v\u00eddeo ap\u00f3s o \u00faltimo."],"Automatically plays the current video and moves to the next when it finishes. If a modal is open, the current video loops until the modal is closed.":["Reproduz automaticamente o v\u00eddeo atual e passa para o pr\u00f3ximo quando terminar. Se um modal estiver aberto, o v\u00eddeo atual ser\u00e1 repetido at\u00e9 que o modal seja fechado."],"Videos will start playing automatically when they come into view.":["Os v\u00eddeos come\u00e7ar\u00e3o a ser reproduzidos automaticamente quando forem exibidos."],"Loop Autoplay":["Reprodu\u00e7\u00e3o autom\u00e1tica de loop"],"After the last video ends, automatically start from the first again.":["Depois que o \u00faltimo v\u00eddeo terminar, comece automaticamente do primeiro novamente."],"Add to Cart Button":["Bot\u00e3o Adicionar ao carrinho"],"Button Action":["A\u00e7\u00e3o do bot\u00e3o"],"Opens a product details modal where customers can select variations and add to cart":["Abre um modal de detalhes do produto onde os clientes podem selecionar varia\u00e7\u00f5es e adicion\u00e1-las ao carrinho"],"Opens the product page in a new tab for customers to view full details":["Abre a p\u00e1gina do produto em uma nova guia para que os clientes vejam todos os detalhes"],"Button Appearance":["Apar\u00eancia do bot\u00e3o"],"Show Icon":["Mostrar \u00edcone"],"Display the shopping cart icon in the button":["Exibir o \u00edcone do carrinho de compras no bot\u00e3o"],"Show Text":["Mostrar texto"],"Display \"Add to Cart\" text in the button":["Exibir o texto \"Adicionar ao carrinho\" no bot\u00e3o"],"After Add to Cart":["Depois de adicionar ao carrinho"],"Choose what happens after adding to cart.":["Escolha o que acontece ap\u00f3s adicionar ao carrinho."],"Please enter a valid URL (e.g., https:\/\/example.com or \/page)":["Insira um URL v\u00e1lido (por exemplo, https:\/\/example.com ou \/page)"],"https:\/\/example.com or \/page":["https:\/\/example.com ou \/page"],"Enter a full URL (https:\/\/example.com) or a relative path (\/page)":["Insira um URL completo (https:\/\/example.com) ou um caminho relativo (\/page)"],"Invalid Configuration":["Configura\u00e7\u00e3o inv\u00e1lida"],"You must show either the icon or the text (or both). The button cannot be completely empty.":["Voc\u00ea deve mostrar o \u00edcone ou o texto (ou ambos). O bot\u00e3o n\u00e3o pode estar completamente vazio."],"Configure how the button appears on product cards. You can show icon only, text only, or both. The button border radius will automatically adjust based on your selection.":["Configure como o bot\u00e3o aparece nos cart\u00f5es de produto. Voc\u00ea pode mostrar apenas \u00edcone, apenas texto ou ambos. O raio da borda do bot\u00e3o ser\u00e1 ajustado automaticamente com base na sua sele\u00e7\u00e3o."],"Generated Shortcode":["C\u00f3digo curto gerado"],"Copy":["C\u00f3pia"],"Reset":["Reiniciar"],"Copy Shortcode":["Copiar c\u00f3digo curto"],"Unlock Advanced Video Analytics":["Desbloqueie an\u00e1lise de v\u00eddeo avan\u00e7ada"],"Get detailed performance insights for \"%s\" and all your videos with VidShop PRO.":["Obtenha insights detalhados de desempenho para \"%s\" e todos os seus v\u00eddeos com o VidShop PRO."],"Get detailed performance insights for your videos with VidShop PRO.":["Obtenha insights detalhados de desempenho para seus v\u00eddeos com VidShop PRO."],"Detailed View & Engagement Metrics":["Vis\u00e3o detalhada e m\u00e9tricas de engajamento"],"Product Performance Analytics":["An\u00e1lise de desempenho do produto"],"Watch Time & User Behavior Insights":["Assistir informa\u00e7\u00f5es sobre tempo e comportamento do usu\u00e1rio"],"Conversion Tracking & ROI Analysis":["Acompanhamento de convers\u00f5es e an\u00e1lise de ROI"],"View Live Demo":["Ver demonstra\u00e7\u00e3o ao vivo"],"Dismiss notice":["Dispensar aviso"],"VidShop Pro is outdated":["VidShop Pro est\u00e1 desatualizado"],"Update to version %1$s or later to unlock the full Pro admin experience (currently %2$s).":["Atualize para a vers\u00e3o %1$s ou posterior para desbloquear a experi\u00eancia completa de administra\u00e7\u00e3o Pro (atualmente %2$s)."],"Back to top":["Voltar ao topo"],"This Week":["Essa semana"],"Last Week":["Semana passada"],"This Month":["Este m\u00eas"],"Last Month":["M\u00eas passado"],"Welcome to VidShop!":["Bem-vindo ao VidShop!"],"Start engaging your customers with interactive videos. Upload your first video to begin tracking analytics and boosting your sales.":["Comece a envolver seus clientes com v\u00eddeos interativos. Envie seu primeiro v\u00eddeo para come\u00e7ar a monitorar an\u00e1lises e aumentar suas vendas."],"Add Your First Video":["Adicione seu primeiro v\u00eddeo"],"Analytics Dashboard":["Painel anal\u00edtico"],"Select period":["Selecione o per\u00edodo"],"Total Views":["Total de visualiza\u00e7\u00f5es"],"Unique Views":["Visualiza\u00e7\u00f5es \u00fanicas"],"Total Likes":["Total de curtidas"],"Unique Likes":["Curtidas \u00fanicas"],"Avg. View Time":["M\u00e9dia Ver hora"],"Total View Time":["Tempo total de visualiza\u00e7\u00e3o"],"Add to Cart":["adicionar ao carrinho"],"Product Views":["Visualiza\u00e7\u00f5es do produto"],"Unlock the Full Power of VidShop PRO":["Desbloqueie todo o poder do VidShop PRO"],"Carousel & Stories Layouts":["Layouts de carrossel e hist\u00f3rias"],"Custom Color Schemas":["Esquemas de cores personalizados"],"Responsive Columns Control":["Controle de colunas responsivas"],"Advanced Analytics":["An\u00e1lise Avan\u00e7ada"],"Top Videos":["Principais v\u00eddeos"],"views":["visualiza\u00e7\u00f5es"],"No video data available for this period":["N\u00e3o h\u00e1 dados de v\u00eddeo dispon\u00edveis para este per\u00edodo"],"Top Products":["Principais produtos"],"View Product":["Ver produto"],"No product data available for this period":["N\u00e3o h\u00e1 dados de produtos dispon\u00edveis para este per\u00edodo"],"Date Created":["Data de cria\u00e7\u00e3o"],"Newest First":["Mais novo primeiro"],"Drafts":["Rascunhos"],"Oldest First":["Mais antigo primeiro"],"Failed to fetch videos":["Falha ao buscar v\u00eddeos"],"Showing":["Mostrando"],"of":["de"],"videos":["v\u00eddeos"],"Generate Shortcode":["Gerar c\u00f3digo curto"],"Add New Video":["Adicionar novo v\u00eddeo"],"Filter by tag (PRO)":["Filtrar por tag (PRO)"],"Sort by":["Ordenar por"],"Order":["Ordem"],"No videos found":["Nenhum v\u00eddeo encontrado"],"No videos yet":["Ainda n\u00e3o h\u00e1 v\u00eddeos"],"Try adjusting your search criteria.":["Tente ajustar seus crit\u00e9rios de pesquisa."],"Create your first video to get started with VidShop.":["Crie seu primeiro v\u00eddeo para come\u00e7ar a usar o VidShop."],"Create a new video with products and thumbnail":["Crie um novo v\u00eddeo com produtos e miniatura"],"Back to Videos":["Voltar aos v\u00eddeos"],"Video created successfully!":["V\u00eddeo criado com sucesso!"],"Failed to create video":["Falha ao criar v\u00eddeo"],"Create Video":["Criar v\u00eddeo"],"Edit video":["Editar v\u00eddeo"],"Edit: %s":["Editar: %s"],"Failed to load video":["Falha ao carregar o v\u00eddeo"],"Update video details, products and thumbnail":["Atualizar detalhes do v\u00eddeo, produtos e miniaturas"],"Video updated successfully!":["V\u00eddeo atualizado com sucesso!"],"Failed to update video":["Falha ao atualizar o v\u00eddeo"],"Update Video":["Atualizar v\u00eddeo"],"Video Not Found":["V\u00eddeo n\u00e3o encontrado"],"The video you are looking for does not exist.":["O v\u00eddeo que voc\u00ea procura n\u00e3o existe."],"Video Analytics":["An\u00e1lise de v\u00eddeo"],"Failed to load video analytics":["Falha ao carregar a an\u00e1lise de v\u00eddeo"],"Unlock detailed performance metrics with VidShop PRO":["Desbloqueie m\u00e9tricas de desempenho detalhadas com VidShop PRO"],"Video stats":["Estat\u00edsticas de v\u00eddeo"],"Failed to load settings":["Falha ao carregar as configura\u00e7\u00f5es"],"Configure your VidShop plugin settings":["Defina as configura\u00e7\u00f5es do plug-in VidShop"],"Video Engagement":["Engajamento de v\u00eddeo"],"Configure how users can interact with your videos":["Configure como os usu\u00e1rios podem interagir com seus v\u00eddeos"],"Anonymous Likes":["Curtidas an\u00f4nimas"],"Allow users to like videos without logging in. When disabled, only logged-in users can like videos.":["Permita que os usu\u00e1rios curtam v\u00eddeos sem fazer login. Quando desativado, apenas usu\u00e1rios logados podem curtir v\u00eddeos."],"Price display":["Exibi\u00e7\u00e3o de pre\u00e7o"],"Controls how product prices are displayed inside videos. Leave empty to inherit WooCommerce settings.":["Controla como os pre\u00e7os dos produtos s\u00e3o exibidos nos v\u00eddeos. Deixe em branco para herdar as configura\u00e7\u00f5es do WooCommerce."],"Currency position":["Posi\u00e7\u00e3o monet\u00e1ria"],"Where the currency symbol is placed relative to the price.":["Onde o s\u00edmbolo da moeda \u00e9 colocado em rela\u00e7\u00e3o ao pre\u00e7o."],"Thousand separator":["Separador de mil"],"Leave empty to inherit WooCommerce value.":["Deixe em branco para herdar o valor WooCommerce."],"WooCommerce:":["WooCommerce:"],"Decimal separator":["Separador decimal"],"Number of decimals":["N\u00famero de decimais"],"Reset to WooCommerce defaults":["Redefinir para os padr\u00f5es do WooCommerce"],"Clear all overrides and inherit WooCommerce settings.":["Limpe todas as substitui\u00e7\u00f5es e herde as configura\u00e7\u00f5es do WooCommerce."],"You have unsaved changes":["Voc\u00ea tem altera\u00e7\u00f5es n\u00e3o salvas"],"Settings saved successfully":["Configura\u00e7\u00f5es salvas com sucesso"],"Failed to save settings":["Falha ao salvar as configura\u00e7\u00f5es"],"Save Settings":["Salvar configura\u00e7\u00f5es"]}}}
+{
+    "translation-revision-date": "2025-12-28 12:00+0000",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "dist\/admin\/index.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "pt_BR",
+                "plural-forms": "nplurals=2; plural=(n > 1);"
+            },
+            "VidShop": [
+                "VidShop"
+            ],
+            "Dashboard": [
+                "Painel"
+            ],
+            "Videos": [
+                "V\u00eddeos"
+            ],
+            "Add new video": [
+                "Adicionar novo v\u00eddeo"
+            ],
+            "Settings": [
+                "Configura\u00e7\u00f5es"
+            ],
+            "All Time": [
+                "Todo o Per\u00edodo"
+            ],
+            "Failed to move video to trash": [
+                "Falha ao mover v\u00eddeo para a lixeira"
+            ],
+            "Failed to restore video": [
+                "Falha ao restaurar v\u00eddeo"
+            ],
+            "Tags": [
+                "Etiquetas"
+            ],
+            "Update now": [
+                "Atualizar agora"
+            ],
+            "Dismiss": [
+                "Liberar"
+            ],
+            "Switch to dark mode": [
+                "Mudar para o modo escuro"
+            ],
+            "Switch to light mode": [
+                "Mudar para o modo claro"
+            ],
+            "Close": [
+                "Fechar"
+            ],
+            "requires VidShop PRO": [
+                "requer VidShop PRO"
+            ],
+            "Upgrade to PRO": [
+                "Atualize para PRO"
+            ],
+            "Select...": [
+                "Selecione..."
+            ],
+            "No options": [
+                "Sem op\u00e7\u00f5es"
+            ],
+            "Loading...": [
+                "Carregando..."
+            ],
+            "Searching products...": [
+                "Pesquisando produtos..."
+            ],
+            "No products found": [
+                "Nenhum produto encontrado"
+            ],
+            "Remove product": [
+                "Remover produto"
+            ],
+            "Maximum number of products reached": [
+                "N\u00famero m\u00e1ximo de produtos alcan\u00e7ado"
+            ],
+            "PRO": [
+                "PR\u00d3"
+            ],
+            "This is a PRO feature. Click to learn more.": [
+                "Este \u00e9 um recurso PRO. Clique para saber mais."
+            ],
+            "Video tags": [
+                "Tags de v\u00eddeo"
+            ],
+            "Group videos by theme, product line, or campaign and power tag-filtered sliders anywhere on your site.": [
+                "Agrupe v\u00eddeos por tema, linha de produtos ou campanha e controles deslizantes filtrados por tags em qualquer lugar do seu site."
+            ],
+            "Organize videos with tags": [
+                "Organize v\u00eddeos com tags"
+            ],
+            "Tag videos to group them by theme, product line, or campaign and build tag-filtered sliders anywhere on your site.": [
+                "Marque v\u00eddeos para agrup\u00e1-los por tema, linha de produtos ou campanha e crie controles deslizantes filtrados por tags em qualquer lugar do seu site."
+            ],
+            "Full tag CRUD with a videos-per-tag count": [
+                "CRUD de tag completa com contagem de v\u00eddeos por tag"
+            ],
+            "Assign multiple tags to any video from the edit screen": [
+                "Atribua v\u00e1rias tags a qualquer v\u00eddeo na tela de edi\u00e7\u00e3o"
+            ],
+            "Filter the Videos list by tag at a glance": [
+                "Filtre a lista de v\u00eddeos por tag rapidamente"
+            ],
+            "Render tag-filtered sliders via [vsfw-videos tags=\"\u2026\"]": [
+                "Renderize controles deslizantes filtrados por tags por meio de [vsfw-videos tags = \"\u2026\"]"
+            ],
+            "Unlock with VidShop PRO": [
+                "Desbloqueie com VidShop PRO"
+            ],
+            "Tags (PRO)": [
+                "Etiquetas (Pr\u00f3)"
+            ],
+            "You have unsaved changes. Are you sure you want to leave?": [
+                "Voc\u00ea tem altera\u00e7\u00f5es n\u00e3o salvas. Tem certeza de que deseja sair?"
+            ],
+            "Media Library": [
+                "Biblioteca de m\u00eddia"
+            ],
+            "Custom URL": [
+                "URL personalizado"
+            ],
+            "WordPress Media Library is not available": [
+                "A Biblioteca de M\u00eddia WordPress n\u00e3o est\u00e1 dispon\u00edvel"
+            ],
+            "Select Video": [
+                "Selecione V\u00eddeo"
+            ],
+            "Use this video": [
+                "Utilize este v\u00eddeo"
+            ],
+            "Select Thumbnail": [
+                "Selecione miniatura"
+            ],
+            "Use this image": [
+                "Use esta imagem"
+            ],
+            "Video title is required": [
+                "O t\u00edtulo do v\u00eddeo \u00e9 obrigat\u00f3rio"
+            ],
+            "Please select a video from the media library": [
+                "Selecione um v\u00eddeo da biblioteca de m\u00eddia"
+            ],
+            "Please enter a video URL": [
+                "Insira um URL de v\u00eddeo"
+            ],
+            "Please select at least one product": [
+                "Selecione pelo menos um produto"
+            ],
+            "Video thumbnail is required": [
+                "A miniatura do v\u00eddeo \u00e9 obrigat\u00f3ria"
+            ],
+            "Video Details": [
+                "Detalhes do v\u00eddeo"
+            ],
+            "Video Title": [
+                "T\u00edtulo do v\u00eddeo"
+            ],
+            "Enter video title": [
+                "Insira o t\u00edtulo do v\u00eddeo"
+            ],
+            "Thumbnail": [
+                "Miniatura"
+            ],
+            "Video Thumbnail": [
+                "Miniatura do v\u00eddeo"
+            ],
+            "Change": [
+                "Mudar"
+            ],
+            "Remove": [
+                "Remover"
+            ],
+            "Click to upload thumbnail": [
+                "Clique para carregar a miniatura"
+            ],
+            "Recommended size: 720\u00d71280 pixels (9:16 ratio)": [
+                "Tamanho recomendado: 720\u00d71280 pixels (propor\u00e7\u00e3o 9:16)"
+            ],
+            "Video": [
+                "V\u00eddeo"
+            ],
+            "Error loading video. Please check the URL.": [
+                "Erro ao carregar o v\u00eddeo. Por favor, verifique o URL."
+            ],
+            "Unmute": [
+                "Ativar som"
+            ],
+            "Mute": [
+                "Mudo"
+            ],
+            "Media Library Video Selected": [
+                "V\u00eddeo da biblioteca de m\u00eddia selecionado"
+            ],
+            "Video URL Confirmed": [
+                "URL do v\u00eddeo confirmado"
+            ],
+            "Enter video URL (mp4, webm, ogg, mov, avi)": [
+                "Insira o URL do v\u00eddeo (mp4, webm, ogg, mov, avi)"
+            ],
+            "Please enter a valid video URL": [
+                "Insira um URL de v\u00eddeo v\u00e1lido"
+            ],
+            "Insert": [
+                "Inserir"
+            ],
+            "Select a video from the media library or provide a custom URL. For best results, use a 9:16 aspect ratio (vertical video).": [
+                "Selecione um v\u00eddeo da biblioteca de m\u00eddia ou forne\u00e7a um URL personalizado. Para obter melhores resultados, use uma propor\u00e7\u00e3o de 9:16 (v\u00eddeo vertical)."
+            ],
+            "Publish": [
+                "Publicar"
+            ],
+            "Status": [
+                "Status"
+            ],
+            "Published": [
+                "Publicado"
+            ],
+            "Draft": [
+                "Rascunho"
+            ],
+            "Cancel": [
+                "Cancelar"
+            ],
+            "Featured Products": [
+                "Produtos em destaque"
+            ],
+            "Search for products to feature...": [
+                "Procure produtos para apresentar..."
+            ],
+            "Add Products": [
+                "Adicionar produtos"
+            ],
+            "These products will be featured with the video": [
+                "Esses produtos ser\u00e3o apresentados no v\u00eddeo"
+            ],
+            "Assign tags (PRO)": [
+                "Atribuir tags (PRO)"
+            ],
+            "Inherit from WooCommerce": [
+                "Herdar do WooCommerce"
+            ],
+            "Left (e.g. $99.99)": [
+                "Esquerda (por exemplo, $ 99,99)"
+            ],
+            "Right (e.g. 99.99$)": [
+                "Certo (por exemplo, 99,99$)"
+            ],
+            "Left with space (e.g. $ 99.99)": [
+                "Deixado com espa\u00e7o (por exemplo, $ 99,99)"
+            ],
+            "Right with space (e.g. 99.99 $)": [
+                "Direito com espa\u00e7o (por exemplo, 99,99 $)"
+            ],
+            "Trash": [
+                "Lixo"
+            ],
+            "By %s": [
+                "Por %s"
+            ],
+            "Unknown": [
+                "Desconhecido"
+            ],
+            "%d total views": [
+                "%d total de visualiza\u00e7\u00f5es"
+            ],
+            "%d total likes": [
+                "%d total de curtidas"
+            ],
+            "Click to save as draft": [
+                "Clique para salvar como rascunho"
+            ],
+            "Click to publish": [
+                "Clique para publicar"
+            ],
+            "Video published successfully": [
+                "V\u00eddeo publicado com sucesso"
+            ],
+            "Video saved as draft": [
+                "V\u00eddeo salvo como rascunho"
+            ],
+            "Failed to update video status": [
+                "Falha ao atualizar o status do v\u00eddeo"
+            ],
+            "Video restored successfully": [
+                "V\u00eddeo restaurado com sucesso"
+            ],
+            "Restore": [
+                "Restaurar"
+            ],
+            "Delete Permanently": [
+                "Excluir permanentemente"
+            ],
+            "Are you sure you want to permanently delete \"%s\"? This action cannot be undone.": [
+                "Tem certeza de que deseja excluir permanentemente \"%s\"? Esta a\u00e7\u00e3o n\u00e3o pode ser desfeita."
+            ],
+            "Video permanently deleted": [
+                "V\u00eddeo exclu\u00eddo permanentemente"
+            ],
+            "Failed to permanently delete video": [
+                "Falha ao excluir v\u00eddeo permanentemente"
+            ],
+            "View Stats": [
+                "Ver estat\u00edsticas"
+            ],
+            "Edit": [
+                "Editar"
+            ],
+            "Move to Trash": [
+                "Mover para a lixeira"
+            ],
+            "Are you sure you want to move \"%s\" to trash? You can restore it later.": [
+                "Tem certeza de que deseja mover \"%s\" para a lixeira? Voc\u00ea pode restaur\u00e1-lo mais tarde."
+            ],
+            "Video moved to trash": [
+                "V\u00eddeo movido para a lixeira"
+            ],
+            "Previous": [
+                "Anterior"
+            ],
+            "Next": [
+                "Pr\u00f3ximo"
+            ],
+            "On": [
+                "Sobre"
+            ],
+            "Off": [
+                "Desligado"
+            ],
+            "Trust Blue": [
+                "Confie no Azul"
+            ],
+            "TikTok Pink": [
+                "TikTok rosa"
+            ],
+            "Buy Now Orange": [
+                "Compre agora laranja"
+            ],
+            "Success Green": [
+                "Sucesso Verde"
+            ],
+            "Premium Gold": [
+                "Ouro Premium"
+            ],
+            "Trending Purple": [
+                "Tend\u00eancia Roxo"
+            ],
+            "Grid Layout": [
+                "Layout de grade"
+            ],
+            "Carousel Layout": [
+                "Layout do carrossel"
+            ],
+            "Stories Layout": [
+                "Layout de hist\u00f3rias"
+            ],
+            "Stories Carousel Layout": [
+                "Layout de carrossel de hist\u00f3rias"
+            ],
+            "Show Product Details": [
+                "Mostrar detalhes do produto"
+            ],
+            "Go to Product Page": [
+                "V\u00e1 para a p\u00e1gina do produto"
+            ],
+            "None (default)": [
+                "Nenhum (padr\u00e3o)"
+            ],
+            "Open Cart Modal": [
+                "Modal de carrinho aberto"
+            ],
+            "Redirect to Checkout": [
+                "Redirecionar para finaliza\u00e7\u00e3o da compra"
+            ],
+            "Advanced Layouts": [
+                "Layouts Avan\u00e7ados"
+            ],
+            "Access Carousel and Stories layouts for more engaging video displays.": [
+                "Acesse os layouts de carrossel e hist\u00f3rias para exibi\u00e7\u00f5es de v\u00eddeo mais envolventes."
+            ],
+            "Layout Columns": [
+                "Colunas de layout"
+            ],
+            "Customize the number of columns displayed on different devices.": [
+                "Personalize o n\u00famero de colunas exibidas em diferentes dispositivos."
+            ],
+            "Custom Color Schema": [
+                "Esquema de cores personalizado"
+            ],
+            "Choose any custom color to match your brand perfectly.": [
+                "Escolha qualquer cor personalizada para combinar perfeitamente com sua marca."
+            ],
+            "Autoplay Videos": [
+                "V\u00eddeos de reprodu\u00e7\u00e3o autom\u00e1tica"
+            ],
+            "Automatically play videos in sequence when the modal is open. When one video finishes, the next starts automatically.": [
+                "Reproduza automaticamente v\u00eddeos em sequ\u00eancia quando o modal estiver aberto. Quando um v\u00eddeo termina, o pr\u00f3ximo come\u00e7a automaticamente."
+            ],
+            "Filter by Tags": [
+                "Filtrar por tags"
+            ],
+            "Build sliders from videos that match selected tags \u2014 perfect for per-category showcases (e.g. \"shoes\", \"outerwear\").": [
+                "Crie controles deslizantes a partir de v\u00eddeos que correspondam \u00e0s tags selecionadas \u2014 perfeitos para apresenta\u00e7\u00f5es por categoria (por exemplo, \"sapatos\", \"agasalhos\")."
+            ],
+            "All Videos": [
+                "Todos os v\u00eddeos"
+            ],
+            "Specific Videos": [
+                "V\u00eddeos espec\u00edficos"
+            ],
+            "Date": [
+                "Data"
+            ],
+            "Title": [
+                "T\u00edtulo"
+            ],
+            "ID": [
+                "EU IA"
+            ],
+            "Random": [
+                "Aleat\u00f3rio"
+            ],
+            "Descending": [
+                "Descendente"
+            ],
+            "Ascending": [
+                "Ascendente"
+            ],
+            "Any of the selected (OR)": [
+                "Qualquer um dos selecionados (OU)"
+            ],
+            "All of the selected (AND)": [
+                "Todos os selecionados (E)"
+            ],
+            "Drag to reorder": [
+                "Arraste para reordenar"
+            ],
+            "Remove video": [
+                "Remover v\u00eddeo"
+            ],
+            "Shortcode copied to clipboard!": [
+                "Shortcode copiado para a \u00e1rea de transfer\u00eancia!"
+            ],
+            "Generate Video Shortcode": [
+                "Gerar c\u00f3digo curto de v\u00eddeo"
+            ],
+            "Create a shortcode to display your videos on any page or post. Choose your settings below and copy the generated shortcode.": [
+                "Crie um shortcode para exibir seus v\u00eddeos em qualquer p\u00e1gina ou postagem. Escolha suas configura\u00e7\u00f5es abaixo e copie o shortcode gerado."
+            ],
+            "Video Selection": [
+                "Sele\u00e7\u00e3o de V\u00eddeo"
+            ],
+            "Search & Select Videos": [
+                "Pesquise e selecione v\u00eddeos"
+            ],
+            "Search videos...": [
+                "Pesquisar v\u00eddeos..."
+            ],
+            "Selected Videos": [
+                "V\u00eddeos selecionados"
+            ],
+            "Drag items to change the display order.": [
+                "Arraste os itens para alterar a ordem de exibi\u00e7\u00e3o."
+            ],
+            "Video Order": [
+                "Ordem de v\u00eddeo"
+            ],
+            "Order by": [
+                "Encomendar por"
+            ],
+            "Direction": [
+                "Dire\u00e7\u00e3o"
+            ],
+            "No tags found. Create tags in VidShop \u2192 Tags to enable filtering.": [
+                "Nenhuma etiqueta encontrada. Crie tags em VidShop \u2192 Tags para ativar a filtragem."
+            ],
+            "Match mode": [
+                "Modo de partida"
+            ],
+            "Upgrade to VidShop Pro to build tag-filtered sliders.": [
+                "Atualize para o VidShop Pro para criar controles deslizantes filtrados por tags."
+            ],
+            "Color Schema": [
+                "Esquema de cores"
+            ],
+            "Custom Color": [
+                "Cor personalizada"
+            ],
+            "Pick custom color": [
+                "Escolha uma cor personalizada"
+            ],
+            "Custom colors require PRO": [
+                "Cores personalizadas exigem PRO"
+            ],
+            "Choose Color": [
+                "Escolha a cor"
+            ],
+            "Close color picker": [
+                "Fechar seletor de cores"
+            ],
+            "Layout Type": [
+                "Tipo de layout"
+            ],
+            "\ud83c\udfac See Live Examples & Get Inspired": [
+                "\ud83c\udfac Veja exemplos ao vivo e inspire-se"
+            ],
+            "Columns Configuration": [
+                "Configura\u00e7\u00e3o de colunas"
+            ],
+            "Desktop": [
+                "\u00c1rea de trabalho"
+            ],
+            "Tablet": [
+                "Comprimido"
+            ],
+            "Mobile": [
+                "M\u00f3vel"
+            ],
+            "Auto-open product details": [
+                "Detalhes do produto de abertura autom\u00e1tica"
+            ],
+            "When opening the video modal, automatically open the first product\u2019s details.": [
+                "Ao abrir o modal de v\u00eddeo, abra automaticamente os detalhes do primeiro produto."
+            ],
+            "Play on Hover": [
+                "Jogue ao passar o mouse"
+            ],
+            "When autoplay is off, hovering a video will preview it.": [
+                "Quando a reprodu\u00e7\u00e3o autom\u00e1tica est\u00e1 desativada, passar o mouse sobre um v\u00eddeo ir\u00e1 visualiz\u00e1-lo."
+            ],
+            "Videos will start playing as a preview when user hovers over them": [
+                "Os v\u00eddeos come\u00e7ar\u00e3o a ser reproduzidos como uma pr\u00e9via quando o usu\u00e1rio passar o mouse sobre eles"
+            ],
+            "Navigation Options": [
+                "Op\u00e7\u00f5es de navega\u00e7\u00e3o"
+            ],
+            "Show Arrows": [
+                "Mostrar setas"
+            ],
+            "Display navigation arrows on carousel": [
+                "Exibir setas de navega\u00e7\u00e3o no carrossel"
+            ],
+            "Show Dots": [
+                "Mostrar pontos"
+            ],
+            "Display pagination dots below carousel": [
+                "Exibir pontos de pagina\u00e7\u00e3o abaixo do carrossel"
+            ],
+            "Engagement Counts": [
+                "O envolvimento conta"
+            ],
+            "Show view count": [
+                "Mostrar contagem de visualiza\u00e7\u00f5es"
+            ],
+            "Display the total view count on each video.": [
+                "Exiba a contagem total de visualiza\u00e7\u00f5es de cada v\u00eddeo."
+            ],
+            "Show like count": [
+                "Mostrar contagem de curtidas"
+            ],
+            "Display the like count next to the heart icon.": [
+                "Exiba a contagem de curtidas ao lado do \u00edcone de cora\u00e7\u00e3o."
+            ],
+            "Autoplay": [
+                "Reprodu\u00e7\u00e3o autom\u00e1tica"
+            ],
+            "When the video modal is open, videos will play automatically in sequence. When one video finishes, the next starts automatically. If a product or cart modal is open, the current video loops until the modal closes.": [
+                "Quando o modal de v\u00eddeo estiver aberto, os v\u00eddeos ser\u00e3o reproduzidos automaticamente em sequ\u00eancia. Quando um v\u00eddeo termina, o pr\u00f3ximo come\u00e7a automaticamente. Se um modal de produto ou carrinho estiver aberto, o v\u00eddeo atual ser\u00e1 repetido at\u00e9 que o modal feche."
+            ],
+            "Automatically plays videos in sequence \u2014 when one finishes, the next starts. Enable Loop to restart from the first video after the last.": [
+                "Reproduz automaticamente v\u00eddeos em sequ\u00eancia: quando um termina, o pr\u00f3ximo come\u00e7a. Habilite o Loop para reiniciar do primeiro v\u00eddeo ap\u00f3s o \u00faltimo."
+            ],
+            "Automatically plays the current video and moves to the next when it finishes. If a modal is open, the current video loops until the modal is closed.": [
+                "Reproduz automaticamente o v\u00eddeo atual e passa para o pr\u00f3ximo quando terminar. Se um modal estiver aberto, o v\u00eddeo atual ser\u00e1 repetido at\u00e9 que o modal seja fechado."
+            ],
+            "Videos will start playing automatically when they come into view.": [
+                "Os v\u00eddeos come\u00e7ar\u00e3o a ser reproduzidos automaticamente quando forem exibidos."
+            ],
+            "Loop Autoplay": [
+                "Reprodu\u00e7\u00e3o autom\u00e1tica de loop"
+            ],
+            "After the last video ends, automatically start from the first again.": [
+                "Depois que o \u00faltimo v\u00eddeo terminar, comece automaticamente do primeiro novamente."
+            ],
+            "Add to Cart Button": [
+                "Bot\u00e3o Adicionar ao carrinho"
+            ],
+            "Button Action": [
+                "A\u00e7\u00e3o do bot\u00e3o"
+            ],
+            "Opens a product details modal where customers can select variations and add to cart": [
+                "Abre um modal de detalhes do produto onde os clientes podem selecionar varia\u00e7\u00f5es e adicion\u00e1-las ao carrinho"
+            ],
+            "Opens the product page in a new tab for customers to view full details": [
+                "Abre a p\u00e1gina do produto em uma nova guia para que os clientes vejam todos os detalhes"
+            ],
+            "Button Appearance": [
+                "Apar\u00eancia do bot\u00e3o"
+            ],
+            "Show Icon": [
+                "Mostrar \u00edcone"
+            ],
+            "Display the shopping cart icon in the button": [
+                "Exibir o \u00edcone do carrinho de compras no bot\u00e3o"
+            ],
+            "Show Text": [
+                "Mostrar texto"
+            ],
+            "Display \"Add to Cart\" text in the button": [
+                "Exibir o texto \"Adicionar ao carrinho\" no bot\u00e3o"
+            ],
+            "After Add to Cart": [
+                "Depois de adicionar ao carrinho"
+            ],
+            "Choose what happens after adding to cart.": [
+                "Escolha o que acontece ap\u00f3s adicionar ao carrinho."
+            ],
+            "Please enter a valid URL (e.g., https:\/\/example.com or \/page)": [
+                "Insira um URL v\u00e1lido (por exemplo, https:\/\/example.com ou \/page)"
+            ],
+            "https:\/\/example.com or \/page": [
+                "https:\/\/example.com ou \/page"
+            ],
+            "Enter a full URL (https:\/\/example.com) or a relative path (\/page)": [
+                "Insira um URL completo (https:\/\/example.com) ou um caminho relativo (\/page)"
+            ],
+            "Invalid Configuration": [
+                "Configura\u00e7\u00e3o inv\u00e1lida"
+            ],
+            "You must show either the icon or the text (or both). The button cannot be completely empty.": [
+                "Voc\u00ea deve mostrar o \u00edcone ou o texto (ou ambos). O bot\u00e3o n\u00e3o pode estar completamente vazio."
+            ],
+            "Configure how the button appears on product cards. You can show icon only, text only, or both. The button border radius will automatically adjust based on your selection.": [
+                "Configure como o bot\u00e3o aparece nos cart\u00f5es de produto. Voc\u00ea pode mostrar apenas \u00edcone, apenas texto ou ambos. O raio da borda do bot\u00e3o ser\u00e1 ajustado automaticamente com base na sua sele\u00e7\u00e3o."
+            ],
+            "Generated Shortcode": [
+                "C\u00f3digo curto gerado"
+            ],
+            "Copy": [
+                "C\u00f3pia"
+            ],
+            "Reset": [
+                "Reiniciar"
+            ],
+            "Copy Shortcode": [
+                "Copiar c\u00f3digo curto"
+            ],
+            "Unlock Advanced Video Analytics": [
+                "Desbloqueie an\u00e1lise de v\u00eddeo avan\u00e7ada"
+            ],
+            "Get detailed performance insights for \"%s\" and all your videos with VidShop PRO.": [
+                "Obtenha insights detalhados de desempenho para \"%s\" e todos os seus v\u00eddeos com o VidShop PRO."
+            ],
+            "Get detailed performance insights for your videos with VidShop PRO.": [
+                "Obtenha insights detalhados de desempenho para seus v\u00eddeos com VidShop PRO."
+            ],
+            "Detailed View & Engagement Metrics": [
+                "Vis\u00e3o detalhada e m\u00e9tricas de engajamento"
+            ],
+            "Product Performance Analytics": [
+                "An\u00e1lise de desempenho do produto"
+            ],
+            "Watch Time & User Behavior Insights": [
+                "Assistir informa\u00e7\u00f5es sobre tempo e comportamento do usu\u00e1rio"
+            ],
+            "Conversion Tracking & ROI Analysis": [
+                "Acompanhamento de convers\u00f5es e an\u00e1lise de ROI"
+            ],
+            "View Live Demo": [
+                "Ver demonstra\u00e7\u00e3o ao vivo"
+            ],
+            "Dismiss notice": [
+                "Dispensar aviso"
+            ],
+            "VidShop Pro is outdated": [
+                "VidShop Pro est\u00e1 desatualizado"
+            ],
+            "Update to version %1$s or later to unlock the full Pro admin experience (currently %2$s).": [
+                "Atualize para a vers\u00e3o %1$s ou posterior para desbloquear a experi\u00eancia completa de administra\u00e7\u00e3o Pro (atualmente %2$s)."
+            ],
+            "Back to top": [
+                "Voltar ao topo"
+            ],
+            "This Week": [
+                "Essa semana"
+            ],
+            "Last Week": [
+                "Semana passada"
+            ],
+            "This Month": [
+                "Este m\u00eas"
+            ],
+            "Last Month": [
+                "M\u00eas passado"
+            ],
+            "Welcome to VidShop!": [
+                "Bem-vindo ao VidShop!"
+            ],
+            "Start engaging your customers with interactive videos. Upload your first video to begin tracking analytics and boosting your sales.": [
+                "Comece a envolver seus clientes com v\u00eddeos interativos. Envie seu primeiro v\u00eddeo para come\u00e7ar a monitorar an\u00e1lises e aumentar suas vendas."
+            ],
+            "Add Your First Video": [
+                "Adicione seu primeiro v\u00eddeo"
+            ],
+            "Analytics Dashboard": [
+                "Painel anal\u00edtico"
+            ],
+            "Select period": [
+                "Selecione o per\u00edodo"
+            ],
+            "Total Views": [
+                "Total de visualiza\u00e7\u00f5es"
+            ],
+            "Unique Views": [
+                "Visualiza\u00e7\u00f5es \u00fanicas"
+            ],
+            "Total Likes": [
+                "Total de curtidas"
+            ],
+            "Unique Likes": [
+                "Curtidas \u00fanicas"
+            ],
+            "Avg. View Time": [
+                "M\u00e9dia Ver hora"
+            ],
+            "Total View Time": [
+                "Tempo total de visualiza\u00e7\u00e3o"
+            ],
+            "Add to Cart": [
+                "adicionar ao carrinho"
+            ],
+            "Product Views": [
+                "Visualiza\u00e7\u00f5es do produto"
+            ],
+            "Unlock the Full Power of VidShop PRO": [
+                "Desbloqueie todo o poder do VidShop PRO"
+            ],
+            "Carousel & Stories Layouts": [
+                "Layouts de carrossel e hist\u00f3rias"
+            ],
+            "Custom Color Schemas": [
+                "Esquemas de cores personalizados"
+            ],
+            "Responsive Columns Control": [
+                "Controle de colunas responsivas"
+            ],
+            "Advanced Analytics": [
+                "An\u00e1lise Avan\u00e7ada"
+            ],
+            "Top Videos": [
+                "Principais v\u00eddeos"
+            ],
+            "views": [
+                "visualiza\u00e7\u00f5es"
+            ],
+            "No video data available for this period": [
+                "N\u00e3o h\u00e1 dados de v\u00eddeo dispon\u00edveis para este per\u00edodo"
+            ],
+            "Top Products": [
+                "Principais produtos"
+            ],
+            "View Product": [
+                "Ver produto"
+            ],
+            "No product data available for this period": [
+                "N\u00e3o h\u00e1 dados de produtos dispon\u00edveis para este per\u00edodo"
+            ],
+            "Date Created": [
+                "Data de cria\u00e7\u00e3o"
+            ],
+            "Newest First": [
+                "Mais novo primeiro"
+            ],
+            "Drafts": [
+                "Rascunhos"
+            ],
+            "Oldest First": [
+                "Mais antigo primeiro"
+            ],
+            "Failed to fetch videos": [
+                "Falha ao buscar v\u00eddeos"
+            ],
+            "Showing": [
+                "Mostrando"
+            ],
+            "of": [
+                "de"
+            ],
+            "videos": [
+                "v\u00eddeos"
+            ],
+            "Generate Shortcode": [
+                "Gerar c\u00f3digo curto"
+            ],
+            "Add New Video": [
+                "Adicionar novo v\u00eddeo"
+            ],
+            "Filter by tag (PRO)": [
+                "Filtrar por tag (PRO)"
+            ],
+            "Sort by": [
+                "Ordenar por"
+            ],
+            "Order": [
+                "Ordem"
+            ],
+            "No videos found": [
+                "Nenhum v\u00eddeo encontrado"
+            ],
+            "No videos yet": [
+                "Ainda n\u00e3o h\u00e1 v\u00eddeos"
+            ],
+            "Try adjusting your search criteria.": [
+                "Tente ajustar seus crit\u00e9rios de pesquisa."
+            ],
+            "Create your first video to get started with VidShop.": [
+                "Crie seu primeiro v\u00eddeo para come\u00e7ar a usar o VidShop."
+            ],
+            "Create a new video with products and thumbnail": [
+                "Crie um novo v\u00eddeo com produtos e miniatura"
+            ],
+            "Back to Videos": [
+                "Voltar aos v\u00eddeos"
+            ],
+            "Video created successfully!": [
+                "V\u00eddeo criado com sucesso!"
+            ],
+            "Failed to create video": [
+                "Falha ao criar v\u00eddeo"
+            ],
+            "Create Video": [
+                "Criar v\u00eddeo"
+            ],
+            "Edit video": [
+                "Editar v\u00eddeo"
+            ],
+            "Edit: %s": [
+                "Editar: %s"
+            ],
+            "Failed to load video": [
+                "Falha ao carregar o v\u00eddeo"
+            ],
+            "Update video details, products and thumbnail": [
+                "Atualizar detalhes do v\u00eddeo, produtos e miniaturas"
+            ],
+            "Video updated successfully!": [
+                "V\u00eddeo atualizado com sucesso!"
+            ],
+            "Failed to update video": [
+                "Falha ao atualizar o v\u00eddeo"
+            ],
+            "Update Video": [
+                "Atualizar v\u00eddeo"
+            ],
+            "Video Not Found": [
+                "V\u00eddeo n\u00e3o encontrado"
+            ],
+            "The video you are looking for does not exist.": [
+                "O v\u00eddeo que voc\u00ea procura n\u00e3o existe."
+            ],
+            "Video Analytics": [
+                "An\u00e1lise de v\u00eddeo"
+            ],
+            "Failed to load video analytics": [
+                "Falha ao carregar a an\u00e1lise de v\u00eddeo"
+            ],
+            "Unlock detailed performance metrics with VidShop PRO": [
+                "Desbloqueie m\u00e9tricas de desempenho detalhadas com VidShop PRO"
+            ],
+            "Video stats": [
+                "Estat\u00edsticas de v\u00eddeo"
+            ],
+            "Failed to load settings": [
+                "Falha ao carregar as configura\u00e7\u00f5es"
+            ],
+            "Configure your VidShop plugin settings": [
+                "Defina as configura\u00e7\u00f5es do plug-in VidShop"
+            ],
+            "Video Engagement": [
+                "Engajamento de v\u00eddeo"
+            ],
+            "Configure how users can interact with your videos": [
+                "Configure como os usu\u00e1rios podem interagir com seus v\u00eddeos"
+            ],
+            "Anonymous Likes": [
+                "Curtidas an\u00f4nimas"
+            ],
+            "Allow users to like videos without logging in. When disabled, only logged-in users can like videos.": [
+                "Permita que os usu\u00e1rios curtam v\u00eddeos sem fazer login. Quando desativado, apenas usu\u00e1rios logados podem curtir v\u00eddeos."
+            ],
+            "Price display": [
+                "Exibi\u00e7\u00e3o de pre\u00e7o"
+            ],
+            "Controls how product prices are displayed inside videos. Leave empty to inherit WooCommerce settings.": [
+                "Controla como os pre\u00e7os dos produtos s\u00e3o exibidos nos v\u00eddeos. Deixe em branco para herdar as configura\u00e7\u00f5es do WooCommerce."
+            ],
+            "Currency position": [
+                "Posi\u00e7\u00e3o monet\u00e1ria"
+            ],
+            "Where the currency symbol is placed relative to the price.": [
+                "Onde o s\u00edmbolo da moeda \u00e9 colocado em rela\u00e7\u00e3o ao pre\u00e7o."
+            ],
+            "Thousand separator": [
+                "Separador de mil"
+            ],
+            "Leave empty to inherit WooCommerce value.": [
+                "Deixe em branco para herdar o valor WooCommerce."
+            ],
+            "WooCommerce:": [
+                "WooCommerce:"
+            ],
+            "Decimal separator": [
+                "Separador decimal"
+            ],
+            "Number of decimals": [
+                "N\u00famero de decimais"
+            ],
+            "Reset to WooCommerce defaults": [
+                "Redefinir para os padr\u00f5es do WooCommerce"
+            ],
+            "Clear all overrides and inherit WooCommerce settings.": [
+                "Limpe todas as substitui\u00e7\u00f5es e herde as configura\u00e7\u00f5es do WooCommerce."
+            ],
+            "You have unsaved changes": [
+                "Voc\u00ea tem altera\u00e7\u00f5es n\u00e3o salvas"
+            ],
+            "Settings saved successfully": [
+                "Configura\u00e7\u00f5es salvas com sucesso"
+            ],
+            "Failed to save settings": [
+                "Falha ao salvar as configura\u00e7\u00f5es"
+            ],
+            "Save Settings": [
+                "Salvar configura\u00e7\u00f5es"
+            ],
+            "Auto": [
+                "Autom\u00e1tico"
+            ],
+            "Auto \u2014 best fit for the product": [
+                "Autom\u00e1tico \u2014 melhor op\u00e7\u00e3o para o produto"
+            ],
+            "Studio macro": [
+                "Macro de est\u00fadio"
+            ],
+            "Studio macro (Apple-style)": [
+                "Macro de est\u00fadio (estilo Apple)"
+            ],
+            "Lookbook": [
+                "Lookbook"
+            ],
+            "Fashion lookbook": [
+                "Lookbook de moda"
+            ],
+            "Unboxing": [
+                "Unboxing"
+            ],
+            "Premium unboxing \u2014 hands slowly opening the packaging (best for boxed gifts, kits & sets)": [
+                "Unboxing premium \u2014 m\u00e3os abrindo lentamente a embalagem (ideal para presentes em caixa, kits e conjuntos)"
+            ],
+            "Sensory detail": [
+                "Detalhe sensorial"
+            ],
+            "Sensory detail (ASMR)": [
+                "Detalhe sensorial (ASMR)"
+            ],
+            "Lifestyle": [
+                "Estilo de vida"
+            ],
+            "In-use lifestyle": [
+                "Estilo de vida em uso"
+            ],
+            "Social reel": [
+                "Reel para redes sociais"
+            ],
+            "Fast social reel": [
+                "Reel r\u00e1pido para redes sociais"
+            ],
+            "Generate with AI": [
+                "Gerar com IA"
+            ],
+            "Product": [
+                "Produto"
+            ],
+            "Choose or search for a product\u2026": [
+                "Escolha ou pesquise um produto\u2026"
+            ],
+            "This product has no image.": [
+                "Este produto n\u00e3o tem imagem."
+            ],
+            "The AI will generate from text only, and the video may not match your product.": [
+                "A IA vai gerar apenas a partir do texto, e o v\u00eddeo pode n\u00e3o corresponder ao seu produto."
+            ],
+            "Add a featured image \u2197": [
+                "Adicionar imagem destacada \u2197"
+            ],
+            "Extra prompt (optional)": [
+                "Prompt extra (opcional)"
+            ],
+            "e.g. summer beach vibe, model walking": [
+                "ex.: clima de praia no ver\u00e3o, modelo caminhando"
+            ],
+            "Style template": [
+                "Modelo de estilo"
+            ],
+            "Auto picks the best style for your product category.": [
+                "O modo autom\u00e1tico escolhe o melhor estilo para a categoria do seu produto."
+            ],
+            "Duration": [
+                "Dura\u00e7\u00e3o"
+            ],
+            "%ds": [
+                "%ds"
+            ],
+            "%s credits": [
+                "%s cr\u00e9ditos"
+            ],
+            "15s renders on a premium model, so it uses about 4\u00d7 the credits of an 8s clip.": [
+                "15s s\u00e3o renderizados em um modelo premium, ent\u00e3o usam cerca de 4\u00d7 os cr\u00e9ditos de um clipe de 8s."
+            ],
+            "Advanced": [
+                "Avan\u00e7ado"
+            ],
+            "Audio": [
+                "\u00c1udio"
+            ],
+            "Music": [
+                "M\u00fasica"
+            ],
+            "Silent": [
+                "Sem som"
+            ],
+            "This will use %s credits.": [
+                "Isso usar\u00e1 %s cr\u00e9ditos."
+            ],
+            "Not enough credits": [
+                "Cr\u00e9ditos insuficientes"
+            ],
+            "Add credits on WPCreatix \u2192": [
+                "Adicionar cr\u00e9ditos no WPCreatix \u2192"
+            ],
+            "Generation could not be started.": [
+                "N\u00e3o foi poss\u00edvel iniciar a gera\u00e7\u00e3o."
+            ],
+            "You don\u2019t have enough credits for this video.": [
+                "Voc\u00ea n\u00e3o tem cr\u00e9ditos suficientes para este v\u00eddeo."
+            ],
+            "Please choose a product first.": [
+                "Escolha um produto primeiro."
+            ],
+            "Generate anyway": [
+                "Gerar mesmo assim"
+            ],
+            "Generate": [
+                "Gerar"
+            ],
+            "Connect your free WPCreatix account to generate. Your first video is free.": [
+                "Conecte sua conta gratuita do WPCreatix para gerar. Seu primeiro v\u00eddeo \u00e9 gr\u00e1tis."
+            ],
+            "Connect account": [
+                "Conectar conta"
+            ],
+            "Generate shoppable videos with AI": [
+                "Gere v\u00eddeos compr\u00e1veis com IA"
+            ],
+            "Turn any product photo into a ready-to-sell video in minutes. No camera or editing needed.": [
+                "Transforme qualquer foto de produto em um v\u00eddeo pronto para vender em minutos. Sem c\u00e2mera ou edi\u00e7\u00e3o."
+            ],
+            "Create with AI \u2192": [
+                "Criar com IA \u2192"
+            ],
+            "We sent a 6-digit code to %s.": [
+                "Enviamos um c\u00f3digo de 6 d\u00edgitos para %s."
+            ],
+            "Could not send the code. Please try again.": [
+                "N\u00e3o foi poss\u00edvel enviar o c\u00f3digo. Tente novamente."
+            ],
+            "Please enter your email address.": [
+                "Digite seu endere\u00e7o de e-mail."
+            ],
+            "Connected to WPCreatix AI with your VidShop Pro license.": [
+                "Conectado ao WPCreatix AI com sua licen\u00e7a do VidShop Pro."
+            ],
+            "Could not connect with your Pro license. Try connecting with your email instead.": [
+                "N\u00e3o foi poss\u00edvel conectar com sua licen\u00e7a Pro. Tente conectar com seu e-mail."
+            ],
+            "Disconnected from WPCreatix AI.": [
+                "Desconectado do WPCreatix AI."
+            ],
+            "Could not disconnect. Please try again.": [
+                "N\u00e3o foi poss\u00edvel desconectar. Tente novamente."
+            ],
+            "WPCreatix AI": [
+                "WPCreatix AI"
+            ],
+            "AI shoppable video generation": [
+                "Gera\u00e7\u00e3o de v\u00eddeos compr\u00e1veis com IA"
+            ],
+            "Connected": [
+                "Conectado"
+            ],
+            "Pro": [
+                "Pro"
+            ],
+            "Free": [
+                "Gr\u00e1tis"
+            ],
+            "Connected as %s": [
+                "Conectado como %s"
+            ],
+            "Connected to WPCreatix AI": [
+                "Conectado ao WPCreatix AI"
+            ],
+            "Credits, plan, and invoices live on WPCreatix.": [
+                "Cr\u00e9ditos, plano e faturas ficam no WPCreatix."
+            ],
+            "Switch to Pro": [
+                "Mudar para o Pro"
+            ],
+            "Manage usage \u2197": [
+                "Gerenciar uso \u2197"
+            ],
+            "Disconnect": [
+                "Desconectar"
+            ],
+            "Create a shoppable video from any product photo in minutes, powered by AI. Start free; your first video is on us.": [
+                "Crie um v\u00eddeo compr\u00e1vel a partir de qualquer foto de produto em minutos, com tecnologia de IA. Comece gr\u00e1tis; o primeiro v\u00eddeo \u00e9 por nossa conta."
+            ],
+            "Connect with VidShop Pro": [
+                "Conectar com o VidShop Pro"
+            ],
+            "or use your email": [
+                "ou use seu e-mail"
+            ],
+            "Enter the 6-digit code we sent to %s.": [
+                "Digite o c\u00f3digo de 6 d\u00edgitos que enviamos para %s."
+            ],
+            "6-digit code": [
+                "C\u00f3digo de 6 d\u00edgitos"
+            ],
+            "Connected. Pick a product to generate your first video, free.": [
+                "Conectado. Escolha um produto para gerar seu primeiro v\u00eddeo, gr\u00e1tis."
+            ],
+            "Connected to WPCreatix AI.": [
+                "Conectado ao WPCreatix AI."
+            ],
+            "That code is invalid or expired.": [
+                "Esse c\u00f3digo \u00e9 inv\u00e1lido ou expirou."
+            ],
+            "Enter the code from your email.": [
+                "Digite o c\u00f3digo do seu e-mail."
+            ],
+            "Verify & connect": [
+                "Verificar e conectar"
+            ],
+            "Resend code in %ds": [
+                "Reenviar c\u00f3digo em %ds"
+            ],
+            "Resend code": [
+                "Reenviar c\u00f3digo"
+            ],
+            "Use a different email": [
+                "Usar outro e-mail"
+            ],
+            "you@store.com": [
+                "you@store.com"
+            ],
+            "Send code": [
+                "Enviar c\u00f3digo"
+            ],
+            "Generated with WPCreatix AI": [
+                "Gerado com WPCreatix AI"
+            ],
+            "AI": [
+                "IA"
+            ],
+            "%d video generating with AI\u2026": [
+                "%d v\u00eddeo sendo gerado com IA\u2026",
+                "%d v\u00eddeos sendo gerados com IA\u2026"
+            ],
+            "\u201c%s\u201d couldn\u2019t be generated. You can try again for free.": [
+                "N\u00e3o foi poss\u00edvel gerar \u201c%s\u201d. Voc\u00ea pode tentar novamente de gra\u00e7a."
+            ],
+            "\u201c%s\u201d is ready, saved as a draft.": [
+                "\u201c%s\u201d est\u00e1 pronto, salvo como rascunho."
+            ],
+            "Report this \u2192": [
+                "Reportar isto \u2192"
+            ],
+            "Review & publish \u2192": [
+                "Revisar e publicar \u2192"
+            ],
+            "All sources": [
+                "Todas as origens"
+            ],
+            "AI-generated": [
+                "Gerado por IA"
+            ],
+            "Manual": [
+                "Manual"
+            ],
+            "Started. We\u2019ll add it to your videos as a draft when it\u2019s ready.": [
+                "Iniciado. Vamos adicion\u00e1-lo aos seus v\u00eddeos como rascunho quando estiver pronto."
+            ],
+            "Source": [
+                "Origem"
+            ],
+            "Back": [
+                "Voltar"
+            ],
+            "How would you like to create your video?": [
+                "Como voc\u00ea quer criar seu v\u00eddeo?"
+            ],
+            "New": [
+                "Novo"
+            ],
+            "Turn a product photo into a shoppable video in minutes. No camera or editing needed.": [
+                "Transforme uma foto de produto em um v\u00eddeo compr\u00e1vel em minutos. Sem c\u00e2mera ou edi\u00e7\u00e3o."
+            ],
+            "Start \u2192": [
+                "Come\u00e7ar \u2192"
+            ],
+            "Create manually": [
+                "Criar manualmente"
+            ],
+            "Upload your own video, set a thumbnail, and link products yourself.": [
+                "Envie seu pr\u00f3prio v\u00eddeo, defina uma miniatura e vincule os produtos voc\u00ea mesmo."
+            ],
+            "Upload \u2192": [
+                "Enviar \u2192"
+            ]
+        }
+    }
+}

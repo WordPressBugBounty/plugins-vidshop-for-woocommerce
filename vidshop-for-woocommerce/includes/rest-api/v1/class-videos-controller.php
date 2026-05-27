@@ -210,7 +210,6 @@ class Videos_Controller extends REST_Controller {
 		if ( empty( $fields ) ) {
 			return '';
 		}
-		error_log( 'Sanitize fields parameter: ' . $fields );
 		$requested_fields = array_map( 'trim', explode( ',', $fields ) );
 		$allowed_fields   = $this->get_allowed_fields();
 		$valid_fields     = array_filter(
@@ -219,7 +218,7 @@ class Videos_Controller extends REST_Controller {
 				return in_array( $field, $allowed_fields, true );
 			}
 		);
-		error_log( 'Valid fields: ' . implode( ',', $valid_fields ) );
+
 		return implode( ',', $valid_fields );
 	}
 
@@ -270,6 +269,11 @@ class Videos_Controller extends REST_Controller {
 				'description' => __( 'Limit results to those with a specific status.', 'vidshop-for-woocommerce' ),
 				'type'        => 'string',
 				'enum'        => array( 'published', 'draft', 'trash' ),
+			),
+			'origin'   => array(
+				'description' => __( 'Filter by video origin (manual or AI-generated).', 'vidshop-for-woocommerce' ),
+				'type'        => 'string',
+				'enum'        => array( 'manual', 'wpcreatix_ai' ),
 			),
 			'orderby'  => array(
 				'description' => __( 'Sort collection by object attribute.', 'vidshop-for-woocommerce' ),
@@ -369,6 +373,12 @@ class Videos_Controller extends REST_Controller {
 
 		if ( $status ) {
 			$query->where( 'status', $status );
+		}
+
+		// Origin filter (admin only) — distinguishes AI-generated videos from manual ones.
+		$origin = $this->check_private_permission( $request ) ? $request->get_param( 'origin' ) : '';
+		if ( $origin ) {
+			$query->where( 'origin', $origin );
 		}
 
 		// Order by FIELD() for custom ID ordering - use prepared statement.

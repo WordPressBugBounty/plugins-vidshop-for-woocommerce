@@ -13,6 +13,7 @@ use VSFW\Database\Tables\Video_Product_Stats_Table;
 use VSFW\Database\Tables\Video_Events_Table;
 use VSFW\Database\Tables\Video_Sessions_Table;
 use VSFW\Database\Tables\Video_View_Time_Table;
+use VSFW\Database\Tables\Ai_Generations_Table;
 use VSFW\Interfaces\Database_Installer as Database_Installer_Interface;
 
 /**
@@ -38,6 +39,7 @@ class Database_Installer implements Database_Installer_Interface {
 			new Video_Sessions_Table(),
 			new Video_Events_Table(),
 			new Video_View_Time_Table(),
+			new Ai_Generations_Table(),
 		);
 	}
 

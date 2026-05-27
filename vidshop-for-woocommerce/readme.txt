@@ -1,103 +1,107 @@
 === VidShop – Shoppable Videos for WooCommerce ===
 Contributors: wpcreatix
 Donate link: https://wpcreatix.com/
-Tags: shoppable videos, woocommerce videos, video commerce, product videos, mobile shopping
-Stable tag: 1.2.0
+Tags: ai video, ai video generator, shoppable videos, woocommerce videos, product videos
+Stable tag: 1.3.0
 Requires at least: 5.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
 License: GPL-3.0-or-later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Engage customers with swipeable shoppable videos, seamless checkout, and powerful analytics for WooCommerce.
+Turn product photos into shoppable videos with AI, or upload your own. Customers watch, tap a product, and check out in the player.
 
 == Description ==
 
-**VidShop Transforms Ecommerce with Interactive Shoppable Videos**
+**Shoppable videos for WooCommerce, TikTok-style**
 
-VidShop brings the engaging experience of social media videos directly into your WooCommerce store, creating an immersive, swipe-driven shopping journey. Customers can effortlessly browse, interact with products, and make instant purchases—all within the video.
+VidShop brings social-media-style video shopping to your WooCommerce store. Customers swipe through videos, tap a product they like, and check out without leaving the player.
 
-Ideal for fashion brands, beauty retailers, electronics stores, home décor merchants, and any business seeking next-level video commerce.
+It fits any store that sells visual products: fashion, beauty, electronics, or home décor.
 
-🎥 **Try VidShop Live:** [Interactive Demo](https://vidshop.wpcreatix.com/?utm_campaign=vidshop-wordpress-org&utm_medium=demo_link&utm_source=WordPress.org)
+See it on a live store: [Interactive Demo](https://vidshop.wpcreatix.com/?utm_campaign=vidshop-wordpress-org&utm_medium=demo_link&utm_source=WordPress.org)
 
-🚀 **Upgrade to Pro:** [Get Premium Features](https://wpcreatix.com/?utm_campaign=vidshop-wordpress-org&utm_medium=upgrade_link&utm_source=WordPress.org)
+Want more? [Upgrade to VidShop Pro](https://wpcreatix.com/?utm_campaign=vidshop-wordpress-org&utm_medium=upgrade_link&utm_source=WordPress.org)
 
-## 🚀 Why Choose VidShop?
+## Generate shoppable videos with AI
 
-✅ **Social Media-Style Navigation** – Swipe videos for engaging, app-like shopping.
-✅ **Seamless Purchase Experience** – Instantly buy products without leaving the video.
-✅ **In-Depth Analytics** – Track detailed video interactions and product performance.
-✅ **Mobile-Optimized** – Designed specifically for smartphone users.
-✅ **Easy to Use** – No coding skills required to set up stunning shoppable videos.
-✅ **WooCommerce Native** – Perfectly integrates with your existing WooCommerce store.
+Don't have footage? Turn a product photo into a video. Pick a WooCommerce product, choose a style, and VidShop builds a short vertical video from its image, then saves it to your library as a draft linked to that product. You review it and publish when it looks right.
 
-## 🎯 Key Features
+## What VidShop does
 
-### 📊 Analytics Dashboard
+* Swipe between videos like a social feed, so browsing feels like an app instead of a product grid.
+* Buy inside the video. The cart and checkout open right in the player.
+* See what's working: views, watch time, likes, and add-to-carts.
+* Built for phones first, and it works on desktop with a mouse.
+* No code to set up.
+* Runs on the WooCommerce products you already have.
 
-* **Total & Unique Views**
-* **Average & Total View Time**
-* **Total & Unique Likes**
-* **Add-to-Cart Metrics**
-* **Product View Tracking**
-* **Top Videos & Products Insights**
+## Features
 
-### 🎬 Intuitive Video Management
+### AI video generation
 
-* **Publish, Draft, Trash Status Management**
-* **Easy Video Upload** (WordPress Media Library & Custom URLs)
-* **Product Linking & Association**
-* **Bulk Actions & Quick Editing**
+* Turn a product photo into a short vertical video
+* Choose a style template, or let Auto match one to the product
+* Set the length and pick background music or silent
+* Finished videos save to your library as drafts, linked to the product
+* A progress banner tracks renders while you keep working
 
-### ⚙️ Smart Shortcode Generator
+### Analytics
 
-* Select videos: All or specific IDs
-* Customize colors and layouts
-* Easy copy-paste into pages/posts
-* Multiple layouts: Grid, Carousel, and Inline (TikTok-style)
+* Views, total and unique
+* Watch time, average and total
+* Likes, total and unique
+* Add-to-cart counts
+* Product views
+* Your top videos and products
 
-### 📱 Engaging Frontend Experience
+### Video management
 
-* **Swipeable Video Interface**
-* **Interactive Product Circles**
-* **Social Proof with View Counts & Likes**
-* **Real-Time Shopping Cart**
-* **Product Variations & Instant Checkout**
-* **Mobile & Desktop Optimized**
+* Publish, draft, or trash a video
+* Upload from the Media Library or link a URL
+* Link products to each video
+* Bulk actions and quick edit
 
-### 🛒 Product Integration
+### Shortcode generator
 
-* Unlimited products per video
-* Variable product support
-* Live inventory synchronization
-* Quick add-to-cart functionality
+* Pick all videos or specific IDs
+* Set colors and layout
+* Copy and paste into any page or post
+* Layouts: grid, carousel, inline (TikTok-style), and stories
 
-### 🎨 Brand Customization
+### Frontend
 
-* Color schemes aligned with your brand identity
-* Responsive layouts and smooth animations
-* Touch and mouse-friendly interactions
+* Swipeable player
+* Tappable product hotspots
+* View counts and likes
+* Cart and checkout inside the player
+* Product variations
+* Works on phones and desktops
 
-## 🔥 Easy 4-Step Setup
+### Products
 
-**Step 1: Add Your Video**
+* Any number of products per video
+* Variable products
+* Live inventory sync
+* One-tap add to cart
 
-* Upload or link your video and set a thumbnail.
+### Branding
 
-**Step 2: Connect Products**
+* Colors that match your store
+* Responsive layouts
+* Works with touch and mouse
 
-* Select relevant WooCommerce products to link.
+## Setup in four steps
 
-**Step 3: Generate Shortcode**
+**1. Add your video.** Upload it or paste a URL, then set a thumbnail.
 
-* Customize your display (video selection, layout, colors).
+**2. Connect products.** Pick the WooCommerce products to link.
 
-**Step 4: Go Live**
+**3. Generate a shortcode.** Choose which videos to show, the layout, and the colors.
 
-* Paste shortcode anywhere on your website to showcase videos instantly.
+**4. Go live.** Paste the shortcode anywhere on your site.
 
-**Example Implementation:**
+**Example shortcodes:**
 ```
 [vsfw-videos videos="all" type="grid" color-schema="#1e40af"]
 [vsfw-videos videos="123,456,789" type="carousel" color-schema="#e11d48"]
@@ -105,21 +109,21 @@ Ideal for fashion brands, beauty retailers, electronics stores, home décor merc
 [vsfw-videos videos="all" type="stories" color-schema="#1e40af" autoplay="yes" loop="yes"]
 ```
 
-## ⚡ Performance & Compatibility
+## Performance and compatibility
 
-* Optimized for speed (lazy loading & caching)
-* Compatible with popular caching & CDN solutions
-* Mobile-first responsive design
-* Secure, clean code with extensive hooks for developers
-* Fully translation-ready
+* Lazy loading and caching for speed
+* Works with common caching and CDN plugins
+* Mobile-first, responsive design
+* Clean code with hooks for developers
+* Translation-ready
 
-## 🌟 Industries Benefiting from VidShop
+## Who it's for
 
-* **Fashion & Apparel**: Showcase products in action.
-* **Beauty & Cosmetics**: Demonstrate product transformations.
-* **Home & Décor**: Present real-world product placements.
-* **Electronics & Tech**: Highlight features and unboxing.
-* **Lifestyle Products**: Engage emotionally and increase sales.
+* Fashion and apparel: show clothes moving on a person
+* Beauty and cosmetics: before-and-after and how-to-use clips
+* Home and décor: products in a real room
+* Electronics and tech: features and unboxing
+* Lifestyle products: the kind of thing people buy after seeing it used
 
 == Installation ==
 
@@ -138,23 +142,26 @@ Ideal for fashion brands, beauty retailers, electronics stores, home décor merc
 
 == Frequently Asked Questions ==
 
-**Is video editing experience required?**
-No! Simply upload your existing videos, link products, and you're ready to go.
+**Can VidShop create videos for me with AI?**
+Yes. Connect a free WPCreatix account, pick a product, and VidShop generates a shoppable video from its image. Your first video is free; VidShop Pro covers ongoing generation.
 
-**Can purchases be completed without leaving the video?**
-Yes! VidShop provides an uninterrupted, frictionless shopping experience.
+**Do I need video editing skills?**
+No. Upload videos you already have, link products, and publish. Or let the AI generate one from a product photo.
 
-**Are swipe features mobile-only?**
-Swipe navigation is optimized for mobile, but desktop users can easily navigate with mouse.
+**Can people buy without leaving the video?**
+Yes. The cart and checkout open inside the player.
 
-**Does VidShop support variable products?**
-Absolutely. Customers can select variations directly within the video interface.
+**Is swiping mobile-only?**
+Swiping is built for touch, but desktop visitors can navigate with the mouse.
 
-**Where can I display videos?**
-Use shortcodes anywhere on your site, including pages, posts, and widgets.
+**Does it support variable products?**
+Yes. Customers pick variations inside the video.
 
-**Will VidShop slow down my site?**
-No. VidShop is performance-focused, ensuring fast load times.
+**Where can I show videos?**
+Anywhere shortcodes work: pages, posts, and widgets.
+
+**Will it slow down my site?**
+It shouldn't. Videos lazy-load and the assets are kept small.
 
 == Screenshots ==
 
@@ -168,6 +175,13 @@ No. VidShop is performance-focused, ensuring fast load times.
 8. Live Cart & Checkout – Streamlined shopping process
 
 == Changelog ==
+
+= 1.3.0 - AI Shoppable Video Generation =
+
+* **New:** Generate shoppable videos with AI — connect a free WPCreatix account (a free video to try) or VidShop Pro for more, pick a product, and VidShop turns its image into a ready-to-sell shoppable video.
+* **New:** "Generate with AI" lives right where you create videos — on the Videos screen and as an option on Add New Video — plus a one-click entry point in the product editor.
+* **New:** An app-wide progress banner tracks renders in the background and links you straight to each finished video.
+* **New:** Finished AI videos are added to your library automatically, linked to the chosen product, and marked as AI-generated.
 
 = 1.2.0 - Ordering, Price Formatting, Display Controls & Extensibility Hooks =
 

@@ -2,21 +2,21 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: VidShop for WooCommerce 1.2.0\n"
+"Project-Id-Version: VidShop for WooCommerce 1.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vidshop-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-19T14:05:45+00:00\n"
+"POT-Creation-Date: 2026-05-27T18:36:35+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: vidshop-for-woocommerce\n"
 
 #. Plugin Name of the plugin
 #: vidshop-for-woocommerce.php
-#: includes/admin/class-admin-loader.php:348
+#: includes/admin/class-admin-loader.php:361
 msgid "VidShop for WooCommerce"
 msgstr ""
 
@@ -36,65 +36,94 @@ msgstr ""
 msgid "WPCreatix"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:99
-#: includes/admin/class-admin-loader.php:100
+#: includes/admin/class-admin-loader.php:104
+#: includes/admin/class-admin-loader.php:105
 #: includes/admin/class-review-notice.php:106
 #: dist/admin/index.js:1
 #: dist/admin/index.js:7
 msgid "VidShop"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:115
-#: includes/admin/class-admin-loader.php:116
+#: includes/admin/class-admin-loader.php:120
+#: includes/admin/class-admin-loader.php:121
 #: dist/admin/index.js:8
 msgid "Dashboard"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:124
-#: includes/admin/class-admin-loader.php:125
+#: includes/admin/class-admin-loader.php:129
+#: includes/admin/class-admin-loader.php:130
 #: dist/admin/index.js:8
 msgid "Videos"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:133
-#: includes/admin/class-admin-loader.php:134
+#: includes/admin/class-admin-loader.php:138
+#: includes/admin/class-admin-loader.php:139
 #: dist/admin/index.js:8
 msgid "Add new video"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:142
-#: includes/admin/class-admin-loader.php:143
+#: includes/admin/class-admin-loader.php:147
+#: includes/admin/class-admin-loader.php:148
 #: dist/admin/index.js:1
 #: dist/admin/index.js:9
 msgid "Tags"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:151
-#: includes/admin/class-admin-loader.php:152
+#: includes/admin/class-admin-loader.php:156
+#: includes/admin/class-admin-loader.php:157
 #: dist/admin/index.js:9
 msgid "Settings"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:347
+#: includes/admin/class-admin-loader.php:360
 msgid "Thanks for using"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:349
+#: includes/admin/class-admin-loader.php:362
 msgid "crafted with ❤️ by"
 msgstr ""
 
+#: includes/admin/class-ai-product-metabox.php:34
+msgid "VidShop AI"
+msgstr ""
+
+#: includes/admin/class-ai-product-metabox.php:52
+msgid "Turn this product into a shoppable video with AI. No camera or editing needed."
+msgstr ""
+
+#: includes/admin/class-ai-product-metabox.php:55
+msgid "✨ Generate with AI"
+msgstr ""
+
+#: includes/admin/class-ai-promo-notice.php:70
+msgid "New: Generate shoppable videos with AI"
+msgstr ""
+
+#: includes/admin/class-ai-promo-notice.php:71
+msgid "Turn any product photo into a ready-to-sell video in minutes. Your first one is free."
+msgstr ""
+
+#: includes/admin/class-ai-promo-notice.php:74
+msgid "Try it free"
+msgstr ""
+
+#: includes/admin/class-pro-compat-notice.php:65
+msgid "<strong>VidShop Pro</strong> needs to be updated to its latest version to use AI video generation."
+msgstr ""
+
 #. translators: 1: required version, 2: installed version
-#: includes/admin/class-pro-compat-notice.php:60
+#: includes/admin/class-pro-compat-notice.php:75
 #, php-format
 msgid "<strong>VidShop Pro</strong> needs to be updated to version %1$s or later to unlock Pro features in the new admin UI (currently %2$s)."
 msgstr ""
 
-#: includes/admin/class-pro-compat-notice.php:68
+#: includes/admin/class-pro-compat-notice.php:104
 #: dist/admin/index.js:8
 msgid "Update now"
 msgstr ""
 
-#: includes/admin/class-pro-compat-notice.php:69
+#: includes/admin/class-pro-compat-notice.php:105
+#: dist/admin/index.js:7
 msgid "Dismiss"
 msgstr ""
 
@@ -244,66 +273,130 @@ msgstr ""
 msgid "The status of the video."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:250
+#: includes/rest-api/v1/class-videos-controller.php:249
 msgid "Current page of the collection."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:257
+#: includes/rest-api/v1/class-videos-controller.php:256
 msgid "Maximum number of items to be returned in result set."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:265
+#: includes/rest-api/v1/class-videos-controller.php:264
 msgid "Limit results to those matching a string."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:270
+#: includes/rest-api/v1/class-videos-controller.php:269
 msgid "Limit results to those with a specific status."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:275
+#: includes/rest-api/v1/class-videos-controller.php:274
+msgid "Filter by video origin (manual or AI-generated)."
+msgstr ""
+
+#: includes/rest-api/v1/class-videos-controller.php:279
 msgid "Sort collection by object attribute."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:281
+#: includes/rest-api/v1/class-videos-controller.php:285
 msgid "Order sort attribute ascending or descending."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:287
+#: includes/rest-api/v1/class-videos-controller.php:291
 msgid "Comma-separated list of fields to include in the response."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:292
+#: includes/rest-api/v1/class-videos-controller.php:296
 msgid "Comma-separated list of video IDs."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:502
-#: includes/rest-api/v1/class-videos-controller.php:610
+#: includes/rest-api/v1/class-videos-controller.php:512
+#: includes/rest-api/v1/class-videos-controller.php:620
 msgid "Validation failed"
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:519
-#: includes/rest-api/v1/class-videos-controller.php:570
-#: includes/rest-api/v1/class-videos-controller.php:628
-#: includes/rest-api/v1/class-videos-controller.php:668
+#: includes/rest-api/v1/class-videos-controller.php:529
+#: includes/rest-api/v1/class-videos-controller.php:580
+#: includes/rest-api/v1/class-videos-controller.php:638
+#: includes/rest-api/v1/class-videos-controller.php:678
 msgid "Video not found"
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:641
+#: includes/rest-api/v1/class-videos-controller.php:651
 msgid "Failed to delete video"
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:650
+#: includes/rest-api/v1/class-videos-controller.php:660
 #: dist/admin/index.js:6
 msgid "Failed to move video to trash"
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:672
+#: includes/rest-api/v1/class-videos-controller.php:682
 msgid "Video is not in trash"
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:681
+#: includes/rest-api/v1/class-videos-controller.php:691
 #: dist/admin/index.js:4
 msgid "Failed to restore video"
+msgstr ""
+
+#: includes/services/class-ai-generation-service.php:93
+msgid "Connect your WPCreatix account first."
+msgstr ""
+
+#: includes/services/class-ai-generation-service.php:103
+msgid "That product could not be found."
+msgstr ""
+
+#: includes/services/class-ai-generation-service.php:117
+msgid "This product has no image. The AI would generate from text only and may not match your product. Add a featured image, or choose \"Generate anyway\"."
+msgstr ""
+
+#: includes/services/class-ai-reconciler.php:190
+msgid "Generation failed on the cloud. You can try again for free."
+msgstr ""
+
+#: includes/services/class-ai-reconciler.php:269
+msgid "AI video"
+msgstr ""
+
+#: includes/services/class-ai-reconciler.php:456
+msgid "Every minute (VidShop AI)"
+msgstr ""
+
+#: includes/services/class-cloud-client.php:108
+msgid "The cloud did not return a session. Please try again."
+msgstr ""
+
+#: includes/services/class-cloud-client.php:269
+msgid "The product image file could not be found."
+msgstr ""
+
+#: includes/services/class-cloud-client.php:275
+msgid "The product image file could not be read."
+msgstr ""
+
+#: includes/services/class-cloud-client.php:302
+msgid "Could not reach the WPCreatix cloud to upload the image."
+msgstr ""
+
+#: includes/services/class-cloud-client.php:313
+msgid "The image upload failed."
+msgstr ""
+
+#: includes/services/class-cloud-client.php:351
+msgid "Could not reach the WPCreatix cloud. Check your connection and try again."
+msgstr ""
+
+#: includes/services/class-cloud-client.php:371
+msgid "The cloud request failed."
+msgstr ""
+
+#: includes/services/class-cloud-connection.php:186
+msgid "No VidShop Pro license is available on this site."
+msgstr ""
+
+#: includes/services/class-cloud-connection.php:307
+msgid "Not connected to the WPCreatix cloud."
 msgstr ""
 
 #. translators: %s: field name
@@ -767,6 +860,326 @@ msgid "Assign tags (PRO)"
 msgstr ""
 
 #: dist/admin/index.js:1
+msgid "Auto"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Auto — best fit for the product"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Studio macro"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Studio macro (Apple-style)"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Lookbook"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Fashion lookbook"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Unboxing"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Premium unboxing — hands slowly opening the packaging (best for boxed gifts, kits & sets)"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Sensory detail"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Sensory detail (ASMR)"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Lifestyle"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "In-use lifestyle"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Social reel"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Fast social reel"
+msgstr ""
+
+#: dist/admin/index.js:1
+#: dist/admin/index.js:8
+msgid "Generate with AI"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Product"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Choose or search for a product…"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "This product has no image."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "The AI will generate from text only, and the video may not match your product."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Add a featured image ↗"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Extra prompt (optional)"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "e.g. summer beach vibe, model walking"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Style template"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Auto picks the best style for your product category."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Duration"
+msgstr ""
+
+#: dist/admin/index.js:1
+#, js-format
+msgid "%ds"
+msgstr ""
+
+#: dist/admin/index.js:1
+#, js-format
+msgid "%s credits"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "15s renders on a premium model, so it uses about 4× the credits of an 8s clip."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Advanced"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Audio"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Music"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Silent"
+msgstr ""
+
+#: dist/admin/index.js:1
+#, js-format
+msgid "This will use %s credits."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Not enough credits"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Add credits on WPCreatix →"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Generation could not be started."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "You don’t have enough credits for this video."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Please choose a product first."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Generate anyway"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Generate"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Connect your free WPCreatix account to generate. Your first video is free."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Connect account"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Generate shoppable videos with AI"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Turn any product photo into a ready-to-sell video in minutes. No camera or editing needed."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Create with AI →"
+msgstr ""
+
+#: dist/admin/index.js:1
+#, js-format
+msgid "We sent a 6-digit code to %s."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Could not send the code. Please try again."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Please enter your email address."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Connected to WPCreatix AI with your VidShop Pro license."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Could not connect with your Pro license. Try connecting with your email instead."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Disconnected from WPCreatix AI."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Could not disconnect. Please try again."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "WPCreatix AI"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "AI shoppable video generation"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Connected"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Pro"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Free"
+msgstr ""
+
+#: dist/admin/index.js:1
+#, js-format
+msgid "Connected as %s"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Connected to WPCreatix AI"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Credits, plan, and invoices live on WPCreatix."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Switch to Pro"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Manage usage ↗"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Disconnect"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Create a shoppable video from any product photo in minutes, powered by AI. Start free; your first video is on us."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Connect with VidShop Pro"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "or use your email"
+msgstr ""
+
+#: dist/admin/index.js:1
+#, js-format
+msgid "Enter the 6-digit code we sent to %s."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "6-digit code"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Connected. Pick a product to generate your first video, free."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Connected to WPCreatix AI."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "That code is invalid or expired."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Enter the code from your email."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Verify & connect"
+msgstr ""
+
+#: dist/admin/index.js:1
+#, js-format
+msgid "Resend code in %ds"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Resend code"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Use a different email"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "you@store.com"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Send code"
+msgstr ""
+
+#: dist/admin/index.js:1
 msgid "Inherit from WooCommerce"
 msgstr ""
 
@@ -832,6 +1245,14 @@ msgstr ""
 
 #: dist/admin/index.js:4
 msgid "Failed to update video status"
+msgstr ""
+
+#: dist/admin/index.js:4
+msgid "Generated with WPCreatix AI"
+msgstr ""
+
+#: dist/admin/index.js:4
+msgid "AI"
 msgstr ""
 
 #: dist/admin/index.js:4
@@ -1368,6 +1789,31 @@ msgid "Dismiss notice"
 msgstr ""
 
 #: dist/admin/index.js:7
+#, js-format
+msgid "%d video generating with AI…"
+msgid_plural "%d videos generating with AI…"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dist/admin/index.js:7
+#, js-format
+msgid "“%s” couldn’t be generated. You can try again for free."
+msgstr ""
+
+#: dist/admin/index.js:7
+#, js-format
+msgid "“%s” is ready, saved as a draft."
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Report this →"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Review & publish →"
+msgstr ""
+
+#: dist/admin/index.js:7
 msgid "VidShop Pro is outdated"
 msgstr ""
 
@@ -1513,7 +1959,23 @@ msgid "Oldest First"
 msgstr ""
 
 #: dist/admin/index.js:8
+msgid "All sources"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "AI-generated"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Manual"
+msgstr ""
+
+#: dist/admin/index.js:8
 msgid "Failed to fetch videos"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Started. We’ll add it to your videos as a draft when it’s ready."
 msgstr ""
 
 #: dist/admin/index.js:8
@@ -1538,6 +2000,10 @@ msgstr ""
 
 #: dist/admin/index.js:8
 msgid "Filter by tag (PRO)"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Source"
 msgstr ""
 
 #: dist/admin/index.js:8
@@ -1569,8 +2035,7 @@ msgid "Create a new video with products and thumbnail"
 msgstr ""
 
 #: dist/admin/index.js:8
-#: dist/admin/index.js:9
-msgid "Back to Videos"
+msgid "Back"
 msgstr ""
 
 #: dist/admin/index.js:8
@@ -1583,6 +2048,34 @@ msgstr ""
 
 #: dist/admin/index.js:8
 msgid "Create Video"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "How would you like to create your video?"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "New"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Turn a product photo into a shoppable video in minutes. No camera or editing needed."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Start →"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Create manually"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Upload your own video, set a thumbnail, and link products yourself."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Upload →"
 msgstr ""
 
 #: dist/admin/index.js:8
@@ -1603,6 +2096,10 @@ msgstr ""
 
 #: dist/admin/index.js:9
 msgid "Update video details, products and thumbnail"
+msgstr ""
+
+#: dist/admin/index.js:9
+msgid "Back to Videos"
 msgstr ""
 
 #: dist/admin/index.js:9

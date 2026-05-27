@@ -33,8 +33,10 @@ class Video_Model extends Model {
 		'source_url',
 		'thumbnail_id',
 		'video_id',
+		'ai_call_id',
 		'settings',
 		'status',
+		'origin',
 		'created_by',
 	);
 
@@ -47,6 +49,7 @@ class Video_Model extends Model {
 		'id'           => 'integer',
 		'thumbnail_id' => 'integer',
 		'video_id'     => 'integer',
+		'ai_call_id'   => 'integer',
 		'created_by'   => 'integer',
 		'settings'     => 'array',
 	);

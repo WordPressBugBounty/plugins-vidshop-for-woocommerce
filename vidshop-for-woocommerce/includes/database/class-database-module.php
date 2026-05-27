@@ -8,6 +8,8 @@
 namespace VSFW\Database;
 
 use VSFW\Interfaces\Database_Installer;
+use VSFW\Database\Tables\Videos_Table;
+use VSFW\Database\Tables\Ai_Generations_Table;
 
 /**
  * Database module class.
@@ -15,7 +17,9 @@ use VSFW\Interfaces\Database_Installer;
 class Database_Module {
 
 	/**
-	 * Option name storing the DB schema version we installed against.
+	 * Option storing the plugin version (VSFW_VERSION) the site's DB schema was last brought up to.
+	 * Compared against the running VSFW_VERSION on load to decide what to run; stamped to VSFW_VERSION
+	 * afterwards. Absent on pre-versioning installs — treated as "needs the full install".
 	 */
 	const DB_VERSION_OPTION = 'vsfw_db_version';
 
@@ -40,15 +44,20 @@ class Database_Module {
 	 * Initialize the database module.
 	 */
 	private function init() {
-		// Register activation hook for table installation.
+		// Fresh install: create every table at the current schema.
 		register_activation_hook( VSFW_PLUGIN_FILE, array( $this, 'install_tables' ) );
 
-		// Check for schema upgrades on load (cheap when already current).
+		// Existing installs: bring the schema up to the running plugin version on load (the activation
+		// hook does NOT fire on a plugin update, so this is how schema changes reach users who upgrade).
 		add_action( 'plugins_loaded', array( $this, 'maybe_install_tables' ), 20 );
 	}
 
 	/**
-	 * Install database tables and stamp the current version.
+	 * Fresh install (activation only): create every table at the CURRENT schema, then stamp the version.
+	 *
+	 * `dbDelta` builds each table complete — all columns + keys — so a fresh DB needs no migrations after
+	 * this. The per-version ALTER steps in {@see maybe_install_tables()} are for EXISTING installs only;
+	 * running them here would be redundant (the column/key they add already exists on a fresh table).
 	 */
 	public function install_tables() {
 		$this->installer->install_tables();
@@ -56,25 +65,43 @@ class Database_Module {
 	}
 
 	/**
-	 * Maybe install tables if missing, or stamp the version if outdated.
+	 * On load, bring an existing install's schema up to the running plugin version, then stamp it.
 	 *
-	 * Fast-path: when the stored version matches the plugin version we skip
-	 * the SHOW TABLES probe entirely — this is the hot path on every
-	 * request once a user is up to date.
+	 * Keyed off the PLUGIN version (VSFW_VERSION) stored in {@see DB_VERSION_OPTION}:
+	 *   - already at/ahead of VSFW_VERSION → nothing to do;
+	 *   - NO stamp ('0' — a pre-versioning or partial install) → we can't know what exists, so install
+	 *     the full table set (idempotent dbDelta only creates what's missing);
+	 *   - then apply the targeted, idempotent deltas, each gated by the plugin version that introduced
+	 *     it (independent `if`s, so they're cumulative — a very old install runs all of them). A no-stamp
+	 *     install runs them too: they add the bits dbDelta can't be trusted with (e.g. the ai_call_id
+	 *     UNIQUE key) and are no-ops where already applied.
+	 *
+	 * This is the ONLY path that reaches users who UPDATED the plugin — WordPress does not fire the
+	 * activation hook on an update — so a newly-added TABLE must be ensured here too (via the table's own
+	 * idempotent `install()`), not just column ALTERs, or it never lands on updated installs.
 	 */
 	public function maybe_install_tables() {
-		$installed = get_option( self::DB_VERSION_OPTION );
+		// '0' = never stamped (pre-versioning). Lower than any real plugin version, so the migrations run.
+		$installed = get_option( self::DB_VERSION_OPTION, '0' );
 
-		// Hot path — up to date, nothing to do.
-		if ( $installed === VSFW_VERSION ) {
+		// Hot path — schema already at (or ahead of) the running plugin version.
+		if ( version_compare( $installed, VSFW_VERSION, '>=' ) ) {
 			return;
 		}
 
-		// Either first boot after an update (existing users upgrading to a
-		// version that adds new tables), or a fresh install where the
-		// activation hook didn't run yet (e.g. must-use-style bootstrap).
-		if ( ! $this->installer->tables_exist() ) {
+		// No stamp: we don't know which tables exist → build the full set (idempotent).
+		if ( '0' === $installed ) {
 			$this->installer->install_tables();
+		}
+
+		// 1.3.0 — the AI feature added two columns to vsfw_videos (origin, ai_call_id) and the
+		// vsfw_ai_generations table. Each delta is explicit + idempotent: a new column = the table's own
+		// add_*_column() ALTER; a new table = its own install(). (Missing `origin` here broke AI imports.)
+		if ( version_compare( $installed, '1.3.0', '<' ) ) {
+			$videos = new Videos_Table();
+			$videos->add_origin_column();
+			$videos->add_ai_call_id_column();
+			( new Ai_Generations_Table() )->install();
 		}
 
 		update_option( self::DB_VERSION_OPTION, VSFW_VERSION, false );

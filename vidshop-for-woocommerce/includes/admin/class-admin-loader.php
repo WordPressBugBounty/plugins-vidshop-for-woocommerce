@@ -11,6 +11,7 @@ use VSFW\Interfaces\WooCommerce;
 use VSFW\Interfaces\Settings;
 use VSFW\Models\Video_Model;
 use VSFW\Admin\Activation_Handler;
+use VSFW\Services\Cloud_Connection;
 
 /**
  * Admin loader class with dependency injection.
@@ -89,6 +90,10 @@ class Admin_Loader {
 
 		// Initialize Pro compatibility notice (warns when Pro is outdated).
 		new Pro_Compat_Notice();
+
+		// AI feature visibility — promo notice + product-editor "Generate with AI" entry point.
+		new Ai_Promo_Notice();
+		new Ai_Product_Metabox();
 	}
 
 	/**
@@ -240,17 +245,25 @@ class Admin_Loader {
 			: false;
 
 		$data = array(
-			'ajax_url'         => admin_url( 'admin-ajax.php' ),
-			'nonce'            => wp_create_nonce( 'vsfw-admin' ),
-			'assets_url'       => VSFW_PLUGIN_URL . 'assets',
-			'is_woo_active'    => $this->woocommerce->is_active(),
-			'videos_count'     => $videos,
-			'is_pro'           => apply_filters( 'vsfw_is_pro', false ),
-			'currency_format'  => $this->settings->get_currency_format(),
-			'pro_version'      => $pro_version,
-			'pro_outdated'     => $pro_outdated,
-			'min_pro_version'  => defined( 'VSFW_MIN_PRO_VERSION' ) ? VSFW_MIN_PRO_VERSION : null,
-			'plugins_admin_url' => self_admin_url( 'plugins.php?plugin_status=upgrade' ),
+			'ajax_url'            => admin_url( 'admin-ajax.php' ),
+			'nonce'               => wp_create_nonce( 'vsfw-admin' ),
+			'assets_url'          => VSFW_PLUGIN_URL . 'assets',
+			'is_woo_active'       => $this->woocommerce->is_active(),
+			'videos_count'        => $videos,
+			'is_pro'              => apply_filters( 'vsfw_is_pro', false ),
+			'currency_format'     => $this->settings->get_currency_format(),
+			'pro_version'         => $pro_version,
+			'pro_outdated'        => $pro_outdated,
+			'min_pro_version'     => defined( 'VSFW_MIN_PRO_VERSION' ) ? VSFW_MIN_PRO_VERSION : null,
+			'plugins_admin_url'   => self_admin_url( 'plugins.php?plugin_status=upgrade' ),
+			'current_user_email'  => wp_get_current_user()->user_email,
+			'cloud'               => Cloud_Connection::localized_identity(),
+			'cloud_dashboard_url' => Cloud_Connection::dashboard_base_url(),
+			// Freemius "Contact Us" URL — filled by the Pro add-on; empty on free-only installs.
+			'support_url'         => apply_filters( 'vsfw_support_url', '' ),
+			// Whether a VidShop Pro license is present (Pro add-on active + licensed) — lets the UI
+			// offer a free→Pro "switch" without exposing the key itself.
+			'has_pro_license'     => ! empty( apply_filters( 'vsfw_cloud_license_key', null ) ),
 		);
 
 		/**

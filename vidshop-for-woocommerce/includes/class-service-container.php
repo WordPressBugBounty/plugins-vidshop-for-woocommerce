@@ -14,6 +14,10 @@ use VSFW\Services\Database_Installer;
 use VSFW\Interfaces\Database_Installer as Database_Installer_Interface;
 use VSFW\Services\Settings;
 use VSFW\Interfaces\Settings as Settings_Interface;
+use VSFW\Services\Cloud_Client;
+use VSFW\Services\Cloud_Connection;
+use VSFW\Services\Ai_Generation_Service;
+use VSFW\Services\Ai_Reconciler;
 
 /**
  * Simple service container with dependency injection.
@@ -137,6 +141,12 @@ class Service_Container {
 
 		$this->register( 'settings', Settings::class, true );
 		$this->bind( Settings_Interface::class, Settings::class );
+
+		// Cloud integration (WPCreatix-AI). Concrete classes resolved by type-hint.
+		$this->register( 'cloud_client', Cloud_Client::class, true );
+		$this->register( 'cloud_connection', Cloud_Connection::class, true );
+		$this->register( 'ai_generation_service', Ai_Generation_Service::class, true );
+		$this->register( 'ai_reconciler', Ai_Reconciler::class, true );
 
 		// Allow developers to register services.
 		do_action( 'svfw_register_services', $this );

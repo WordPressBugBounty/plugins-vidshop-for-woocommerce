@@ -152,8 +152,10 @@ class Video_Product_Stats_Model extends Model {
 	 * @return array Array of product IDs and their add to cart counts.
 	 */
 	public static function get_top_added_to_cart_products() {
+		// select_raw (not select) — the column sanitizer drops aggregate expressions like
+		// `SUM(...) as alias`, which would leave the alias missing from SELECT and break the ORDER BY.
 		return static::query()
-			->select( array( 'product_id', 'SUM(add_to_cart_count) as total_add_to_cart', 'SUM(views) as total_views' ) )
+			->select_raw( 'product_id, SUM(add_to_cart_count) AS total_add_to_cart, SUM(views) AS total_views' )
 			->group_by( 'product_id' )
 			->order_by( 'total_add_to_cart', 'DESC' )
 			->limit( 5 )
@@ -188,8 +190,10 @@ class Video_Product_Stats_Model extends Model {
 	 * @return array Array of products with their analytics data.
 	 */
 	public static function get_video_products_analytics( $video_id ) {
+		// select_raw (not select) — aggregate expressions are stripped by the column sanitizer,
+		// which would silently return product_id only (no totals). See get_top_added_to_cart_products.
 		return static::query()
-			->select( array( 'product_id', 'SUM(views) as total_views', 'SUM(add_to_cart_count) as total_add_to_cart' ) )
+			->select_raw( 'product_id, SUM(views) AS total_views, SUM(add_to_cart_count) AS total_add_to_cart' )
 			->where( 'video_id', '=', $video_id )
 			->group_by( 'product_id' )
 			->get_raw();

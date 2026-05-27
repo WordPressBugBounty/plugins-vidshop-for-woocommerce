@@ -12,6 +12,7 @@ use VSFW\Admin\Admin_Loader;
 use VSFW\Database\Database_Module;
 use VSFW\REST_API\REST_API_Module;
 use VSFW\Frontend\Frontend_Loader;
+use VSFW\AI\Ai_Module;
 
 /**
  * Module loader for managing application modules/loaders (not services).
@@ -195,6 +196,7 @@ class Module_Loader {
 		$this->register_module( 'database', Database_Module::class, array(), true );
 		$this->register_module( 'rest_api', REST_API_Module::class, array(), true );
 		$this->register_module( 'frontend_loader', Frontend_Loader::class, array( 'frontend' => true ), true );
+		$this->register_module( 'ai', Ai_Module::class, array(), true );
 
 		// Allow developers to register modules.
 		do_action( 'svfw_register_modules', $this );
