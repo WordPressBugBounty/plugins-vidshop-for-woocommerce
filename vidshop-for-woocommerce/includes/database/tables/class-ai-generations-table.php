@@ -52,6 +52,8 @@ class Ai_Generations_Table extends Table {
             duration_s INT DEFAULT NULL,
             estimated_seconds INT DEFAULT NULL,
             error TEXT DEFAULT NULL,
+            failure_code VARCHAR(64) DEFAULT NULL,
+            failure_reason TEXT DEFAULT NULL,
             checked_at DATETIME DEFAULT NULL,
             created_by BIGINT UNSIGNED NOT NULL,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -62,5 +64,34 @@ class Ai_Generations_Table extends Table {
             KEY created_by (created_by)
         ) {$wpdb->get_charset_collate()};
         ";
+	}
+
+	/**
+	 * Migration: add the merchant-facing `failure_code` + `failure_reason` columns mirroring
+	 * the cloud's `failure_code` / `failure_reason` on failed `ai_calls`. Idempotent — each ALTER
+	 * is gated on a SHOW COLUMNS probe so re-runs are safe and don't touch existing rows.
+	 *
+	 * `failure_code` distinguishes the soft "content_blocked" (single-classifier refusal — retry
+	 * may pass) from the firm "content_blocked_all_models" (every model family refused — the
+	 * image itself is the problem). The banner branches on this so the merchant gets the right
+	 * actionable copy instead of one generic line.
+	 */
+	public function add_failure_code_columns() {
+		global $wpdb;
+		$table = $this->get_full_table_name();
+
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery
+		$has_code = $wpdb->get_results( "SHOW COLUMNS FROM {$table} LIKE 'failure_code'" );
+		if ( empty( $has_code ) ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery
+			$wpdb->query( "ALTER TABLE {$table} ADD failure_code VARCHAR(64) DEFAULT NULL AFTER error" );
+		}
+
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery
+		$has_reason = $wpdb->get_results( "SHOW COLUMNS FROM {$table} LIKE 'failure_reason'" );
+		if ( empty( $has_reason ) ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery
+			$wpdb->query( "ALTER TABLE {$table} ADD failure_reason TEXT DEFAULT NULL AFTER failure_code" );
+		}
 	}
 }

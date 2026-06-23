@@ -2,7 +2,7 @@
 Contributors: wpcreatix
 Donate link: https://wpcreatix.com/
 Tags: ai video, ai video generator, shoppable videos, woocommerce videos, product videos
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
@@ -176,6 +176,12 @@ It shouldn't. Videos lazy-load and the assets are kept small.
 
 == Changelog ==
 
+= 1.4.0 - Clearer AI Failure Messages =
+
+* **New:** When an AI render fails because the photo was rejected on safety grounds, the banner now tells you whether to tweak and retry or use a different photo. A genuine block (every model agreed the image isn't usable) shows a distinct red banner that says so plainly, so you don't burn time retrying the same image.
+* **Improved:** The banner reads the typed failure reason straight from the cloud — image-format problems now show the exact thing to fix instead of a generic "couldn't generate" line.
+* **Under the hood:** the AI generations table gains two columns (`failure_code`, `failure_reason`) so the typed reason can be stored and shown. Migration is automatic on update.
+
 = 1.3.0 - AI Shoppable Video Generation =
 
 * **New:** Generate shoppable videos with AI — connect a free WPCreatix account (a free video to try) or VidShop Pro for more, pick a product, and VidShop turns its image into a ready-to-sell shoppable video.
@@ -280,6 +286,9 @@ It shouldn't. Videos lazy-load and the assets are kept small.
 * Optimized for performance, security, and ease-of-use
 
 == Upgrade Notice ==
+
+= 1.4.0 =
+Clearer messaging when AI rejects a photo on safety grounds — you'll now know at a glance whether to tweak and retry or pick a different image. Schema update runs automatically; safe to upgrade in place.
 
 = 1.0.3 =
 Important update with new Add to Cart Action option for better customer flow control and critical button sizing fixes for improved theme compatibility. Recommended upgrade for all users.

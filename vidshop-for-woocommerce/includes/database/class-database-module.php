@@ -104,6 +104,14 @@ class Database_Module {
 			( new Ai_Generations_Table() )->install();
 		}
 
+		// 1.4.0 — vsfw_ai_generations gains failure_code + failure_reason so the banner can branch
+		// the merchant message on the cloud's typed failure code (soft "content_blocked" vs firm
+		// "content_blocked_all_models" when every model rejected). Without these columns the cloud
+		// keeps reporting the codes but the plugin has nowhere to store them.
+		if ( version_compare( $installed, '1.4.0', '<' ) ) {
+			( new Ai_Generations_Table() )->add_failure_code_columns();
+		}
+
 		update_option( self::DB_VERSION_OPTION, VSFW_VERSION, false );
 	}
 }

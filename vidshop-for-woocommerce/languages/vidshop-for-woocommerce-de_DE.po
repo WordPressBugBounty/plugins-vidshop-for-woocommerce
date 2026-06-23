@@ -1941,15 +1941,15 @@ msgstr "Dieses Produkt konnte nicht gefunden werden."
 msgid "This product has no image. The AI would generate from text only and may not match your product. Add a featured image, or choose \"Generate anyway\"."
 msgstr "Dieses Produkt hat kein Bild. Die KI würde nur aus Text generieren und passt möglicherweise nicht zu deinem Produkt. Füge ein Beitragsbild hinzu oder wähle „Trotzdem generieren“."
 
-#: includes/services/class-ai-reconciler.php:190
+#: includes/services/class-ai-reconciler.php:192
 msgid "Generation failed on the cloud. You can try again for free."
 msgstr "Die Generierung in der Cloud ist fehlgeschlagen. Du kannst es kostenlos erneut versuchen."
 
-#: includes/services/class-ai-reconciler.php:269
+#: includes/services/class-ai-reconciler.php:279
 msgid "AI video"
 msgstr "KI-Video"
 
-#: includes/services/class-ai-reconciler.php:456
+#: includes/services/class-ai-reconciler.php:471
 msgid "Every minute (VidShop AI)"
 msgstr "Jede Minute (VidShop AI)"
 
@@ -2393,3 +2393,18 @@ msgstr "Lade dein eigenes Video hoch, lege ein Vorschaubild fest und verknüpfe 
 #: dist/admin/index.js:8
 msgid "Upload →"
 msgstr "Hochladen →"
+
+#: dist/admin/index.js:7
+#, js-format
+msgid "Every AI model refused the photo for “%s”. A clean product shot usually works. Anything with people, NSFW, or suggestive content gets blocked."
+msgstr ""
+
+#: dist/admin/index.js:7
+#, js-format
+msgid "“%s” was flagged by a content check. Try a different image, or change the title and description."
+msgstr ""
+
+#: dist/admin/index.js:7
+#, js-format
+msgid "“%s” — %s"
+msgstr ""

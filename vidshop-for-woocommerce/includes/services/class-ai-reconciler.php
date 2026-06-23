@@ -183,15 +183,25 @@ class Ai_Reconciler {
 						// A misbehaving add-on hook must not abort the import pass; the row is already imported, so swallow.
 					}
 				} elseif ( 'failed' === $status ) {
+					// Mirror the cloud's typed failure code + merchant-safe reason onto the local row so the
+					// banner can branch the message (firm "content_blocked_all_models" vs soft "content_blocked"
+					// vs neutral "temporarily_unavailable"). `error` keeps the human-readable reason for the
+					// list view; the generic fallback is only used when the cloud didn't send one.
+					$failure_code   = isset( $video['failure_code'] ) && is_string( $video['failure_code'] ) ? $video['failure_code'] : null;
+					$failure_reason = isset( $video['failure_reason'] ) && is_string( $video['failure_reason'] ) ? $video['failure_reason'] : null;
+					$display_error  = $failure_reason ? $failure_reason : __( 'Generation failed on the cloud. You can try again for free.', 'vidshop-for-woocommerce' );
+
 					$wpdb->update(
 						$table,
 						array(
-							'status'     => 'failed',
-							'error'      => __( 'Generation failed on the cloud. You can try again for free.', 'vidshop-for-woocommerce' ),
-							'checked_at' => gmdate( 'Y-m-d H:i:s' ),
+							'status'         => 'failed',
+							'error'          => $display_error,
+							'failure_code'   => $failure_code,
+							'failure_reason' => $failure_reason,
+							'checked_at'     => gmdate( 'Y-m-d H:i:s' ),
 						),
 						array( 'ai_call_id' => (int) $row->ai_call_id ),
-						array( '%s', '%s', '%s' ),
+						array( '%s', '%s', '%s', '%s', '%s' ),
 						array( '%d' )
 					);
 				} else {
@@ -420,6 +430,11 @@ class Ai_Reconciler {
 			'duration_s'        => isset( $row->duration_s ) ? (int) $row->duration_s : null,
 			'estimated_seconds' => isset( $row->estimated_seconds ) ? (int) $row->estimated_seconds : null,
 			'error'             => $row->error,
+			// Typed failure code from the cloud — lets the banner branch on "blocked by every model"
+			// vs "blocked by one model" vs neutral our-side issues. `isset()` keeps the snapshot safe
+			// on installs that hadn't yet run the 1.4.0 migration when this row was written.
+			'failure_code'      => isset( $row->failure_code ) ? $row->failure_code : null,
+			'failure_reason'    => isset( $row->failure_reason ) ? $row->failure_reason : null,
 			'created_at'        => $row->created_at,
 		);
 	}
