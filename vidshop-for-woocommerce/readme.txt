@@ -1,21 +1,21 @@
 === VidShop – Shoppable Videos for WooCommerce ===
 Contributors: wpcreatix
 Donate link: https://wpcreatix.com/
-Tags: ai video, ai video generator, shoppable videos, woocommerce videos, product videos
-Stable tag: 1.4.0
+Tags: shoppable videos, video gallery, tiktok feed, product videos, ai video generator
+Stable tag: 1.4.1
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
 License: GPL-3.0-or-later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Turn product photos into shoppable videos with AI, or upload your own. Customers watch, tap a product, and check out in the player.
+Turn product photos into shoppable videos with AI, or upload your own. A TikTok-style video gallery where shoppers tap a product and check out.
 
 == Description ==
 
 **Shoppable videos for WooCommerce, TikTok-style**
 
-VidShop brings social-media-style video shopping to your WooCommerce store. Customers swipe through videos, tap a product they like, and check out without leaving the player.
+VidShop adds a swipeable product video gallery to your WooCommerce store — like a TikTok feed of your products. Customers swipe through videos, tap a product they like, and check out without leaving the player.
 
 It fits any store that sells visual products: fashion, beauty, electronics, or home décor.
 
@@ -67,7 +67,7 @@ Don't have footage? Turn a product photo into a video. Pick a WooCommerce produc
 * Pick all videos or specific IDs
 * Set colors and layout
 * Copy and paste into any page or post
-* Layouts: grid, carousel, inline (TikTok-style), and stories
+* Layouts: grid, carousel (video slider), inline (TikTok-style feed), and stories
 
 ### Frontend
 
@@ -175,6 +175,10 @@ It shouldn't. Videos lazy-load and the assets are kept small.
 8. Live Cart & Checkout – Streamlined shopping process
 
 == Changelog ==
+
+= 1.4.1 - Cleaner Analytics Numbers =
+
+* **Fixed:** Average view time could show raw fractions like "1.99s" on the Analytics Dashboard and the per-video analytics page. Times now display as whole seconds, and the seconds part can no longer round up to "1m 60s".
 
 = 1.4.0 - Clearer AI Failure Messages =
 

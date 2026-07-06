@@ -7,10 +7,35 @@
 
 namespace VSFW\Admin;
 
+use VSFW\Models\Video_Model;
+use VSFW\Models\Video_Session_Model;
+use VSFW\Models\Video_Product_Stats_Model;
+
 /**
  * Review notice class.
+ *
+ * Asks for a wordpress.org review at a success moment — a published video
+ * with real traction — instead of on a plain timer.
  */
 class Review_Notice {
+
+	/**
+	 * Total video views that count as a success moment worth asking a review for.
+	 */
+	const SUCCESS_VIEWS_THRESHOLD = 100;
+
+	/**
+	 * Days after first seen before the notice shows even without measured success.
+	 */
+	const FALLBACK_DAYS = 14;
+
+	/**
+	 * Admin screens the notice is allowed to render on.
+	 *
+	 * VidShop's own screens hide all admin notices (see Admin_Loader), so the
+	 * ask lives where merchants actually look between tasks.
+	 */
+	const ALLOWED_SCREENS = array( 'dashboard', 'plugins' );
 
 	/**
 	 * Constructor.
@@ -43,7 +68,7 @@ class Review_Notice {
 		}
 
 		// If dismissed, check if 7 days have passed (for "Maybe Later").
-		$days_passed = ( 1762953178 - intval( $dismissed_time ) ) / DAY_IN_SECONDS;
+		$days_passed = ( time() - intval( $dismissed_time ) ) / DAY_IN_SECONDS;
 
 		return $days_passed < 7;
 	}
@@ -58,7 +83,10 @@ class Review_Notice {
 	}
 
 	/**
-	 * Check if user has been using plugin for at least 7 days.
+	 * Check if the user should be asked for a review.
+	 *
+	 * Asks at a success moment — a published video with real traction — or,
+	 * failing that, once the user has been around long enough anyway.
 	 *
 	 * @return bool
 	 */
@@ -72,16 +100,66 @@ class Review_Notice {
 			return false;
 		}
 
-		// Check if 7 days have passed.
 		$days_passed = ( time() - intval( $first_seen ) ) / DAY_IN_SECONDS;
 
-		return $days_passed >= 7;
+		// Long-time user: ask even without measured success.
+		if ( $days_passed >= self::FALLBACK_DAYS ) {
+			return true;
+		}
+
+		return $this->has_success_moment();
+	}
+
+	/**
+	 * Whether the store hit a success moment: at least one published video that
+	 * gathered real views or its first add-to-cart.
+	 *
+	 * The verdict is latched in an option once reached; until then the stats
+	 * queries run at most once every 12 hours.
+	 *
+	 * @return bool
+	 */
+	private function has_success_moment() {
+		if ( get_option( 'vsfw_review_success_reached' ) ) {
+			return true;
+		}
+
+		if ( false !== get_transient( 'vsfw_review_success_check' ) ) {
+			return false;
+		}
+
+		$success = false;
+		if ( Video_Model::where( 'status', 'published' )->count() > 0 ) {
+			$views       = Video_Session_Model::get_total_sessions( null, null );
+			$add_to_cart = Video_Product_Stats_Model::get_total_add_to_cart( null, null );
+			$success     = $views >= self::SUCCESS_VIEWS_THRESHOLD || $add_to_cart > 0;
+		}
+
+		if ( $success ) {
+			update_option( 'vsfw_review_success_reached', 1, false );
+			return true;
+		}
+
+		set_transient( 'vsfw_review_success_check', 1, 12 * HOUR_IN_SECONDS );
+
+		return false;
 	}
 
 	/**
 	 * Show review notice.
 	 */
 	public function show_review_notice() {
+		// Only ask users who can act on it.
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		// Keep the ask off random admin screens.
+		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+		if ( ! $screen || ! in_array( $screen->id, self::ALLOWED_SCREENS, true ) ) {
+			return;
+		}
+
 		// Don't show if permanently dismissed.
 		if ( $this->is_permanently_dismissed() ) {
 			return;
@@ -110,11 +188,7 @@ class Review_Notice {
 						<?php esc_html_e( 'Enjoying VidShop?', 'vidshop-for-woocommerce' ); ?>
 					</h3>
 					<p style="margin: 0;">
-						<?php
-						echo wp_kses_post(
-							__( 'If you like this plugin, please leave me a <strong>★★★★★</strong> rating to support continued development. Thanks a bunch!', 'vidshop-for-woocommerce' )
-						);
-						?>
+						<?php esc_html_e( 'If VidShop is pulling its weight in your store, a quick review on WordPress.org would mean a lot. It\'s how other store owners find the plugin.', 'vidshop-for-woocommerce' ); ?>
 					</p>
 				</div>
 				<div class="vsfw-review-notice__actions">
@@ -150,11 +224,6 @@ class Review_Notice {
 			}
 			.vsfw-review-notice__text {
 				flex: 1;
-			}
-			.vsfw-review-notice__text strong {
-				color: #1e40af;
-				font-size: 14px;
-				letter-spacing: 1px;
 			}
 			.vsfw-review-notice__actions {
 				flex-shrink: 0;
@@ -217,12 +286,16 @@ class Review_Notice {
 				});
 			});
 
-			// Handle "Rate Plugin" button click - temporary dismiss (7 days)
+			// Handle "Rate Plugin" button click - permanent dismiss (they went to rate; don't nag again)
 			$('.vsfw-review-notice__rate-button').on('click', function() {
+				var $notice = $(this).closest('.vsfw-review-notice');
+
 				$.post(ajaxurl, {
 					action: 'vsfw_dismiss_review_notice',
-					type: 'temporary',
+					type: 'permanent',
 					nonce: '<?php echo esc_js( wp_create_nonce( 'vsfw_dismiss_notice' ) ); ?>'
+				}, function() {
+					$notice.fadeOut();
 				});
 			});
 		});
