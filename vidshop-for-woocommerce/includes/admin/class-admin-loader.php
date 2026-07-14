@@ -239,6 +239,12 @@ class Admin_Loader {
 	private function get_localized_data() {
 		$videos = Video_Model::count();
 
+		// Frontend bundle URLs — the storefront builder loads these in an iframe to
+		// render a true-to-production live preview at a real viewport width.
+		$frontend_asset_file = VSFW_PLUGIN_DIR . 'dist/frontend/index.asset.php';
+		$frontend_asset      = file_exists( $frontend_asset_file ) ? include $frontend_asset_file : array();
+		$frontend_version    = isset( $frontend_asset['version'] ) ? $frontend_asset['version'] : VSFW_VERSION;
+
 		$pro_version  = defined( 'VIDSHOP_PRO_VERSION' ) ? VIDSHOP_PRO_VERSION : null;
 		$pro_outdated = $pro_version && defined( 'VSFW_MIN_PRO_VERSION' )
 			? version_compare( $pro_version, VSFW_MIN_PRO_VERSION, '<' )
@@ -248,6 +254,13 @@ class Admin_Loader {
 			'ajax_url'            => admin_url( 'admin-ajax.php' ),
 			'nonce'               => wp_create_nonce( 'vsfw-admin' ),
 			'assets_url'          => VSFW_PLUGIN_URL . 'assets',
+			'rest_url'            => esc_url_raw( rest_url() ),
+			'rest_nonce'          => wp_create_nonce( 'wp_rest' ),
+			'checkout_url'        => function_exists( 'wc_get_checkout_url' ) ? wc_get_checkout_url() : '',
+			'frontend_assets'     => array(
+				'js'  => add_query_arg( 'ver', $frontend_version, VSFW_PLUGIN_URL . 'dist/frontend/index.js' ),
+				'css' => add_query_arg( 'ver', $frontend_version, VSFW_PLUGIN_URL . 'dist/frontend/index.css' ),
+			),
 			'is_woo_active'       => $this->woocommerce->is_active(),
 			'videos_count'        => $videos,
 			'is_pro'              => apply_filters( 'vsfw_is_pro', false ),

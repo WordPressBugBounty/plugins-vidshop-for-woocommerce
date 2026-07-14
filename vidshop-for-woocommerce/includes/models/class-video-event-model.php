@@ -68,9 +68,10 @@ class Video_Event_Model extends Model {
 	 * @param string $start_date Start date.
 	 * @param string $end_date   End date.
 	 * @param int    $video_id   Optional video ID to filter by.
+	 * @param int    $storefront_id Optional storefront ID to filter by.
 	 * @return int
 	 */
-	public static function get_total_likes( $start_date, $end_date, $video_id = null ) {
+	public static function get_total_likes( $start_date, $end_date, $video_id = null, $storefront_id = null ) {
 		global $wpdb;
 
 		$query = static::query()->where( 'event_type', 'like' );
@@ -85,6 +86,11 @@ class Video_Event_Model extends Model {
 		if ( $start_date && $end_date ) {
 			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 			$query->where_raw( $wpdb->prepare( 's.started_at BETWEEN %s AND %s', $start_date, $end_date ) );
+		}
+
+		if ( null !== $storefront_id ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$query->where_raw( $wpdb->prepare( 's.storefront_id = %d', (int) $storefront_id ) );
 		}
 
 		// Add video filter if provided
@@ -96,14 +102,50 @@ class Video_Event_Model extends Model {
 	}
 
 	/**
+	 * Get per-day like counts for a date range.
+	 *
+	 * Dated by the event's created_at; joined to sessions for the storefront scope.
+	 * Days with no likes are absent from the result — callers zero-fill.
+	 *
+	 * @param string $start_date    Start datetime (Y-m-d H:i:s).
+	 * @param string $end_date      End datetime (Y-m-d H:i:s).
+	 * @param int    $storefront_id Optional storefront ID to filter by.
+	 * @return array Rows of { day: 'Y-m-d', likes: int }.
+	 */
+	public static function get_daily_likes( $start_date, $end_date, $storefront_id = null ) {
+		global $wpdb;
+
+		$sessions_table = ( new Video_Session_Model() )->get_full_table_name();
+		$events_table   = ( new static() )->get_full_table_name();
+
+		$query = static::query()
+			->select_raw( "DATE({$events_table}.created_at) AS day, COUNT(*) AS likes" )
+			->where( 'event_type', 'like' )
+			->join_raw( "JOIN {$sessions_table} s ON {$events_table}.session_id = s.id" );
+
+		if ( $start_date && $end_date ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$query->where_raw( $wpdb->prepare( "{$events_table}.created_at BETWEEN %s AND %s", $start_date, $end_date ) );
+		}
+
+		if ( null !== $storefront_id ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$query->where_raw( $wpdb->prepare( 's.storefront_id = %d', (int) $storefront_id ) );
+		}
+
+		return $query->group_by( 'day' )->order_by_raw( 'day ASC' )->get_raw();
+	}
+
+	/**
 	 * Get unique likes count for date range
 	 *
 	 * @param string $start_date Start date.
 	 * @param string $end_date   End date.
 	 * @param int    $video_id   Optional video ID to filter by.
+	 * @param int    $storefront_id Optional storefront ID to filter by.
 	 * @return int
 	 */
-	public static function get_unique_likes( $start_date, $end_date, $video_id = null ) {
+	public static function get_unique_likes( $start_date, $end_date, $video_id = null, $storefront_id = null ) {
 		global $wpdb;
 
 		$query = static::query()->where( 'event_type', 'like' );
@@ -118,6 +160,11 @@ class Video_Event_Model extends Model {
 		if ( $start_date && $end_date ) {
 			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 			$query->where_raw( $wpdb->prepare( 's.started_at BETWEEN %s AND %s', $start_date, $end_date ) );
+		}
+
+		if ( null !== $storefront_id ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$query->where_raw( $wpdb->prepare( 's.storefront_id = %d', (int) $storefront_id ) );
 		}
 
 		// Add video filter if provided

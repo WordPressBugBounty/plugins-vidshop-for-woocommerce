@@ -27,6 +27,7 @@ class Video_Product_Stats_Model extends Model {
 	protected $fillable = array(
 		'video_id',
 		'product_id',
+		'storefront_id',
 		'views',
 		'add_to_cart_count',
 	);
@@ -37,9 +38,10 @@ class Video_Product_Stats_Model extends Model {
 	 * @var array
 	 */
 	protected $casts = array(
-		'id'         => 'integer',
-		'video_id'   => 'integer',
-		'product_id' => 'integer',
+		'id'            => 'integer',
+		'video_id'      => 'integer',
+		'product_id'    => 'integer',
+		'storefront_id' => 'integer',
 	);
 
 	/**
@@ -59,15 +61,17 @@ class Video_Product_Stats_Model extends Model {
 	/**
 	 * Increment view count for a product in a video
 	 *
-	 * @param int $video_id   The video ID.
-	 * @param int $product_id The product ID.
+	 * @param int $video_id      The video ID.
+	 * @param int $product_id    The product ID.
+	 * @param int $storefront_id The storefront ID (0 = legacy shortcode).
 	 * @return Video_Product_Stats_Model The stats model instance.
 	 */
-	public static function increment_view( $video_id, $product_id ) {
+	public static function increment_view( $video_id, $product_id, $storefront_id = 0 ) {
 		$stats = static::first_or_new(
 			array(
-				'video_id'   => $video_id,
-				'product_id' => $product_id,
+				'video_id'      => $video_id,
+				'product_id'    => $product_id,
+				'storefront_id' => (int) $storefront_id,
 			),
 			array(
 				'views'             => 0,
@@ -84,15 +88,17 @@ class Video_Product_Stats_Model extends Model {
 	/**
 	 * Increment add to cart count for a product in a video
 	 *
-	 * @param int $video_id   The video ID.
-	 * @param int $product_id The product ID.
+	 * @param int $video_id      The video ID.
+	 * @param int $product_id    The product ID.
+	 * @param int $storefront_id The storefront ID (0 = legacy shortcode).
 	 * @return Video_Product_Stats_Model The stats model instance.
 	 */
-	public static function increment_add_to_cart( $video_id, $product_id ) {
+	public static function increment_add_to_cart( $video_id, $product_id, $storefront_id = 0 ) {
 		$stats = static::first_or_new(
 			array(
-				'video_id'   => $video_id,
-				'product_id' => $product_id,
+				'video_id'      => $video_id,
+				'product_id'    => $product_id,
+				'storefront_id' => (int) $storefront_id,
 			),
 			array(
 				'views'             => 0,
@@ -111,12 +117,17 @@ class Video_Product_Stats_Model extends Model {
 	 *
 	 * @param string $start_date Start date.
 	 * @param string $end_date   End date.
+	 * @param int    $storefront_id Optional storefront ID to filter by.
 	 * @return int The total number of views.
 	 */
-	public static function get_total_views( $start_date, $end_date ) {
+	public static function get_total_views( $start_date, $end_date, $storefront_id = null ) {
 		global $wpdb;
 
 		$query = static::query();
+
+		if ( null !== $storefront_id ) {
+			$query->where( 'storefront_id', (int) $storefront_id );
+		}
 
 		if ( $start_date && $end_date ) {
 			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
@@ -131,12 +142,17 @@ class Video_Product_Stats_Model extends Model {
 	 *
 	 * @param string $start_date Start date.
 	 * @param string $end_date   End date.
+	 * @param int    $storefront_id Optional storefront ID to filter by.
 	 * @return int The total number of add to cart events.
 	 */
-	public static function get_total_add_to_cart( $start_date, $end_date ) {
+	public static function get_total_add_to_cart( $start_date, $end_date, $storefront_id = null ) {
 		global $wpdb;
 
 		$query = static::query();
+
+		if ( null !== $storefront_id ) {
+			$query->where( 'storefront_id', (int) $storefront_id );
+		}
 
 		if ( $start_date && $end_date ) {
 			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
@@ -149,13 +165,20 @@ class Video_Product_Stats_Model extends Model {
 	/**
 	 * Get top 5 products by add to cart count
 	 *
+	 * @param int $storefront_id Optional storefront ID to filter by.
 	 * @return array Array of product IDs and their add to cart counts.
 	 */
-	public static function get_top_added_to_cart_products() {
+	public static function get_top_added_to_cart_products( $storefront_id = null ) {
 		// select_raw (not select) — the column sanitizer drops aggregate expressions like
 		// `SUM(...) as alias`, which would leave the alias missing from SELECT and break the ORDER BY.
-		return static::query()
-			->select_raw( 'product_id, SUM(add_to_cart_count) AS total_add_to_cart, SUM(views) AS total_views' )
+		$query = static::query()
+			->select_raw( 'product_id, SUM(add_to_cart_count) AS total_add_to_cart, SUM(views) AS total_views' );
+
+		if ( null !== $storefront_id ) {
+			$query->where( 'storefront_id', (int) $storefront_id );
+		}
+
+		return $query
 			->group_by( 'product_id' )
 			->order_by( 'total_add_to_cart', 'DESC' )
 			->limit( 5 )

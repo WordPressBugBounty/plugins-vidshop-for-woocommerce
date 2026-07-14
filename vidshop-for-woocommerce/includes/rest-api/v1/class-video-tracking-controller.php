@@ -61,6 +61,10 @@ class Video_Tracking_Controller extends REST_Controller {
 									'type'        => 'string',
 									'description' => __( 'Session token from previous request.', 'vidshop-for-woocommerce' ),
 								),
+								'storefront_id' => array(
+									'type'        => 'integer',
+									'description' => __( 'The saved storefront this session belongs to (0 for legacy shortcodes).', 'vidshop-for-woocommerce' ),
+								),
 							),
 						),
 					),
@@ -81,6 +85,7 @@ class Video_Tracking_Controller extends REST_Controller {
 
 		$visitor_id    = $session_data['visitor_id'] ?? '';
 		$session_token = $session_data['token'] ?? null;
+		$storefront_id = (int) ( $session_data['storefront_id'] ?? 0 );
 
 		if ( empty( $visitor_id ) ) {
 			return new WP_Error( 'missing_visitor_id', __( 'Visitor ID is required.', 'vidshop-for-woocommerce' ), array( 'status' => 400 ) );
@@ -101,7 +106,7 @@ class Video_Tracking_Controller extends REST_Controller {
 		}
 
 		if ( ! $session ) {
-			$session = Video_Session_Model::create_session( $visitor_id, $user_id );
+			$session = Video_Session_Model::create_session( $visitor_id, $user_id, $storefront_id );
 		} else {
 			$session->update_activity();
 		}

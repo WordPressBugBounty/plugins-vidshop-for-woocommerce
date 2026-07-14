@@ -12,6 +12,7 @@ use VSFW\Models\Video_Session_Model;
 use VSFW\Models\Video_Event_Model;
 use VSFW\Models\Video_View_Time_Model;
 use VSFW\Models\Video_Product_Stats_Model;
+use VSFW\Models\Storefront_Model;
 use VSFW\Interfaces\WooCommerce;
 use WP_REST_Server;
 use WP_REST_Request;
@@ -79,6 +80,34 @@ class Analytics_Controller extends REST_Controller {
 							'format'      => 'date',
 							'description' => __( 'End date for custom date range (YYYY-MM-DD).', 'vidshop-for-woocommerce' ),
 						),
+						'storefront_id' => array(
+							'required'    => false,
+							'type'        => 'integer',
+							'description' => __( 'Scope the analytics to a single storefront.', 'vidshop-for-woocommerce' ),
+						),
+					),
+				),
+			)
+		);
+
+		// Per-storefront analytics — same summary, scoped to one storefront id.
+		register_rest_route(
+			$this->namespace,
+			'/' . $this->rest_base . '/storefronts/(?P<id>[\d]+)',
+			array(
+				array(
+					'methods'             => WP_REST_Server::READABLE,
+					'callback'            => array( $this, 'get_analytics' ),
+					'permission_callback' => array( $this, 'check_private_permission' ),
+					'args'                => array(
+						'date_range' => array(
+							'required' => false,
+							'type'     => 'string',
+							'enum'     => array( 'this_week', 'last_week', 'this_month', 'last_month', 'all_time', 'custom' ),
+							'default'  => 'this_week',
+						),
+						'start_date' => array( 'required' => false, 'type' => 'string' ),
+						'end_date'   => array( 'required' => false, 'type' => 'string' ),
 					),
 				),
 			)
@@ -105,17 +134,35 @@ class Analytics_Controller extends REST_Controller {
 		$start_date_sql = $dates['start_date'];
 		$end_date_sql   = $dates['end_date'];
 
+		// Optional storefront scope — from the /storefronts/{id} route (`id`) or the
+		// `storefront_id` query arg on the base endpoint. null = site-wide (unchanged).
+		$storefront_param = $request->get_param( 'id' );
+		if ( null === $storefront_param ) {
+			$storefront_param = $request->get_param( 'storefront_id' );
+		}
+		$storefront_id = ( null !== $storefront_param && '' !== $storefront_param ) ? (int) $storefront_param : null;
+
+		// A scoped request must point at a real storefront (0 = legacy traffic, not a storefront).
+		$storefront = null;
+		if ( null !== $storefront_id ) {
+			$storefront = Storefront_Model::find( $storefront_id );
+
+			if ( ! $storefront ) {
+				return new WP_Error( 'storefront_not_found', __( 'Storefront not found', 'vidshop-for-woocommerce' ), array( 'status' => 404 ) );
+			}
+		}
+
 		// Get analytics data using model methods
-		$total_views          = Video_Session_Model::get_total_sessions( $start_date_sql, $end_date_sql );
-		$unique_views         = Video_Session_Model::get_unique_sessions( $start_date_sql, $end_date_sql );
-		$total_likes          = Video_Event_Model::get_total_likes( $start_date_sql, $end_date_sql );
-		$unique_likes         = Video_Event_Model::get_unique_likes( $start_date_sql, $end_date_sql );
-		$total_view_time      = Video_View_Time_Model::get_total_view_time( $start_date_sql, $end_date_sql );
-		$avg_view_time        = Video_View_Time_Model::get_average_view_time( $start_date_sql, $end_date_sql );
-		$total_add_to_cart    = Video_Product_Stats_Model::get_total_add_to_cart( $start_date_sql, $end_date_sql );
-		$total_views_products = Video_Product_Stats_Model::get_total_views( $start_date_sql, $end_date_sql );
-		$top_videos           = Video_Session_Model::get_top_videos( $start_date_sql, $end_date_sql, 5 );
-		$top_products         = Video_Product_Stats_Model::get_top_added_to_cart_products();
+		$total_views          = Video_Session_Model::get_total_sessions( $start_date_sql, $end_date_sql, null, $storefront_id );
+		$unique_views         = Video_Session_Model::get_unique_sessions( $start_date_sql, $end_date_sql, null, $storefront_id );
+		$total_likes          = Video_Event_Model::get_total_likes( $start_date_sql, $end_date_sql, null, $storefront_id );
+		$unique_likes         = Video_Event_Model::get_unique_likes( $start_date_sql, $end_date_sql, null, $storefront_id );
+		$total_view_time      = Video_View_Time_Model::get_total_view_time( $start_date_sql, $end_date_sql, null, $storefront_id );
+		$avg_view_time        = Video_View_Time_Model::get_average_view_time( $start_date_sql, $end_date_sql, null, $storefront_id );
+		$total_add_to_cart    = Video_Product_Stats_Model::get_total_add_to_cart( $start_date_sql, $end_date_sql, $storefront_id );
+		$total_views_products = Video_Product_Stats_Model::get_total_views( $start_date_sql, $end_date_sql, $storefront_id );
+		$top_videos           = Video_Session_Model::get_top_videos( $start_date_sql, $end_date_sql, 5, $storefront_id );
+		$top_products         = Video_Product_Stats_Model::get_top_added_to_cart_products( $storefront_id );
 
 		$response = array(
 			'date_range'           => array(
@@ -132,26 +179,84 @@ class Analytics_Controller extends REST_Controller {
 			'total_add_to_cart'    => $total_add_to_cart,
 			'total_views_products' => $total_views_products,
 			'top_videos'           => $top_videos,
-			'top_products'         => array_map(
-				function ( $product ) {
-					$product_data = $this->woocommerce->prepare_simple_product( $product->product_id );
-					if ( empty( $product_data ) ) {
-						return null;
-					}
+			// array_filter drops deleted products (prepare_simple_product returns null for
+			// them); array_values re-indexes so the JSON stays an array, not an object.
+			'top_products'         => array_values(
+				array_filter(
+					array_map(
+						function ( $product ) {
+							$product_data = $this->woocommerce->prepare_simple_product( $product->product_id );
+							if ( empty( $product_data ) ) {
+								return null;
+							}
 
-					return array_merge(
-						$product_data,
-						array(
-							'total_views'       => (int) $product->total_views,
-							'total_add_to_cart' => (int) $product->total_add_to_cart,
-						)
-					);
-				},
-				$top_products
+							return array_merge(
+								$product_data,
+								array(
+									'total_views'       => (int) $product->total_views,
+									'total_add_to_cart' => (int) $product->total_add_to_cart,
+								)
+							);
+						},
+						$top_products
+					)
+				)
 			),
 		);
 
+		// Storefront-scoped extras: the storefront's identity (for the page header) and a
+		// per-day time series for charting.
+		if ( $storefront ) {
+			$response['storefront'] = array(
+				'id'        => (int) $storefront->get_key(),
+				'name'      => $storefront->name,
+				'shortcode' => $storefront->shortcode,
+				'status'    => $storefront->status,
+			);
+			$response['timeseries'] = $this->build_timeseries( $start_date_sql, $end_date_sql, $storefront_id );
+		}
+
 		return new WP_REST_Response( $response );
+	}
+
+	/**
+	 * Build a zero-filled per-day series of views (sessions) and likes for a storefront.
+	 *
+	 * All-time requests have no bounds, so they chart the trailing 30 days. A hard cap of
+	 * 366 points guards pathological custom ranges.
+	 *
+	 * @param string|null $start_date_sql Start datetime or null (all time).
+	 * @param string|null $end_date_sql   End datetime or null (all time).
+	 * @param int         $storefront_id  The storefront to scope to.
+	 * @return array Items of { date: 'Y-m-d', views: int, likes: int }.
+	 */
+	private function build_timeseries( $start_date_sql, $end_date_sql, $storefront_id ) {
+		if ( ! $start_date_sql || ! $end_date_sql ) {
+			$now            = current_time( 'mysql' );
+			$end_date_sql   = date( 'Y-m-d 23:59:59', strtotime( $now ) );
+			$start_date_sql = date( 'Y-m-d 00:00:00', strtotime( '-29 days', strtotime( $now ) ) );
+		}
+
+		$views_rows = Video_Session_Model::get_daily_views( $start_date_sql, $end_date_sql, $storefront_id );
+		$likes_rows = Video_Event_Model::get_daily_likes( $start_date_sql, $end_date_sql, $storefront_id );
+
+		$views_by_day = wp_list_pluck( $views_rows, 'views', 'day' );
+		$likes_by_day = wp_list_pluck( $likes_rows, 'likes', 'day' );
+
+		$series = array();
+		$cursor = strtotime( date( 'Y-m-d', strtotime( $start_date_sql ) ) );
+		$end    = strtotime( date( 'Y-m-d', strtotime( $end_date_sql ) ) );
+
+		for ( $i = 0; $cursor <= $end && $i < 366; $cursor = strtotime( '+1 day', $cursor ), $i++ ) {
+			$day      = date( 'Y-m-d', $cursor );
+			$series[] = array(
+				'date'  => $day,
+				'views' => isset( $views_by_day[ $day ] ) ? (int) $views_by_day[ $day ] : 0,
+				'likes' => isset( $likes_by_day[ $day ] ) ? (int) $likes_by_day[ $day ] : 0,
+			);
+		}
+
+		return $series;
 	}
 
 	/**

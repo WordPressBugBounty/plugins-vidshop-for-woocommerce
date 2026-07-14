@@ -2,7 +2,7 @@
 Contributors: wpcreatix
 Donate link: https://wpcreatix.com/
 Tags: shoppable videos, video gallery, tiktok feed, product videos, ai video generator
-Stable tag: 1.4.1
+Stable tag: 1.5.0
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
@@ -62,11 +62,12 @@ Don't have footage? Turn a product photo into a video. Pick a WooCommerce produc
 * Link products to each video
 * Bulk actions and quick edit
 
-### Shortcode generator
+### Video feeds
 
-* Pick all videos or specific IDs
-* Set colors and layout
-* Copy and paste into any page or post
+* Build a feed step by step — pick videos, layout, colors, and shopping behavior — with a live preview that shows exactly what shoppers will see
+* Save it and embed it anywhere with one small shortcode: `[vidshop id="123"]`
+* Edit a saved feed and every page using it updates — no shortcode changes
+* Duplicate feeds, copy shortcodes, and manage everything from one screen
 * Layouts: grid, carousel (video slider), inline (TikTok-style feed), and stories
 
 ### Frontend
@@ -97,12 +98,13 @@ Don't have footage? Turn a product photo into a video. Pick a WooCommerce produc
 
 **2. Connect products.** Pick the WooCommerce products to link.
 
-**3. Generate a shortcode.** Choose which videos to show, the layout, and the colors.
+**3. Build a video feed.** Choose which videos to show, the layout, and the colors — with a live preview.
 
-**4. Go live.** Paste the shortcode anywhere on your site.
+**4. Go live.** Paste the feed's shortcode anywhere on your site.
 
 **Example shortcodes:**
 ```
+[vidshop id="123"]
 [vsfw-videos videos="all" type="grid" color-schema="#1e40af"]
 [vsfw-videos videos="123,456,789" type="carousel" color-schema="#e11d48"]
 [vsfw-videos videos="all" type="inline" color-schema="#10b981"]
@@ -168,13 +170,20 @@ It shouldn't. Videos lazy-load and the assets are kept small.
 1. Analytics Dashboard – Gain detailed insights into video performance
 2. Video Management – Easily manage and edit videos
 3. Video Creation Form – Simple and intuitive video setup
-4. Shortcode Generator – Customize your video presentation
+4. Video Feed Builder – Customize your video presentation with a live preview
 5. Modern Video Player – Engaging swipe navigation and product integration
 6. Interactive Product Shopping – Seamless product browsing
 7. Mobile Experience – Optimized for mobile shopping
 8. Live Cart & Checkout – Streamlined shopping process
 
 == Changelog ==
+
+= 1.5.0 - Video Feeds =
+
+* **New:** Video Feeds — save a video display once and embed it anywhere with a small shortcode like `[vidshop id="123"]`. Edit the feed and every page using it updates. Your existing `[vsfw-videos ...]` shortcodes keep working unchanged.
+* **New:** A step-by-step feed builder with a real live preview (desktop, tablet, and mobile) replaces the old shortcode popup. The video picker now shows your library right away — browse and click instead of typing to search.
+* **New:** A Video Feeds screen to edit, duplicate, and delete saved feeds, with a proper delete confirmation and one-click shortcode copy.
+* **Improved:** After adding to cart, the cart now opens by default (configurable per feed) and the confirmation shows as a toast over the video instead of flashing away with the product panel.
 
 = 1.4.1 - Cleaner Analytics Numbers =
 

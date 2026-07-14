@@ -165,7 +165,10 @@ class Products_Controller extends REST_Controller {
 			return $valid;
 		}
 
-		Video_Product_Stats_Model::increment_view( $video_id, $product_id );
+		// Skip the view increment for admin storefront-builder previews.
+		if ( ! $request->get_param( 'preview' ) ) {
+			Video_Product_Stats_Model::increment_view( $video_id, $product_id, (int) $request->get_param( 'storefront_id' ) );
+		}
 
 		return new WP_REST_Response( $this->woocommerce->prepare_product( $product_id ) );
 	}
@@ -201,7 +204,7 @@ class Products_Controller extends REST_Controller {
 			return new WP_Error( 'product_not_added_to_cart', __( 'Product not added to cart.', 'vidshop-for-woocommerce' ), array( 'status' => 400 ) );
 		}
 
-		Video_Product_Stats_Model::increment_add_to_cart( $video_id, $product_id );
+		Video_Product_Stats_Model::increment_add_to_cart( $video_id, $product_id, (int) $request->get_param( 'storefront_id' ) );
 
 		// Return formatted cart data
 		return new WP_REST_Response(

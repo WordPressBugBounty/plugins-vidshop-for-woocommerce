@@ -31,6 +31,7 @@ class Video_Session_Model extends Model {
 		'session_token',
 		'visitor_id',
 		'user_id',
+		'storefront_id',
 		'started_at',
 		'last_activity',
 	);
@@ -41,8 +42,9 @@ class Video_Session_Model extends Model {
 	 * @var array
 	 */
 	protected $casts = array(
-		'id'      => 'integer',
-		'user_id' => 'integer',
+		'id'            => 'integer',
+		'user_id'       => 'integer',
+		'storefront_id' => 'integer',
 	);
 
 	/**
@@ -71,11 +73,12 @@ class Video_Session_Model extends Model {
 	/**
 	 * Create or get existing session
 	 *
-	 * @param string $visitor_id The visitor ID.
-	 * @param int    $user_id    The user ID (optional).
+	 * @param string $visitor_id    The visitor ID.
+	 * @param int    $user_id       The user ID (optional).
+	 * @param int    $storefront_id The storefront the session belongs to (0 = legacy shortcode).
 	 * @return Video_Session_Model The session model instance.
 	 */
-	public static function create_session( $visitor_id, $user_id = null ) {
+	public static function create_session( $visitor_id, $user_id = null, $storefront_id = 0 ) {
 		$session_token = self::generate_session_token();
 
 		return static::create(
@@ -83,6 +86,7 @@ class Video_Session_Model extends Model {
 				'session_token' => $session_token,
 				'visitor_id'    => $visitor_id,
 				'user_id'       => $user_id,
+				'storefront_id' => (int) $storefront_id,
 				'started_at'    => current_time( 'mysql' ),
 				'last_activity' => current_time( 'mysql' ),
 			)
@@ -126,12 +130,17 @@ class Video_Session_Model extends Model {
 	 * @param string $start_date Start date.
 	 * @param string $end_date   End date.
 	 * @param int    $video_id   Optional video ID to filter by.
+	 * @param int    $storefront_id Optional storefront ID to filter by.
 	 * @return int
 	 */
-	public static function get_total_sessions( $start_date, $end_date, $video_id = null ) {
+	public static function get_total_sessions( $start_date, $end_date, $video_id = null, $storefront_id = null ) {
 		global $wpdb;
 
 		$query = static::query();
+
+		if ( null !== $storefront_id ) {
+			$query->where( 'storefront_id', (int) $storefront_id );
+		}
 
 		if ( $video_id ) {
 			// Join with events table to filter by video_id
@@ -167,12 +176,17 @@ class Video_Session_Model extends Model {
 	 * @param string $start_date Start date.
 	 * @param string $end_date   End date.
 	 * @param int    $video_id   Optional video ID to filter by.
+	 * @param int    $storefront_id Optional storefront ID to filter by.
 	 * @return int
 	 */
-	public static function get_unique_sessions( $start_date, $end_date, $video_id = null ) {
+	public static function get_unique_sessions( $start_date, $end_date, $video_id = null, $storefront_id = null ) {
 		global $wpdb;
 
 		$query = static::query();
+
+		if ( null !== $storefront_id ) {
+			$query->where( 'storefront_id', (int) $storefront_id );
+		}
 
 		if ( $video_id ) {
 			// Join with events table to filter by video_id
@@ -203,14 +217,42 @@ class Video_Session_Model extends Model {
 	}
 
 	/**
+	 * Get per-day session counts (a session == a storefront view) for a date range.
+	 *
+	 * Days with no sessions are absent from the result — callers zero-fill.
+	 *
+	 * @param string $start_date    Start datetime (Y-m-d H:i:s).
+	 * @param string $end_date      End datetime (Y-m-d H:i:s).
+	 * @param int    $storefront_id Optional storefront ID to filter by.
+	 * @return array Rows of { day: 'Y-m-d', views: int }.
+	 */
+	public static function get_daily_views( $start_date, $end_date, $storefront_id = null ) {
+		global $wpdb;
+
+		$query = static::query()->select_raw( 'DATE(started_at) AS day, COUNT(*) AS views' );
+
+		if ( $start_date && $end_date ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$query->where_raw( $wpdb->prepare( 'started_at BETWEEN %s AND %s', $start_date, $end_date ) );
+		}
+
+		if ( null !== $storefront_id ) {
+			$query->where( 'storefront_id', (int) $storefront_id );
+		}
+
+		return $query->group_by( 'day' )->order_by_raw( 'day ASC' )->get_raw();
+	}
+
+	/**
 	 * Get top videos by view event count
 	 *
 	 * @param string $start_date Start date.
 	 * @param string $end_date   End date.
 	 * @param int    $limit      Number of results to return.
+	 * @param int    $storefront_id Optional storefront ID to filter by.
 	 * @return array
 	 */
-	public static function get_top_videos( $start_date, $end_date, $limit = 5 ) {
+	public static function get_top_videos( $start_date, $end_date, $limit = 5, $storefront_id = null ) {
 		global $wpdb;
 
 		// Get video IDs with their view counts using eloquent Query Builder
@@ -225,6 +267,11 @@ class Video_Session_Model extends Model {
 		if ( $start_date && $end_date ) {
 			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 			$query->where_raw( $wpdb->prepare( 's.started_at BETWEEN %s AND %s', $start_date, $end_date ) );
+		}
+
+		if ( null !== $storefront_id ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$query->where_raw( $wpdb->prepare( 's.storefront_id = %d', (int) $storefront_id ) );
 		}
 
 		$video_view_counts = $query

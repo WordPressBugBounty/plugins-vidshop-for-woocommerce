@@ -8,6 +8,7 @@
 namespace VSFW\Frontend;
 
 use VSFW\Interfaces\Settings;
+use VSFW\Models\Storefront_Model;
 
 /**
  * Frontend loader class with dependency injection.
@@ -40,8 +41,11 @@ class Frontend_Loader {
 	 * Init.
 	 */
 	public function init() {
-		// Register shortcode.
+		// Register shortcodes. Both resolve through the same handler:
+		//  - [vsfw-videos ...]  legacy, inline-attribute config (kept for backward compatibility).
+		//  - [vidshop id="123"] saved Storefront config (also honoured on [vsfw-videos id="123"]).
 		add_shortcode( 'vsfw-videos', array( $this, 'render_video_shortcode' ) );
+		add_shortcode( 'vidshop', array( $this, 'render_video_shortcode' ) );
 	}
 
 	/**
@@ -62,7 +66,7 @@ class Frontend_Loader {
 					'play-on-hover'             => 'yes',
 					'add-to-cart-action'        => 'modal',
 					'auto-open-product-details' => 'no',
-					'post-add-to-cart-action'   => 'none',
+					'post-add-to-cart-action'   => 'open_cart',
 					'post-add-to-cart-url'      => '',
 					'autoplay'                  => 'no',
 					'loop'                      => 'no',
@@ -77,6 +81,21 @@ class Frontend_Loader {
 			$atts,
 			'vsfw-videos'
 		);
+
+		// Saved Storefront path — [vidshop id="123"] or [vsfw-videos id="123"].
+		// Load the stored config and expand it into the same $atts the legacy path
+		// produces, so everything downstream (filters, get_videos, data blob) is shared.
+		$storefront_id = 0;
+		if ( ! empty( $atts['id'] ) ) {
+			$storefront = Storefront_Model::find( (int) $atts['id'] );
+
+			if ( ! $storefront || 'published' !== $storefront->status ) {
+				return $this->render_missing_storefront( (int) $atts['id'] );
+			}
+
+			$storefront_id = (int) $storefront->get_key();
+			$atts          = $this->storefront_config_to_atts( $storefront, $atts );
+		}
 
 		/**
 		 * Allow consumers (notably Pro) to parse the final shortcode attribute set.
@@ -141,6 +160,9 @@ class Frontend_Loader {
 					'loop'                      => $loop,
 					'show_views'                => $show_views,
 					'show_likes'                => $show_likes,
+					// Stable id of the saved Storefront (0 for legacy attribute shortcodes).
+					// Used to scope per-storefront analytics; harmless before that lands.
+					'storefront_id'             => $storefront_id,
 				),
 				$atts
 			)
@@ -153,6 +175,84 @@ class Frontend_Loader {
 			esc_attr( $shortcode_id ),
 			$shortcode_data
 		);
+	}
+
+	/**
+	 * Expand a saved Storefront's config into the flat shortcode $atts array.
+	 *
+	 * Maps the stored config (see docs/storefronts-plan.md §5) onto the same
+	 * attribute keys the legacy attribute shortcode produces, so the render
+	 * pipeline downstream is identical. Pro-only presentation keys (columns,
+	 * arrows/dots, disable icon/text) are included too — Free ignores them, Pro
+	 * reads them via the `vsfw_shortcode_data` filter.
+	 *
+	 * @param Storefront_Model $storefront The storefront model.
+	 * @param array            $atts       The current (default) attribute set.
+	 * @return array
+	 */
+	private function storefront_config_to_atts( $storefront, $atts ) {
+		$config = $storefront->get_config_array();
+
+		$yn = static function ( $value ) {
+			return ! empty( $value ) ? 'yes' : 'no';
+		};
+
+		$is_specific = 'specific' === ( $config['video_selection'] ?? 'all' );
+		$video_ids   = array_map( 'absint', (array) ( $config['video_ids'] ?? array() ) );
+		$videos      = ( $is_specific && ! empty( $video_ids ) ) ? implode( ',', $video_ids ) : 'all';
+
+		$mapped = array(
+			'videos'                    => $videos,
+			'type'                      => $config['layout'] ?? 'grid',
+			'color-schema'              => $config['color_schema'] ?? '#1e40af',
+			'play-on-hover'             => $yn( $config['play_on_hover'] ?? false ),
+			'add-to-cart-action'        => $config['add_to_cart_action'] ?? 'modal',
+			'auto-open-product-details' => $yn( $config['auto_open_product_details'] ?? false ),
+			'post-add-to-cart-action'   => $config['post_add_to_cart_action'] ?? 'open_cart',
+			'post-add-to-cart-url'      => $config['post_add_to_cart_url'] ?? '',
+			'autoplay'                  => $yn( $config['autoplay'] ?? false ),
+			'loop'                      => $yn( $config['loop'] ?? false ),
+			'show-views'                => $yn( $config['show_views'] ?? true ),
+			'show-likes'                => $yn( $config['show_likes'] ?? true ),
+			'orderby'                   => $config['orderby'] ?? 'date',
+			'order'                     => $config['order'] ?? 'desc',
+			'tags'                      => implode( ',', array_map( 'absint', (array) ( $config['tags'] ?? array() ) ) ),
+			'tags-operator'             => $config['tags_operator'] ?? 'OR',
+
+			// Pro-only presentation (ignored by Free).
+			'columns-desktop'           => $config['columns']['desktop'] ?? 4,
+			'columns-tablet'            => $config['columns']['tablet'] ?? 3,
+			'columns-mobile'            => $config['columns']['mobile'] ?? 2,
+			'show-arrows'               => $yn( $config['show_arrows'] ?? true ),
+			'show-dots'                 => $yn( $config['show_dots'] ?? true ),
+			'disable-add-to-cart-icon'  => $yn( $config['disable_add_to_cart_icon'] ?? false ),
+			'disable-add-to-cart-text'  => $yn( $config['disable_add_to_cart_text'] ?? false ),
+		);
+
+		return array_merge( $atts, $mapped );
+	}
+
+	/**
+	 * Output for a [vidshop id="…"] pointing at a missing/unpublished storefront.
+	 *
+	 * Silent for visitors; an inline hint for admins so a broken embed is noticed.
+	 *
+	 * @param int $id The requested storefront id.
+	 * @return string
+	 */
+	private function render_missing_storefront( $id ) {
+		if ( current_user_can( 'manage_options' ) ) {
+			return sprintf(
+				'<div class="vsfw-storefront-missing" style="padding:12px;border:1px dashed #d1d5db;border-radius:8px;color:#6b7280;font-size:13px;">%s</div>',
+				sprintf(
+					/* translators: %d is the storefront id. */
+					esc_html__( 'VidShop: video feed #%d was not found or is not published. (Only site admins see this message.)', 'vidshop-for-woocommerce' ),
+					(int) $id
+				)
+			);
+		}
+
+		return '';
 	}
 
 	/**

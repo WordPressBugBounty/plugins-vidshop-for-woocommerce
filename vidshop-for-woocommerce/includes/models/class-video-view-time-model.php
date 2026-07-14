@@ -90,9 +90,10 @@ class Video_View_Time_Model extends Model {
 	 * @param string $start_date Start date.
 	 * @param string $end_date   End date.
 	 * @param int    $video_id   Optional video ID to filter by.
+	 * @param int    $storefront_id Optional storefront ID to filter by.
 	 * @return int
 	 */
-	public static function get_total_view_time( $start_date, $end_date, $video_id = null ) {
+	public static function get_total_view_time( $start_date, $end_date, $video_id = null, $storefront_id = null ) {
 		global $wpdb;
 		$view_time_table = ( new static() )->get_full_table_name();
 		$sessions_table  = ( new Video_Session_Model() )->get_full_table_name();
@@ -114,6 +115,11 @@ class Video_View_Time_Model extends Model {
 			$params[]           = $video_id;
 		}
 
+		if ( null !== $storefront_id ) {
+			$where_conditions[] = 's.storefront_id = %d';
+			$params[]           = (int) $storefront_id;
+		}
+
 		if ( ! empty( $where_conditions ) ) {
 			$sql .= ' WHERE ' . implode( ' AND ', $where_conditions );
 		}
@@ -131,11 +137,12 @@ class Video_View_Time_Model extends Model {
 	 * @param string $start_date Start date.
 	 * @param string $end_date   End date.
 	 * @param int    $video_id   Optional video ID to filter by.
+	 * @param int    $storefront_id Optional storefront ID to filter by.
 	 * @return float
 	 */
-	public static function get_average_view_time( $start_date, $end_date, $video_id = null ) {
-		$total_view_time = static::get_total_view_time( $start_date, $end_date, $video_id );
-		$total_sessions  = Video_Session_Model::get_total_sessions( $start_date, $end_date, $video_id );
+	public static function get_average_view_time( $start_date, $end_date, $video_id = null, $storefront_id = null ) {
+		$total_view_time = static::get_total_view_time( $start_date, $end_date, $video_id, $storefront_id );
+		$total_sessions  = Video_Session_Model::get_total_sessions( $start_date, $end_date, $video_id, $storefront_id );
 
 		return $total_sessions > 0 ? round( $total_view_time / $total_sessions, 2 ) : 0;
 	}

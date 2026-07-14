@@ -10,6 +10,9 @@ namespace VSFW\Database;
 use VSFW\Interfaces\Database_Installer;
 use VSFW\Database\Tables\Videos_Table;
 use VSFW\Database\Tables\Ai_Generations_Table;
+use VSFW\Database\Tables\Storefronts_Table;
+use VSFW\Database\Tables\Video_Sessions_Table;
+use VSFW\Database\Tables\Video_Product_Stats_Table;
 
 /**
  * Database module class.
@@ -110,6 +113,17 @@ class Database_Module {
 		// keeps reporting the codes but the plugin has nowhere to store them.
 		if ( version_compare( $installed, '1.4.0', '<' ) ) {
 			( new Ai_Generations_Table() )->add_failure_code_columns();
+		}
+
+		// 1.5.0 — the Storefronts feature adds the vsfw_storefronts table (saved shortcode
+		// configs rendered by [vidshop id="123"]). A new TABLE must be ensured here via its own
+		// idempotent install() so installs that UPDATED the plugin get it (the activation hook
+		// doesn't fire on update); dbDelta only creates it when missing. Per-storefront analytics
+		// also add a storefront_id column to the sessions + product-stats tables.
+		if ( version_compare( $installed, '1.5.0', '<' ) ) {
+			( new Storefronts_Table() )->install();
+			( new Video_Sessions_Table() )->add_storefront_id_column();
+			( new Video_Product_Stats_Table() )->add_storefront_id_column();
 		}
 
 		update_option( self::DB_VERSION_OPTION, VSFW_VERSION, false );
