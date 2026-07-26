@@ -12,6 +12,7 @@ use VSFW\Interfaces\Settings;
 use VSFW\Models\Video_Model;
 use VSFW\Admin\Activation_Handler;
 use VSFW\Services\Cloud_Connection;
+use VSFW\REST_API\V1\Promo_Controller;
 
 /**
  * Admin loader class with dependency injection.
@@ -178,6 +179,9 @@ class Admin_Loader {
 	 */
 	public function enqueue_admin_scripts() {
 		wp_enqueue_media();
+		// Core's plugin AJAX installer (`wp.updates.installPlugin`). Lets the cross-promo card install
+		// the sibling plugin in place, from WordPress.org, through core's own mechanism.
+		wp_enqueue_script( 'updates' );
 		wp_enqueue_script( 'vsfw-admin' );
 		wp_enqueue_style( 'vsfw-admin' );
 
@@ -277,6 +281,12 @@ class Admin_Loader {
 			// Whether a VidShop Pro license is present (Pro add-on active + licensed) — lets the UI
 			// offer a free→Pro "switch" without exposing the key itself.
 			'has_pro_license'     => ! empty( apply_filters( 'vsfw_cloud_license_key', null ) ),
+			// The "More from WPCreatix" cross-promo: a filtered registry of our other free plugins, each
+			// with its own install/activate state so a card can show the right call to action.
+			'siblings'            => $this->get_siblings_promo_data(),
+			// Feature-level promo flags shared by every sibling card: the dashboard engagement gate and
+			// the in-app "Generate with AI" banner dismissal (the dashboard slot's fallback).
+			'siblings_meta'       => $this->get_siblings_meta(),
 		);
 
 		/**
@@ -285,6 +295,169 @@ class Admin_Loader {
 		 * Pro uses this to inject presets, feature flags, etc.
 		 */
 		return apply_filters( 'vsfw_admin_localized_data', $data );
+	}
+
+	/**
+	 * The WPCreatix plugin portfolio.
+	 *
+	 * A tiny registry the cross-promo is built from: every WPCreatix plugin that ships to WordPress.org,
+	 * keyed by its wp.org slug. VidShop excludes *itself* and promotes the rest ({@see get_siblings_promo_data()}).
+	 * `requires_woo` drives the render-time filter — a WooCommerce-only sibling is hidden on stores
+	 * without WooCommerce.
+	 *
+	 * @return array<string, array<string, mixed>>
+	 */
+	private function get_portfolio() {
+		return array(
+			'media-sweep'              => array(
+				'slug'         => 'media-sweep',
+				'name'         => __( 'Media Sweep', 'vidshop-for-woocommerce' ),
+				'file'         => 'media-sweep/media-sweep.php',
+				'requires_woo' => false,
+				'tagline'      => __( 'Find and safely remove unused media to keep your library lean and your site fast.', 'vidshop-for-woocommerce' ),
+			),
+			'vidshop-for-woocommerce'  => array(
+				'slug'         => 'vidshop-for-woocommerce',
+				'name'         => __( 'VidShop', 'vidshop-for-woocommerce' ),
+				'file'         => 'vidshop-for-woocommerce/vidshop-for-woocommerce.php',
+				'requires_woo' => true,
+				'tagline'      => __( 'Turn shoppers into buyers with shoppable video feeds.', 'vidshop-for-woocommerce' ),
+			),
+			'wpcreatix-ai-sales-agent' => array(
+				'slug'         => 'wpcreatix-ai-sales-agent',
+				'name'         => __( 'WPCreatix AI Sales Agent', 'vidshop-for-woocommerce' ),
+				'file'         => 'wpcreatix-ai-sales-agent/wpcreatix-ai-sales-agent.php',
+				'requires_woo' => true,
+				'tagline'      => __( 'An AI sales agent that answers product questions and walks shoppers to checkout.', 'vidshop-for-woocommerce' ),
+			),
+		);
+	}
+
+	/**
+	 * The current plugin's slug — the one entry excluded from its own cross-promo.
+	 *
+	 * @var string
+	 */
+	const SELF_SLUG = 'vidshop-for-woocommerce';
+
+	/**
+	 * The sibling plugins to promote, in display order. The dashboard slot shows the first relevant
+	 * entry, so the higher-intent AI Sales Agent leads and Media Sweep follows.
+	 *
+	 * @var string[]
+	 */
+	const SIBLING_ORDER = array( 'wpcreatix-ai-sales-agent', 'media-sweep' );
+
+	/**
+	 * Per-product install state for one portfolio entry.
+	 *
+	 * Everything a sibling card needs to pick its call to action, all computed locally (no network).
+	 * Install and activate links route through WordPress core's own screens (never our servers) and are
+	 * only populated when the current user actually holds the matching capability — the button is
+	 * hidden otherwise.
+	 *
+	 * @param array<string, mixed> $product A portfolio registry entry.
+	 * @return array<string, mixed>
+	 */
+	private function build_sibling_state( array $product ) {
+		$slug = $product['slug'];
+		$file = $product['file'];
+
+		if ( ! function_exists( 'is_plugin_active' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+
+		$installed   = file_exists( WP_PLUGIN_DIR . '/' . $file );
+		$active      = $installed && is_plugin_active( $file );
+		$can_install = current_user_can( 'install_plugins' );
+		$dismissed   = (bool) get_user_meta( get_current_user_id(), Promo_Controller::dismissed_meta_key( $slug ), true );
+
+		// Native install: core's plugin search, pre-filtered to the plugin. Reviewers require the
+		// install to go through WordPress's own UI, and the merchant lands on a screen where they can
+		// read the full listing before installing.
+		$install_url = ( ! $installed && $can_install )
+			? self_admin_url( 'plugin-install.php?tab=search&type=term&s=' . rawurlencode( $product['name'] ) )
+			: '';
+
+		// Installed-but-inactive: a normal, nonce-protected core activation link. `wp_nonce_url()`
+		// HTML-encodes the ampersands for direct HTML output; decode them so the URL survives being
+		// handed to JS and used as a React href (otherwise `&amp;` reaches the server and the nonce
+		// check 403s).
+		$activate_url = ( $installed && ! $active && current_user_can( 'activate_plugins' ) )
+			? html_entity_decode( wp_nonce_url( self_admin_url( 'plugins.php?action=activate&plugin=' . rawurlencode( $file ) ), 'activate-plugin_' . $file ) )
+			: '';
+
+		return array(
+			'slug'         => $slug,
+			'name'         => $product['name'],
+			'tagline'      => $product['tagline'],
+			'requires_woo' => (bool) $product['requires_woo'],
+			'installed'    => $installed,
+			'active'       => $active,
+			'can_install'  => $can_install,
+			'wporg_url'    => 'https://wordpress.org/plugins/' . $slug . '/',
+			'install_url'  => $install_url,
+			'activate_url' => $activate_url,
+			'dismissed'    => $dismissed,
+		);
+	}
+
+	/**
+	 * The filtered list of sibling plugins to cross-promote.
+	 *
+	 * Runs the whole render-time filter locally: (1) drop a WooCommerce-only sibling when WooCommerce
+	 * isn't active, (2) drop a sibling the merchant already runs (active), and — by never listing
+	 * VidShop itself — keep the promo to the *other* products only. When nothing survives, the array is
+	 * empty and the UI renders nothing.
+	 *
+	 * @return array<int, array<string, mixed>>
+	 */
+	private function get_siblings_promo_data() {
+		$portfolio  = $this->get_portfolio();
+		$woo_active = class_exists( 'WooCommerce' );
+		$siblings   = array();
+
+		foreach ( self::SIBLING_ORDER as $slug ) {
+			if ( self::SELF_SLUG === $slug || ! isset( $portfolio[ $slug ] ) ) {
+				continue;
+			}
+
+			$product = $portfolio[ $slug ];
+
+			// Hide a WooCommerce-only sibling on a store without WooCommerce.
+			if ( ! empty( $product['requires_woo'] ) && ! $woo_active ) {
+				continue;
+			}
+
+			$state = $this->build_sibling_state( $product );
+
+			// Suppress a sibling the merchant already runs; there's nothing to promote.
+			if ( $state['active'] ) {
+				continue;
+			}
+
+			$siblings[] = $state;
+		}
+
+		return $siblings;
+	}
+
+	/**
+	 * Feature-level flags shared by all sibling cards.
+	 *
+	 * `should_prompt` is the engagement gate for the *dashboard* slot: it reuses the review notice's
+	 * "this store is getting value" latch (`vsfw_review_success_reached`) so a brand-new install is
+	 * never cross-sold, and only when the user can actually install. The settings list ignores this
+	 * flag — that page is opened deliberately. `ai_banner_dismissed` is whether this user dismissed the
+	 * in-app "Generate with AI" banner, the dashboard slot's fallback once the sibling card is gone.
+	 *
+	 * @return array<string, bool>
+	 */
+	private function get_siblings_meta() {
+		return array(
+			'should_prompt'       => current_user_can( 'install_plugins' ) && (bool) get_option( 'vsfw_review_success_reached' ),
+			'ai_banner_dismissed' => (bool) get_user_meta( get_current_user_id(), Promo_Controller::AI_BANNER_DISMISSED_META, true ),
+		);
 	}
 
 	/**

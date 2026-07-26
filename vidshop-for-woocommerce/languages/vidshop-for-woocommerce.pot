@@ -2,21 +2,21 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: VidShop for WooCommerce 1.4.1\n"
+"Project-Id-Version: VidShop for WooCommerce 1.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vidshop-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-06T09:08:04+00:00\n"
+"POT-Creation-Date: 2026-07-24T04:35:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: vidshop-for-woocommerce\n"
 
 #. Plugin Name of the plugin
 #: vidshop-for-woocommerce.php
-#: includes/admin/class-admin-loader.php:361
+#: includes/admin/class-admin-loader.php:431
 msgid "VidShop for WooCommerce"
 msgstr ""
 
@@ -36,50 +36,57 @@ msgstr ""
 msgid "WPCreatix"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:104
 #: includes/admin/class-admin-loader.php:105
+#: includes/admin/class-admin-loader.php:106
 #: includes/admin/class-review-notice.php:184
 #: dist/admin/index.js:1
-#: dist/admin/index.js:7
+#: dist/admin/index.js:8
 msgid "VidShop"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:120
 #: includes/admin/class-admin-loader.php:121
-#: dist/admin/index.js:8
+#: includes/admin/class-admin-loader.php:122
+#: dist/admin/index.js:9
 msgid "Dashboard"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:129
 #: includes/admin/class-admin-loader.php:130
+#: includes/admin/class-admin-loader.php:131
 #: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Videos"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:138
 #: includes/admin/class-admin-loader.php:139
-#: dist/admin/index.js:8
+#: includes/admin/class-admin-loader.php:140
+#: dist/admin/index.js:9
 msgid "Add new video"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:147
 #: includes/admin/class-admin-loader.php:148
+#: includes/admin/class-admin-loader.php:149
 #: dist/admin/index.js:1
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Tags"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:156
 #: includes/admin/class-admin-loader.php:157
-#: dist/admin/index.js:9
+#: includes/admin/class-admin-loader.php:158
+#: dist/admin/index.js:12
 msgid "Settings"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:360
+#: includes/admin/class-admin-loader.php:166
+#: includes/admin/class-admin-loader.php:167
+#: dist/admin/index.js:12
+msgid "More from WPCreatix"
+msgstr ""
+
+#: includes/admin/class-admin-loader.php:430
 msgid "Thanks for using"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:362
+#: includes/admin/class-admin-loader.php:432
 msgid "crafted with ❤️ by"
 msgstr ""
 
@@ -118,12 +125,13 @@ msgid "<strong>VidShop Pro</strong> needs to be updated to version %1$s or later
 msgstr ""
 
 #: includes/admin/class-pro-compat-notice.php:104
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Update now"
 msgstr ""
 
 #: includes/admin/class-pro-compat-notice.php:105
-#: dist/admin/index.js:7
+#: dist/admin/index.js:1
+#: dist/admin/index.js:8
 msgid "Dismiss"
 msgstr ""
 
@@ -147,25 +155,41 @@ msgstr ""
 msgid "I already did this"
 msgstr ""
 
-#: includes/rest-api/v1/class-analytics-controller.php:68
+#. translators: %d is the storefront id.
+#: includes/frontend/class-frontend-loader.php:249
+#, php-format
+msgid "VidShop: video feed #%d was not found or is not published. (Only site admins see this message.)"
+msgstr ""
+
+#: includes/rest-api/v1/class-analytics-controller.php:69
 msgid "Date range for analytics."
 msgstr ""
 
-#: includes/rest-api/v1/class-analytics-controller.php:74
+#: includes/rest-api/v1/class-analytics-controller.php:75
 msgid "Start date for custom date range (YYYY-MM-DD)."
 msgstr ""
 
-#: includes/rest-api/v1/class-analytics-controller.php:80
+#: includes/rest-api/v1/class-analytics-controller.php:81
 msgid "End date for custom date range (YYYY-MM-DD)."
 msgstr ""
 
-#: includes/rest-api/v1/class-analytics-controller.php:207
+#: includes/rest-api/v1/class-analytics-controller.php:86
+msgid "Scope the analytics to a single storefront."
+msgstr ""
+
+#: includes/rest-api/v1/class-analytics-controller.php:151
+#: includes/rest-api/v1/class-storefronts-controller.php:437
+msgid "Storefront not found"
+msgstr ""
+
+#: includes/rest-api/v1/class-analytics-controller.php:312
 msgid "Start date and end date are required for custom date range."
 msgstr ""
 
-#: includes/rest-api/v1/class-analytics-controller.php:220
-#: includes/rest-api/v1/class-analytics-controller.php:221
+#: includes/rest-api/v1/class-analytics-controller.php:325
+#: includes/rest-api/v1/class-analytics-controller.php:326
 #: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "All Time"
 msgstr ""
 
@@ -192,28 +216,103 @@ msgstr ""
 msgid "Item key."
 msgstr ""
 
-#: includes/rest-api/v1/class-products-controller.php:195
+#: includes/rest-api/v1/class-products-controller.php:198
 msgid "Variation ID is required for variable products."
 msgstr ""
 
-#: includes/rest-api/v1/class-products-controller.php:201
+#: includes/rest-api/v1/class-products-controller.php:204
 msgid "Product not added to cart."
 msgstr ""
 
-#: includes/rest-api/v1/class-products-controller.php:227
+#: includes/rest-api/v1/class-products-controller.php:230
 msgid "Product not found."
 msgstr ""
 
-#: includes/rest-api/v1/class-products-controller.php:231
+#: includes/rest-api/v1/class-products-controller.php:234
 msgid "Video not found."
 msgstr ""
 
-#: includes/rest-api/v1/class-products-controller.php:253
+#: includes/rest-api/v1/class-products-controller.php:256
 msgid "Failed to remove item from cart."
 msgstr ""
 
-#: includes/rest-api/v1/class-products-controller.php:273
+#: includes/rest-api/v1/class-products-controller.php:276
 msgid "Failed to update quantity."
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:78
+msgid "Whether to permanently delete the storefront or move it to trash."
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:113
+msgid "The ID of the storefront."
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:118
+msgid "The admin-facing name of the storefront."
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:126
+msgid "The storefront display configuration (video selection + presentation)."
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:131
+msgid "The status of the storefront."
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:149
+#: includes/rest-api/v1/class-videos-controller.php:249
+msgid "Current page of the collection."
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:156
+#: includes/rest-api/v1/class-videos-controller.php:256
+msgid "Maximum number of items to be returned in result set."
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:164
+#: includes/rest-api/v1/class-videos-controller.php:264
+msgid "Limit results to those matching a string."
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:169
+#: includes/rest-api/v1/class-videos-controller.php:269
+msgid "Limit results to those with a specific status."
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:174
+#: includes/rest-api/v1/class-videos-controller.php:279
+msgid "Sort collection by object attribute."
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:180
+#: includes/rest-api/v1/class-videos-controller.php:285
+msgid "Order sort attribute ascending or descending."
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:249
+#: includes/rest-api/v1/class-storefronts-controller.php:308
+#: includes/rest-api/v1/class-videos-controller.php:512
+#: includes/rest-api/v1/class-videos-controller.php:620
+msgid "Validation failed"
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:337
+msgid "Failed to delete storefront"
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:347
+msgid "Failed to move storefront to trash"
+msgstr ""
+
+#. translators: %s is the original storefront name.
+#: includes/rest-api/v1/class-storefronts-controller.php:373
+#, php-format
+msgid "%s (copy)"
+msgstr ""
+
+#: includes/rest-api/v1/class-storefronts-controller.php:384
+msgid "Failed to duplicate storefront"
 msgstr ""
 
 #: includes/rest-api/v1/class-video-tracking-controller.php:48
@@ -232,11 +331,15 @@ msgstr ""
 msgid "Session token from previous request."
 msgstr ""
 
-#: includes/rest-api/v1/class-video-tracking-controller.php:86
+#: includes/rest-api/v1/class-video-tracking-controller.php:66
+msgid "The saved storefront this session belongs to (0 for legacy shortcodes)."
+msgstr ""
+
+#: includes/rest-api/v1/class-video-tracking-controller.php:91
 msgid "Visitor ID is required."
 msgstr ""
 
-#: includes/rest-api/v1/class-video-tracking-controller.php:148
+#: includes/rest-api/v1/class-video-tracking-controller.php:153
 msgid "Batch tracking data saved successfully."
 msgstr ""
 
@@ -273,32 +376,8 @@ msgstr ""
 msgid "The status of the video."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:249
-msgid "Current page of the collection."
-msgstr ""
-
-#: includes/rest-api/v1/class-videos-controller.php:256
-msgid "Maximum number of items to be returned in result set."
-msgstr ""
-
-#: includes/rest-api/v1/class-videos-controller.php:264
-msgid "Limit results to those matching a string."
-msgstr ""
-
-#: includes/rest-api/v1/class-videos-controller.php:269
-msgid "Limit results to those with a specific status."
-msgstr ""
-
 #: includes/rest-api/v1/class-videos-controller.php:274
 msgid "Filter by video origin (manual or AI-generated)."
-msgstr ""
-
-#: includes/rest-api/v1/class-videos-controller.php:279
-msgid "Sort collection by object attribute."
-msgstr ""
-
-#: includes/rest-api/v1/class-videos-controller.php:285
-msgid "Order sort attribute ascending or descending."
 msgstr ""
 
 #: includes/rest-api/v1/class-videos-controller.php:291
@@ -307,11 +386,6 @@ msgstr ""
 
 #: includes/rest-api/v1/class-videos-controller.php:296
 msgid "Comma-separated list of video IDs."
-msgstr ""
-
-#: includes/rest-api/v1/class-videos-controller.php:512
-#: includes/rest-api/v1/class-videos-controller.php:620
-msgid "Validation failed"
 msgstr ""
 
 #: includes/rest-api/v1/class-videos-controller.php:529
@@ -597,7 +671,6 @@ msgid "Switch to light mode"
 msgstr ""
 
 #: dist/admin/index.js:1
-#: dist/admin/index.js:6
 msgid "Close"
 msgstr ""
 
@@ -608,6 +681,7 @@ msgstr ""
 #: dist/admin/index.js:1
 #: dist/admin/index.js:7
 #: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Upgrade to PRO"
 msgstr ""
 
@@ -697,7 +771,7 @@ msgid "Media Library"
 msgstr ""
 
 #: dist/admin/index.js:1
-#: dist/admin/index.js:6
+#: dist/admin/index.js:7
 msgid "Custom URL"
 msgstr ""
 
@@ -766,6 +840,7 @@ msgid "Change"
 msgstr ""
 
 #: dist/admin/index.js:1
+#: dist/admin/index.js:7
 msgid "Remove"
 msgstr ""
 
@@ -826,7 +901,7 @@ msgid "Status"
 msgstr ""
 
 #: dist/admin/index.js:1
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Published"
 msgstr ""
 
@@ -835,7 +910,6 @@ msgid "Draft"
 msgstr ""
 
 #: dist/admin/index.js:1
-#: dist/admin/index.js:6
 msgid "Cancel"
 msgstr ""
 
@@ -916,7 +990,7 @@ msgid "Fast social reel"
 msgstr ""
 
 #: dist/admin/index.js:1
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Generate with AI"
 msgstr ""
 
@@ -1041,6 +1115,62 @@ msgstr ""
 
 #: dist/admin/index.js:1
 msgid "Create with AI →"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Also from WPCreatix"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "WPCreatix AI Sales Agent"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "An AI sales agent that answers buying questions and walks shoppers to checkout."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Your videos get shoppers watching and tapping. The AI sales agent answers the questions that stop them buying, recommends the right product, and guides them to checkout inside your store."
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Answers product questions from your live catalog"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Recommends products and adds them to the cart"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Applies coupons and builds a ready checkout link"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Replies in each shopper's language, on its own"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Installed and active"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Activate"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Install now"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "View on WordPress.org"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Learn more"
+msgstr ""
+
+#: dist/admin/index.js:1
+msgid "Free plugin. Installs from WordPress.org."
 msgstr ""
 
 #: dist/admin/index.js:1
@@ -1201,7 +1331,7 @@ msgstr ""
 
 #: dist/admin/index.js:1
 #: dist/admin/index.js:5
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Trash"
 msgstr ""
 
@@ -1265,6 +1395,7 @@ msgstr ""
 
 #: dist/admin/index.js:4
 #: dist/admin/index.js:5
+#: dist/admin/index.js:12
 msgid "Delete Permanently"
 msgstr ""
 
@@ -1287,6 +1418,7 @@ msgid "View Stats"
 msgstr ""
 
 #: dist/admin/index.js:5
+#: dist/admin/index.js:11
 msgid "Edit"
 msgstr ""
 
@@ -1310,443 +1442,8 @@ msgid "Previous"
 msgstr ""
 
 #: dist/admin/index.js:6
+#: dist/admin/index.js:8
 msgid "Next"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "On"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Off"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Trust Blue"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "TikTok Pink"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Buy Now Orange"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Success Green"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Premium Gold"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Trending Purple"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Grid Layout"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Carousel Layout"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Stories Layout"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Stories Carousel Layout"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Show Product Details"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Go to Product Page"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "None (default)"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Open Cart Modal"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Redirect to Checkout"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Advanced Layouts"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Access Carousel and Stories layouts for more engaging video displays."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Layout Columns"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Customize the number of columns displayed on different devices."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Custom Color Schema"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Choose any custom color to match your brand perfectly."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Autoplay Videos"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Automatically play videos in sequence when the modal is open. When one video finishes, the next starts automatically."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Filter by Tags"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Build sliders from videos that match selected tags — perfect for per-category showcases (e.g. \"shoes\", \"outerwear\")."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "All Videos"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Specific Videos"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Date"
-msgstr ""
-
-#: dist/admin/index.js:6
-#: dist/admin/index.js:8
-msgid "Title"
-msgstr ""
-
-#: dist/admin/index.js:6
-#: dist/admin/index.js:8
-msgid "ID"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Random"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Descending"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Ascending"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Any of the selected (OR)"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "All of the selected (AND)"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Drag to reorder"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Remove video"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Shortcode copied to clipboard!"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Generate Video Shortcode"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Create a shortcode to display your videos on any page or post. Choose your settings below and copy the generated shortcode."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Video Selection"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Search & Select Videos"
-msgstr ""
-
-#: dist/admin/index.js:6
-#: dist/admin/index.js:8
-msgid "Search videos..."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Selected Videos"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Drag items to change the display order."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Video Order"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Order by"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Direction"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "No tags found. Create tags in VidShop → Tags to enable filtering."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Match mode"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Upgrade to VidShop Pro to build tag-filtered sliders."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Color Schema"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Custom Color"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Pick custom color"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Custom colors require PRO"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Choose Color"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Close color picker"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Layout Type"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "🎬 See Live Examples & Get Inspired"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Columns Configuration"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Desktop"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Tablet"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Mobile"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Auto-open product details"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "When opening the video modal, automatically open the first product’s details."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Play on Hover"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "When autoplay is off, hovering a video will preview it."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Videos will start playing as a preview when user hovers over them"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Navigation Options"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Show Arrows"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Display navigation arrows on carousel"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Show Dots"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Display pagination dots below carousel"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Engagement Counts"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Show view count"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Display the total view count on each video."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Show like count"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Display the like count next to the heart icon."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Autoplay"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "When the video modal is open, videos will play automatically in sequence. When one video finishes, the next starts automatically. If a product or cart modal is open, the current video loops until the modal closes."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Automatically plays videos in sequence — when one finishes, the next starts. Enable Loop to restart from the first video after the last."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Automatically plays the current video and moves to the next when it finishes. If a modal is open, the current video loops until the modal is closed."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Videos will start playing automatically when they come into view."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Loop Autoplay"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "After the last video ends, automatically start from the first again."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Add to Cart Button"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Button Action"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Opens a product details modal where customers can select variations and add to cart"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Opens the product page in a new tab for customers to view full details"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Button Appearance"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Show Icon"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Display the shopping cart icon in the button"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Show Text"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Display \"Add to Cart\" text in the button"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "After Add to Cart"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Choose what happens after adding to cart."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Please enter a valid URL (e.g., https://example.com or /page)"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "https://example.com or /page"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Enter a full URL (https://example.com) or a relative path (/page)"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Invalid Configuration"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "You must show either the icon or the text (or both). The button cannot be completely empty."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Configure how the button appears on product cards. You can show icon only, text only, or both. The button border radius will automatically adjust based on your selection."
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Generated Shortcode"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Copy"
-msgstr ""
-
-#: dist/admin/index.js:6
-#: dist/admin/index.js:9
-msgid "Reset"
-msgstr ""
-
-#: dist/admin/index.js:6
-msgid "Copy Shortcode"
 msgstr ""
 
 #: dist/admin/index.js:6
@@ -1781,460 +1478,1035 @@ msgstr ""
 
 #: dist/admin/index.js:7
 #: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "View Live Demo"
 msgstr ""
 
 #: dist/admin/index.js:7
-msgid "Dismiss notice"
+msgid "Trust Blue"
 msgstr ""
 
 #: dist/admin/index.js:7
+msgid "TikTok Pink"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Buy Now Orange"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Success Green"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Premium Gold"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Trending Purple"
+msgstr ""
+
+#: dist/admin/index.js:7
+#: dist/admin/index.js:8
+#: dist/admin/index.js:10
+msgid "All videos"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Specific videos"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Date"
+msgstr ""
+
+#: dist/admin/index.js:7
+#: dist/admin/index.js:9
+msgid "Title"
+msgstr ""
+
+#: dist/admin/index.js:7
+#: dist/admin/index.js:9
+msgid "ID"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Random"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Descending"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Ascending"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Any of the selected (OR)"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "All of the selected (AND)"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Grid"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Carousel"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Stories"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Stories Carousel"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Show product details"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Go to product page"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Open cart modal (default)"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "None (stay on video)"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Redirect to checkout"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Live preview"
+msgstr ""
+
+#: dist/admin/index.js:7
+#: dist/admin/index.js:8
+msgid "Desktop"
+msgstr ""
+
+#: dist/admin/index.js:7
+#: dist/admin/index.js:8
+msgid "Tablet"
+msgstr ""
+
+#: dist/admin/index.js:7
+#: dist/admin/index.js:8
+msgid "Mobile"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Pick some videos to preview your feed."
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "No published videos to show yet."
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Preview unavailable — rebuild the frontend assets."
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Feed preview"
+msgstr ""
+
+#: dist/admin/index.js:7
+#: dist/admin/index.js:8
+msgid "On"
+msgstr ""
+
+#: dist/admin/index.js:7
+#: dist/admin/index.js:8
+msgid "Off"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Drag to reorder"
+msgstr ""
+
+#. translators: %d is the number of selected videos.
+#: dist/admin/index.js:8
+#, js-format
+msgid "%d selected — drag to reorder"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Search videos…"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "No videos found."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Load more"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Which videos?"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Show your whole library or hand-pick and order specific videos."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Order by"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Direction"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Filter by tags"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "No tags found. Create tags in VidShop → Tags to enable filtering."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Match mode"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Filter by Tags"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Build video feeds from videos that match selected tags."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Filter videos by tags"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Layout"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Advanced Layouts"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Carousel and Stories layouts are a Pro feature."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Layout Columns"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Customize columns per device with Pro."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Columns per device"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Columns apply on your live site when you have enough videos. The preview fits to your current videos, so changing this may not change it here."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Navigation"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Arrows and dots are a Pro feature."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Show navigation arrows"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Show navigation dots"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Arrows and dots only appear when there are more videos than fit in one row (there is nothing to scroll otherwise). Arrows are hidden on mobile — shoppers swipe instead."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Playback & display"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Autoplay videos"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Play videos automatically when in view."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Loop"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Play on hover"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Preview a video when the shopper hovers over it."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Show view counts"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Show like counts"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Accent color"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Custom color"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Custom colors require Pro"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Custom Color"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Pick any brand color with Pro."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "When a shopper taps a product"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Add-to-cart button"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Show icon"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Show text"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "After adding to cart"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Choose what happens after a shopper adds a product."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Redirect URL"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Enter a full URL (https://…) or a path starting with /."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Auto-open Product Details"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Auto-open the product panel with Pro."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Auto-open product details"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Open the first product panel automatically when a video plays."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Feed name"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "e.g. Homepage hero videos"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Only you see this — it helps you find the feed later."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Autoplay"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Colors"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Shopping"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Name & save"
+msgstr ""
+
+#: dist/admin/index.js:8
+#: dist/admin/index.js:12
+msgid "Edit video feed"
+msgstr ""
+
+#: dist/admin/index.js:8
+#: dist/admin/index.js:12
+msgid "New video feed"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Could not load that video feed."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Build a shoppable video feed, then drop it on any page with a shortcode."
+msgstr ""
+
+#: dist/admin/index.js:8
+#: dist/admin/index.js:9
+msgid "Back"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Give your video feed a name first."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Video feed updated."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Video feed created — paste"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "into any page."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Could not save the video feed."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Save changes"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Create feed"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Unlock Feed Analytics"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "See how each video feed performs — views, watch time, likes, and add-to-carts — with VidShop PRO."
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Views & unique visitors per feed"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Views-over-time chart"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Watch time & engagement metrics"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Top videos & products for this feed"
+msgstr ""
+
+#: dist/admin/index.js:8
+#: dist/admin/index.js:9
+msgid "This Week"
+msgstr ""
+
+#: dist/admin/index.js:8
+#: dist/admin/index.js:9
+msgid "Last Week"
+msgstr ""
+
+#: dist/admin/index.js:8
+#: dist/admin/index.js:9
+msgid "This Month"
+msgstr ""
+
+#: dist/admin/index.js:8
+#: dist/admin/index.js:9
+msgid "Last Month"
+msgstr ""
+
+#: dist/admin/index.js:8
+msgid "Dismiss notice"
+msgstr ""
+
+#: dist/admin/index.js:8
 #, js-format
 msgid "%d video generating with AI…"
 msgid_plural "%d videos generating with AI…"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dist/admin/index.js:7
+#: dist/admin/index.js:8
 #, js-format
 msgid "“%s” couldn’t be generated. You can try again for free."
 msgstr ""
 
-#: dist/admin/index.js:7
+#: dist/admin/index.js:8
 #, js-format
 msgid "Every AI model refused the photo for “%s”. A clean product shot usually works. Anything with people, NSFW, or suggestive content gets blocked."
 msgstr ""
 
-#: dist/admin/index.js:7
+#: dist/admin/index.js:8
 #, js-format
 msgid "“%s” was flagged by a content check. Try a different image, or change the title and description."
 msgstr ""
 
-#: dist/admin/index.js:7
+#: dist/admin/index.js:8
 #, js-format
 msgid "“%s” — %s"
 msgstr ""
 
-#: dist/admin/index.js:7
+#: dist/admin/index.js:8
 #, js-format
 msgid "“%s” is ready, saved as a draft."
 msgstr ""
 
-#: dist/admin/index.js:7
+#: dist/admin/index.js:8
 msgid "Report this →"
 msgstr ""
 
-#: dist/admin/index.js:7
+#: dist/admin/index.js:8
 msgid "Review & publish →"
 msgstr ""
 
-#: dist/admin/index.js:7
+#: dist/admin/index.js:8
 msgid "VidShop Pro is outdated"
 msgstr ""
 
 #. translators: 1: required version, 2: installed version
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 #, js-format
 msgid "Update to version %1$s or later to unlock the full Pro admin experience (currently %2$s)."
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Back to top"
 msgstr ""
 
-#: dist/admin/index.js:8
-msgid "This Week"
-msgstr ""
-
-#: dist/admin/index.js:8
-msgid "Last Week"
-msgstr ""
-
-#: dist/admin/index.js:8
-msgid "This Month"
-msgstr ""
-
-#: dist/admin/index.js:8
-msgid "Last Month"
-msgstr ""
-
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Welcome to VidShop!"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Start engaging your customers with interactive videos. Upload your first video to begin tracking analytics and boosting your sales."
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Add Your First Video"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Analytics Dashboard"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Select period"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Total Views"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Unique Views"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Total Likes"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Unique Likes"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Avg. View Time"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Total View Time"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 #: dist/frontend/index.js:2
 #: dist/frontend/index.js:3
 #: dist/frontend/index.js:4
 msgid "Add to Cart"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Product Views"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Unlock the Full Power of VidShop PRO"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Carousel & Stories Layouts"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Custom Color Schemas"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Responsive Columns Control"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Advanced Analytics"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Top Videos"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "views"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "No video data available for this period"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Top Products"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "View Product"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "No product data available for this period"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Date Created"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Newest First"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Drafts"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Oldest First"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "All sources"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "AI-generated"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Manual"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Failed to fetch videos"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Started. We’ll add it to your videos as a draft when it’s ready."
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Showing"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "of"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "videos"
 msgstr ""
 
-#: dist/admin/index.js:8
-msgid "Generate Shortcode"
+#: dist/admin/index.js:9
+msgid "Create Video Feed"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Add New Video"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
+msgid "Search videos..."
+msgstr ""
+
+#: dist/admin/index.js:9
 msgid "Filter by tag (PRO)"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Source"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Sort by"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Order"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "No videos found"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "No videos yet"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Try adjusting your search criteria."
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Create your first video to get started with VidShop."
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Create a new video with products and thumbnail"
 msgstr ""
 
-#: dist/admin/index.js:8
-msgid "Back"
-msgstr ""
-
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Video created successfully!"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Failed to create video"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Create Video"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "How would you like to create your video?"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "New"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Turn a product photo into a shoppable video in minutes. No camera or editing needed."
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Start →"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Create manually"
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Upload your own video, set a thumbnail, and link products yourself."
 msgstr ""
 
-#: dist/admin/index.js:8
+#: dist/admin/index.js:9
 msgid "Upload →"
 msgstr ""
 
-#: dist/admin/index.js:8
 #: dist/admin/index.js:9
+#: dist/admin/index.js:10
 msgid "Edit video"
 msgstr ""
 
 #. translators: %s is the video title
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
 #, js-format
 msgid "Edit: %s"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
 #: dist/frontend/index.js:6
 msgid "Failed to load video"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
 msgid "Update video details, products and thumbnail"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
 msgid "Back to Videos"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
 msgid "Video updated successfully!"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
 msgid "Failed to update video"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
 msgid "Update Video"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
 msgid "Video Not Found"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
 msgid "The video you are looking for does not exist."
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
 msgid "Video Analytics"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
 msgid "Failed to load video analytics"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
 msgid "Unlock detailed performance metrics with VidShop PRO"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
 msgid "Video stats"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:10
+#: dist/admin/index.js:12
+msgid "Video Feeds"
+msgstr ""
+
+#: dist/admin/index.js:10
+msgid "Could not load video feeds."
+msgstr ""
+
+#: dist/admin/index.js:10
+msgid "Saved shoppable-video displays you can drop on any page with a shortcode."
+msgstr ""
+
+#: dist/admin/index.js:10
+msgid "New feed"
+msgstr ""
+
+#: dist/admin/index.js:10
+msgid "No video feeds yet."
+msgstr ""
+
+#: dist/admin/index.js:10
+msgid "Create your first feed"
+msgstr ""
+
+#. translators: %d is a count of videos.
+#: dist/admin/index.js:11
+#, js-format
+msgid "%d videos"
+msgstr ""
+
+#: dist/admin/index.js:11
+#: dist/admin/index.js:12
+msgid "Copy shortcode"
+msgstr ""
+
+#: dist/admin/index.js:11
+#: dist/admin/index.js:12
+msgid "Shortcode copied."
+msgstr ""
+
+#: dist/admin/index.js:11
+#: dist/admin/index.js:12
+msgid "Could not copy."
+msgstr ""
+
+#: dist/admin/index.js:11
+msgid "Analytics"
+msgstr ""
+
+#: dist/admin/index.js:11
+msgid "Video feed duplicated."
+msgstr ""
+
+#: dist/admin/index.js:11
+msgid "Could not duplicate."
+msgstr ""
+
+#: dist/admin/index.js:11
+msgid "Duplicate"
+msgstr ""
+
+#: dist/admin/index.js:11
+msgid "Delete"
+msgstr ""
+
+#: dist/admin/index.js:11
+msgid "Delete video feed"
+msgstr ""
+
+#. translators: %s is the feed name
+#: dist/admin/index.js:12
+#, js-format
+msgid "Are you sure you want to permanently delete \"%s\"? Pages using its shortcode will show nothing. This action cannot be undone."
+msgstr ""
+
+#: dist/admin/index.js:12
+msgid "Video feed deleted."
+msgstr ""
+
+#: dist/admin/index.js:12
+msgid "Could not delete."
+msgstr ""
+
+#: dist/admin/index.js:12
+msgid "Feed analytics"
+msgstr ""
+
+#: dist/admin/index.js:12
+msgid "Failed to load feed analytics"
+msgstr ""
+
+#: dist/admin/index.js:12
+msgid "Unlock per-feed performance metrics with VidShop PRO"
+msgstr ""
+
+#: dist/admin/index.js:12
+msgid "Back to Video Feeds"
+msgstr ""
+
+#: dist/admin/index.js:12
 msgid "Failed to load settings"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Configure your VidShop plugin settings"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Video Engagement"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Configure how users can interact with your videos"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Anonymous Likes"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Allow users to like videos without logging in. When disabled, only logged-in users can like videos."
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Price display"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Controls how product prices are displayed inside videos. Leave empty to inherit WooCommerce settings."
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Currency position"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Where the currency symbol is placed relative to the price."
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Thousand separator"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Leave empty to inherit WooCommerce value."
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "WooCommerce:"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Decimal separator"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Number of decimals"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Reset to WooCommerce defaults"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Clear all overrides and inherit WooCommerce settings."
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
+msgid "Reset"
+msgstr ""
+
+#: dist/admin/index.js:12
 msgid "You have unsaved changes"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Settings saved successfully"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Failed to save settings"
 msgstr ""
 
-#: dist/admin/index.js:9
+#: dist/admin/index.js:12
 msgid "Save Settings"
+msgstr ""
+
+#: dist/admin/index.js:12
+msgid "Other free tools we build to help WooCommerce stores sell more."
 msgstr ""
 
 #: dist/frontend/index.js:1
@@ -2282,7 +2554,7 @@ msgstr ""
 #. translators: %s is the product title
 #: dist/frontend/index.js:4
 #, js-format
-msgid "✓ %s added to cart!"
+msgid "%s added to cart"
 msgstr ""
 
 #: dist/frontend/index.js:4

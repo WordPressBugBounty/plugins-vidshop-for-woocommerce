@@ -2,7 +2,7 @@
 Contributors: wpcreatix
 Donate link: https://wpcreatix.com/
 Tags: shoppable videos, video gallery, tiktok feed, product videos, ai video generator
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
@@ -177,6 +177,11 @@ It shouldn't. Videos lazy-load and the assets are kept small.
 8. Live Cart & Checkout – Streamlined shopping process
 
 == Changelog ==
+
+= 1.5.1 - Discover More from WPCreatix =
+
+* **New:** A "More from WPCreatix" section that helps you find the other WPCreatix plugins, with one-click install and activate right from the VidShop admin.
+* **Improved:** Refreshed the "Generate with AI" dashboard banner, which you can now dismiss.
 
 = 1.5.0 - Video Feeds =
 

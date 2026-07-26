@@ -14,6 +14,7 @@ use VSFW\REST_API\V1\Products_Controller;
 use VSFW\REST_API\V1\Settings_Controller;
 use VSFW\REST_API\V1\Ai_Controller;
 use VSFW\REST_API\V1\Storefronts_Controller;
+use VSFW\REST_API\V1\Promo_Controller;
 use VSFW\Dependency_Resolver;
 use VSFW\Service_Container;
 
@@ -65,6 +66,7 @@ class REST_API_Module {
 			Settings_Controller::class,
 			Ai_Controller::class,
 			Storefronts_Controller::class,
+			Promo_Controller::class,
 		);
 	}
 
