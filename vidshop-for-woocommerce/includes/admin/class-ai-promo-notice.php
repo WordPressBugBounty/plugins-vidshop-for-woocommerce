@@ -105,6 +105,12 @@ class Ai_Promo_Notice {
 	 */
 	public function ajax_dismiss() {
 		check_ajax_referer( 'vsfw_dismiss_ai_promo', 'nonce' );
+
+		// The nonce says where the request came from; this says who was entitled to send it.
+		if ( ! current_user_can( 'edit_posts' ) ) {
+			wp_send_json_error( null, 403 );
+		}
+
 		update_user_meta( get_current_user_id(), self::DISMISSED_META, 1 );
 		wp_send_json_success();
 	}

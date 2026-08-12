@@ -464,7 +464,7 @@ class Storefronts_Controller extends REST_Controller {
 			// Selection.
 			'video_selection'           => $pick( $config['video_selection'] ?? 'all', array( 'all', 'specific' ), 'all' ),
 			'video_ids'                 => array_values( array_unique( array_filter( array_map( 'absint', (array) ( $config['video_ids'] ?? array() ) ) ) ) ),
-			'orderby'                   => $pick( $config['orderby'] ?? 'date', array( 'date', 'title', 'id', 'random' ), 'date' ),
+			'orderby'                   => $pick( $config['orderby'] ?? 'date', array( 'date', 'title', 'id', 'views', 'random' ), 'date' ),
 			'order'                     => 'asc' === strtolower( (string) ( $config['order'] ?? 'desc' ) ) ? 'asc' : 'desc',
 			'tags'                      => array_values( array_unique( array_filter( array_map( 'absint', (array) ( $config['tags'] ?? array() ) ) ) ) ),
 			'tags_operator'             => 'AND' === strtoupper( (string) ( $config['tags_operator'] ?? 'OR' ) ) ? 'AND' : 'OR',

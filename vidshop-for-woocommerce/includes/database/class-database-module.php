@@ -12,6 +12,7 @@ use VSFW\Database\Tables\Videos_Table;
 use VSFW\Database\Tables\Ai_Generations_Table;
 use VSFW\Database\Tables\Storefronts_Table;
 use VSFW\Database\Tables\Video_Sessions_Table;
+use VSFW\Database\Tables\Video_Events_Table;
 use VSFW\Database\Tables\Video_Product_Stats_Table;
 
 /**
@@ -124,6 +125,23 @@ class Database_Module {
 			( new Storefronts_Table() )->install();
 			( new Video_Sessions_Table() )->add_storefront_id_column();
 			( new Video_Product_Stats_Table() )->add_storefront_id_column();
+		}
+
+		// 1.6.0 — the Trash screen reports who trashed a video and when, which needs its own two
+		// columns. Also the indexes every analytics query bounds its window with: `started_at` on
+		// sessions and `created_at` on events had none, and sessions is the fastest-growing table
+		// here, so each dashboard load full-scanned it. The unique key on the product-stats triple
+		// is what lets its counters be incremented atomically — without it two concurrent
+		// add-to-carts could each insert a row, and the SUM() reports double-counted the stranded one.
+		// That key then gains the day, so dated reports stop reading the counter's first-seen date.
+		// Ordered after add_unique_key(), which merges the duplicates an older install can have.
+		if ( version_compare( $installed, '1.6.0', '<' ) ) {
+			( new Videos_Table() )->add_deleted_columns();
+			( new Video_Sessions_Table() )->add_analytics_indexes();
+			( new Video_Events_Table() )->add_analytics_indexes();
+			$product_stats = new Video_Product_Stats_Table();
+			$product_stats->add_unique_key();
+			$product_stats->add_stat_date_column();
 		}
 
 		update_option( self::DB_VERSION_OPTION, VSFW_VERSION, false );

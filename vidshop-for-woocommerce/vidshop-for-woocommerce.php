@@ -2,7 +2,7 @@
 /*
 Plugin Name: VidShop for WooCommerce
 Description: Upload your own videos and display WooCommerce products inside them. Let users interact and add items to cart while watching. Lightweight, fast, and fully integrated with WooCommerce.
-Version: 1.5.1
+Version: 1.6.0
 Author: WPCreatix
 Author URI: https://wpcreatix.com/
 Plugin URI: https://wpcreatix.com/
@@ -20,8 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'VSFW_VERSION', '1.5.1' );
-define( 'VSFW_MIN_PRO_VERSION', '1.2.0' );
+define( 'VSFW_VERSION', '1.6.0' );
+define( 'VSFW_MIN_PRO_VERSION', '1.4.0' );
 define( 'VSFW_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'VSFW_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'VSFW_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
@@ -45,6 +45,24 @@ function vsfw_woocommerce() {
 	VSFW\Plugin::instance();
 }
 
+
+
+/*
+ * Declare High-Performance Order Storage compatibility.
+ *
+ * Required now that order attribution reads and writes orders: every access goes through the CRUD
+ * API (`wc_get_order()`, `$order->get_items()`, `$item->get_meta()`), never postmeta or a WP_Query
+ * on `shop_order`, so both storage backends work. Without this declaration a store with HPOS
+ * enforced lists VidShop as an incompatible plugin.
+ */
+add_action(
+	'before_woocommerce_init',
+	function () {
+		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+		}
+	}
+);
 
 // Load the plugin.
 add_action(

@@ -98,13 +98,16 @@ class WooCommerce implements WooCommerce_Interface {
 			return array();
 		}
 
+		// False when the product has no featured image, and indexing that is a PHP 8 warning.
+		$image_src = wp_get_attachment_image_src( get_post_thumbnail_id( $product_id ), 'full' );
+
 		return array(
 			'id'              => $product_id,
 			'title'           => $product->get_name(),
 			'price'           => (float) $product->get_price(),
 			'currency_symbol' => html_entity_decode( get_woocommerce_currency_symbol(), ENT_QUOTES, 'UTF-8' ),
 			'price_html'      => $this->settings->format_price( $product->get_price() ),
-			'image'           => wp_get_attachment_image_src( get_post_thumbnail_id( $product_id ), 'full' )[0],
+			'image'           => $image_src ? $image_src[0] : '',
 			'url'             => get_permalink( $product_id ),
 		);
 	}
@@ -193,6 +196,17 @@ class WooCommerce implements WooCommerce_Interface {
 				if ( $attribute->get_variation() ) {
 					$attribute_options = array();
 
+					// Offer only the values the VARIATIONS actually use — WooCommerce's own rule.
+					// `get_variation_attributes()` reads the children's values (falling back to the
+					// parent's terms only for an "any" axis), and the storefront dropdown then keeps
+					// the parent terms whose slug appears in that set. Listing every parent term
+					// instead shows choices no variation can resolve: a parent carrying five colours
+					// whose variations cover three offered two that always failed to add.
+					$used = $product->get_variation_attributes();
+					$used = isset( $used[ $attribute->get_name() ] )
+						? array_map( 'strval', (array) $used[ $attribute->get_name() ] )
+						: array();
+
 					if ( $attribute->is_taxonomy() ) {
 						// Global attribute (like pa_size)
 						$terms = wc_get_product_terms(
@@ -202,6 +216,9 @@ class WooCommerce implements WooCommerce_Interface {
 						);
 
 						foreach ( $terms as $term ) {
+							if ( ! in_array( $term->slug, $used, true ) ) {
+								continue;
+							}
 							$attribute_options[] = array(
 								'id'   => $term->term_id,
 								'name' => $term->name,
@@ -209,9 +226,10 @@ class WooCommerce implements WooCommerce_Interface {
 							);
 						}
 					} else {
-						$options = $attribute->get_options();
-
-						foreach ( $options as $option ) {
+						// Custom attribute: WooCommerce compares the RAW value, and
+						// get_variation_attributes() has already intersected the parent's defined
+						// values with the ones variations carry.
+						foreach ( $used as $option ) {
 							$attribute_options[] = array(
 								'id'   => 0,
 								'name' => $option,

@@ -77,7 +77,7 @@ class Settings_Controller extends REST_Controller {
 	public function get_schema() {
 		return array(
 			'$schema'    => 'http://json-schema.org/draft-04/schema#',
-			'title'      => 'notification-master',
+			'title'      => 'vidshop-settings',
 			'type'       => 'object',
 			'properties' => array(
 				'allow_anonymous_likes' => array(

@@ -43,9 +43,6 @@
             "Add %s to cart": [
                 "%s zum Warenkorb hinzuf\u00fcgen"
             ],
-            "\u2713 %s added to cart!": [
-                "\u2713 %s zum Warenkorb hinzugef\u00fcgt!"
-            ],
             "Failed to add product to cart. Please try again.": [
                 "Das Produkt konnte nicht zum Warenkorb hinzugef\u00fcgt werden. Bitte versuchen Sie es erneut."
             ],
@@ -132,6 +129,9 @@
             ],
             "Go to slide": [
                 "Gehe zur Folie"
+            ],
+            "%s added to cart": [
+                "%s in den Warenkorb gelegt"
             ]
         }
     }

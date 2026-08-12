@@ -41,6 +41,8 @@ class Videos_Table extends Table {
             status VARCHAR(255) DEFAULT 'published',
             origin VARCHAR(20) NOT NULL DEFAULT 'manual',
             created_by BIGINT UNSIGNED NOT NULL,
+            deleted_at DATETIME DEFAULT NULL,
+            deleted_by BIGINT UNSIGNED DEFAULT NULL,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
             KEY type (type),
@@ -105,6 +107,33 @@ class Videos_Table extends Table {
 		if ( ! in_array( 'origin', $index_names, true ) ) {
 			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery
 			$wpdb->query( "ALTER TABLE {$table} ADD KEY origin (origin)" );
+		}
+	}
+
+	/**
+	 * Migration: add the `deleted_at` / `deleted_by` columns to an existing table.
+	 *
+	 * Idempotent — probes the live schema first, so it's safe to re-run and never touches existing
+	 * rows. The Trash screen reports who removed a video and when; `updated_at` was the only proxy
+	 * before, and it moves on every later write, so it could not be trusted. Rows trashed before
+	 * this migration keep NULL and the screen shows a dash rather than a wrong name.
+	 */
+	public function add_deleted_columns() {
+		global $wpdb;
+		$table = $this->get_full_table_name();
+
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery
+		$deleted_at = $wpdb->get_results( "SHOW COLUMNS FROM {$table} LIKE 'deleted_at'" );
+		if ( empty( $deleted_at ) ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery
+			$wpdb->query( "ALTER TABLE {$table} ADD deleted_at DATETIME DEFAULT NULL AFTER created_by" );
+		}
+
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery
+		$deleted_by = $wpdb->get_results( "SHOW COLUMNS FROM {$table} LIKE 'deleted_by'" );
+		if ( empty( $deleted_by ) ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery
+			$wpdb->query( "ALTER TABLE {$table} ADD deleted_by BIGINT UNSIGNED DEFAULT NULL AFTER deleted_at" );
 		}
 	}
 }

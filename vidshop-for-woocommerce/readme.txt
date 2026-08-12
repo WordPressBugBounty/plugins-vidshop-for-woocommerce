@@ -2,12 +2,12 @@
 Contributors: wpcreatix
 Donate link: https://wpcreatix.com/
 Tags: shoppable videos, video gallery, tiktok feed, product videos, ai video generator
-Stable tag: 1.5.1
-Requires at least: 5.0
+Stable tag: 1.6.0
+Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
-License: GPL-3.0-or-later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Turn product photos into shoppable videos with AI, or upload your own. A TikTok-style video gallery where shoppers tap a product and check out.
 
@@ -177,6 +177,16 @@ It shouldn't. Videos lazy-load and the assets are kept small.
 8. Live Cart & Checkout – Streamlined shopping process
 
 == Changelog ==
+
+= 1.6.0 - Redesigned Dashboard =
+
+* **New:** A completely redesigned admin — new sidebar, new Videos table, and a new Analytics dashboard with charts, a conversion funnel, and per-feed performance.
+* **New:** Upload and AI generation now run as guided step-by-step flows, with real upload progress and thumbnail frames picked from your own video.
+* **New:** A Trash screen showing what was removed, by whom, and when — restore individually or empty it in one go.
+* **New:** Sort your videos and feeds by view count.
+* **Improved:** The video list now shows duration, source, author and linked products at a glance, with bulk selection.
+* **Improved:** The feed builder's live preview sits in a browser frame showing your own store's address.
+* **Improved:** Faster dashboards and feeds — the analytics tables are now indexed, and a page of videos is counted in one query instead of two per video.
 
 = 1.5.1 - Discover More from WPCreatix =
 

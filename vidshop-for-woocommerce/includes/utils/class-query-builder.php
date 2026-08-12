@@ -767,6 +767,30 @@ class Query_Builder {
 	 * @param array $values
 	 * @return int
 	 */
+	/**
+	 * Assemble the WHERE clause from both kinds of constraint.
+	 *
+	 * `where()` and `where_raw()` accumulate separately, and every read path merges the two. The
+	 * write paths did not: they compiled `$wheres` alone, so a chain constrained only by
+	 * `where_raw()` — the established idiom for date ranges throughout the model layer — produced
+	 * `DELETE FROM table` with no WHERE at all, and `$wpdb` executed it without complaint.
+	 *
+	 * @return string The clause without the `WHERE` keyword, or '' when unconstrained.
+	 */
+	protected function compile_all_wheres() {
+		$parts = array();
+
+		if ( ! empty( $this->wheres ) ) {
+			$parts[] = $this->compile_wheres();
+		}
+
+		if ( ! empty( $this->raw_wheres ) ) {
+			$parts[] = implode( ' AND ', $this->raw_wheres );
+		}
+
+		return implode( ' AND ', $parts );
+	}
+
 	public function update( array $values ) {
 		global $wpdb;
 
@@ -783,13 +807,19 @@ class Query_Builder {
 		}
 		$set_clause = implode( ', ', $set_clauses );
 
-		$sql = "UPDATE {$table_name} SET {$set_clause}";
+		$where = $this->compile_all_wheres();
 
-		if ( ! empty( $this->wheres ) ) {
-			$sql .= ' WHERE ' . $this->compile_wheres();
+		/*
+		 * An unconstrained UPDATE rewrites the table. Nothing in this codebase wants that, and the
+		 * shape that used to produce it — constraints supplied only through where_raw() — looked
+		 * perfectly constrained at the call site.
+		 */
+		if ( '' === $where ) {
+			_doing_it_wrong( __METHOD__, 'Refusing to update every row: the query has no WHERE clause.', '1.6.0' );
+			return 0;
 		}
 
-		return $wpdb->query( $sql );
+		return $wpdb->query( "UPDATE {$table_name} SET {$set_clause} WHERE {$where}" );
 	}
 
 	/**
@@ -801,13 +831,15 @@ class Query_Builder {
 		global $wpdb;
 
 		$table_name = $this->model->get_full_table_name();
-		$sql        = "DELETE FROM {$table_name}";
+		$where      = $this->compile_all_wheres();
 
-		if ( ! empty( $this->wheres ) ) {
-			$sql .= ' WHERE ' . $this->compile_wheres();
+		// Same reasoning as update(): an unconstrained DELETE empties the table.
+		if ( '' === $where ) {
+			_doing_it_wrong( __METHOD__, 'Refusing to delete every row: the query has no WHERE clause.', '1.6.0' );
+			return 0;
 		}
 
-		return $wpdb->query( $sql );
+		return $wpdb->query( "DELETE FROM {$table_name} WHERE {$where}" );
 	}
 
 			/**

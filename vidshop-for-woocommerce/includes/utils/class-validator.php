@@ -959,14 +959,33 @@ class Validator {
 
 	/**
 	 * Validate mimes rule (file extensions)
+	 *
+	 * @param string $field      Field under validation.
+	 * @param mixed  $value      A filename, path or URL.
+	 * @param array  $parameters Allowed extensions.
+	 * @return bool
 	 */
 	protected function validate_mimes( $field, $value, $parameters ) {
 		if ( empty( $parameters ) || null === $value || '' === $value ) {
 			return true;
 		}
 
-		$allowed_extensions = array_map( 'trim', $parameters );
-		$file_extension     = pathinfo( $value, PATHINFO_EXTENSION );
+		$allowed_extensions = array_map( 'strtolower', array_map( 'trim', $parameters ) );
+
+		/*
+		 * Values here are usually remote URLs, not filenames, so pathinfo() has to be handed the
+		 * path alone. Run against the whole URL it reads "mp4?token=abc" out of a signed CDN link
+		 * and rejects a perfectly good video. Extensions are compared lowercased because cameras
+		 * hand back .MOV and .MP4.
+		 */
+		$path = wp_parse_url( $value, PHP_URL_PATH );
+
+		if ( ! is_string( $path ) || '' === $path ) {
+			// Malformed enough that parse_url gave up — strip any query/fragment by hand.
+			$path = preg_replace( '/[?#].*$/', '', (string) $value );
+		}
+
+		$file_extension = strtolower( pathinfo( $path, PATHINFO_EXTENSION ) );
 
 		if ( ! in_array( $file_extension, $allowed_extensions, true ) ) {
 			$field_name = $this->get_attribute_name( $field );

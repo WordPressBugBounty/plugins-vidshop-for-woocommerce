@@ -1116,14 +1116,25 @@ abstract class Model implements \JsonSerializable {
 	}
 
 	/**
-	 * Find models matching the query constraints
+	 * Find models matching the query constraints.
 	 *
-	 * @param string $column
-	 * @param mixed  $operator
-	 * @param mixed  $value
+	 * The argument count is forwarded, not just the values. `Query_Builder::where()` collapses the
+	 * two-argument shorthand — `where('status', 'published')` meaning `status = 'published'` — by
+	 * asking `func_num_args()`, and a wrapper that always passes three defeats that test: the value
+	 * lands in `$operator`, `$value` stays null, and the compiled clause is `` `status` published ''
+	 * ``, which is a syntax error. `$wpdb` swallows it, `count()` answers 0, and the caller reads a
+	 * confident wrong number.
+	 *
+	 * @param string $column   Column name.
+	 * @param mixed  $operator Comparison operator, or the value when called with two arguments.
+	 * @param mixed  $value    Value to compare against.
 	 * @return Query_Builder
 	 */
 	public static function where( $column, $operator = null, $value = null ) {
+		if ( 2 === func_num_args() ) {
+			return static::query()->where( $column, $operator );
+		}
+
 		return static::query()->where( $column, $operator, $value );
 	}
 

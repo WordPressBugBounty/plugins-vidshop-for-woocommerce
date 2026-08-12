@@ -115,6 +115,27 @@ class Analytics_Controller extends REST_Controller {
 	}
 
 	/**
+	 * The Sunday that starts the week containing a given day.
+	 *
+	 * Shared with the Pro revenue report through `Analytics_Controller::week_start()`, because the
+	 * two used different anchors — this one Sunday, revenue's `monday this week` — while the
+	 * revenue docblock claimed both agreed. The Analytics and Revenue tabs reported different weeks.
+	 *
+	 * @param string $day Day as `Y-m-d`.
+	 * @return string The week's first day, as `Y-m-d`.
+	 */
+	public static function week_start( $day ) {
+		$timestamp = strtotime( $day );
+
+		// Already Sunday: the week starts today, not seven days ago.
+		if ( 0 === (int) date( 'w', $timestamp ) ) {
+			return date( 'Y-m-d', $timestamp );
+		}
+
+		return date( 'Y-m-d', strtotime( 'last sunday', $timestamp ) );
+	}
+
+	/**
 	 * Get analytics data
 	 *
 	 * @param WP_REST_Request $request Request object.
@@ -178,7 +199,7 @@ class Analytics_Controller extends REST_Controller {
 			'avg_view_time'        => $avg_view_time,
 			'total_add_to_cart'    => $total_add_to_cart,
 			'total_views_products' => $total_views_products,
-			'top_videos'           => $top_videos,
+			'top_videos'           => $this->prepare_top_videos( $top_videos ),
 			// array_filter drops deleted products (prepare_simple_product returns null for
 			// them); array_values re-indexes so the JSON stays an array, not an object.
 			'top_products'         => array_values(
@@ -204,8 +225,26 @@ class Analytics_Controller extends REST_Controller {
 			),
 		);
 
-		// Storefront-scoped extras: the storefront's identity (for the page header) and a
-		// per-day time series for charting.
+		// The per-day series is charted on the dashboard as well as the per-feed report, so it is
+		// returned for every scope rather than only the storefront-scoped one.
+		$response['timeseries'] = $this->build_timeseries( $start_date_sql, $end_date_sql, $storefront_id );
+
+		// Library-wide counts for the summary strip. These are deliberately NOT range-scoped —
+		// "how many videos do I have" is a property of the library, not of the reporting window.
+		$response['totals'] = $this->get_library_totals();
+
+		// The same aggregates over the immediately preceding window of equal length, so each stat
+		// card can show a real change instead of a decorative arrow. All-time has no preceding
+		// window, so it reports null and the cards hide their badges.
+		$response['previous'] = $this->get_previous_period( $dates, $storefront_id );
+
+		// Per-feed rollup for the feed-performance table. Only meaningful site-wide; a scoped
+		// request is already reporting one feed.
+		if ( null === $storefront_id ) {
+			$response['per_storefront'] = $this->get_per_storefront( $start_date_sql, $end_date_sql );
+		}
+
+		// Storefront-scoped extra: the feed's identity, for the report header.
 		if ( $storefront ) {
 			$response['storefront'] = array(
 				'id'        => (int) $storefront->get_key(),
@@ -213,10 +252,126 @@ class Analytics_Controller extends REST_Controller {
 				'shortcode' => $storefront->shortcode,
 				'status'    => $storefront->status,
 			);
-			$response['timeseries'] = $this->build_timeseries( $start_date_sql, $end_date_sql, $storefront_id );
 		}
 
 		return new WP_REST_Response( $response );
+	}
+
+	/**
+	 * Serialize the top-videos list for the dashboard table.
+	 *
+	 * The model returns full Video objects whose `total_views`/`total_likes` accessors are lifetime
+	 * counts. Cart totals come from the per-video product-stats rows, and the click-through rate is
+	 * derived rather than stored. All four are lifetime figures, which the UI labels as such — a
+	 * range-scoped variant would need a different query per column and is not what this table is
+	 * for.
+	 *
+	 * @param array $videos Video models, already ordered by views.
+	 * @return array Rows of { id, title, thumbnail_url, total_views, total_likes, total_add_to_cart, ctr }.
+	 */
+	private function prepare_top_videos( $videos ) {
+		return array_map(
+			function ( $video ) {
+				$video_id = (int) $video->get_key();
+				$views    = (int) $video->total_views;
+				$cart     = Video_Product_Stats_Model::get_add_to_cart_for_video( $video_id );
+
+				return array(
+					'id'                => $video_id,
+					'title'             => $video->title,
+					'thumbnail_url'     => $video->thumbnail_url,
+					'total_views'       => $views,
+					'total_likes'       => (int) $video->total_likes,
+					'total_add_to_cart' => $cart,
+					'ctr'               => $views > 0 ? round( ( $cart / $views ) * 100, 1 ) : 0.0,
+				);
+			},
+			$videos
+		);
+	}
+
+	/**
+	 * Library-wide counts for the dashboard's summary strip.
+	 *
+	 * Deliberately NOT range-scoped — "how many videos do I have" is a property of the library,
+	 * not of the reporting window.
+	 *
+	 * @return array { videos, storefronts, products_featured }.
+	 */
+	private function get_library_totals() {
+		return array(
+			'videos'            => Video_Model::count_published(),
+			'storefronts'       => (int) Storefront_Model::query()->count(),
+			'products_featured' => Video_Model::count_featured_products(),
+		);
+	}
+
+	/**
+	 * The headline aggregates for the window immediately before the requested one.
+	 *
+	 * Used for the "vs previous period" badges. An all-time request has nothing before it, so this
+	 * returns null and the UI drops the badges rather than inventing a baseline.
+	 *
+	 * @param array    $dates         Resolved range from get_date_range().
+	 * @param int|null $storefront_id Optional feed scope.
+	 * @return array|null Same keys as the headline stats, or null when there is no prior window.
+	 */
+	private function get_previous_period( $dates, $storefront_id ) {
+		if ( empty( $dates['start_date'] ) || empty( $dates['end_date'] ) ) {
+			return null;
+		}
+
+		$start = strtotime( $dates['start_date'] );
+		$end   = strtotime( $dates['end_date'] );
+
+		if ( ! $start || ! $end || $end <= $start ) {
+			return null;
+		}
+
+		$length         = $end - $start;
+		$previous_end   = gmdate( 'Y-m-d H:i:s', $start - 1 );
+		$previous_start = gmdate( 'Y-m-d H:i:s', $start - 1 - $length );
+
+		return array(
+			'total_views'          => Video_Session_Model::get_total_sessions( $previous_start, $previous_end, null, $storefront_id ),
+			'unique_views'         => Video_Session_Model::get_unique_sessions( $previous_start, $previous_end, null, $storefront_id ),
+			'total_likes'          => Video_Event_Model::get_total_likes( $previous_start, $previous_end, null, $storefront_id ),
+			'total_view_time'      => Video_View_Time_Model::get_total_view_time( $previous_start, $previous_end, null, $storefront_id ),
+			'avg_view_time'        => Video_View_Time_Model::get_average_view_time( $previous_start, $previous_end, null, $storefront_id ),
+			'total_add_to_cart'    => Video_Product_Stats_Model::get_total_add_to_cart( $previous_start, $previous_end, $storefront_id ),
+			'total_views_products' => Video_Product_Stats_Model::get_total_views( $previous_start, $previous_end, $storefront_id ),
+		);
+	}
+
+	/**
+	 * Per-feed aggregates for the feed-performance table.
+	 *
+	 * Three grouped model queries rather than one analytics call per feed — a store with twenty
+	 * feeds would otherwise pay twenty round trips to render one table.
+	 *
+	 * @param string|null $start_date_sql Range start, or null for all time.
+	 * @param string|null $end_date_sql   Range end, or null for all time.
+	 * @return array Rows of { id, name, views, likes, add_to_cart }.
+	 */
+	private function get_per_storefront( $start_date_sql, $end_date_sql ) {
+		$views = wp_list_pluck( Video_Session_Model::get_views_by_storefront( $start_date_sql, $end_date_sql ), 'total', 'storefront_id' );
+		$likes = wp_list_pluck( Video_Event_Model::get_likes_by_storefront( $start_date_sql, $end_date_sql ), 'total', 'storefront_id' );
+		$cart  = wp_list_pluck( Video_Product_Stats_Model::get_add_to_cart_by_storefront( $start_date_sql, $end_date_sql ), 'total', 'storefront_id' );
+
+		$rows = array();
+
+		foreach ( Storefront_Model::query()->order_by( 'created_at', 'desc' )->get() as $storefront ) {
+			$id     = (int) $storefront->get_key();
+			$rows[] = array(
+				'id'          => $id,
+				'name'        => $storefront->name,
+				'views'       => isset( $views[ $id ] ) ? (int) $views[ $id ] : 0,
+				'likes'       => isset( $likes[ $id ] ) ? (int) $likes[ $id ] : 0,
+				'add_to_cart' => isset( $cart[ $id ] ) ? (int) $cart[ $id ] : 0,
+			);
+		}
+
+		return $rows;
 	}
 
 	/**
@@ -275,15 +430,21 @@ class Analytics_Controller extends REST_Controller {
 
 		switch ( $date_range ) {
 			case 'this_week':
-				// Start of current week (WordPress starts week on Sunday)
-				$start_date_sql = date( 'Y-m-d 00:00:00', strtotime( 'sunday last week', strtotime( $now ) ) );
+				/*
+				 * `strtotime('sunday last week')` returns the *previous* Sunday when today is
+				 * itself a Sunday, so the week ran to eight days and overlapped last week by seven
+				 * of them — every Sunday the dashboard roughly doubled and snapped back on Monday.
+				 * Anchoring off tomorrow makes "the most recent Sunday" mean today when today is
+				 * Sunday.
+				 */
+				$start_date_sql = self::week_start( $today ) . ' 00:00:00';
 				$end_date_sql   = date( 'Y-m-d 23:59:59', strtotime( $today ) );
 				break;
 
 			case 'last_week':
-				// Start of last week
-				$start_date_sql = date( 'Y-m-d 00:00:00', strtotime( 'sunday -2 weeks', strtotime( $now ) ) );
-				$end_date_sql   = date( 'Y-m-d 23:59:59', strtotime( 'saturday -1 week', strtotime( $now ) ) );
+				$this_week_start = self::week_start( $today );
+				$start_date_sql  = date( 'Y-m-d 00:00:00', strtotime( '-7 days', strtotime( $this_week_start ) ) );
+				$end_date_sql    = date( 'Y-m-d 23:59:59', strtotime( '-1 day', strtotime( $this_week_start ) ) );
 				break;
 
 			case 'this_month':

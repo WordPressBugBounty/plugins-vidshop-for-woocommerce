@@ -309,6 +309,16 @@ class Review_Notice {
 	public function ajax_dismiss_notice() {
 		check_ajax_referer( 'vsfw_dismiss_notice', 'nonce' );
 
+		/*
+		 * A nonce proves the request came from our page, not that the sender was ever meant to see
+		 * that page. The two compat notices in this plugin check both; these two checked only the
+		 * first. The write is confined to the caller's own user meta, so the exposure is small —
+		 * but "small" is not a reason to leave the pair mismatched.
+		 */
+		if ( ! current_user_can( 'edit_posts' ) ) {
+			wp_send_json_error( null, 403 );
+		}
+
 		$type = isset( $_POST['type'] ) ? sanitize_text_field( wp_unslash( $_POST['type'] ) ) : 'permanent';
 
 		if ( 'permanent' === $type ) {

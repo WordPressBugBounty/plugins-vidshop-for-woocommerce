@@ -244,6 +244,92 @@ class Video_Session_Model extends Model {
 	}
 
 	/**
+	 * Split the visitors who watched one video into first-timers and returners.
+	 *
+	 * "Returning" means the visitor had already opened a session before the one that watched this
+	 * video — anywhere on the site, not just on this video, which is the question a merchant is
+	 * actually asking ("is this reaching new people?").
+	 *
+	 * Counted per visitor rather than per session, so someone who watched the same video four times
+	 * in an evening is one returning viewer and not four.
+	 *
+	 * Unlike device and referrer, this needs nothing that was not already being stored: `visitor_id`
+	 * has been on every session from the start and is indexed, so the answer covers all history.
+	 *
+	 * @param int         $video_id   Video to scope to.
+	 * @param string|null $start_date Range start (Y-m-d H:i:s), or null for all time.
+	 * @param string|null $end_date   Range end (Y-m-d H:i:s), or null for all time.
+	 * @return array { new: int, returning: int }
+	 */
+	public static function get_visitor_split_for_video( $video_id, $start_date = null, $end_date = null ) {
+		global $wpdb;
+
+		$sessions = ( new static() )->get_full_table_name();
+		$events   = ( new Video_Event_Model() )->get_full_table_name();
+
+		$range = '';
+
+		if ( $start_date && $end_date ) {
+			$range = $wpdb->prepare( ' AND e.created_at BETWEEN %s AND %s', $start_date, $end_date );
+		}
+
+		/*
+		 * The inner query takes each visitor who watched this video and asks whether the session
+		 * that did so was their first ever. `MIN(first_seen)` over the visitor's whole history is
+		 * what makes "first ever" mean first ever, rather than first within the window.
+		 */
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+		$row = $wpdb->get_row(
+			$wpdb->prepare(
+				"SELECT
+					SUM(CASE WHEN v.watched_at <= v.first_seen THEN 1 ELSE 0 END) AS new_visitors,
+					SUM(CASE WHEN v.watched_at >  v.first_seen THEN 1 ELSE 0 END) AS returning_visitors
+				FROM (
+					SELECT
+						s.visitor_id,
+						MIN(s.started_at) AS watched_at,
+						(SELECT MIN(s2.started_at) FROM {$sessions} s2 WHERE s2.visitor_id = s.visitor_id) AS first_seen
+					FROM {$sessions} s
+					INNER JOIN {$events} e ON e.session_id = s.id
+					WHERE e.video_id = %d AND e.event_type = 'view'{$range}
+					GROUP BY s.visitor_id
+				) v",
+				(int) $video_id
+			)
+		);
+
+		return array(
+			'new'       => $row ? (int) $row->new_visitors : 0,
+			'returning' => $row ? (int) $row->returning_visitors : 0,
+		);
+	}
+
+	/**
+	 * Get session counts grouped by storefront.
+	 *
+	 * One grouped query for the whole feed-performance table — the alternative is a scoped
+	 * analytics call per feed, which is a round trip each.
+	 *
+	 * @param string $start_date Start datetime (Y-m-d H:i:s), or null for all time.
+	 * @param string $end_date   End datetime (Y-m-d H:i:s), or null for all time.
+	 * @return array Rows of { storefront_id: int, total: int }.
+	 */
+	public static function get_views_by_storefront( $start_date, $end_date ) {
+		global $wpdb;
+
+		$query = static::query()
+			->select_raw( 'storefront_id, COUNT(*) AS total' )
+			->where_raw( 'storefront_id > 0' );
+
+		if ( $start_date && $end_date ) {
+			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$query->where_raw( $wpdb->prepare( 'started_at BETWEEN %s AND %s', $start_date, $end_date ) );
+		}
+
+		return $query->group_by( 'storefront_id' )->get_raw();
+	}
+
+	/**
 	 * Get top videos by view event count
 	 *
 	 * @param string $start_date Start date.
@@ -263,10 +349,11 @@ class Video_Session_Model extends Model {
 			->select_raw( 'video_id, COUNT(*) as view_count' )
 			->join_raw( "JOIN {$sessions_table} s ON s.id = {$events_table}.session_id" );
 
-		// Add date range condition only if dates are provided
+		// Dated by the view itself. Scoping by the session's start date dropped a video watched
+		// today in a session opened yesterday out of today's table.
 		if ( $start_date && $end_date ) {
 			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
-			$query->where_raw( $wpdb->prepare( 's.started_at BETWEEN %s AND %s', $start_date, $end_date ) );
+			$query->where_raw( $wpdb->prepare( "{$events_table}.created_at BETWEEN %s AND %s", $start_date, $end_date ) );
 		}
 
 		if ( null !== $storefront_id ) {

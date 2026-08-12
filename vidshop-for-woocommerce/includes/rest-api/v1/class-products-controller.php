@@ -9,6 +9,8 @@ namespace VSFW\REST_API\V1;
 
 use VSFW\Interfaces\WooCommerce;
 use VSFW\Models\Video_Product_Stats_Model;
+use VSFW\Models\Video_Event_Model;
+use VSFW\Services\Order_Attribution;
 use VSFW\Models\Video_Model;
 use WP_REST_Server;
 use WP_REST_Request;
@@ -97,6 +99,16 @@ class Products_Controller extends REST_Controller {
 							'required'    => true,
 							'type'        => 'integer',
 							'description' => __( 'Video ID.', 'vidshop-for-woocommerce' ),
+						),
+						'session_token' => array(
+							'type'              => 'string',
+							'description'       => __( 'Analytics session token, when the viewer already has one.', 'vidshop-for-woocommerce' ),
+							'sanitize_callback' => 'sanitize_text_field',
+						),
+						'visitor_id'    => array(
+							'type'              => 'string',
+							'description'       => __( 'Visitor fingerprint, used to open a session when there is none yet.', 'vidshop-for-woocommerce' ),
+							'sanitize_callback' => 'sanitize_text_field',
 						),
 					),
 				),
@@ -198,19 +210,65 @@ class Products_Controller extends REST_Controller {
 			return new WP_Error( 'variation_id_required', __( 'Variation ID is required for variable products.', 'vidshop-for-woocommerce' ), array( 'status' => 400 ) );
 		}
 
+		$storefront_id = (int) $request->get_param( 'storefront_id' );
+
+		// Resolve the viewing session and queue the attribution BEFORE adding to the cart — the
+		// stamp is applied by a filter that WooCommerce runs inside add_to_cart().
+		$attribution = new Order_Attribution();
+		$session     = $attribution->resolve_session(
+			(string) $request->get_param( 'session_token' ),
+			(string) $request->get_param( 'visitor_id' ),
+			$storefront_id
+		);
+
+		if ( ! empty( $session['id'] ) ) {
+			$attribution->set_pending_attribution(
+				array(
+					'session_id'    => $session['id'],
+					'session_token' => $session['token'],
+					'video_id'      => (int) $video_id,
+					'storefront_id' => $storefront_id,
+				)
+			);
+		}
+
 		$cart_item_key = $this->woocommerce->add_to_cart( $product_id, $quantity, $variation_id, $variation_attributes );
 
 		if ( ! $cart_item_key ) {
 			return new WP_Error( 'product_not_added_to_cart', __( 'Product not added to cart.', 'vidshop-for-woocommerce' ), array( 'status' => 400 ) );
 		}
 
-		Video_Product_Stats_Model::increment_add_to_cart( $video_id, $product_id, (int) $request->get_param( 'storefront_id' ) );
+		Video_Product_Stats_Model::increment_add_to_cart( $video_id, $product_id, $storefront_id );
 
-		// Return formatted cart data
-		return new WP_REST_Response(
-			$this->woocommerce->get_cart_data(),
-			200
-		);
+		/*
+		 * The counter above is the per-product lifetime total, and it is not dated — one cumulative
+		 * row per video+product, stamped `created_at` when the pairing was first made and never
+		 * touched again. Reporting filtered that column by date, which asks when the *pairing* was
+		 * created rather than when the add-to-carts happened, so every window after that day
+		 * returned zero and the dashboard's Conversion Rate read 0% on every range but All time.
+		 *
+		 * This row is the dated fact. Unlike the view and checkout events it is deliberately not
+		 * deduplicated per session: adding the same product twice is two add-to-carts.
+		 */
+		if ( ! empty( $session['id'] ) ) {
+			Video_Event_Model::create_without_validation(
+				array(
+					'session_id' => (int) $session['id'],
+					'video_id'   => (int) $video_id,
+					'event_type' => 'add_to_cart',
+				)
+			);
+		}
+
+		$cart_data = $this->woocommerce->get_cart_data();
+
+		// Hand back the token when we minted one, so the widget adopts it instead of opening a
+		// second session on its next tracking batch.
+		if ( ! empty( $session['token'] ) ) {
+			$cart_data['session_token'] = $session['token'];
+		}
+
+		return new WP_REST_Response( $cart_data, 200 );
 	}
 
 	/**

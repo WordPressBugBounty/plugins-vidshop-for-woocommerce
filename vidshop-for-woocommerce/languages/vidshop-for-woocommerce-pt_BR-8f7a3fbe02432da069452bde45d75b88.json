@@ -43,9 +43,6 @@
             "Add %s to cart": [
                 "Adicionar %s ao carrinho"
             ],
-            "\u2713 %s added to cart!": [
-                "\u2713 %s adicionados ao carrinho!"
-            ],
             "Failed to add product to cart. Please try again.": [
                 "Falha ao adicionar produto ao carrinho. Por favor, tente novamente."
             ],
@@ -132,6 +129,9 @@
             ],
             "Go to slide": [
                 "Ir para o slide"
+            ],
+            "%s added to cart": [
+                "%s adicionado ao carrinho"
             ]
         }
     }
