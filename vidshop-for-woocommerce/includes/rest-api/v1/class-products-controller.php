@@ -235,7 +235,15 @@ class Products_Controller extends REST_Controller {
 		$cart_item_key = $this->woocommerce->add_to_cart( $product_id, $quantity, $variation_id, $variation_attributes );
 
 		if ( ! $cart_item_key ) {
-			return new WP_Error( 'product_not_added_to_cart', __( 'Product not added to cart.', 'vidshop-for-woocommerce' ), array( 'status' => 400 ) );
+			// Hand back WooCommerce's own wording ("You cannot add that amount ... we have 3 in
+			// stock") so the shopper learns why, instead of a generic retry prompt.
+			$reason = $this->woocommerce->get_last_cart_error();
+
+			return new WP_Error(
+				'product_not_added_to_cart',
+				$reason ? $reason : __( 'Product not added to cart.', 'vidshop-for-woocommerce' ),
+				array( 'status' => 400 )
+			);
 		}
 
 		Video_Product_Stats_Model::increment_add_to_cart( $video_id, $product_id, $storefront_id );
@@ -331,7 +339,13 @@ class Products_Controller extends REST_Controller {
 		$result = $this->woocommerce->update_quantity( $item_key, $quantity );
 
 		if ( ! $result ) {
-			return new WP_Error( 'quantity_not_updated', __( 'Failed to update quantity.', 'vidshop-for-woocommerce' ), array( 'status' => 400 ) );
+			$reason = $this->woocommerce->get_last_cart_error();
+
+			return new WP_Error(
+				'quantity_not_updated',
+				$reason ? $reason : __( 'Failed to update quantity.', 'vidshop-for-woocommerce' ),
+				array( 'status' => 400 )
+			);
 		}
 
 		return new WP_REST_Response( $this->woocommerce->get_cart_data(), 200 );

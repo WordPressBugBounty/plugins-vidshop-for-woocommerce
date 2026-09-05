@@ -23,6 +23,13 @@ class WooCommerce implements WooCommerce_Interface {
 	protected $settings;
 
 	/**
+	 * Reason the last cart write failed, taken from WooCommerce's notices.
+	 *
+	 * @var string
+	 */
+	protected $last_cart_error = '';
+
+	/**
 	 * Constructor.
 	 *
 	 * @param Settings_Interface $settings Settings service.
@@ -86,6 +93,114 @@ class WooCommerce implements WooCommerce_Interface {
 	}
 
 	/**
+	 * Price a shopper should see, honouring WooCommerce's tax display setting.
+	 *
+	 * `get_price()` is the raw stored amount. The shop and the cart both run it through
+	 * wc_get_price_to_display() first, so reading it directly is what made the feed
+	 * disagree with the cart on any store that charges tax.
+	 *
+	 * @param \WC_Product $product Product or variation.
+	 * @param float|null  $price   Optional explicit amount to convert.
+	 *
+	 * @return float
+	 */
+	protected function display_price( $product, $price = null ) {
+		$args = ( null === $price ) ? array() : array( 'price' => $price );
+
+		return (float) wc_get_price_to_display( $product, $args );
+	}
+
+	/**
+	 * Min and max display price for a product.
+	 *
+	 * Variable products carry a range; `get_price()` returns only the cheapest variation,
+	 * which reads as an exact price in the feed and then changes in the cart.
+	 *
+	 * @param \WC_Product $product Product object.
+	 *
+	 * @return array{min:float,max:float}
+	 */
+	protected function get_price_range( $product ) {
+		if ( $product->is_type( 'variable' ) ) {
+			// `true` asks WooCommerce for display prices, already converted for the tax
+			// setting and sorted ascending — the same array get_price_html() renders from.
+			$prices = $product->get_variation_prices( true );
+
+			if ( ! empty( $prices['price'] ) ) {
+				return array(
+					'min' => (float) current( $prices['price'] ),
+					'max' => (float) end( $prices['price'] ),
+				);
+			}
+		}
+
+		$price = $this->display_price( $product );
+
+		return array(
+			'min' => $price,
+			'max' => $price,
+		);
+	}
+
+	/**
+	 * Formatted price, rendered as a range when the product spans one.
+	 *
+	 * @param \WC_Product $product Product object.
+	 * @param array|null  $range   Range already resolved by the caller, so a variable
+	 *                             product's prices are not read twice per payload.
+	 *
+	 * @return string
+	 */
+	protected function get_price_html( $product, $range = null ) {
+		$range = ( null === $range ) ? $this->get_price_range( $product ) : $range;
+
+		if ( $range['max'] > $range['min'] ) {
+			return $this->settings->format_price( $range['min'] ) . ' &ndash; ' . $this->settings->format_price( $range['max'] );
+		}
+
+		return $this->settings->format_price( $range['min'] );
+	}
+
+	/**
+	 * Stock facts the widget needs to stop a shopper before WooCommerce has to.
+	 *
+	 * `max_quantity` is -1 when the product is unlimited (not managing stock, or
+	 * backorders allowed), otherwise the number actually on hand.
+	 *
+	 * @param \WC_Product $product Product or variation.
+	 *
+	 * @return array
+	 */
+	protected function get_stock_info( $product ) {
+		$stock_qty = $product->get_stock_quantity();
+
+		// Deliberately WooCommerce's own answer, never our own arithmetic: it runs the
+		// `woocommerce_quantity_input_max` filter that min/max-quantity plugins hook, and
+		// second-guessing it lets the widget offer a quantity the cart then refuses. The
+		// fallback mirrors the same rule on versions without the helper.
+		if ( method_exists( $product, 'get_max_purchase_quantity' ) ) {
+			$max = $product->get_max_purchase_quantity();
+		} elseif ( $product->is_sold_individually() ) {
+			$max = 1;
+		} elseif ( $product->backorders_allowed() || ! $product->managing_stock() ) {
+			$max = -1;
+		} else {
+			$max = (int) $stock_qty;
+		}
+
+		return array(
+			'is_in_stock'        => $product->is_in_stock(),
+			'is_purchasable'     => $product->is_purchasable(),
+			'is_on_backorder'    => method_exists( $product, 'is_on_backorder' ) ? $product->is_on_backorder() : false,
+			'backorders_allowed' => $product->backorders_allowed(),
+			'manage_stock'       => (bool) $product->managing_stock(),
+			'stock_quantity'     => ( $product->managing_stock() && null !== $stock_qty ) ? (int) $stock_qty : null,
+			'max_quantity'       => ( $max < 0 ) ? -1 : (int) $max,
+			'sold_individually'  => $product->is_sold_individually(),
+		);
+	}
+
+	/**
 	 * Prepare simple product.
 	 *
 	 * @param int $product_id Product ID.
@@ -100,15 +215,22 @@ class WooCommerce implements WooCommerce_Interface {
 
 		// False when the product has no featured image, and indexing that is a PHP 8 warning.
 		$image_src = wp_get_attachment_image_src( get_post_thumbnail_id( $product_id ), 'full' );
+		$range     = $this->get_price_range( $product );
 
-		return array(
-			'id'              => $product_id,
-			'title'           => $product->get_name(),
-			'price'           => (float) $product->get_price(),
-			'currency_symbol' => html_entity_decode( get_woocommerce_currency_symbol(), ENT_QUOTES, 'UTF-8' ),
-			'price_html'      => $this->settings->format_price( $product->get_price() ),
-			'image'           => $image_src ? $image_src[0] : '',
-			'url'             => get_permalink( $product_id ),
+		return array_merge(
+			array(
+				'id'              => $product_id,
+				'title'           => $product->get_name(),
+				'price'           => $range['min'],
+				'price_min'       => $range['min'],
+				'price_max'       => $range['max'],
+				'currency_symbol' => html_entity_decode( get_woocommerce_currency_symbol(), ENT_QUOTES, 'UTF-8' ),
+				'price_html'      => $this->get_price_html( $product, $range ),
+				'image'           => $image_src ? $image_src[0] : '',
+				'url'             => get_permalink( $product_id ),
+				'type'            => $product->get_type(),
+			),
+			$this->get_stock_info( $product )
 		);
 	}
 
@@ -127,23 +249,26 @@ class WooCommerce implements WooCommerce_Interface {
 
 		$image_src = wp_get_attachment_image_src( get_post_thumbnail_id( $product_id ), 'full' );
 		$image_url = $image_src ? $image_src[0] : '';
+		$range     = $this->get_price_range( $product );
 
-		$prepared_products = array(
-			'id'              => $product_id,
-			'title'           => $product->get_name(),
-			'description'     => $product->get_short_description(),
-			'price'           => (float) $product->get_price(),
-			'currency_symbol' => html_entity_decode( get_woocommerce_currency_symbol(), ENT_QUOTES, 'UTF-8' ),
-			'price_html'      => $this->settings->format_price( $product->get_price() ),
-			'image'           => $image_url,
-			'url'             => get_permalink( $product_id ),
-			'type'            => $product->get_type(),
-			'attributes'      => $this->get_product_attributes( $product ),
-			'variations'      => $this->get_product_variations( $product ),
-			'is_in_stock'     => $product->is_in_stock(),
+		return array_merge(
+			array(
+				'id'              => $product_id,
+				'title'           => $product->get_name(),
+				'description'     => $product->get_short_description(),
+				'price'           => $range['min'],
+				'price_min'       => $range['min'],
+				'price_max'       => $range['max'],
+				'currency_symbol' => html_entity_decode( get_woocommerce_currency_symbol(), ENT_QUOTES, 'UTF-8' ),
+				'price_html'      => $this->get_price_html( $product, $range ),
+				'image'           => $image_url,
+				'url'             => get_permalink( $product_id ),
+				'type'            => $product->get_type(),
+				'attributes'      => $this->get_product_attributes( $product ),
+				'variations'      => $this->get_product_variations( $product ),
+			),
+			$this->get_stock_info( $product )
 		);
-
-		return $prepared_products;
 	}
 
 	/**
@@ -164,14 +289,18 @@ class WooCommerce implements WooCommerce_Interface {
 					continue;
 				}
 
-				$variations[] = array(
-					'id'          => $variation['variation_id'],
-					'price'       => (float) $variation_obj->get_price(),
-					'price_html'  => $this->settings->format_price( $variation_obj->get_price() ),
-					'attributes'  => $variation['attributes'],
-					'image'       => ! empty( $variation['image'] ) ? $variation['image']['src'] : '',
-					'is_in_stock' => $variation['is_in_stock'],
-					'description' => $variation_obj->get_description(),
+				$variation_price = $this->display_price( $variation_obj );
+
+				$variations[] = array_merge(
+					array(
+						'id'          => $variation['variation_id'],
+						'price'       => $variation_price,
+						'price_html'  => $this->settings->format_price( $variation_price ),
+						'attributes'  => $variation['attributes'],
+						'image'       => ! empty( $variation['image'] ) ? $variation['image']['src'] : '',
+						'description' => $variation_obj->get_description(),
+					),
+					$this->get_stock_info( $variation_obj )
 				);
 			}
 		}
@@ -277,15 +406,66 @@ class WooCommerce implements WooCommerce_Interface {
 			return false;
 		}
 
+		// WooCommerce reports a rejected add (out of stock, not enough left, not purchasable)
+		// by queueing a notice and returning false. Clear the queue first so the message we
+		// read back belongs to this request.
+		if ( function_exists( 'wc_clear_notices' ) ) {
+			wc_clear_notices();
+		}
+
+		$this->last_cart_error = '';
+
 		try {
 			if ( $variation_id > 0 ) {
-				return \WC()->cart->add_to_cart( $product_id, $quantity, $variation_id, $variation_attributes );
+				$result = \WC()->cart->add_to_cart( $product_id, $quantity, $variation_id, $variation_attributes );
 			} else {
-				return \WC()->cart->add_to_cart( $product_id, $quantity );
+				$result = \WC()->cart->add_to_cart( $product_id, $quantity );
 			}
 		} catch ( \Exception $e ) {
+			$this->last_cart_error = $e->getMessage();
 			return false;
 		}
+
+		if ( ! $result ) {
+			$this->last_cart_error = $this->pull_notice_error();
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Read and clear the first queued WooCommerce error notice.
+	 *
+	 * @return string
+	 */
+	protected function pull_notice_error() {
+		if ( ! function_exists( 'wc_get_notices' ) ) {
+			return '';
+		}
+
+		$notices = wc_get_notices( 'error' );
+
+		if ( function_exists( 'wc_clear_notices' ) ) {
+			wc_clear_notices();
+		}
+
+		if ( empty( $notices ) ) {
+			return '';
+		}
+
+		$first = reset( $notices );
+		$text  = is_array( $first ) ? ( $first['notice'] ?? '' ) : (string) $first;
+
+		return trim( wp_strip_all_tags( $text ) );
+	}
+
+	/**
+	 * Reason the last cart write failed, in WooCommerce's own words.
+	 *
+	 * @return string
+	 */
+	public function get_last_cart_error() {
+		return $this->last_cart_error;
 	}
 
 	/**
@@ -320,11 +500,24 @@ class WooCommerce implements WooCommerce_Interface {
 			return false;
 		}
 
+		if ( function_exists( 'wc_clear_notices' ) ) {
+			wc_clear_notices();
+		}
+
+		$this->last_cart_error = '';
+
 		try {
-			return \WC()->cart->set_quantity( $item_key, $quantity );
+			$result = \WC()->cart->set_quantity( $item_key, $quantity );
 		} catch ( \Exception $e ) {
+			$this->last_cart_error = $e->getMessage();
 			return false;
 		}
+
+		if ( ! $result ) {
+			$this->last_cart_error = $this->pull_notice_error();
+		}
+
+		return $result;
 	}
 
 	/**

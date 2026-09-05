@@ -216,7 +216,12 @@ class Frontend_Loader {
 			'show-likes'                => $yn( $config['show_likes'] ?? true ),
 			'orderby'                   => $config['orderby'] ?? 'date',
 			'order'                     => $config['order'] ?? 'desc',
-			'tags'                      => implode( ',', array_map( 'absint', (array) ( $config['tags'] ?? array() ) ) ),
+			// Tags filter the whole library; they do not narrow a hand-picked list. The
+			// builder hides the tag control once "specific videos" is chosen and its
+			// preview ignores tags there, so honouring them here made a storefront render
+			// empty while its preview looked right — the selected ids and the tag were
+			// combined with AND, and a hand-picked video rarely carries the tag.
+			'tags'                      => $is_specific ? '' : implode( ',', array_map( 'absint', (array) ( $config['tags'] ?? array() ) ) ),
 			'tags-operator'             => $config['tags_operator'] ?? 'OR',
 
 			// Pro-only presentation (ignored by Free).
@@ -311,14 +316,16 @@ class Frontend_Loader {
 		$frontend_data = apply_filters(
 			'svfw_frontend_global_data',
 			array(
-				'ajax_url'        => admin_url( 'admin-ajax.php' ),
-				'nonce'           => wp_create_nonce( 'vsfw-frontend' ),
-				'checkout_url'    => wc_get_checkout_url(),
-				'settings'        => $this->settings->get_all_settings(),
-				'currency_format' => $this->settings->get_currency_format(),
-				'is_logged_in'    => is_user_logged_in(),
-				'is_pro'          => apply_filters( 'vsfw_is_pro', false ),
-				'is_rtl'          => is_rtl(),
+				'ajax_url'                => admin_url( 'admin-ajax.php' ),
+				'nonce'                   => wp_create_nonce( 'vsfw-frontend' ),
+				'checkout_url'            => wc_get_checkout_url(),
+				'settings'                => $this->settings->get_all_settings(),
+				'currency_format'         => $this->settings->get_currency_format(),
+				'is_logged_in'            => is_user_logged_in(),
+				'is_pro'                  => apply_filters( 'vsfw_is_pro', false ),
+				'is_rtl'                  => is_rtl(),
+				// Cart lines must be shown the way WooCommerce's own cart shows them.
+				'cart_prices_include_tax' => 'incl' === get_option( 'woocommerce_tax_display_cart', 'excl' ),
 			)
 		);
 

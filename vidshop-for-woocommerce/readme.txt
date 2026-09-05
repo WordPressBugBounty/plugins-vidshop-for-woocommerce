@@ -2,7 +2,7 @@
 Contributors: wpcreatix
 Donate link: https://wpcreatix.com/
 Tags: shoppable videos, video gallery, tiktok feed, product videos, ai video generator
-Stable tag: 1.6.0
+Stable tag: 1.6.1
 Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
@@ -177,6 +177,18 @@ It shouldn't. Videos lazy-load and the assets are kept small.
 8. Live Cart & Checkout – Streamlined shopping process
 
 == Changelog ==
+
+= 1.6.1 - Price, Stock & Feed Accuracy =
+
+* **Fixed:** Prices in the video feed now match WooCommerce exactly. Stores that charge tax saw a different amount in the cart, because the feed read the raw product price instead of the one WooCommerce displays.
+* **Fixed:** Cart amounts on zero-decimal currencies (Mexican peso set to 0 decimals, yen, won, Chilean peso) were shown 100 times too small.
+* **Fixed:** Variable products showed their cheapest variation as an exact price. They now show the full price range, like the shop does.
+* **Fixed:** Cart totals follow your "Display prices during cart and checkout" setting.
+* **New:** Out-of-stock products are marked in the feed, and the Add to Cart button says so.
+* **New:** The quantity selector stops at the stock you actually have, and shows "Only N left in stock".
+* **Improved:** A refused add-to-cart now shows WooCommerce's own reason instead of a generic retry message.
+* **Fixed:** A video feed built from hand-picked videos showed nothing if a tag filter had been set before switching to "specific videos". Tags narrow your whole library, so they no longer apply to a hand-picked list — matching what the feed builder's own preview already showed.
+* **Fixed:** Video and product thumbnails no longer pick up a stray margin from the theme.
 
 = 1.6.0 - Redesigned Dashboard =
 

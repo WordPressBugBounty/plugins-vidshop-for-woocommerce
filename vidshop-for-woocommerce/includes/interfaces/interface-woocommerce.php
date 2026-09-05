@@ -94,6 +94,13 @@ interface WooCommerce {
 	public function add_to_cart( $product_id, $quantity = 1, $variation_id = 0, $variation_attributes = array() );
 
 	/**
+	 * Reason the last cart write failed, in WooCommerce's own words.
+	 *
+	 * @return string
+	 */
+	public function get_last_cart_error();
+
+	/**
 	 * Remove item from cart
 	 *
 	 * @param string $item_key Cart item key.
