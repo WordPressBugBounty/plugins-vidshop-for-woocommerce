@@ -238,7 +238,7 @@ abstract class Model implements \JsonSerializable {
 
 		// Create validator
 		$validator = Validator::make(
-			$this->attributes,
+			$this->get_attributes_for_validation(),
 			$rules,
 			$this->messages,
 			$this->custom_attributes
@@ -268,7 +268,7 @@ abstract class Model implements \JsonSerializable {
 			}
 
 			$validator = Validator::make(
-				$this->attributes,
+				$this->get_attributes_for_validation(),
 				$validation_rules,
 				$this->messages,
 				$this->custom_attributes
@@ -353,6 +353,29 @@ abstract class Model implements \JsonSerializable {
 	}
 
 	/**
+	 * Get the attributes in the shape the validation rules describe
+	 *
+	 * An array/json column is stored as a JSON string, so a row read back from the
+	 * database carries a string where the rules expect an array. Only those keys are
+	 * cast; every other attribute is validated exactly as it is held.
+	 *
+	 * @return array
+	 */
+	protected function get_attributes_for_validation() {
+		$attributes = $this->attributes;
+
+		foreach ( $attributes as $key => $value ) {
+			$cast = isset( $this->casts[ $key ] ) ? $this->casts[ $key ] : null;
+
+			if ( 'array' === $cast || 'json' === $cast ) {
+				$attributes[ $key ] = $this->cast_attribute( $key, $value );
+			}
+		}
+
+		return $attributes;
+	}
+
+	/**
 	 * Override save to include validation
 	 *
 	 * @param bool $validate Whether to validate before saving
@@ -376,11 +399,18 @@ abstract class Model implements \JsonSerializable {
 		$table_name = $this->get_full_table_name();
 
 		if ( $this->exists ) {
-			$data   = $this->get_dirty_attributes();
-			$where  = array( $this->primary_key => $this->get_key() );
+			$data  = $this->prepare_attributes_for_storage( $this->get_dirty_attributes() );
+			$where = array( $this->primary_key => $this->get_key() );
+
+			if ( empty( $data ) ) {
+				// Nothing changed. An UPDATE with an empty SET clause is a SQL
+				// syntax error, and returning false told callers the write failed.
+				return $this;
+			}
+
 			$result = $wpdb->update( $table_name, $data, $where );
 		} else {
-			$data   = $this->attributes;
+			$data   = $this->prepare_attributes_for_storage( $this->attributes );
 			$result = $wpdb->insert( $table_name, $data );
 
 			if ( $result && ! $this->get_key() ) {
@@ -693,7 +723,23 @@ abstract class Model implements \JsonSerializable {
 				return (bool) $value;
 			case 'array':
 			case 'json':
-				return $value ? json_decode( json_encode( $value ), true ) : array();
+				if ( is_array( $value ) ) {
+					return $value;
+				}
+
+				if ( is_string( $value ) ) {
+					$decoded = json_decode( $value, true );
+
+					if ( is_array( $decoded ) ) {
+						return $decoded;
+					}
+
+					$unserialized = maybe_unserialize( $value );
+
+					return is_array( $unserialized ) ? $unserialized : array();
+				}
+
+				return array();
 			case 'datetime':
 				return $value ? new \DateTime( $value ) : null;
 			default:
@@ -807,6 +853,32 @@ abstract class Model implements \JsonSerializable {
 		}
 
 		return $dirty;
+	}
+
+	/**
+	 * Encode attributes that cannot be bound by $wpdb as-is
+	 *
+	 * $wpdb cannot bind an array, so a column cast to array/json is JSON encoded
+	 * on the way to the database. Everything else is passed through untouched.
+	 *
+	 * @param array $attributes
+	 * @return array
+	 */
+	protected function prepare_attributes_for_storage( $attributes ) {
+		$prepared = array();
+
+		foreach ( $attributes as $key => $value ) {
+			$cast = isset( $this->casts[ $key ] ) ? $this->casts[ $key ] : null;
+
+			if ( is_array( $value ) && ( 'array' === $cast || 'json' === $cast ) ) {
+				$prepared[ $key ] = wp_json_encode( $value );
+				continue;
+			}
+
+			$prepared[ $key ] = $value;
+		}
+
+		return $prepared;
 	}
 
 	/**

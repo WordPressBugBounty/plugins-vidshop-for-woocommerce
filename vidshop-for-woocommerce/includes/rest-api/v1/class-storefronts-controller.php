@@ -10,6 +10,7 @@ namespace VSFW\REST_API\V1;
 use VSFW\REST_API\V1\REST_Controller;
 use VSFW\Models\Storefront_Model;
 use VSFW\Utils\Validation_Exception;
+use VSFW\Utils\Tier;
 use WP_REST_Server;
 use WP_Error;
 use WP_REST_Response;
@@ -232,6 +233,12 @@ class Storefronts_Controller extends REST_Controller {
 	 * @return WP_REST_Response|WP_Error
 	 */
 	public function create_item( $request ) {
+		$pro_key = Tier::pro_only_config_key( $request->get_param( 'config' ) );
+
+		if ( $pro_key ) {
+			return $this->pro_required_error( $pro_key );
+		}
+
 		try {
 			$storefront = Storefront_Model::create(
 				array(
@@ -246,10 +253,10 @@ class Storefronts_Controller extends REST_Controller {
 		} catch ( Validation_Exception $e ) {
 			return new WP_Error(
 				'storefront_creation_failed',
-				__( 'Validation failed', 'vidshop-for-woocommerce' ),
+				'' !== $e->getMessage() ? $e->getMessage() : __( 'Validation failed', 'vidshop-for-woocommerce' ),
 				array(
 					'status' => 400,
-					'errors' => $e->errors(),
+					'errors' => method_exists( $e, 'errors' ) ? $e->errors() : array(),
 				)
 			);
 		}
@@ -291,6 +298,12 @@ class Storefronts_Controller extends REST_Controller {
 		}
 
 		if ( null !== $request->get_param( 'config' ) ) {
+			$pro_key = Tier::pro_only_config_key( $request->get_param( 'config' ) );
+
+			if ( $pro_key ) {
+				return $this->pro_required_error( $pro_key );
+			}
+
 			$attributes['config'] = wp_json_encode( $this->sanitize_config( $request->get_param( 'config' ) ) );
 		}
 
@@ -305,10 +318,10 @@ class Storefronts_Controller extends REST_Controller {
 		} catch ( Validation_Exception $e ) {
 			return new WP_Error(
 				'storefront_update_failed',
-				__( 'Validation failed', 'vidshop-for-woocommerce' ),
+				'' !== $e->getMessage() ? $e->getMessage() : __( 'Validation failed', 'vidshop-for-woocommerce' ),
 				array(
 					'status' => 400,
-					'errors' => $e->errors(),
+					'errors' => method_exists( $e, 'errors' ) ? $e->errors() : array(),
 				)
 			);
 		}
@@ -347,7 +360,7 @@ class Storefronts_Controller extends REST_Controller {
 				__( 'Failed to move storefront to trash', 'vidshop-for-woocommerce' ),
 				array(
 					'status' => 500,
-					'errors' => $e->errors(),
+					'errors' => method_exists( $e, 'errors' ) ? $e->errors() : array(),
 				)
 			);
 		}
@@ -384,7 +397,7 @@ class Storefronts_Controller extends REST_Controller {
 				__( 'Failed to duplicate storefront', 'vidshop-for-woocommerce' ),
 				array(
 					'status' => 500,
-					'errors' => $e->errors(),
+					'errors' => method_exists( $e, 'errors' ) ? $e->errors() : array(),
 				)
 			);
 		}
@@ -435,6 +448,27 @@ class Storefronts_Controller extends REST_Controller {
 	 */
 	private function not_found_error() {
 		return new WP_Error( 'storefront_not_found', __( 'Storefront not found', 'vidshop-for-woocommerce' ), array( 'status' => 404 ) );
+	}
+
+	/**
+	 * 403 for a storefront setting that needs Pro.
+	 *
+	 * @param string $key Offending config key.
+	 * @return WP_Error
+	 */
+	private function pro_required_error( $key ) {
+		return new WP_Error(
+			'vsfw_pro_required',
+			sprintf(
+				/* translators: %s: storefront config key */
+				__( 'The "%s" setting needs VidShop Pro.', 'vidshop-for-woocommerce' ),
+				$key
+			),
+			array(
+				'status' => 403,
+				'key'    => $key,
+			)
+		);
 	}
 
 	/**

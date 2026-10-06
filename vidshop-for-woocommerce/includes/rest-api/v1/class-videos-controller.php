@@ -157,7 +157,7 @@ class Videos_Controller extends REST_Controller {
 					),
 				),
 				'type'         => array(
-					'type'        => 'enum',
+					'type'        => 'string',
 					'enum'        => array( 'media_library', 'custom' ),
 					'description' => __( 'The type of the video.', 'vidshop-for-woocommerce' ),
 					'required'    => true,
@@ -248,7 +248,7 @@ class Videos_Controller extends REST_Controller {
 	/**
 	 * Sanitize ids parameter - ensure all values are integers
 	 *
-	 * @param string $ids Comma-separated IDs.
+	 * @param string|array $ids Comma-separated IDs, or an array of IDs (ids[]=1&ids[]=2).
 	 * @return string Sanitized IDs.
 	 */
 	public function sanitize_ids_param( $ids ) {
@@ -256,7 +256,22 @@ class Videos_Controller extends REST_Controller {
 			return '';
 		}
 
-		$id_array = array_map( 'absint', explode( ',', $ids ) );
+		// WP hands the callback a real array for ids[]=1&ids[]=2. Flatten it back to the
+		// comma-joined string the rest of this method and the caller expect. Nested values
+		// become 0 so implode() cannot warn and array_filter() drops them below.
+		if ( is_array( $ids ) ) {
+			$ids = implode(
+				',',
+				array_map(
+					function ( $id ) {
+						return is_scalar( $id ) ? $id : 0;
+					},
+					$ids
+				)
+			);
+		}
+
+		$id_array = array_map( 'absint', explode( ',', (string) $ids ) );
 		$id_array = array_filter( $id_array ); // Remove zeros
 		$id_array = array_unique( $id_array );
 
@@ -549,7 +564,7 @@ class Videos_Controller extends REST_Controller {
 
 		return new WP_Error(
 			$code,
-			__( 'Validation failed', 'vidshop-for-woocommerce' ),
+			'' !== $e->getMessage() ? $e->getMessage() : __( 'Validation failed', 'vidshop-for-woocommerce' ),
 			array(
 				'status' => 400,
 				'errors' => array(
@@ -623,10 +638,10 @@ class Videos_Controller extends REST_Controller {
 		} catch ( Validation_Exception $e ) {
 			return new WP_Error(
 				'video_creation_failed',
-				__( 'Validation failed', 'vidshop-for-woocommerce' ),
+				'' !== $e->getMessage() ? $e->getMessage() : __( 'Validation failed', 'vidshop-for-woocommerce' ),
 				array(
 					'status' => 400,
-					'errors' => $e->errors(),
+					'errors' => method_exists( $e, 'errors' ) ? $e->errors() : array(),
 				)
 			);
 		}
@@ -757,10 +772,10 @@ class Videos_Controller extends REST_Controller {
 		} catch ( Validation_Exception $e ) {
 			return new WP_Error(
 				'video_update_failed',
-				__( 'Validation failed', 'vidshop-for-woocommerce' ),
+				'' !== $e->getMessage() ? $e->getMessage() : __( 'Validation failed', 'vidshop-for-woocommerce' ),
 				array(
 					'status' => 400,
-					'errors' => $e->errors(),
+					'errors' => method_exists( $e, 'errors' ) ? $e->errors() : array(),
 				)
 			);
 		}
@@ -808,7 +823,7 @@ class Videos_Controller extends REST_Controller {
 					__( 'Failed to move video to trash', 'vidshop-for-woocommerce' ),
 					array(
 						'status' => 500,
-						'errors' => $e->errors(),
+						'errors' => method_exists( $e, 'errors' ) ? $e->errors() : array(),
 					)
 				);
 			}
@@ -916,7 +931,7 @@ class Videos_Controller extends REST_Controller {
 				__( 'Failed to restore video', 'vidshop-for-woocommerce' ),
 				array(
 					'status' => 500,
-					'errors' => $e->errors(),
+					'errors' => method_exists( $e, 'errors' ) ? $e->errors() : array(),
 				)
 			);
 		}

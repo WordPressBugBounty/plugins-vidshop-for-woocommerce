@@ -14,6 +14,7 @@ use VSFW\Models\Video_View_Time_Model;
 use VSFW\Models\Video_Product_Stats_Model;
 use VSFW\Models\Storefront_Model;
 use VSFW\Interfaces\WooCommerce;
+use VSFW\Utils\Tier;
 use WP_REST_Server;
 use WP_REST_Request;
 use WP_REST_Response;
@@ -162,6 +163,19 @@ class Analytics_Controller extends REST_Controller {
 			$storefront_param = $request->get_param( 'storefront_id' );
 		}
 		$storefront_id = ( null !== $storefront_param && '' !== $storefront_param ) ? (int) $storefront_param : null;
+
+		// Per-storefront reports are a Pro feature. Refusing here keeps REST and
+		// the abilities layer, which dispatches through this route, in agreement.
+		if ( null !== $storefront_id && ! Tier::is_pro() ) {
+			return new WP_Error(
+				'vsfw_pro_required',
+				__( 'Per-storefront analytics needs VidShop Pro.', 'vidshop-for-woocommerce' ),
+				array(
+					'status'  => 403,
+					'feature' => 'storefront_analytics',
+				)
+			);
+		}
 
 		// A scoped request must point at a real storefront (0 = legacy traffic, not a storefront).
 		$storefront = null;

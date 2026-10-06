@@ -132,6 +132,21 @@
             ],
             "%s added to cart": [
                 "%s in den Warenkorb gelegt"
+            ],
+            "Out of stock": [
+                ""
+            ],
+            "Only %d left in stock.": [
+                ""
+            ],
+            "Only %d left in stock": [
+                ""
+            ],
+            "Unavailable": [
+                ""
+            ],
+            "Includes tax:": [
+                ""
             ]
         }
     }

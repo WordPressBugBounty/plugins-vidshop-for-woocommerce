@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: VidShop for WooCommerce 1.6.0\n"
+"Project-Id-Version: VidShop for WooCommerce 1.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vidshop-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-12T22:49:06+00:00\n"
+"POT-Creation-Date: 2026-09-08T16:09:30+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: vidshop-for-woocommerce\n"
@@ -37,6 +37,7 @@ msgstr ""
 msgid "WPCreatix"
 msgstr ""
 
+#: includes/abilities/class-abilities-module.php:82
 #: includes/admin/class-admin-loader.php:105
 #: includes/admin/class-admin-loader.php:106
 #: includes/admin/class-admin-loader.php:340
@@ -46,6 +47,400 @@ msgstr ""
 #: dist/admin/index.js:29
 #: dist/admin/index.js:33
 msgid "VidShop"
+msgstr ""
+
+#: includes/abilities/class-abilities-module.php:83
+msgid "Read and manage shoppable videos, storefronts, analytics and AI video generation."
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:32
+msgid "Get VidShop AI status"
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:33
+msgid "Everything needed before generating a video, in one call: whether this site is connected to the WPCreatix cloud, the plan and account email, the remaining credit balance, and every allowed generation duration with its exact credit cost and audio modes. It also answers the two derived questions directly, so nothing has to be inferred: `can_generate` says whether a generation can start right now, and `blocked_reason` says why not — \"not_connected\" (an administrator must connect the site in WP Admin first), \"options_unavailable\" (the cloud could not be reached) or \"no_credits\" (the balance is spent). The durations and credit costs returned here are AUTHORITATIVE and must never be hardcoded: they come from the cloud and can change without a plugin update. `vidshop/generate-video` requires an `acknowledge_credit_cost` value equal to the `credit_cost` of the chosen duration as read from this ability. This ability never fails because of the connection — a disconnected site, or one whose option lookup failed, still returns a complete payload with `can_generate` false. This ability contacts the WPCreatix cloud over the network (usage is cached for 60 seconds, generation options for 1 hour) and, if the stored Pro token has expired, silently re-exchanges the licence and rewrites the stored connection — so it is read-only from this site's point of view but it is not a purely local read."
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:53
+msgid "Whether this site holds a valid connection to the WPCreatix cloud."
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:57
+msgid "Connected plan, \"free\" or \"pro\". Null when not connected."
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:61
+msgid "Email of the connected cloud account. Null when not connected, or when the site was connected with a Pro license."
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:65
+msgid "Credits left on the account (subscription plus packs). Null when the balance is unknown, which is not the same as zero."
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:69
+msgid "True only when the site is connected, the generation options resolved, and the balance is either unknown or above zero."
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:73
+msgid "Why generation is blocked: \"not_connected\", \"options_unavailable\" or \"no_credits\". Null when nothing is blocking it."
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:77
+msgid "Selectable generation durations with their authoritative credit cost. Empty when the options could not be fetched."
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:83
+msgid "Video length in seconds, passed as `duration` to vidshop/generate-video."
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:87
+msgid "Credits this duration costs. Pass this exact number as `acknowledge_credit_cost` to vidshop/generate-video. Null when the cloud did not price it."
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:91
+msgid "Audio modes accepted for this duration, e.g. \"silent\" or \"music\"."
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:142
+msgid "List VidShop AI generations"
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:143
+msgid "The AI generation queue for this site, as { in_progress, recent, in_progress_count }. Each entry carries id, ai_call_id, product_id, title, status, video_id, duration_s, estimated_seconds, error, failure_code and created_at. The status ladder is pending -> processing -> importing -> imported | failed; \"failed\" spends no credits. An imported generation exists on this site as a DRAFT video — find it with vidshop/list-videos using origin \"wpcreatix_ai\", review it, then publish it with vidshop/update-video. This is a pure read: it does not poll the cloud and imports nothing. A background job already does that every minute, so a render that just finished can take up to a minute to appear here as imported."
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:179
+msgid "Get VidShop settings"
+msgstr ""
+
+#: includes/abilities/class-ai-abilities.php:180
+msgid "Read-only view of the VidShop plugin settings: allow_anonymous_likes (whether logged-out shoppers may like a video) plus the currency-format overrides currency_position, price_thousand_sep, price_decimal_sep and price_num_decimals. A key that is absent, empty or null has never been overridden and is inherited from WooCommerce. There is deliberately no write counterpart: currency formatting is a display-wide setting with no agent use case, and a change would move every price on the storefront."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:54
+msgid "Trash video"
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:55
+msgid "Moves a video to the trash. Reversible — use vidshop/restore-video to bring it back. Permanent deletion is not available through abilities."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:63
+msgid "ID of the video to trash. Read it from vidshop/list-videos."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:72
+msgid "Must be true. Confirms a human accepted that this video will be removed from every storefront until it is restored."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:83
+msgid "Always true — the video is now in the trash."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:87
+msgid "ID of the trashed video."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:133
+msgid "Generate video with AI"
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:134
+msgid "Starts an AI video generation from a WooCommerce product. This spends cloud credits, which are real money. Read the allowed durations and their credit costs from vidshop/get-ai-status and never hardcode them — they change. The video is not returned here: the generation runs in the cloud and later arrives as a DRAFT video row, which vidshop/list-generations reports on."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:142
+msgid "WooCommerce product ID. Its featured image is used as the seed frame the video is animated from."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:147
+msgid "Optional free-text steer for the render, e.g. a mood or a detail to emphasise."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:152
+msgid "Clip length in seconds. Costs differ per duration — read them from vidshop/get-ai-status. Defaults to 8."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:157
+msgid "Audio mode. Shoppable feeds autoplay muted, so this defaults to silent."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:161
+msgid "Style template slug, e.g. \"auto\", \"studio-macro\", \"lookbook\". Defaults to \"auto\"."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:165
+msgid "Generate even when the product has no featured image. The result will not resemble the product — only set this when a human has accepted that."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:172
+msgid "Must be true. Confirms a human accepted that this generation spends credits."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:177
+msgid "The exact credit_cost for the chosen duration as reported by vidshop/get-ai-status. A boolean confirmation is set reflexively by a model; a number can only be obtained by having actually read the price."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:188
+msgid "Local generation row ID, or null when the row could not be written."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:192
+msgid "Cloud call ID for this render, or null when the cloud did not return one."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:196
+msgid "Generation status at hand-off, usually \"pending\"."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:200
+msgid "Rough wall-clock estimate for the render, or null when unknown."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:204
+msgid "What to do next with this result."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:239
+msgid "The current credit prices could not be read from the cloud, so this generation was not started."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:242
+msgid "Prices are unknown right now, so the acknowledged cost cannot be checked. Read vidshop/get-ai-status and retry; if it also fails, the site is not connected or the cloud is unreachable."
+msgstr ""
+
+#. translators: 1: acknowledged credit cost, 2: actual credit cost, 3: duration in seconds.
+#: includes/abilities/class-generation-abilities.php:256
+#, php-format
+msgid "The acknowledged credit cost (%1$d) does not match the current price (%2$d) for a %3$d second video."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:263
+msgid "The acknowledged credit cost does not match the current price. Read vidshop/get-ai-status again and retry with the value it reports."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:295
+msgid "Poll until this generation reaches imported or failed."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:370
+msgid "A human must connect this site to VidShop AI in the plugin Settings screen. You cannot do this yourself."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:385
+msgid "This product has no featured image, so there is no seed frame to animate. Ask a human to add one. Retrying with allow_no_image set to true generates from text only, and the result will NOT match the product."
+msgstr ""
+
+#: includes/abilities/class-generation-abilities.php:386
+msgid "Generating without a featured image produces a video that does not match the product."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:41
+msgid "List Storefronts"
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:42
+msgid "List the saved VidShop storefronts. A storefront is a saved shortcode configuration — a chosen set of videos plus how they are presented — that the merchant renders on their own pages with [vidshop id=\"N\"]. Each row carries its decoded config object and a shortcode field, which is the ready-to-paste string for that storefront. Trashed storefronts are hidden unless status is set to trash."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:46
+msgid "Optional paging, search and ordering. Omit entirely to list the first page."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:50
+msgid "Page of the collection to return. Defaults to 1."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:55
+msgid "Number of storefronts per page. Defaults to 20."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:61
+msgid "Limit results to storefronts whose name matches this string."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:65
+msgid "Limit results to one status. Omit to list everything except trashed storefronts."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:70
+msgid "Field to sort by. Defaults to created_at."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:75
+msgid "Sort direction. Defaults to desc."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:105
+msgid "Update Storefront"
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:106
+msgid "Rename a storefront, change its status, or replace its display configuration. Only the top-level fields you supply are written — but `config` is replaced wholesale, never merged, so always send the complete config object you read from vidshop/list-storefronts with your changes applied. The change takes effect immediately on every page carrying that storefront's shortcode, and the shortcode itself never changes — so a storefront can be retuned without touching any page content. Read vidshop/list-storefronts first to get the id and the current config."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:110
+msgid "The storefront id, plus the fields to change."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:114
+msgid "ID of the storefront to update."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:119
+msgid "New admin-facing name for the storefront."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:123
+msgid "New status. Setting trash hides the storefront and makes its shortcode render a missing-storefront notice."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:128
+msgid "The full display configuration to store. Selection keys: video_selection (\"all\" or \"specific\"), video_ids, orderby, order, tags, tags_operator. Presentation keys: layout, color_schema, columns.desktop, columns.tablet, columns.mobile, autoplay, loop, play_on_hover, show_arrows, show_dots, show_views, show_likes, auto_open_product_details, add_to_cart_action, post_add_to_cart_action, post_add_to_cart_url. The server re-sanitises the whole object through an allow-list, so any key not listed here is silently dropped and any missing key falls back to its default. Send the complete object, not a partial patch."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:163
+msgid "Get Analytics"
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:164
+msgid "Read the VidShop performance report for a date range. Returns total and unique views, total and unique likes, total and average view time, add-to-cart and product-open totals, the top videos, the top added-to-cart products, a zero-filled per-day timeseries, library totals (videos, storefronts, products featured), and a previous block holding the same figures for the immediately preceding window of equal length so each stat can be compared. Site-wide reports also include a per_storefront rollup. Pass storefront_id to scope the whole report to one storefront; that variant adds a storefront identity block and omits per_storefront."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:168
+msgid "Reporting window and optional storefront scope. Omit entirely for the default window."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:172
+msgid "Named reporting window. Defaults to this_week. Use custom together with start_date and end_date."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:177
+msgid "Start of the window as YYYY-MM-DD, e.g. 2026-01-31. Required only when date_range is custom, and it must not be after end_date."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:182
+msgid "End of the window as YYYY-MM-DD, e.g. 2026-02-28. Required only when date_range is custom, and it must not be before start_date."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:187
+msgid "Limit the report to one storefront. Omit for the whole site."
+msgstr ""
+
+#. translators: 1: parameter name, 2: value supplied for it.
+#: includes/abilities/class-storefronts-abilities.php:253
+#, php-format
+msgid "%1$s must be a real YYYY-MM-DD date for a custom date range, and \"%2$s\" is not one."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:259
+msgid "Send start_date and end_date as YYYY-MM-DD, e.g. 2026-01-31, or drop them and use a named date_range such as this_month."
+msgstr ""
+
+#. translators: 1: start date, 2: end date.
+#: includes/abilities/class-storefronts-abilities.php:270
+#, php-format
+msgid "start_date (%1$s) is after end_date (%2$s), so the custom date range covers no days at all."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:276
+msgid "Swap the two values: start_date must be the earlier date and end_date the later one."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:36
+msgid "List VidShop videos"
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:37
+msgid "Lists shoppable videos from the VidShop library with pagination, search, status and origin filters, and returns the WooCommerce products attached to each video. Use it to answer which videos exist, which are still drafts, and which perform best."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:45
+msgid "Page of results to return, starting at 1. Defaults to 1. Increase it to walk through a library larger than one page."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:51
+msgid "How many videos to return per page, from 1 to 100. Defaults to 20. Keep it small when you only need a sample."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:55
+msgid "Free-text search over video titles. Omit it to list everything."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:60
+msgid "Filter by publication status: published for live videos, draft for unreviewed ones (AI-generated videos land here), trash for soft-deleted ones, all for every status except the trash."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:65
+msgid "Filter by how the video was created: manual for merchant uploads, wpcreatix_ai for videos generated by VidShop AI."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:70
+msgid "Field to sort by. Use views to rank by popularity, created_at or date for newest first, random for a shuffled sample."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:75
+msgid "Sort direction: asc for ascending, desc for descending."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:79
+msgid "Comma-separated list of video IDs to fetch, for example \"4,9,12\". Use it to look up a known set in one call instead of paging."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:113
+msgid "Get a VidShop video"
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:114
+msgid "Returns one shoppable video with its full attached-product payloads: price, stock, attributes and variations. Read this before editing a video or reporting on what it sells."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:122
+msgid "The VidShop video row ID, as returned by vidshop/list-videos. This is not a WordPress post ID and not the attachment ID of the video file."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:147
+msgid "Update a VidShop video"
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:148
+msgid "Updates one shoppable video. This single ability covers renaming it, changing its poster frame, publishing or unpublishing it, and attaching WooCommerce products to it. Only the fields you send are changed; every field you omit is left exactly as it is."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:156
+msgid "The VidShop video row ID to update, as returned by vidshop/list-videos."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:160
+msgid "New title for the video, shown to shoppers in the storefront."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:164
+msgid "Attachment ID of an image in the Media Library to use as the poster frame."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:169
+msgid "Publication status: published makes the video live in storefronts, draft hides it. AI-generated videos arrive as drafts, so this is how you approve one."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:174
+msgid "Per-video settings. The keys you send are merged into the stored settings, so keys you leave out keep their current values."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:181
+msgid "WooCommerce product IDs to feature in this video. This is a full replace: any product not listed is detached."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:219
+msgid "Restore a trashed VidShop video"
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:220
+msgid "Restores a video from the trash and returns it to draft status, clearing the deletion stamp. This is the undo half of vidshop/trash-video. It fails if the video is not currently in the trash."
+msgstr ""
+
+#: includes/abilities/class-videos-abilities.php:228
+msgid "The VidShop video row ID to restore. List trashed videos with vidshop/list-videos using status \"trash\"."
 msgstr ""
 
 #: includes/admin/class-admin-loader.php:116
@@ -185,7 +580,7 @@ msgid "I already did this"
 msgstr ""
 
 #. translators: %d is the storefront id.
-#: includes/frontend/class-frontend-loader.php:249
+#: includes/frontend/class-frontend-loader.php:254
 #, php-format
 msgid "VidShop: video feed #%d was not found or is not published. (Only site admins see this message.)"
 msgstr ""
@@ -256,23 +651,23 @@ msgstr ""
 msgid "Variation ID is required for variable products."
 msgstr ""
 
-#: includes/rest-api/v1/class-products-controller.php:238
+#: includes/rest-api/v1/class-products-controller.php:244
 msgid "Product not added to cart."
 msgstr ""
 
-#: includes/rest-api/v1/class-products-controller.php:288
+#: includes/rest-api/v1/class-products-controller.php:296
 msgid "Product not found."
 msgstr ""
 
-#: includes/rest-api/v1/class-products-controller.php:292
+#: includes/rest-api/v1/class-products-controller.php:300
 msgid "Video not found."
 msgstr ""
 
-#: includes/rest-api/v1/class-products-controller.php:314
+#: includes/rest-api/v1/class-products-controller.php:322
 msgid "Failed to remove item from cart."
 msgstr ""
 
-#: includes/rest-api/v1/class-products-controller.php:334
+#: includes/rest-api/v1/class-products-controller.php:346
 msgid "Failed to update quantity."
 msgstr ""
 
@@ -297,17 +692,17 @@ msgid "The status of the storefront."
 msgstr ""
 
 #: includes/rest-api/v1/class-storefronts-controller.php:149
-#: includes/rest-api/v1/class-videos-controller.php:272
+#: includes/rest-api/v1/class-videos-controller.php:287
 msgid "Current page of the collection."
 msgstr ""
 
 #: includes/rest-api/v1/class-storefronts-controller.php:156
-#: includes/rest-api/v1/class-videos-controller.php:279
+#: includes/rest-api/v1/class-videos-controller.php:294
 msgid "Maximum number of items to be returned in result set."
 msgstr ""
 
 #: includes/rest-api/v1/class-storefronts-controller.php:164
-#: includes/rest-api/v1/class-videos-controller.php:287
+#: includes/rest-api/v1/class-videos-controller.php:302
 msgid "Limit results to those matching a string."
 msgstr ""
 
@@ -316,20 +711,20 @@ msgid "Limit results to those with a specific status."
 msgstr ""
 
 #: includes/rest-api/v1/class-storefronts-controller.php:174
-#: includes/rest-api/v1/class-videos-controller.php:302
+#: includes/rest-api/v1/class-videos-controller.php:317
 msgid "Sort collection by object attribute."
 msgstr ""
 
 #: includes/rest-api/v1/class-storefronts-controller.php:180
-#: includes/rest-api/v1/class-videos-controller.php:308
+#: includes/rest-api/v1/class-videos-controller.php:323
 msgid "Order sort attribute ascending or descending."
 msgstr ""
 
 #: includes/rest-api/v1/class-storefronts-controller.php:249
 #: includes/rest-api/v1/class-storefronts-controller.php:308
-#: includes/rest-api/v1/class-videos-controller.php:552
-#: includes/rest-api/v1/class-videos-controller.php:626
-#: includes/rest-api/v1/class-videos-controller.php:760
+#: includes/rest-api/v1/class-videos-controller.php:567
+#: includes/rest-api/v1/class-videos-controller.php:641
+#: includes/rest-api/v1/class-videos-controller.php:775
 msgid "Validation failed"
 msgstr ""
 
@@ -416,50 +811,50 @@ msgstr ""
 msgid "The status of the video."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:292
+#: includes/rest-api/v1/class-videos-controller.php:307
 msgid "Limit results to those with a specific status. Use \"all\" for every status except the trash."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:297
+#: includes/rest-api/v1/class-videos-controller.php:312
 msgid "Filter by video origin (manual or AI-generated)."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:314
+#: includes/rest-api/v1/class-videos-controller.php:329
 msgid "Comma-separated list of fields to include in the response."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:319
+#: includes/rest-api/v1/class-videos-controller.php:334
 msgid "Comma-separated list of video IDs."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:545
+#: includes/rest-api/v1/class-videos-controller.php:560
 msgid "That thumbnail is no longer in the media library. Choose or upload another image."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:547
+#: includes/rest-api/v1/class-videos-controller.php:562
 msgid "The thumbnail has to be an image file."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:643
-#: includes/rest-api/v1/class-videos-controller.php:694
-#: includes/rest-api/v1/class-videos-controller.php:778
-#: includes/rest-api/v1/class-videos-controller.php:895
+#: includes/rest-api/v1/class-videos-controller.php:658
+#: includes/rest-api/v1/class-videos-controller.php:709
+#: includes/rest-api/v1/class-videos-controller.php:793
+#: includes/rest-api/v1/class-videos-controller.php:910
 msgid "Video not found"
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:792
+#: includes/rest-api/v1/class-videos-controller.php:807
 msgid "Failed to delete video"
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:808
+#: includes/rest-api/v1/class-videos-controller.php:823
 msgid "Failed to move video to trash"
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:899
+#: includes/rest-api/v1/class-videos-controller.php:914
 msgid "Video is not in trash"
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:916
+#: includes/rest-api/v1/class-videos-controller.php:931
 msgid "Failed to restore video"
 msgstr ""
 
@@ -2860,7 +3255,7 @@ msgstr ""
 #: dist/admin/index.js:40
 #: dist/frontend/index.js:2
 #: dist/frontend/index.js:3
-#: dist/frontend/index.js:4
+#: dist/frontend/index.js:6
 msgid "Add to Cart"
 msgstr ""
 
@@ -2942,7 +3337,7 @@ msgid "Likes Over Time"
 msgstr ""
 
 #: dist/admin/index.js:40
-#: dist/frontend/index.js:6
+#: dist/frontend/index.js:8
 msgid "Total:"
 msgstr ""
 
@@ -3418,9 +3813,15 @@ msgid "Error updating cart item:"
 msgstr ""
 
 #: dist/frontend/index.js:1
-#: dist/frontend/index.js:6
-#: dist/frontend/index.js:7
+#: dist/frontend/index.js:8
+#: dist/frontend/index.js:9
 msgid "No videos available at the moment."
+msgstr ""
+
+#: dist/frontend/index.js:1
+#: dist/frontend/index.js:5
+#: dist/frontend/index.js:6
+msgid "Out of stock"
 msgstr ""
 
 #. translators: %s is the product title
@@ -3435,132 +3836,152 @@ msgstr ""
 msgid "Add %s to cart"
 msgstr ""
 
-#. translators: %s is the product title
+#. translators: %d is the number of units available
 #: dist/frontend/index.js:4
+#, js-format
+msgid "Only %d left in stock."
+msgstr ""
+
+#. translators: %s is the product title
+#: dist/frontend/index.js:5
 #, js-format
 msgid "%s added to cart"
 msgstr ""
 
-#: dist/frontend/index.js:4
+#: dist/frontend/index.js:5
 msgid "Failed to add product to cart. Please try again."
 msgstr ""
 
-#: dist/frontend/index.js:4
+#: dist/frontend/index.js:5
 msgid "An error occurred. Please try again."
 msgstr ""
 
-#: dist/frontend/index.js:4
+#: dist/frontend/index.js:5
 msgid "Close product modal"
 msgstr ""
 
-#: dist/frontend/index.js:4
+#. translators: %d is the number of units left
+#: dist/frontend/index.js:6
+#, js-format
+msgid "Only %d left in stock"
+msgstr ""
+
+#: dist/frontend/index.js:6
 msgid "Decrease quantity"
 msgstr ""
 
-#: dist/frontend/index.js:4
+#: dist/frontend/index.js:6
 msgid "Increase quantity"
 msgstr ""
 
-#: dist/frontend/index.js:4
+#: dist/frontend/index.js:6
 msgid "Adding..."
 msgstr ""
 
-#: dist/frontend/index.js:4
+#: dist/frontend/index.js:6
+msgid "Unavailable"
+msgstr ""
+
+#: dist/frontend/index.js:6
 msgid "Login required to like videos"
 msgstr ""
 
-#: dist/frontend/index.js:4
+#: dist/frontend/index.js:6
 msgid "Unlike video"
 msgstr ""
 
-#: dist/frontend/index.js:4
+#: dist/frontend/index.js:6
 msgid "Like video"
 msgstr ""
 
-#: dist/frontend/index.js:4
+#: dist/frontend/index.js:6
 msgid "View cart"
 msgstr ""
 
-#: dist/frontend/index.js:4
+#: dist/frontend/index.js:6
 msgid "Unmute video"
 msgstr ""
 
-#: dist/frontend/index.js:4
+#: dist/frontend/index.js:6
 msgid "Mute video"
 msgstr ""
 
 #. translators: %s is the product name
-#: dist/frontend/index.js:5
+#: dist/frontend/index.js:7
 #, js-format
 msgid "Remove %s from cart"
 msgstr ""
 
-#: dist/frontend/index.js:5
+#: dist/frontend/index.js:7
 msgid "Your cart is empty"
 msgstr ""
 
-#: dist/frontend/index.js:5
+#: dist/frontend/index.js:7
 msgid "Add some products to get started!"
 msgstr ""
 
 #. translators: %d is the cart items count
-#: dist/frontend/index.js:6
+#: dist/frontend/index.js:8
 #, js-format
 msgid "Shopping Cart (%d)"
 msgstr ""
 
-#: dist/frontend/index.js:6
+#: dist/frontend/index.js:8
 msgid "Close cart"
 msgstr ""
 
-#: dist/frontend/index.js:6
+#: dist/frontend/index.js:8
 msgid "Subtotal:"
 msgstr ""
 
-#: dist/frontend/index.js:6
+#: dist/frontend/index.js:8
 msgid "Discount:"
 msgstr ""
 
-#: dist/frontend/index.js:6
+#: dist/frontend/index.js:8
 msgid "Shipping:"
 msgstr ""
 
-#: dist/frontend/index.js:6
+#: dist/frontend/index.js:8
+msgid "Includes tax:"
+msgstr ""
+
+#: dist/frontend/index.js:8
 msgid "Tax:"
 msgstr ""
 
-#: dist/frontend/index.js:6
+#: dist/frontend/index.js:8
 msgid "Proceed to Checkout"
 msgstr ""
 
-#: dist/frontend/index.js:6
+#: dist/frontend/index.js:8
 msgid "Error loading video"
 msgstr ""
 
-#: dist/frontend/index.js:6
+#: dist/frontend/index.js:8
 msgid "Failed to load video"
 msgstr ""
 
-#: dist/frontend/index.js:6
-#: dist/frontend/index.js:7
+#: dist/frontend/index.js:8
+#: dist/frontend/index.js:9
 msgid "Previous videos"
 msgstr ""
 
-#: dist/frontend/index.js:6
-#: dist/frontend/index.js:7
+#: dist/frontend/index.js:8
+#: dist/frontend/index.js:9
 msgid "Next videos"
 msgstr ""
 
 #. translators: %d is the slide number
-#: dist/frontend/index.js:7
+#: dist/frontend/index.js:9
 #, js-format
 msgid "Go to slide %d"
 msgstr ""
 
-#: dist/frontend/index.js:7
+#: dist/frontend/index.js:9
 msgid "Scroll to see more"
 msgstr ""
 
-#: dist/frontend/index.js:7
+#: dist/frontend/index.js:9
 msgid "Go to slide"
 msgstr ""

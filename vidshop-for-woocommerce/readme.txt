@@ -1,15 +1,15 @@
 === VidShop – Shoppable Videos for WooCommerce ===
 Contributors: wpcreatix
 Donate link: https://wpcreatix.com/
-Tags: shoppable videos, video gallery, tiktok feed, product videos, ai video generator
-Stable tag: 1.6.1
+Tags: shoppable videos, product videos, tiktok feed, video gallery, ai video generation
+Stable tag: 1.7.0
 Requires at least: 5.8
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Turn product photos into shoppable videos with AI, or upload your own. A TikTok-style video gallery where shoppers tap a product and check out.
+Shoppable videos for WooCommerce in a TikTok-style video gallery. Shoppers tap a product and buy in the player. Upload videos or make them with AI.
 
 == Description ==
 
@@ -23,10 +23,6 @@ See it on a live store: [Interactive Demo](https://vidshop.wpcreatix.com/?utm_ca
 
 Want more? [Upgrade to VidShop Pro](https://wpcreatix.com/?utm_campaign=vidshop-wordpress-org&utm_medium=upgrade_link&utm_source=WordPress.org)
 
-## Generate shoppable videos with AI
-
-Don't have footage? Turn a product photo into a video. Pick a WooCommerce product, choose a style, and VidShop builds a short vertical video from its image, then saves it to your library as a draft linked to that product. You review it and publish when it looks right.
-
 ## What VidShop does
 
 * Swipe between videos like a social feed, so browsing feels like an app instead of a product grid.
@@ -35,32 +31,10 @@ Don't have footage? Turn a product photo into a video. Pick a WooCommerce produc
 * Built for phones first, and it works on desktop with a mouse.
 * No code to set up.
 * Runs on the WooCommerce products you already have.
+* No footage? Make a product video with AI from a product photo.
+* Works with AI assistants like Claude over MCP, so you can ask for your analytics or publish a draft from a chat (details below).
 
 ## Features
-
-### AI video generation
-
-* Turn a product photo into a short vertical video
-* Choose a style template, or let Auto match one to the product
-* Set the length and pick background music or silent
-* Finished videos save to your library as drafts, linked to the product
-* A progress banner tracks renders while you keep working
-
-### Analytics
-
-* Views, total and unique
-* Watch time, average and total
-* Likes, total and unique
-* Add-to-cart counts
-* Product views
-* Your top videos and products
-
-### Video management
-
-* Publish, draft, or trash a video
-* Upload from the Media Library or link a URL
-* Link products to each video
-* Bulk actions and quick edit
 
 ### Video feeds
 
@@ -85,6 +59,33 @@ Don't have footage? Turn a product photo into a video. Pick a WooCommerce produc
 * Variable products
 * Live inventory sync
 * One-tap add to cart
+
+### Analytics
+
+* Views, total and unique
+* Watch time, average and total
+* Likes, total and unique
+* Add-to-cart counts
+* Product views
+* Your top videos and products
+
+### Video management
+
+* Publish, draft, or trash a video
+* Upload from the Media Library or link a URL
+* Link products to each video
+* Bulk actions and quick edit
+
+### AI video generation
+
+Generate shoppable videos with AI when you don't have footage. Pick a WooCommerce product, choose a style, and VidShop builds a short vertical video from its image, then saves it to your library as a draft linked to that product. You review it and publish when it looks right.
+
+* A built-in AI video generator turns a product photo into a short vertical video
+* Choose a style template, or let Auto match one to the product
+* Set the length and pick background music or silent
+* Finished videos save to your library as drafts, linked to the product
+* A progress banner tracks renders while you keep working
+* Your first video is free with a WPCreatix account; VidShop Pro covers ongoing generation
 
 ### Branding
 
@@ -119,6 +120,34 @@ Don't have footage? Turn a product photo into a video. Pick a WooCommerce produc
 * Clean code with hooks for developers
 * Translation-ready
 
+## Works with AI assistants like Claude and Cursor (MCP)
+
+VidShop registers its admin operations with the WordPress Abilities API, which is part of WordPress core since 6.9. Add the free MCP Adapter plugin from the WordPress project and MCP clients that sign in with a WordPress Application Password (Claude Desktop, Claude Code, Cursor) can work with your store's videos in plain English. Verified with Claude Code.
+
+What an AI assistant can do:
+
+* List your videos, with the products attached to each, and open one with its full product details
+* Rename a video, swap its thumbnail, publish or unpublish it, and attach products
+* Restore a video from the trash
+* List your saved video feeds with their shortcodes; rename one, change its status or its display settings
+* Read analytics: views, likes, watch time, add-to-carts, top videos and products, site-wide or per feed
+* Check the AI connection: plan, credit balance, the credit price per video length, and what is rendering right now
+* Read the plugin settings
+
+Try prompts like:
+
+*"Which videos had the most add-to-carts this month?"*
+*"Publish the draft video for the blue hoodie and attach the matching hat."*
+*"Give me the shortcode for the homepage feed."*
+
+What it deliberately cannot do:
+
+* Trash a video or start an AI render. Trashing destroys, and a render spends credits, so both are off MCP by default. If you want them, you expose them yourself with a few lines of code; the plugin never does it for you.
+* Create a video, permanently delete one, empty the trash, create or delete a feed, connect the cloud account or change settings. None of these are offered to agents at all. They stay in wp-admin.
+* Act as anyone but an administrator. Every operation checks the administrator capability, and a filter can require more than that, never less.
+
+What you need: WordPress 6.9 or newer, the free [MCP Adapter](https://github.com/WordPress/mcp-adapter) plugin (not bundled with VidShop and not required), and a WordPress Application Password for a dedicated admin user (Users > Profile > Application Passwords). On the same machine, WP-CLI works too. Nothing changes for sites that skip this: on older WordPress, or without the adapter, VidShop runs exactly as before.
+
 ## Who it's for
 
 * Fashion and apparel: show clothes moving on a person
@@ -144,9 +173,6 @@ Don't have footage? Turn a product photo into a video. Pick a WooCommerce produc
 
 == Frequently Asked Questions ==
 
-**Can VidShop create videos for me with AI?**
-Yes. Connect a free WPCreatix account, pick a product, and VidShop generates a shoppable video from its image. Your first video is free; VidShop Pro covers ongoing generation.
-
 **Do I need video editing skills?**
 No. Upload videos you already have, link products, and publish. Or let the AI generate one from a product photo.
 
@@ -165,6 +191,12 @@ Anywhere shortcodes work: pages, posts, and widgets.
 **Will it slow down my site?**
 It shouldn't. Videos lazy-load and the assets are kept small.
 
+**Can VidShop create videos for me with AI?**
+Yes. Connect a free WPCreatix account, pick a product, and VidShop generates a shoppable video from its image. Your first video is free; VidShop Pro covers ongoing generation.
+
+**Does VidShop work with AI assistants like Claude or Cursor (MCP)?**
+Yes, on WordPress 6.9 or newer with the free MCP Adapter plugin from the WordPress project. The assistant can read your videos, feeds and analytics, and edit videos and feeds. Trashing a video and credit-spending AI generation are off by default, and every call needs an administrator Application Password. Without the adapter nothing changes.
+
 == Screenshots ==
 
 1. Analytics Dashboard – Gain detailed insights into video performance
@@ -177,6 +209,10 @@ It shouldn't. Videos lazy-load and the assets are kept small.
 8. Live Cart & Checkout – Streamlined shopping process
 
 == Changelog ==
+
+= 1.7.0 - AI Agent Access =
+
+* **New:** WordPress Abilities API support — AI agents and MCP clients can now read videos, storefronts and analytics, and update videos and storefronts, gated by manage_options.
 
 = 1.6.1 - Price, Stock & Feed Accuracy =
 
