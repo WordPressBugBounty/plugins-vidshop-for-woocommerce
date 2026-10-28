@@ -1,8 +1,8 @@
 === VidShop – Shoppable Videos for WooCommerce ===
 Contributors: wpcreatix
-Donate link: https://wpcreatix.com/
+Donate link: https://wpcreatix.com/vidshop/
 Tags: shoppable videos, product videos, tiktok feed, video gallery, ai video generation
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -21,7 +21,7 @@ It fits any store that sells visual products: fashion, beauty, electronics, or h
 
 See it on a live store: [Interactive Demo](https://vidshop.wpcreatix.com/?utm_campaign=vidshop-wordpress-org&utm_medium=demo_link&utm_source=WordPress.org)
 
-Want more? [Upgrade to VidShop Pro](https://wpcreatix.com/?utm_campaign=vidshop-wordpress-org&utm_medium=upgrade_link&utm_source=WordPress.org)
+Want more? [Upgrade to VidShop Pro](https://wpcreatix.com/vidshop/?utm_campaign=vidshop-wordpress-org&utm_medium=upgrade_link&utm_source=WordPress.org#pricing)
 
 ## What VidShop does
 
@@ -209,6 +209,13 @@ Yes, on WordPress 6.9 or newer with the free MCP Adapter plugin from the WordPre
 8. Live Cart & Checkout – Streamlined shopping process
 
 == Changelog ==
+
+= 1.7.1 - Feed Builder Preview =
+
+* **Improved:** On the Colors and Shopping steps of the feed builder, the live preview now opens the first video for you. Your accent color and shopping settings mostly show inside the player, so you can see each change as you make it. This applies to the Grid and Carousel layouts; the Stories layouts already show the player on the page.
+* **Fixed:** A custom accent color (Pro) showed as the default blue in the feed builder preview. The preview now shows your color, like the live feed does.
+* **Fixed:** Adding a product to the cart inside the feed builder preview no longer sends the preview to the checkout page or your custom URL when one of those redirects is set.
+* **Changed:** The upgrade and plugin links now open the VidShop page at wpcreatix.com/vidshop/.
 
 = 1.7.0 - AI Agent Access =
 
