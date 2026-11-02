@@ -2,7 +2,7 @@
 /*
 Plugin Name: VidShop for WooCommerce
 Description: Upload your own videos and display WooCommerce products inside them. Let users interact and add items to cart while watching. Lightweight, fast, and fully integrated with WooCommerce.
-Version: 1.7.1
+Version: 1.8.0
 Author: WPCreatix
 Author URI: https://wpcreatix.com/
 Plugin URI: https://wpcreatix.com/vidshop/
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'VSFW_VERSION', '1.7.1' );
+define( 'VSFW_VERSION', '1.8.0' );
 define( 'VSFW_MIN_PRO_VERSION', '1.4.0' );
 define( 'VSFW_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'VSFW_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -37,6 +37,20 @@ if ( ! defined( 'VSFW_CLOUD_WEB_BASE' ) ) {
 
 // Load the autoloader.
 require_once VSFW_PLUGIN_DIR . 'includes/autoload.php';
+
+// Shared WPCreatix opt-in client; sends nothing until the site owner clicks Allow on the opt-in screen.
+require_once VSFW_PLUGIN_DIR . 'lib/bridge-client/load.php';
+
+wpcreatix_bridge_client_product(
+	array(
+		'slug'    => 'vidshop-for-woocommerce',
+		'file'    => __FILE__,
+		'name'    => 'VidShop for WooCommerce',
+		'version' => VSFW_VERSION,
+		'screens' => array( 'toplevel_page_vsfw' ),
+		'icon'    => VSFW_PLUGIN_URL . 'assets/images/logo-mark.webp',
+	)
+);
 
 /**
  * Initialize the plugin.

@@ -13,6 +13,7 @@ use VSFW\Models\Video_Model;
 use VSFW\Admin\Activation_Handler;
 use VSFW\Services\Cloud_Connection;
 use VSFW\REST_API\V1\Promo_Controller;
+use VSFW\Bridge\Bridge_Module;
 
 /**
  * Admin loader class with dependency injection.
@@ -187,6 +188,8 @@ class Admin_Loader {
 		?>
 		<div id="vsfw-admin"></div>
 		<?php
+		// Newsletter card and data sharing panel; the admin app moves them into the Settings page.
+		Bridge_Module::render_park();
 	}
 
 	/**

@@ -15,6 +15,7 @@ use VSFW\Frontend\Frontend_Loader;
 use VSFW\AI\Ai_Module;
 use VSFW\Abilities\Abilities_Module;
 use VSFW\Services\Order_Attribution;
+use VSFW\Bridge\Bridge_Module;
 
 /**
  * Module loader for managing application modules/loaders (not services).
@@ -205,6 +206,8 @@ class Module_Loader {
 		// Attribution captures on every request — the widget's add-to-cart, the cart pipeline and
 		// the checkout hooks all live outside admin — so it is not condition-gated.
 		$this->register_module( 'order_attribution', Order_Attribution::class, array(), true );
+		// Feature counters for the opt-in usage report, which also runs from cron.
+		$this->register_module( 'bridge', Bridge_Module::class, array(), true );
 
 		// Allow developers to register modules.
 		do_action( 'svfw_register_modules', $this );

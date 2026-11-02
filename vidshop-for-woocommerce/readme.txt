@@ -2,7 +2,7 @@
 Contributors: wpcreatix
 Donate link: https://wpcreatix.com/vidshop/
 Tags: shoppable videos, product videos, tiktok feed, video gallery, ai video generation
-Stable tag: 1.7.1
+Stable tag: 1.8.0
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -197,6 +197,27 @@ Yes. Connect a free WPCreatix account, pick a product, and VidShop generates a s
 **Does VidShop work with AI assistants like Claude or Cursor (MCP)?**
 Yes, on WordPress 6.9 or newer with the free MCP Adapter plugin from the WordPress project. The assistant can read your videos, feeds and analytics, and edit videos and feeds. Trashing a video and credit-spending AI generation are off by default, and every call needs an administrator Application Password. Without the adapter nothing changes.
 
+== External services ==
+
+VidShop uses two WPCreatix services.
+
+**Usage data and newsletter (opt-in)**: https://connect.wpcreatix.com
+
+Nothing is sent unless you click one of these buttons. Skip sends nothing.
+
+* **Allow** (usage data): your site address, your WordPress, PHP and plugin versions, the plugins and themes you use, and rounded usage counts. Sent once a week and when a WPCreatix plugin is activated, updated or removed. Never your content, customers, orders or passwords.
+* **Subscribe** (newsletter): the email you enter, with proof of the signup. Every email has an unsubscribe link.
+* **Submit and deactivate** (feedback): the reason you pick, your note, and your email only if you tick the box.
+
+On VidShop's settings page you can see what is sent, turn sharing off, or delete your site's data at any time.
+
+**AI video generation**: https://app.wpcreatix.com
+
+Used only if you connect a WPCreatix account and click "Generate with AI". When you connect: the email you type (for a sign-in code), your site address and name, or your VidShop Pro license key. When you generate: the product you picked (name, short description, category, price, currency and link), its featured image, and the video options you chose.
+
+Terms: https://wpcreatix.com/terms-and-conditions/
+Privacy policy: https://wpcreatix.com/privacy-policy/
+
 == Screenshots ==
 
 1. Analytics Dashboard – Gain detailed insights into video performance
@@ -209,6 +230,12 @@ Yes, on WordPress 6.9 or newer with the free MCP Adapter plugin from the WordPre
 8. Live Cart & Checkout – Streamlined shopping process
 
 == Changelog ==
+
+= 1.8.0 - Usage Data and Newsletter =
+
+* **New:** After you activate VidShop, an optional screen asks whether you want to share usage data with us: your site address, your WordPress, PHP and plugin versions, and the plugins and themes you use. Nothing is sent unless you click Allow. VidShop Pro users don't see this screen. The settings page shows exactly what is sent, lets you turn it off, and deletes your site's data on request.
+* **New:** An optional newsletter signup box on VidShop's own pages. It sends nothing unless you click Subscribe.
+* **New:** When you deactivate VidShop you can tell us why. "Skip and deactivate" sends nothing.
 
 = 1.7.1 - Feed Builder Preview =
 
@@ -369,6 +396,9 @@ Yes, on WordPress 6.9 or newer with the free MCP Adapter plugin from the WordPre
 * Optimized for performance, security, and ease-of-use
 
 == Upgrade Notice ==
+
+= 1.8.0 =
+Adds an optional usage-data screen and a newsletter box. Nothing is sent unless you agree.
 
 = 1.4.0 =
 Clearer messaging when AI rejects a photo on safety grounds — you'll now know at a glance whether to tweak and retry or pick a different image. Schema update runs automatically; safe to upgrade in place.
