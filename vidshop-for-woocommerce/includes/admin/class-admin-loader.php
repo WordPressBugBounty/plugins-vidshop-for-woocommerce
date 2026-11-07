@@ -10,6 +10,7 @@ namespace VSFW\Admin;
 use VSFW\Interfaces\WooCommerce;
 use VSFW\Interfaces\Settings;
 use VSFW\Models\Video_Model;
+use VSFW\Models\Storefront_Model;
 use VSFW\Admin\Activation_Handler;
 use VSFW\Services\Cloud_Connection;
 use VSFW\REST_API\V1\Promo_Controller;
@@ -280,6 +281,8 @@ class Admin_Loader {
 			'rest_nonce'          => wp_create_nonce( 'wp_rest' ),
 			'checkout_url'        => function_exists( 'wc_get_checkout_url' ) ? wc_get_checkout_url() : '',
 			'site_host'           => wp_parse_url( home_url(), PHP_URL_HOST ),
+			// The builder preview reads the store's fonts and styles from this page.
+			'home_url'            => home_url( '/' ),
 			'frontend_assets'     => array(
 				'js'  => add_query_arg( 'ver', $frontend_version, VSFW_PLUGIN_URL . 'dist/frontend/index.js' ),
 				'css' => add_query_arg( 'ver', $frontend_version, VSFW_PLUGIN_URL . 'dist/frontend/index.css' ),
@@ -291,6 +294,8 @@ class Admin_Loader {
 			'currency_format'     => $this->settings->get_currency_format(),
 			'pro_version'         => $pro_version,
 			'pro_outdated'        => $pro_outdated,
+			// Layouts a feed can be saved with on this site; an older Pro may not offer every tile.
+			'layouts'             => Storefront_Model::layouts(),
 			'min_pro_version'     => defined( 'VSFW_MIN_PRO_VERSION' ) ? VSFW_MIN_PRO_VERSION : null,
 			'plugins_admin_url'   => self_admin_url( 'plugins.php?plugin_status=upgrade' ),
 			'current_user_email'  => wp_get_current_user()->user_email,

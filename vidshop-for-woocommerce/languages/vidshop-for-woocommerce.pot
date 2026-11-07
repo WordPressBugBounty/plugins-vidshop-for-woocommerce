@@ -2,30 +2,28 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: VidShop for WooCommerce 1.8.0\n"
+"Project-Id-Version: VidShop for WooCommerce 1.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vidshop-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-02T08:01:30+00:00\n"
+"POT-Creation-Date: 2026-11-06T22:53:05+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: vidshop-for-woocommerce\n"
 
 #. Plugin Name of the plugin
 #: vidshop-for-woocommerce.php
-#: includes/admin/class-admin-loader.php:576
+#: includes/admin/class-admin-loader.php:584
 #: dist/admin/index.js:50
-#: includes/admin/class-admin-loader.php:579
 msgid "VidShop for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
-#. Author URI of the plugin
 #: vidshop-for-woocommerce.php
-msgid "https://wpcreatix.com/"
+msgid "https://wpcreatix.com/vidshop/"
 msgstr ""
 
 #. Description of the plugin
@@ -38,17 +36,20 @@ msgstr ""
 msgid "WPCreatix"
 msgstr ""
 
+#. Author URI of the plugin
+#: vidshop-for-woocommerce.php
+msgid "https://wpcreatix.com/"
+msgstr ""
+
 #: includes/abilities/class-abilities-module.php:82
-#: includes/admin/class-admin-loader.php:105
-#: includes/admin/class-admin-loader.php:106
-#: includes/admin/class-admin-loader.php:340
+#: includes/admin/class-admin-loader.php:107
+#: includes/admin/class-admin-loader.php:108
+#: includes/admin/class-admin-loader.php:348
 #: includes/admin/class-review-notice.php:184
 #: dist/admin/index.js:1
 #: dist/admin/index.js:2
 #: dist/admin/index.js:29
 #: dist/admin/index.js:33
-#: includes/admin/class-admin-loader.php:107
-#: includes/admin/class-admin-loader.php:343
 msgid "VidShop"
 msgstr ""
 
@@ -238,141 +239,179 @@ msgstr ""
 msgid "Generating without a featured image produces a video that does not match the product."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:41
-#: includes/abilities/class-storefronts-abilities.php:43
+#: includes/abilities/class-storefronts-abilities.php:44
 msgid "List Storefronts"
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:42
-#: includes/abilities/class-storefronts-abilities.php:44
+#: includes/abilities/class-storefronts-abilities.php:45
 msgid "List the saved VidShop storefronts. A storefront is a saved shortcode configuration — a chosen set of videos plus how they are presented — that the merchant renders on their own pages with [vidshop id=\"N\"]. Each row carries its decoded config object and a shortcode field, which is the ready-to-paste string for that storefront. Trashed storefronts are hidden unless status is set to trash."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:46
-#: includes/abilities/class-storefronts-abilities.php:48
+#: includes/abilities/class-storefronts-abilities.php:49
 msgid "Optional paging, search and ordering. Omit entirely to list the first page."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:50
-#: includes/abilities/class-storefronts-abilities.php:52
+#: includes/abilities/class-storefronts-abilities.php:53
 msgid "Page of the collection to return. Defaults to 1."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:55
-#: includes/abilities/class-storefronts-abilities.php:57
+#: includes/abilities/class-storefronts-abilities.php:58
 msgid "Number of storefronts per page. Defaults to 20."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:61
-#: includes/abilities/class-storefronts-abilities.php:63
+#: includes/abilities/class-storefronts-abilities.php:64
 msgid "Limit results to storefronts whose name matches this string."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:65
-#: includes/abilities/class-storefronts-abilities.php:67
+#: includes/abilities/class-storefronts-abilities.php:68
 msgid "Limit results to one status. Omit to list everything except trashed storefronts."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:70
-#: includes/abilities/class-storefronts-abilities.php:72
+#: includes/abilities/class-storefronts-abilities.php:73
 msgid "Field to sort by. Defaults to created_at."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:75
-#: includes/abilities/class-storefronts-abilities.php:77
+#: includes/abilities/class-storefronts-abilities.php:78
 msgid "Sort direction. Defaults to desc."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:105
-#: includes/abilities/class-storefronts-abilities.php:107
+#: includes/abilities/class-storefronts-abilities.php:108
 msgid "Update Storefront"
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:106
-#: includes/abilities/class-storefronts-abilities.php:108
+#: includes/abilities/class-storefronts-abilities.php:109
 msgid "Rename a storefront, change its status, or replace its display configuration. Only the top-level fields you supply are written — but `config` is replaced wholesale, never merged, so always send the complete config object you read from vidshop/list-storefronts with your changes applied. The change takes effect immediately on every page carrying that storefront's shortcode, and the shortcode itself never changes — so a storefront can be retuned without touching any page content. Read vidshop/list-storefronts first to get the id and the current config."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:110
-#: includes/abilities/class-storefronts-abilities.php:112
+#: includes/abilities/class-storefronts-abilities.php:113
 msgid "The storefront id, plus the fields to change."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:114
-#: includes/abilities/class-storefronts-abilities.php:116
+#: includes/abilities/class-storefronts-abilities.php:117
 msgid "ID of the storefront to update."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:119
-#: includes/abilities/class-storefronts-abilities.php:121
+#: includes/abilities/class-storefronts-abilities.php:122
 msgid "New admin-facing name for the storefront."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:123
-#: includes/abilities/class-storefronts-abilities.php:125
+#: includes/abilities/class-storefronts-abilities.php:126
 msgid "New status. Setting trash hides the storefront and makes its shortcode render a missing-storefront notice."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:128
-msgid "The full display configuration to store. Selection keys: video_selection (\"all\" or \"specific\"), video_ids, orderby, order, tags, tags_operator. Presentation keys: layout, color_schema, columns.desktop, columns.tablet, columns.mobile, autoplay, loop, play_on_hover, show_arrows, show_dots, show_views, show_likes, auto_open_product_details, add_to_cart_action, post_add_to_cart_action, post_add_to_cart_url. The server re-sanitises the whole object through an allow-list, so any key not listed here is silently dropped and any missing key falls back to its default. Send the complete object, not a partial patch."
+#: includes/abilities/class-storefronts-abilities.php:131
+msgid "The full display configuration to store. A value outside the listed choices is rejected; a key not listed here is silently dropped; a missing key falls back to its default. Send the complete object, not a partial patch."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:163
-#: includes/abilities/class-storefronts-abilities.php:256
+#: includes/abilities/class-storefronts-abilities.php:136
+msgid "Version marker set by the server. Send it back as read."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:140
+msgid "Show every published video, or only those in video_ids."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:145
+msgid "Video IDs to show when video_selection is \"specific\"."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:150
+msgid "Sort key for the displayed videos. This vocabulary differs from vidshop/list-videos."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:155
+msgid "Sort direction, lowercase."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:160
+msgid "Tag term IDs to filter by."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:165
+msgid "Whether a video needs any of the tags or all of them."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:170
+msgid "How the videos are laid out on the page."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:175
+msgid "Accent colour as a hex value such as #1e40af. Names like \"dark\" are not accepted."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:180
+msgid "Videos per row, 1 to 6, per breakpoint."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:209
+msgid "Open the product in a modal, or link to the product page."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:216
+msgid "What happens after a product is added to the cart. custom_url uses post_add_to_cart_url."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:221
+msgid "Destination when post_add_to_cart_action is \"custom_url\"."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:257
 msgid "Get Analytics"
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:164
-#: includes/abilities/class-storefronts-abilities.php:257
+#: includes/abilities/class-storefronts-abilities.php:258
 msgid "Read the VidShop performance report for a date range. Returns total and unique views, total and unique likes, total and average view time, add-to-cart and product-open totals, the top videos, the top added-to-cart products, a zero-filled per-day timeseries, library totals (videos, storefronts, products featured), and a previous block holding the same figures for the immediately preceding window of equal length so each stat can be compared. Site-wide reports also include a per_storefront rollup. Pass storefront_id to scope the whole report to one storefront; that variant adds a storefront identity block and omits per_storefront."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:168
-#: includes/abilities/class-storefronts-abilities.php:261
+#: includes/abilities/class-storefronts-abilities.php:262
 msgid "Reporting window and optional storefront scope. Omit entirely for the default window."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:172
-#: includes/abilities/class-storefronts-abilities.php:265
+#: includes/abilities/class-storefronts-abilities.php:266
 msgid "Named reporting window. Defaults to this_week. Use custom together with start_date and end_date."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:177
-#: includes/abilities/class-storefronts-abilities.php:270
+#: includes/abilities/class-storefronts-abilities.php:271
 msgid "Start of the window as YYYY-MM-DD, e.g. 2026-01-31. Required only when date_range is custom, and it must not be after end_date."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:182
-#: includes/abilities/class-storefronts-abilities.php:275
+#: includes/abilities/class-storefronts-abilities.php:276
 msgid "End of the window as YYYY-MM-DD, e.g. 2026-02-28. Required only when date_range is custom, and it must not be before start_date."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:187
-#: includes/abilities/class-storefronts-abilities.php:280
+#: includes/abilities/class-storefronts-abilities.php:281
 msgid "Limit the report to one storefront. Omit for the whole site."
 msgstr ""
 
+#: includes/abilities/class-storefronts-abilities.php:328
+msgid "Grid only on the free plan. Carousel, inline and stories need VidShop Pro."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:329
+msgid "On the free plan, layout, columns, tags, tags_operator, show_arrows, show_dots and auto_open_product_details must keep their defaults; other values are refused with vsfw_pro_required."
+msgstr ""
+
+#: includes/abilities/class-storefronts-abilities.php:334
+msgid "Per-storefront reports need VidShop Pro; on the free plan the report is always site-wide."
+msgstr ""
+
 #. translators: 1: parameter name, 2: value supplied for it.
-#: includes/abilities/class-storefronts-abilities.php:253
-#: includes/abilities/class-storefronts-abilities.php:364
+#: includes/abilities/class-storefronts-abilities.php:365
 #, php-format
 msgid "%1$s must be a real YYYY-MM-DD date for a custom date range, and \"%2$s\" is not one."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:259
-#: includes/abilities/class-storefronts-abilities.php:370
+#: includes/abilities/class-storefronts-abilities.php:371
 msgid "Send start_date and end_date as YYYY-MM-DD, e.g. 2026-01-31, or drop them and use a named date_range such as this_month."
 msgstr ""
 
 #. translators: 1: start date, 2: end date.
-#: includes/abilities/class-storefronts-abilities.php:270
-#: includes/abilities/class-storefronts-abilities.php:381
+#: includes/abilities/class-storefronts-abilities.php:382
 #, php-format
 msgid "start_date (%1$s) is after end_date (%2$s), so the custom date range covers no days at all."
 msgstr ""
 
-#: includes/abilities/class-storefronts-abilities.php:276
-#: includes/abilities/class-storefronts-abilities.php:387
+#: includes/abilities/class-storefronts-abilities.php:388
 msgid "Swap the two values: start_date must be the earlier date and end_date the later one."
 msgstr ""
 
@@ -472,85 +511,73 @@ msgstr ""
 msgid "The VidShop video row ID to restore. List trashed videos with vidshop/list-videos using status \"trash\"."
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:116
-#: includes/admin/class-admin-loader.php:117
+#: includes/admin/class-admin-loader.php:118
+#: includes/admin/class-admin-loader.php:119
 #: dist/admin/index.js:39
 #: dist/admin/index.js:40
 #: dist/admin/index.js:50
-#: includes/admin/class-admin-loader.php:118
 msgid "Analytics"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:125
-#: includes/admin/class-admin-loader.php:126
+#: includes/admin/class-admin-loader.php:127
+#: includes/admin/class-admin-loader.php:128
 #: dist/admin/index.js:24
 #: dist/admin/index.js:25
 #: dist/admin/index.js:29
 #: dist/admin/index.js:38
 #: dist/admin/index.js:39
 #: dist/admin/index.js:40
-#: includes/admin/class-admin-loader.php:127
 msgid "Videos"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:134
-#: includes/admin/class-admin-loader.php:135
-#: dist/admin/index.js:50
 #: includes/admin/class-admin-loader.php:136
+#: includes/admin/class-admin-loader.php:137
+#: dist/admin/index.js:50
 msgid "Add new video"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:143
-#: includes/admin/class-admin-loader.php:144
+#: includes/admin/class-admin-loader.php:145
+#: includes/admin/class-admin-loader.php:146
 #: dist/admin/index.js:10
 #: dist/admin/index.js:11
 #: dist/admin/index.js:24
 #: dist/admin/index.js:40
-#: includes/admin/class-admin-loader.php:145
 msgid "Tags"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:152
-#: includes/admin/class-admin-loader.php:153
+#: includes/admin/class-admin-loader.php:154
+#: includes/admin/class-admin-loader.php:155
 #: dist/admin/index.js:15
 #: dist/admin/index.js:47
 #: dist/admin/index.js:50
-#: includes/admin/class-admin-loader.php:154
 msgid "Settings"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:332
-#: includes/admin/class-admin-loader.php:335
+#: includes/admin/class-admin-loader.php:340
 msgid "Media Sweep"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:336
-#: includes/admin/class-admin-loader.php:339
+#: includes/admin/class-admin-loader.php:344
 msgid "Find and safely remove unused media to keep your library lean and your site fast."
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:343
-#: includes/admin/class-admin-loader.php:346
+#: includes/admin/class-admin-loader.php:351
 msgid "Turn shoppers into buyers with shoppable video feeds."
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:347
-#: includes/admin/class-admin-loader.php:350
+#: includes/admin/class-admin-loader.php:355
 msgid "WPCreatix AI Sales Agent"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:351
-#: includes/admin/class-admin-loader.php:354
+#: includes/admin/class-admin-loader.php:359
 msgid "An AI sales agent that answers product questions and walks shoppers to checkout."
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:575
-#: includes/admin/class-admin-loader.php:578
+#: includes/admin/class-admin-loader.php:583
 msgid "Thanks for using"
 msgstr ""
 
-#: includes/admin/class-admin-loader.php:577
-#: includes/admin/class-admin-loader.php:580
+#: includes/admin/class-admin-loader.php:585
 msgid "crafted with ❤️ by"
 msgstr ""
 
@@ -585,7 +612,7 @@ msgstr ""
 #. translators: 1: required version, 2: installed version
 #: includes/admin/class-pro-compat-notice.php:75
 #, php-format
-msgid "<strong>VidShop Pro</strong> needs to be updated to version %1$s or later to unlock Pro features in the new admin UI (currently %2$s)."
+msgid "<strong>VidShop Pro</strong> needs to be updated to version %1$s or later to use all of its features (currently %2$s)."
 msgstr ""
 
 #: includes/admin/class-pro-compat-notice.php:104
@@ -621,48 +648,43 @@ msgid "I already did this"
 msgstr ""
 
 #. translators: %d is the storefront id.
-#: includes/frontend/class-frontend-loader.php:254
+#: includes/frontend/class-frontend-loader.php:260
 #, php-format
 msgid "VidShop: video feed #%d was not found or is not published. (Only site admins see this message.)"
 msgstr ""
 
-#: includes/rest-api/v1/class-analytics-controller.php:69
 #: includes/rest-api/v1/class-analytics-controller.php:70
 msgid "Date range for analytics."
 msgstr ""
 
-#: includes/rest-api/v1/class-analytics-controller.php:75
 #: includes/rest-api/v1/class-analytics-controller.php:76
 msgid "Start date for custom date range (YYYY-MM-DD)."
 msgstr ""
 
-#: includes/rest-api/v1/class-analytics-controller.php:81
 #: includes/rest-api/v1/class-analytics-controller.php:82
 msgid "End date for custom date range (YYYY-MM-DD)."
 msgstr ""
 
-#: includes/rest-api/v1/class-analytics-controller.php:86
 #: includes/rest-api/v1/class-analytics-controller.php:87
 msgid "Scope the analytics to a single storefront."
 msgstr ""
 
 #: includes/rest-api/v1/class-analytics-controller.php:172
-#: includes/rest-api/v1/class-storefronts-controller.php:437
+msgid "Per-storefront analytics needs VidShop Pro."
+msgstr ""
+
 #: includes/rest-api/v1/class-analytics-controller.php:186
 #: includes/rest-api/v1/class-storefronts-controller.php:450
 msgid "Storefront not found"
 msgstr ""
 
-#: includes/rest-api/v1/class-analytics-controller.php:473
 #: includes/rest-api/v1/class-analytics-controller.php:487
 msgid "Start date and end date are required for custom date range."
 msgstr ""
 
-#: includes/rest-api/v1/class-analytics-controller.php:486
-#: includes/rest-api/v1/class-analytics-controller.php:487
-#: dist/admin/index.js:29
 #: includes/rest-api/v1/class-analytics-controller.php:500
 #: includes/rest-api/v1/class-analytics-controller.php:501
+#: dist/admin/index.js:29
 msgid "All Time"
 msgstr ""
 
@@ -721,96 +743,85 @@ msgstr ""
 msgid "Failed to update quantity."
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:78
 #: includes/rest-api/v1/class-storefronts-controller.php:79
 msgid "Whether to permanently delete the storefront or move it to trash."
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:113
 #: includes/rest-api/v1/class-storefronts-controller.php:114
 msgid "The ID of the storefront."
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:118
 #: includes/rest-api/v1/class-storefronts-controller.php:119
 msgid "The admin-facing name of the storefront."
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:126
 #: includes/rest-api/v1/class-storefronts-controller.php:127
 msgid "The storefront display configuration (video selection + presentation)."
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:131
 #: includes/rest-api/v1/class-storefronts-controller.php:132
 msgid "The status of the storefront."
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:149
-#: includes/rest-api/v1/class-videos-controller.php:287
 #: includes/rest-api/v1/class-storefronts-controller.php:150
+#: includes/rest-api/v1/class-videos-controller.php:287
 msgid "Current page of the collection."
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:156
-#: includes/rest-api/v1/class-videos-controller.php:294
 #: includes/rest-api/v1/class-storefronts-controller.php:157
+#: includes/rest-api/v1/class-videos-controller.php:294
 msgid "Maximum number of items to be returned in result set."
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:164
-#: includes/rest-api/v1/class-videos-controller.php:302
 #: includes/rest-api/v1/class-storefronts-controller.php:165
+#: includes/rest-api/v1/class-videos-controller.php:302
 msgid "Limit results to those matching a string."
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:169
 #: includes/rest-api/v1/class-storefronts-controller.php:170
 msgid "Limit results to those with a specific status."
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:174
-#: includes/rest-api/v1/class-videos-controller.php:317
 #: includes/rest-api/v1/class-storefronts-controller.php:175
+#: includes/rest-api/v1/class-videos-controller.php:317
 msgid "Sort collection by object attribute."
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:180
-#: includes/rest-api/v1/class-videos-controller.php:323
 #: includes/rest-api/v1/class-storefronts-controller.php:181
+#: includes/rest-api/v1/class-videos-controller.php:323
 msgid "Order sort attribute ascending or descending."
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:249
-#: includes/rest-api/v1/class-storefronts-controller.php:308
-#: includes/rest-api/v1/class-videos-controller.php:567
-#: includes/rest-api/v1/class-videos-controller.php:641
-#: includes/rest-api/v1/class-videos-controller.php:775
 #: includes/rest-api/v1/class-storefronts-controller.php:256
 #: includes/rest-api/v1/class-storefronts-controller.php:321
+#: includes/rest-api/v1/class-videos-controller.php:567
+#: includes/rest-api/v1/class-videos-controller.php:642
+#: includes/rest-api/v1/class-videos-controller.php:799
 msgid "Validation failed"
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:337
 #: includes/rest-api/v1/class-storefronts-controller.php:350
 msgid "Failed to delete storefront"
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:347
 #: includes/rest-api/v1/class-storefronts-controller.php:360
 msgid "Failed to move storefront to trash"
 msgstr ""
 
 #. translators: %s is the original storefront name.
-#: includes/rest-api/v1/class-storefronts-controller.php:373
 #: includes/rest-api/v1/class-storefronts-controller.php:386
 #, php-format
 msgid "%s (copy)"
 msgstr ""
 
-#: includes/rest-api/v1/class-storefronts-controller.php:384
 #: includes/rest-api/v1/class-storefronts-controller.php:397
 msgid "Failed to duplicate storefront"
+msgstr ""
+
+#. translators: %s: storefront config key
+#: includes/rest-api/v1/class-storefronts-controller.php:464
+#, php-format
+msgid "The \"%s\" setting needs VidShop Pro."
 msgstr ""
 
 #: includes/rest-api/v1/class-video-tracking-controller.php:48
@@ -902,26 +913,26 @@ msgstr ""
 msgid "The thumbnail has to be an image file."
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:658
-#: includes/rest-api/v1/class-videos-controller.php:709
-#: includes/rest-api/v1/class-videos-controller.php:793
-#: includes/rest-api/v1/class-videos-controller.php:910
+#: includes/rest-api/v1/class-videos-controller.php:659
+#: includes/rest-api/v1/class-videos-controller.php:731
+#: includes/rest-api/v1/class-videos-controller.php:817
+#: includes/rest-api/v1/class-videos-controller.php:934
 msgid "Video not found"
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:807
+#: includes/rest-api/v1/class-videos-controller.php:831
 msgid "Failed to delete video"
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:823
+#: includes/rest-api/v1/class-videos-controller.php:847
 msgid "Failed to move video to trash"
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:914
+#: includes/rest-api/v1/class-videos-controller.php:938
 msgid "Video is not in trash"
 msgstr ""
 
-#: includes/rest-api/v1/class-videos-controller.php:931
+#: includes/rest-api/v1/class-videos-controller.php:955
 msgid "Failed to restore video"
 msgstr ""
 
@@ -1401,6 +1412,65 @@ msgstr ""
 
 #: dist/admin/index.js:7
 msgid "This is a PRO feature. Click to learn more."
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Multiple columns."
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Horizontal slider."
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Swipe up, one at a time."
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Scrollable row."
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Round story bubbles."
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Shop right on the card."
+msgstr ""
+
+#: dist/admin/index.js:7
+#: dist/admin/index.js:28
+msgid "Desktop"
+msgstr ""
+
+#: dist/admin/index.js:7
+#: dist/admin/index.js:28
+msgid "Tablet"
+msgstr ""
+
+#: dist/admin/index.js:7
+#: dist/admin/index.js:28
+msgid "Mobile"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Fewer columns"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "More columns"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Label"
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Update VidShop Pro to the latest version to put a short label like \"Best seller\" on this video's card."
+msgstr ""
+
+#: dist/admin/index.js:7
+msgid "Labels are part of Pro. Put a short text like \"Best seller\" or \"Sale\" on a video's card to make it stand out in your feeds."
 msgstr ""
 
 #: dist/admin/index.js:7
@@ -2458,6 +2528,14 @@ msgid "Stories Carousel"
 msgstr ""
 
 #: dist/admin/index.js:28
+msgid "Circle Stories"
+msgstr ""
+
+#: dist/admin/index.js:28
+msgid "Liquid Glass"
+msgstr ""
+
+#: dist/admin/index.js:28
 msgid "Show product details"
 msgstr ""
 
@@ -2479,21 +2557,6 @@ msgstr ""
 
 #: dist/admin/index.js:28
 msgid "Custom URL"
-msgstr ""
-
-#: dist/admin/index.js:28
-#: dist/admin/index.js:29
-msgid "Desktop"
-msgstr ""
-
-#: dist/admin/index.js:28
-#: dist/admin/index.js:29
-msgid "Tablet"
-msgstr ""
-
-#: dist/admin/index.js:28
-#: dist/admin/index.js:29
-msgid "Mobile"
 msgstr ""
 
 #: dist/admin/index.js:28
@@ -2536,30 +2599,6 @@ msgstr ""
 
 #: dist/admin/index.js:29
 msgid "Load more"
-msgstr ""
-
-#: dist/admin/index.js:29
-msgid "Multiple columns."
-msgstr ""
-
-#: dist/admin/index.js:29
-msgid "Horizontal slider."
-msgstr ""
-
-#: dist/admin/index.js:29
-msgid "Swipe up, one at a time."
-msgstr ""
-
-#: dist/admin/index.js:29
-msgid "Scrollable row."
-msgstr ""
-
-#: dist/admin/index.js:29
-msgid "Fewer columns"
-msgstr ""
-
-#: dist/admin/index.js:29
-msgid "More columns"
 msgstr ""
 
 #: dist/admin/index.js:29
@@ -2615,6 +2654,14 @@ msgid "Available in VidShop Pro."
 msgstr ""
 
 #: dist/admin/index.js:29
+msgid "Update VidShop Pro"
+msgstr ""
+
+#: dist/admin/index.js:29
+msgid "Your version of VidShop Pro does not include this yet. Update it to the latest version."
+msgstr ""
+
+#: dist/admin/index.js:29
 #: dist/admin/index.js:39
 msgid "Layout"
 msgstr ""
@@ -2625,7 +2672,7 @@ msgid "Advanced Layouts"
 msgstr ""
 
 #: dist/admin/index.js:29
-msgid "Carousel and Stories layouts are a Pro feature."
+msgid "Carousel, Stories, Circle Stories and Liquid Glass are Pro layouts."
 msgstr ""
 
 #: dist/admin/index.js:29
@@ -2694,6 +2741,18 @@ msgstr ""
 
 #: dist/admin/index.js:29
 msgid "Show like counts"
+msgstr ""
+
+#: dist/admin/index.js:29
+msgid "Video labels"
+msgstr ""
+
+#: dist/admin/index.js:29
+msgid "Put a short label like \"Best seller\" on any video card. Video labels are part of Pro."
+msgstr ""
+
+#: dist/admin/index.js:29
+msgid "Show video labels"
 msgstr ""
 
 #: dist/admin/index.js:29
@@ -3909,18 +3968,18 @@ msgstr ""
 msgid "Only %d left in stock."
 msgstr ""
 
+#: dist/frontend/index.js:4
+msgid "An error occurred. Please try again."
+msgstr ""
+
+#: dist/frontend/index.js:4
+msgid "Failed to add product to cart. Please try again."
+msgstr ""
+
 #. translators: %s is the product title
 #: dist/frontend/index.js:5
 #, js-format
 msgid "%s added to cart"
-msgstr ""
-
-#: dist/frontend/index.js:5
-msgid "Failed to add product to cart. Please try again."
-msgstr ""
-
-#: dist/frontend/index.js:5
-msgid "An error occurred. Please try again."
 msgstr ""
 
 #: dist/frontend/index.js:5
@@ -4051,87 +4110,4 @@ msgstr ""
 
 #: dist/frontend/index.js:9
 msgid "Go to slide"
-msgstr ""
-
-#. Plugin URI of the plugin
-#: vidshop-for-woocommerce.php
-msgid "https://wpcreatix.com/vidshop/"
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:130
-msgid "The full display configuration to store. A value outside the listed choices is rejected; a key not listed here is silently dropped; a missing key falls back to its default. Send the complete object, not a partial patch."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:135
-msgid "Version marker set by the server. Send it back as read."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:139
-msgid "Show every published video, or only those in video_ids."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:144
-msgid "Video IDs to show when video_selection is \"specific\"."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:149
-msgid "Sort key for the displayed videos. This vocabulary differs from vidshop/list-videos."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:154
-msgid "Sort direction, lowercase."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:159
-msgid "Tag term IDs to filter by."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:164
-msgid "Whether a video needs any of the tags or all of them."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:169
-msgid "How the videos are laid out on the page."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:174
-msgid "Accent colour as a hex value such as #1e40af. Names like \"dark\" are not accepted."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:179
-msgid "Videos per row, 1 to 6, per breakpoint."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:208
-msgid "Open the product in a modal, or link to the product page."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:215
-msgid "What happens after a product is added to the cart. custom_url uses post_add_to_cart_url."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:220
-msgid "Destination when post_add_to_cart_action is \"custom_url\"."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:327
-msgid "Grid only on the free plan. Carousel, inline and stories need VidShop Pro."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:328
-msgid "On the free plan, layout, columns, tags, tags_operator, show_arrows, show_dots and auto_open_product_details must keep their defaults; other values are refused with vsfw_pro_required."
-msgstr ""
-
-#: includes/abilities/class-storefronts-abilities.php:333
-msgid "Per-storefront reports need VidShop Pro; on the free plan the report is always site-wide."
-msgstr ""
-
-#: includes/rest-api/v1/class-analytics-controller.php:172
-msgid "Per-storefront analytics needs VidShop Pro."
-msgstr ""
-
-#. translators: %s: storefront config key
-#: includes/rest-api/v1/class-storefronts-controller.php:464
-#, php-format
-msgid "The \"%s\" setting needs VidShop Pro."
 msgstr ""

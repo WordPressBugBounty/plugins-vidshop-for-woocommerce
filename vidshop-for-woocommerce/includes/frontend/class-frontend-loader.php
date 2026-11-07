@@ -234,7 +234,13 @@ class Frontend_Loader {
 			'disable-add-to-cart-text'  => $yn( $config['disable_add_to_cart_text'] ?? false ),
 		);
 
-		return array_merge( $atts, $mapped );
+		/**
+		 * Filters the shortcode attributes built from a saved feed, so add-ons can map their own settings.
+		 *
+		 * @param array $atts   Attributes for the feed.
+		 * @param array $config The feed's saved config.
+		 */
+		return apply_filters( 'vsfw_storefront_config_atts', array_merge( $atts, $mapped ), $config );
 	}
 
 	/**

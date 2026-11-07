@@ -593,6 +593,7 @@ class Videos_Controller extends REST_Controller {
 			}
 
 			$params['created_by'] = get_current_user_id();
+			$params               = $this->filter_settings( $params, $request );
 
 			$video = Video_Model::create( $params );
 
@@ -699,6 +700,27 @@ class Videos_Controller extends REST_Controller {
 	}
 
 	/**
+	 * Let add-ons clean the keys they keep in a video's settings before it is saved.
+	 *
+	 * @param array           $params  Request params.
+	 * @param WP_REST_Request $request The request.
+	 * @return array
+	 */
+	private function filter_settings( $params, $request ) {
+		if ( isset( $params['settings'] ) && is_array( $params['settings'] ) ) {
+			/**
+			 * Filters a video's incoming settings before they are saved.
+			 *
+			 * @param array           $settings Incoming settings.
+			 * @param WP_REST_Request $request  The request.
+			 */
+			$params['settings'] = (array) apply_filters( 'vsfw_video_settings', $params['settings'], $request );
+		}
+
+		return $params;
+	}
+
+	/**
 	 * Update item
 	 */
 	public function update_item( $request ) {
@@ -723,6 +745,8 @@ class Videos_Controller extends REST_Controller {
 			 * about one key must not erase the others. Merging server-side also means a partial
 			 * update cannot lose a key the client never fetched.
 			 */
+			$params = $this->filter_settings( $params, $request );
+
 			if ( array_key_exists( 'settings', $params ) && is_array( $params['settings'] ) ) {
 				$existing           = is_array( $video->settings ) ? $video->settings : array();
 				$params['settings'] = array_merge( $existing, $params['settings'] );

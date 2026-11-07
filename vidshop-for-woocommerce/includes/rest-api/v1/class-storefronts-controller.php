@@ -492,7 +492,7 @@ class Storefronts_Controller extends REST_Controller {
 			return in_array( $value, $allowed, true ) ? $value : $default;
 		};
 
-		return array(
+		$clean = array(
 			'schema'                    => 1,
 
 			// Selection.
@@ -504,7 +504,7 @@ class Storefronts_Controller extends REST_Controller {
 			'tags_operator'             => 'AND' === strtoupper( (string) ( $config['tags_operator'] ?? 'OR' ) ) ? 'AND' : 'OR',
 
 			// Presentation.
-			'layout'                    => $pick( $config['layout'] ?? 'grid', array( 'grid', 'carousel', 'inline', 'stories' ), 'grid' ),
+			'layout'                    => $pick( $config['layout'] ?? 'grid', Storefront_Model::layouts(), 'grid' ),
 			'color_schema'              => sanitize_hex_color( (string) ( $config['color_schema'] ?? '' ) ) ?: '#1e40af',
 			'columns'                   => array(
 				'desktop' => min( 6, max( 1, absint( $columns['desktop'] ?? 4 ) ) ),
@@ -525,5 +525,13 @@ class Storefronts_Controller extends REST_Controller {
 			'post_add_to_cart_action'   => $pick( $config['post_add_to_cart_action'] ?? 'open_cart', array( 'open_cart', 'none', 'redirect_checkout', 'custom_url' ), 'open_cart' ),
 			'post_add_to_cart_url'      => esc_url_raw( trim( (string) ( $config['post_add_to_cart_url'] ?? '' ) ) ),
 		);
+
+		/**
+		 * Filters a feed's cleaned config, so add-ons can keep settings for their own layouts.
+		 *
+		 * @param array $clean  Cleaned config.
+		 * @param array $config Raw config from the request.
+		 */
+		return apply_filters( 'vsfw_storefront_sanitize_config', $clean, $config );
 	}
 }

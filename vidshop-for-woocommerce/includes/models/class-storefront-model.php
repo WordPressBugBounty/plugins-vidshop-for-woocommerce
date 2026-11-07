@@ -86,6 +86,15 @@ class Storefront_Model extends Model {
 	}
 
 	/**
+	 * Layouts a storefront may be saved with; add-ons add theirs through `vsfw_storefront_layouts`.
+	 *
+	 * @return string[]
+	 */
+	public static function layouts() {
+		return (array) apply_filters( 'vsfw_storefront_layouts', array( 'grid', 'carousel', 'inline', 'stories' ) );
+	}
+
+	/**
 	 * Decode the stored JSON config into an array.
 	 *
 	 * @return array

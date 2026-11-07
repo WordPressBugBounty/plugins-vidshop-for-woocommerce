@@ -17,6 +17,7 @@
 
 namespace VSFW\Abilities;
 
+use VSFW\Models\Storefront_Model;
 use VSFW\Utils\Tier;
 
 /**
@@ -167,7 +168,7 @@ class Storefronts_Abilities {
 								'layout'                   => array(
 									'type'        => 'string',
 									'description' => __( 'How the videos are laid out on the page.', 'vidshop-for-woocommerce' ),
-									'enum'        => array( 'grid', 'carousel', 'inline', 'stories' ),
+									'enum'        => Storefront_Model::layouts(),
 								),
 								'color_schema'             => array(
 									'type'        => 'string',

@@ -72,7 +72,7 @@ class Pro_Compat_Notice {
 				'pro_outdated_' . VSFW_MIN_PRO_VERSION,
 				sprintf(
 					/* translators: 1: required version, 2: installed version */
-					__( '<strong>VidShop Pro</strong> needs to be updated to version %1$s or later to unlock Pro features in the new admin UI (currently %2$s).', 'vidshop-for-woocommerce' ),
+					__( '<strong>VidShop Pro</strong> needs to be updated to version %1$s or later to use all of its features (currently %2$s).', 'vidshop-for-woocommerce' ),
 					esc_html( VSFW_MIN_PRO_VERSION ),
 					esc_html( VIDSHOP_PRO_VERSION )
 				)

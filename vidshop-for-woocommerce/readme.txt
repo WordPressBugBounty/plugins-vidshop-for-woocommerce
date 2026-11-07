@@ -2,7 +2,7 @@
 Contributors: wpcreatix
 Donate link: https://wpcreatix.com/vidshop/
 Tags: shoppable videos, product videos, tiktok feed, video gallery, ai video generation
-Stable tag: 1.8.0
+Stable tag: 1.9.0
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -205,7 +205,7 @@ VidShop uses two WPCreatix services.
 
 Nothing is sent unless you click one of these buttons. Skip sends nothing.
 
-* **Allow** (usage data): your site address, your WordPress, PHP and plugin versions, the plugins and themes you use, and rounded usage counts. Sent once a week and when a WPCreatix plugin is activated, updated or removed. Never your content, customers, orders or passwords.
+* **Allow** (usage data): your site address, your WordPress, PHP and plugin versions, the plugins and themes you use, and rounded usage counts, plus your name and email for product news, tips and offers. Usage data is sent once a week and when a WPCreatix plugin is activated, updated or removed; your name and email only once. Never your content, customers, orders or passwords.
 * **Subscribe** (newsletter): the email you enter, with proof of the signup. Every email has an unsubscribe link.
 * **Submit and deactivate** (feedback): the reason you pick, your note, and your email only if you tick the box.
 
@@ -230,6 +230,19 @@ Privacy policy: https://wpcreatix.com/privacy-policy/
 8. Live Cart & Checkout – Streamlined shopping process
 
 == Changelog ==
+
+= 1.9.0 - New Pro layouts and video labels =
+
+* **Improved:** The optional usage-data screen.
+* **New:** Ready for three new VidShop Pro 1.5.0 features: the Circle Stories layout (round story bubbles like Instagram and TikTok), the Liquid Glass layout (shop right on the video card), and video labels like "Best seller" on any card. The feed builder and the video form show them, and VidShop Pro turns them on.
+* **Improved:** The feed builder preview now uses your store's own fonts and styles.
+* **Improved:** Switching between the products in a video is instant after the first look. Product details are reused for two minutes, and reloaded after an add to cart so stock stays right.
+* **Improved:** The feed builder only shows the options the chosen layout uses.
+* **Improved:** If your VidShop Pro is older than a feature, VidShop now says so and asks you to update it, instead of showing an upgrade offer.
+* **Fixed:** Some PRO badges in the feed builder showed as faded plain text. Every PRO badge now looks the same.
+* **Fixed:** The Stories Carousel layout grew very large with one or two columns. It now keeps a sensible size at any column count.
+* **Fixed:** Some themes add a margin to every image, which pushed product photos out of view in the player, the product details and the cart.
+* **Developer:** New hooks let add-ons draw their own layouts, card badges and builder settings. See HOOKS.md.
 
 = 1.8.0 - Usage Data and Newsletter =
 
